@@ -3,15 +3,15 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link rel="stylesheet" href="app.css">
+        <link rel="stylesheet" href="{{ asset('css/master.css') }}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script type='text/javascript' src="app.js"></script>
+        <script type='text/javascript' src="{{ asset('js/master.js') }}"></script>
     </head>
     <body>
         <a class="js-back-to-top" id="button"></a>
         <header class="header-main">
-            <div style="flex-grow: 1;"><img style="width: 100px;transform: translateY(-25%);" src="/logo.png"></div>
+            <div style="flex-grow: 1;"><img style="width: 100px;transform: translateY(-25%);" src="{{ asset('img/logo.png') }}"></div>
             <div class="js-link">
                 <button class="head-link" id="js-about">About</button>
                 <button class="head-link" id="js-info">Info</button>
@@ -37,12 +37,12 @@
                 sodales. Quisque dignissim est ut diam euismod, ornare tempus risus vulputate
             </div>
             <div style="width: fill-available;">
-                <img style="width:90%; height:90%;" class="star" src="/code.jpg">
+                <img style="width:90%; height:90%;" class="star" src="{{ asset('img/code.jpg') }}">
             </div>
         </main>
         <main class="main-content2 link-js-info">
             <div style="width: fill-available;">
-                <img style="width:90%; height:90%;" class="star" src="/people.jpg">
+                <img style="width:90%; height:90%;" class="star" src="{{ asset('img/people.jpg') }}">
             </div>
             <div class="text2">
                 <h3>More about us?</h3>
