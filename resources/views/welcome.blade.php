@@ -23,7 +23,7 @@
                     <span class="main-word1">landing page is here</span>
                 </h1>
                 <div style="text-align: center;">
-                    <button class="create-btn">Create landing page</button>
+                    <a class="btn create-btn" href="login" >Create landing page</a>
                 </div>
             </div>
         </main>
