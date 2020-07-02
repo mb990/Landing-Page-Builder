@@ -24,4 +24,14 @@ class Project extends Model
     {
         return $this->belongsToMany(PageElement::class, 'page_element_project');
     }
+
+    public function newsletters()
+    {
+        return $this->hasMany(Newsletter::class);
+    }
+
+    public function subscribers()
+    {
+        return $this->hasMany(Subscriber::class);
+    }
 }
