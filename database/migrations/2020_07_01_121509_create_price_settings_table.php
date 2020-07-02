@@ -15,10 +15,6 @@ class CreatePriceSettingsTable extends Migration
     {
         Schema::create('price_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('plan_name');
-            $table->float('price');
-            $table->boolean('discount');
-            $table->float('discount_amount');
             $table->timestamps();
         });
     }
