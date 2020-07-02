@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class PriceSettings extends Model
 {
-    protected $fillable = [
-        'plan_name', 'price', 'discount', 'discount_amount'
-    ];
-
-    public function pageElements()
+    public function pageElement()
     {
-        return $this->morphMany(PageElement::class, 'page_elementable');
+        return $this->morphOne(PageElement::class, 'page_elementable');
+    }
+
+    public function plans()
+    {
+        return $this->hasMany(Pricing::class);
     }
 }
