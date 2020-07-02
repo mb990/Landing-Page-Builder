@@ -22,7 +22,7 @@ class Project extends Model
 
     public function pageElements()
     {
-        return $this->belongsToMany(PageElement::class, 'page_element_project');
+        return $this->hasMany(PageElement::class);
     }
 
     public function newsletters()
