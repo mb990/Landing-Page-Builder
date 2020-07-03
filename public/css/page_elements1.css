@@ -24,6 +24,7 @@
   background: none;
   outline: none;
   cursor: pointer;
+  font-size: 24px;
 }
 
 @media screen and (max-width: 376px) {
@@ -60,5 +61,77 @@
 
 .content-text {
   font-size: 24px;
+}
+
+.card .carousel-item {
+  height: 200px;
+}
+
+.card .carousel-caption {
+  padding: 0;
+  right: 0;
+  left: 0;
+  color: #3d3d3d;
+}
+
+.card .carousel-caption h3 {
+  color: #3d3d3d;
+}
+
+.card .carousel-caption p {
+  line-height: 30px;
+}
+
+.card .carousel-caption .col-sm-3 {
+  display: flex;
+  align-items: center;
+}
+
+.card .carousel-caption .col-sm-9 {
+  text-align: left;
+}
+
+.navi a {
+  text-decoration: none;
+}
+
+a > .ico {
+  padding: 10px;
+}
+
+.newsletter {
+  padding: 80px 0;
+  background-color: #f3f3f3;
+}
+
+.newsletter .content {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.newsletter .content h2 {
+  color: #243c4f;
+  margin-bottom: 40px;
+}
+
+.newsletter .content .form-control {
+  height: 50px;
+  border-color: #ffffff;
+  border-radius: 0;
+}
+
+.newsletter .content.form-control:focus {
+  box-shadow: none;
+  border: 2px solid #243c4f;
+}
+
+.newsletter .content .btn {
+  min-height: 50px;
+  border-radius: 0;
+  color: #fff;
+  font-weight: 600;
 }
 

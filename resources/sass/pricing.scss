@@ -1,0 +1,142 @@
+.switch {
+    display: inline-block;
+    height: 28px;
+    position: relative;
+    width: 50px;
+  }
+  
+  .switch input {
+    display: none;
+  }
+  
+  .slider {
+    background-color: #98c0f3;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider::before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 20px;
+    left: 4px;
+    position: absolute;
+    -webkit-transition: .4s;
+    transition: .4s;
+    width: 20px;
+  }
+  
+  input:checked + .slider {
+    background-color: #67a1ec;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(22px);
+            transform: translateX(22px);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round::before {
+    border-radius: 50%;
+  }
+  
+  .priceBig {
+    font-size: 3rem;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .paytxt, .paytxt2 {
+    vertical-align: 70%;
+    color: grey;
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .price > div, label {
+    cursor: pointer;
+    margin: 0 0 5px 0;
+  }
+  
+  button {
+    /*BUTTON*/
+    font-size: 1.4rem;
+    color: white;
+    background-color: #58D68D;
+    border: none;
+    width: 100%;
+    padding: 12px 7px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  .active {
+    color: black;
+  }  
+  @media screen and (max-width: 480px) {
+    html {
+      font-size: small;
+    }
+  }
+  
+  @media screen and (max-width: 380px) {
+    html {
+      font-size: x-small;
+    }
+  }
+  .mainbox {
+    width: 25%;
+    margin: 200px auto 0 auto;
+    padding: 30px;
+    text-align: left;
+    background-color: white;
+    -webkit-box-shadow: 2px 2px 20px grey;
+            box-shadow: 2px 2px 20px grey;
+  }
+  
+  @media screen and (max-width: 940px) {
+    .mainbox {
+        width: 60%;
+        margin-top: 50px;
+    }
+  }
+  .list {
+    /*LISTA POGODNOSTI*/
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    line-height: 35px;
+  }
+  
+  .list li {
+    list-style: none;
+    font-size: 1.2rem;
+  }
+  
+  .list li:before {
+    /*STARS*/
+    content: "\2605";
+    font-size: 1.5rem;
+    background-color: yellow;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .premium {
+    font-size: 1.6rem;
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+  }
