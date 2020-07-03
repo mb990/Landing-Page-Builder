@@ -1,0 +1,64 @@
+.header-addon {
+  padding: 8px;
+  height: 7vh;
+  display: flex;
+  position: absolute;
+  width: 90vw;
+  z-index: 1;
+}
+
+.header-logo {
+  margin: 16px;
+  width: 7vh;
+  transform: translateY(-25%);
+}
+
+.header-links {
+  margin: auto;
+}
+
+.header-links a {
+  color: white;
+  margin-right: 24px;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 376px) {
+  .header-links a {
+    margin-right: 16px;
+    font-size: 12px;
+  }
+}
+
+.hero {
+  background-color: red;
+}
+
+.hero-image {
+  height: 120vh;
+  display: flex;
+}
+
+.hero-user-img {
+  background-color: white;
+  height: 30vh;
+  width: 30vw;
+  margin: auto;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.content-text {
+  font-size: 24px;
+}
+

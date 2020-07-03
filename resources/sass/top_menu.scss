@@ -1,0 +1,28 @@
+.header-addon{
+    padding: 8px;
+    height: 7vh;
+    display: flex;
+    position: absolute;
+    width: 90vw;
+    z-index: +1;
+}
+.header-logo{
+    margin: 16px;
+    width: 7vh;
+    transform: translateY(-25%);
+}
+.header-links {
+    margin: auto;
+    a {
+        color: white;
+        margin-right: 24px;
+        border: none;
+        background: none;
+        outline: none;
+        cursor: pointer;
+        @media screen and (max-width:376px){
+            margin-right: 16px;
+            font-size: 12px;
+        }
+    }
+}
