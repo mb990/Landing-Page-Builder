@@ -4,7 +4,7 @@
         <div class="hero-text">
             <h1>Your title goes here</h1>
             <h3>Subtitle goes here</h3>
-            <button class="btn">Button text goes here</button>
+            <button class="btn btn-primary">Button text goes here</button>
         </div>
     </div>
     <div>
