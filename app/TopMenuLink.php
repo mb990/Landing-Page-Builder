@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TopMenuLink extends Model
 {
     protected $fillable = [
-        'url', 'top_menu_settings_id'
+        'url', 'title', 'top_menu_settings_id'
     ];
 
     public function topMenu()

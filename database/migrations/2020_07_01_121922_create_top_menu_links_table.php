@@ -15,6 +15,7 @@ class CreateTopMenuLinksTable extends Migration
     {
         Schema::create('top_menu_links', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->string('url');
             $table->unsignedBigInteger('top_menu_settings_id');
             $table->timestamps();
