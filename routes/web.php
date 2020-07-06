@@ -18,7 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/control-panel', 'TemplateController@index');
+Route::get('/control-panel', 'PageController@controlPanel');
+
+// Templates
+Route::post('/template', 'TemplateController@store')->name('template.store');
 
 Auth::routes();
 

@@ -10,4 +10,9 @@ class PageController extends Controller
     {
         return view('test');
     }
+
+    public function controlPanel()
+    {
+        return view('control-panel.index');
+    }
 }
