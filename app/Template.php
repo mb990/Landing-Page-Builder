@@ -14,4 +14,9 @@ class Template extends Model
     {
         return $this->hasMany(Project::class);
     }
+
+    public function pageElements()
+    {
+        return $this->hasMany(PageElement::class);
+    }
 }

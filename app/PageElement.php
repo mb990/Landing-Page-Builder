@@ -20,8 +20,13 @@ class PageElement extends Model
         return $this->belongsTo(PageElement::class);
     }
 
-    public function projects()
+    public function project()
     {
-        return $this->belongsToMany(Project::class, 'page_element_project');
+        return $this->belongsTo(Project::class);
+    }
+
+    public function template()
+    {
+        return $this->belongsTo(Template::class);
     }
 }
