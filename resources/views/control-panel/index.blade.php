@@ -33,13 +33,54 @@
     <div>
         <div style="width: 50vw;margin-top: 100px;">
             <select class="form-control form-control-lg js-get-elements">
+                <option selected>Select element</option>
 
             </select>
         </div>
-        <button class="btn btn-primary">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             GET ELEMENT
         </button>
     </div>
+
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="img">Add your Logo</label>
+                    <input type="file" name="img">
+                    <br>
+                    <span>
+                        <input type="text" placeholder="Link title">
+                        <input type="text" placeholder="Link URL">
+                    </span>
+                    <span>
+                        <input type="text" placeholder="Link title">
+                        <input type="text" placeholder="Link URL">
+                    </span>
+                    <span>
+                        <input type="text" placeholder="Link title">
+                        <input type="text" placeholder="Link URL">
+                    </span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
@@ -69,7 +110,7 @@
                     console.log(data.templates)
                     // $(".js-get-templates").append($('<option>'+data+'</option'));
                         $.each(data.templates, function (i, e) {
-                        output += '<option id="'+ e.id+'">'+ e.name + '</option>'
+                        output += '<option class="template'+ e.id+'">'+ e.name + '</option>'
                         });
                         $(".js-get-templates").append(output)
                 }
@@ -86,7 +127,7 @@
                 success: function (data) {
                     console.log(data)
                     alert(data.success)
-                    $(".js-get-templates").append('<option id="'+ id+'" >'+ name + '</option>')
+                    $(".js-get-templates").append('<option class="template'+ data.template.id +'" >'+ name + '</option>')
                 }
             });
 
