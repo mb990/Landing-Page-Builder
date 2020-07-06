@@ -15,7 +15,7 @@ class CreateGeneralContentBulletPointsTable extends Migration
     {
         Schema::create('general_content_bullet_points', function (Blueprint $table) {
             $table->id();
-            $table->string('text');
+            $table->text('text');
             $table->unsignedBigInteger('general_content_settings_id');
             $table->timestamps();
 

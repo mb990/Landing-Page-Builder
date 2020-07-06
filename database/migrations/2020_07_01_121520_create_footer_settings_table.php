@@ -18,7 +18,7 @@ class CreateFooterSettingsTable extends Migration
             $table->string('text');
             $table->string('facebook_url');
             $table->string('instagram_url');
-            $table->string('tweeter_url');
+            $table->string('twitter_url');
             $table->integer('year_made');
             $table->timestamps();
         });

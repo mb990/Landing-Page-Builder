@@ -15,7 +15,7 @@ class CreateGeneralContentSettingsTable extends Migration
     {
         Schema::create('general_content_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('main_text');
+            $table->longText('main_text');
             $table->timestamps();
         });
     }

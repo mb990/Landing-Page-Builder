@@ -20,12 +20,24 @@ Route::get('/', function () {
 
 Route::get('/control-panel', 'PageController@controlPanel');
 
-// Templates
+//Templates
 Route::post('/template', 'TemplateController@store')->name('template.store');
 Route::get('/templates', 'TemplateController@index');
 
-//PageElementTypes
+//Page Element Types
 Route::get('/page-element-types', 'PageElementTypeController@index');
+
+//Page Elements
+Route::post('/page-element', 'PageElementController@store')->name('page-element.store');
+
+//Top Menu Links
+Route::post('/link', 'TopMenuLinkController@store')->name('top-menu-link.store');
+
+//Images
+Route::post('/image', 'ImageController@store')->name('image.store');
+
+//Top Menu Settings
+Route::post('/top-menu-settings', 'TopMenuSettingsController@store')->name('top-menu-settings.store');
 
 Auth::routes();
 
