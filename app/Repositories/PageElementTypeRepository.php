@@ -18,6 +18,11 @@ class PageElementTypeRepository
         $this->pageElementType = $pageElementType;
     }
 
+    public function all()
+    {
+        return $this->pageElementType->all();
+    }
+
     public function find($id)
     {
         return $this->pageElementType->find($id);

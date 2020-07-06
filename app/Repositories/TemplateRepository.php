@@ -18,6 +18,11 @@ class TemplateRepository
         $this->template = $template;
     }
 
+    public function all()
+    {
+        return $this->template->all();
+    }
+
     public function find($id)
     {
         return $this->template->find($id);

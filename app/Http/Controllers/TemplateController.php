@@ -20,7 +20,9 @@ class TemplateController extends Controller
 
     public function index()
     {
-        return view('control-panel.index');
+        $templates = $this->templateService->all();
+
+        return response()->json(['templates' => $templates]);
     }
 
     public function store(StoreTemplateRequest $request)
