@@ -27,8 +27,8 @@ class TemplateController extends Controller
 
     public function store(StoreTemplateRequest $request)
     {
-        $this->templateService->store($request);
+        $template = $this->templateService->store($request);
 
-        return response()->json(['success' => 'Template created']);
+        return response()->json(['success' => 'Template created', 'template' => $template]);
     }
 }
