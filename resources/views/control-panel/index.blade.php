@@ -25,7 +25,7 @@
 </div>
 <div>
     <div style="width: 50vw;margin-top: 100px;">
-        <select class="form-control form-control-lg">
+        <select class="form-control form-control-lg js-get-templates">
             <option>Template 1</option>
             <option>Template 2</option>
             <option>Template 3</option>
@@ -58,8 +58,18 @@
                     name: name
                 },
                 dataType: "dataType",
-                success: function () {
-                    alert(name)
+                success: function (data) {
+                    data.success
+                }
+            });
+            $.ajax({
+                type: "GET",
+                url: "/templates",
+                data: {name},
+                dataType: "dataType",
+                success: function (data) {
+                    console.log(data)
+                    // $(".js-get-templates").append($('<option>'+data+'</option'));
                 }
             });
         })
