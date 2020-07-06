@@ -7,7 +7,7 @@
     <body>
         <div style="width: 50vw;margin-top: 100px;">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" placeholder="Enter new template name" aria-label="" aria-describedby="basic-addon1">
                 <div class="input-group-prepend">
                     <button class="btn btn-outline-secondary" type="button">Button</button>
                 </div>
