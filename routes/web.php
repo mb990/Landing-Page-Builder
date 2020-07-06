@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/control-panel', 'TemplateController@index');
+
 Auth::routes();
 
 Route::post('/');
