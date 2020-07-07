@@ -39,6 +39,9 @@ Route::post('/image', 'ImageController@store')->name('image.store');
 //Top Menu Settings
 Route::post('/top-menu-settings', 'TopMenuSettingsController@store')->name('top-menu-settings.store');
 
+//Testimonials
+Route::post('/testimonial-settings', 'TestimonialSettingsController@store')->name('testimonial-settings.store');
+
 Auth::routes();
 
 Route::post('/');

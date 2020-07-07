@@ -15,6 +15,8 @@ class CreateTestimonialSettingsTable extends Migration
     {
         Schema::create('testimonial_settings', function (Blueprint $table) {
             $table->id();
+            $table->text('text');
+            $table->string('customer_name');
             $table->timestamps();
         });
     }

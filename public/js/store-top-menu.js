@@ -7,12 +7,9 @@ $(document).ready(function () {
         let template_id = $('#template_id').val();
         let page_element_type_id = $('#page_element_type_id').val();
 
-console.log(template_id);
-console.log(page_element_type_id);
-
         $.post('/top-menu-settings',
             {
-
+                //
             }
             ).done(function (data) {
             // saving new top menu element

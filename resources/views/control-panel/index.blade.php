@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{asset('js/store-top-menu.js')}}"></script>
+    <script src="{{asset('js/store-testimonials.js')}}"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script type="text/javascript">
         $.ajaxSetup({
@@ -89,22 +90,22 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span>
-                    <input type="text" placeholder="Enter user name">
-                    <input type="text" placeholder="Enter user review">
+                <span class="js-testimonial">
+                    <input type="text" id="customer_name-1" placeholder="Enter user name">
+                    <input type="text" id="testimonial_text-1" placeholder="Enter user review">
                 </span>
-                <span>
-                    <input type="text" placeholder="Enter user name">
-                    <input type="text" placeholder="Enter user review">
+                <span class="js-testimonial">
+                    <input type="text" id="customer_name-2" placeholder="Enter user name">
+                    <input type="text" id="testimonial_text-2" placeholder="Enter user review">
                 </span>
-                <span>
-                    <input type="text" placeholder="Enter user name">
-                    <input type="text" placeholder="Enter user review">
+                <span class="js-testimonial">
+                    <input type="text" id="customer_name-3" placeholder="Enter user name">
+                    <input type="text" id="testimonial_text-3" placeholder="Enter user review">
                 </span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
+                <button type="button" class="btn btn-primary js-save-testimonial-changes">Save changes</button>
             </div>
         </div>
     </div>
@@ -303,6 +304,9 @@
         })
 
         $('.js-save-top-menu').click(storePageElement);
+
+        $('.js-save-testimonial-changes').click(storeTestimonial);
+
         $('.js-get-elements').change(function() {
             // save page_element_type_id into hidden field
             let type = $(this).find(':selected').data('id');
