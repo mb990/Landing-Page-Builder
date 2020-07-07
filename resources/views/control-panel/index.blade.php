@@ -27,15 +27,17 @@
     <div>
         <div style="width: 50vw;margin-top: 100px;">
             <select class="form-control form-control-lg js-get-templates">
+                <option selected>Select template</option>
             </select>
         </div>
     </div>
 
     <div>
         <div style="width: 50vw;margin-top: 100px;">
+            <input type="hidden" id="template_id">
+            <input type="hidden" id="page_element_type_id">
             <select class="form-control form-control-lg js-get-elements">
                 <option selected>Select element</option>
-
             </select>
         </div>
     </div>
@@ -253,7 +255,7 @@
                 output = []
                     console.log(data.types)
                         $.each(data.types, function (i, e) {
-                        output += '<option value="option'+e.id +'" id="'+ e.id+'" >'+ e.name + '</option>'
+                        output += '<option data-id="'+ e.id +'" value="option'+e.id +'" id="'+ e.id+'" >'+ e.name + '</option>'
                         });
                         $(".js-get-elements").append(output)
             }
@@ -267,7 +269,7 @@
                     output = []
                     console.log(data.templates)
                         $.each(data.templates, function (i, e) {
-                        output += '<option data-id="'+ e.id +'" class="template'+ e.id+'">'+ e.name + '</option>'
+                        output += '<option data-id="'+ e.id +'" class="js-template">'+ e.name + '</option>'
                         });
                         $(".js-get-templates").append(output)
                 }
@@ -288,17 +290,23 @@
                 }
             })
             .done(function(data){
-                $(".js-get-templates").append('<option data-id="'+ data.template.id +'" class="template'+ data.template.id +'" >'+ name + '</option>')
-
-
+                $(".js-get-templates").append('<option data-id="'+ data.template.id +'" class="js-template" >'+ name + '</option>')
             }
 
             );
 
         })
+        // save template_id into hidden field
+        $('.js-get-templates').change(function() {
+            let template_id = $(this).find(':selected').data('id');
+            $('#template_id').val(template_id);
+        })
 
-        $('.js-save-changes').click(storePageElement);
         $('.js-get-elements').change(function() {
+            // save page_element_type_id into hidden field
+            let type = $(this).find(':selected').data('id');
+            $('#page_element_type_id').val(type);
+
             var opval = $(this).val();
             if(opval=="option7"){
                 console.log('modal7')
@@ -324,6 +332,7 @@
             }
         });
 
+        $('.js-save-changes').click(storePageElement);
     })
 
 </script>
