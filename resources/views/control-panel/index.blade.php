@@ -72,7 +72,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
+                    <button type="button" class="btn btn-primary js-save-top-menu">Save changes</button>
                 </div>
             </div>
         </div>
@@ -112,7 +112,7 @@
 <!-- Prices -->
     <div class="modal fade js-modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content modal7">
+            <div class="modal-content modal5">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -153,7 +153,7 @@
 
 <div class="modal fade js-modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content modal7">
+        <div class="modal-content modal4">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -175,7 +175,7 @@
 
     <div class="modal fade js-modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content modal7">
+            <div class="modal-content modal3">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -197,7 +197,7 @@
 
 <div class="modal fade js-modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content modal7">
+        <div class="modal-content modal2">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -219,7 +219,7 @@
 
 <div class="modal fade js-modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content modal7">
+        <div class="modal-content modal1">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -302,6 +302,7 @@
             $('#template_id').val(template_id);
         })
 
+        $('.js-save-top-menu').click(storePageElement);
         $('.js-get-elements').change(function() {
             // save page_element_type_id into hidden field
             let type = $(this).find(':selected').data('id');
@@ -331,8 +332,10 @@
                 $('.js-modal1').modal("show");
             }
         });
-
-        $('.js-save-changes').click(storePageElement);
+        $('.js-get-templates').change(function() {
+            var id = $(this).find(':selected').data('id')
+            alert(id);
+        })
     })
 
 </script>

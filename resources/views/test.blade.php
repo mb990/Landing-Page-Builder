@@ -87,8 +87,8 @@
 </div>
 <div class="card col-md-6 mt-5 mb-5 my-0 mx-auto" style="background-color: lightgrey;">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="100000">
-        <div class="w-100 carousel-inner" role="listbox">
-            <div class="carousel-item active">
+        <div class="w-100 carousel-inner js-reviews" role="listbox">
+            <div class="carousel-item">
                 <div class="carousel-caption">
                     <div class="row">
                         <div class="col-sm-3">
@@ -117,12 +117,19 @@
 </div>
 <section class="pricing py-5" style="background-color: lightgrey;font-size: 1.4rem;">
     <div class="container">
+        <!-- Default switch -->
+        <div style="margin:auto;" class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitches">
+            <label class="custom-control-label" for="customSwitches">Toggle month / annual price</label>
+        </div>
         <div class="row">
+            <!-- single price plan -->
             <div class="col-lg-4">
                 <div class="card mb-5 mb-lg-0">
                     <div class="card-body">
                         <h5 class="card-title text-muted text-uppercase text-center">Free</h5>
                         <h6 class="card-price text-center price-tag">$0<span class="period">/month</span></h6>
+                        <h6 class="card-price text-center price-tag d-none">$10<span class="period">/year</span></h6>
                         <hr>
                         <ul class="fa-ul">
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Single User</li>
@@ -139,6 +146,7 @@
                     <div class="card-body">
                         <h5 class="card-title text-muted text-uppercase text-center">Basic</h5>
                         <h6 class="card-price text-center price-tag">$12<span class="period">/month</span></h6>
+                        <h6 class="card-price text-center price-tag d-none">$1099<span class="period">/year</span></h6>
                         <hr>
                         <ul class="fa-ul">
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Five Users</li>
@@ -156,6 +164,7 @@
                     <div class="card-body">
                         <h5 class="card-title text-muted text-uppercase text-center">Premium</h5>
                         <h6 class="card-price text-center price-tag">$24<span class="period">/month</span></h6>
+                        <h6 class="card-price text-center price-tag d-none">$2199<span class="period">/year</span></h6>
                         <hr>
                         <ul class="fa-ul">
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Users</li>
@@ -278,3 +287,6 @@
         </div>
     </div>
 </div>
+<script>
+$('.js-reviews div:first').addClass('active');
+</script>

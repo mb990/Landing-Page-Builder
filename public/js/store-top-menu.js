@@ -39,6 +39,7 @@ console.log(page_element_type_id);
                     }
                 ).done(function (data) {
                     console.log('link je dodat')
+                    $(".modal").modal('hide');
                 })
                     .fail(console.log('link nije dodat'))
             })
