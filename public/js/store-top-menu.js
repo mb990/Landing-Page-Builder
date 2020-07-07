@@ -4,8 +4,12 @@ $(document).ready(function () {
 
         e.preventDefault();
 
-        let type = e.target.getAttribute('id');
-        let template_id = e.target.getAttribute('id');
+        let template_id = $('#template_id').val();
+        let page_element_type_id = $('#page_element_type_id').val();
+
+console.log(template_id);
+console.log(page_element_type_id);
+
         $.post('/top-menu-settings',
             {
 
@@ -14,10 +18,8 @@ $(document).ready(function () {
             // saving new top menu element
             $.post('/page-element',
                 {
-                    // template_id: template_id,
-                    template_id: 1,
-                    // page_element_type_id: type,
-                    page_element_type_id: 7,
+                    template_id: template_id,
+                    page_element_type_id: page_element_type_id,
                     page_elementable_id: data.settings.id,
                     page_elementable_type: 'TopMenuSettings'
                 })
