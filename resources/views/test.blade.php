@@ -130,7 +130,7 @@
                     <div class="card-body">
                         <h5 class="card-title text-muted text-uppercase text-center">Free</h5>
                         <h6 class="card-price text-center price-tag js-month">$0<span class="period">/month</span></h6>
-                        <h6 class="card-price text-center price-tag d-none js-year">$10<span class="period">/year</span></h6>
+                        <h6 class="card-price text-center price-tag d-none js-year">$10<span class="period">/year <h6>30%off</h6></span></h6>
                         <hr>
                         <ul class="fa-ul">
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Single User</li>
@@ -147,7 +147,8 @@
                     <div class="card-body">
                         <h5 class="card-title text-muted text-uppercase text-center">Basic</h5>
                         <h6 class="card-price text-center price-tag js-month">$12<span class="period">/month</span></h6>
-                        <h6 class="card-price text-center price-tag d-none js-year">$1099<span class="period">/year</span></h6>
+                        <h6 class="card-price text-center price-tag d-none js-year">$1099<span class="period">/year<h6>35%off</h6></span>
+                        </h6>
                         <hr>
                         <ul class="fa-ul">
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Five Users</li>
@@ -165,7 +166,8 @@
                     <div class="card-body">
                         <h5 class="card-title text-muted text-uppercase text-center">Premium</h5>
                         <h6 class="card-price text-center price-tag js-month">$24<span class="period">/month</span></h6>
-                        <h6 class="card-price text-center price-tag d-none js-year">$2199<span class="period">/year</span></h6>
+                        <h6 class="card-price text-center price-tag d-none js-year">$2199<span class="period">/year<h6>40%off</h6></span>
+                        </h6>
                         <hr>
                         <ul class="fa-ul">
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Users</li>

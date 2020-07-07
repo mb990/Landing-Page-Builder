@@ -126,7 +126,11 @@
                             <div class="input-group-append">
                                 <span class="input-group-text text-primary" id="basic-addon2">Plan name</span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter month price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control" placeholder="Enter first plan name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control" placeholder="Enter discount" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">%off</span>
+                            </div>
                         </div>
                         <div class="input-group mb-3">
                             
@@ -156,7 +160,11 @@
                             <div class="input-group-append">
                                 <span class="input-group-text text-primary" id="basic-addon2">Second plan name</span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter month price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control" placeholder="Enter second plan name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control" placeholder="Enter discount" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">%off</span>
+                            </div>
                         </div>
                         <div class="input-group mb-3">
                             
@@ -186,7 +194,11 @@
                             <div class="input-group-append">
                                 <span class="input-group-text text-primary" id="basic-addon2">Third plan name</span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter month price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control" placeholder="Enter third plan name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control" placeholder="Enter discount" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">%off</span>
+                            </div>
                         </div>
                         <div class="input-group mb-3">
                             
