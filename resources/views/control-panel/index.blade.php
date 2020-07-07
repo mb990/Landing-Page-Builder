@@ -38,18 +38,15 @@
 
             </select>
         </div>
-        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            GET ELEMENT
-        </button>
     </div>
 
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    
+    <!-- Modal7 TOP MENU -->
+    <div class="modal fade js-modal7"  aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title">Top Menu</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -79,6 +76,140 @@
         </div>
     </div>
 
+    <!-- Modal6 TESTIMONIALS-->
+<div class="modal fade js-modal6"  aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Top Menu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span>
+                    <input type="text" placeholder="Enter user name">
+                    <input type="text" placeholder="Enter user review">
+                </span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="modal fade js-modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal7">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span>
+                        <input type="text" placeholder="Enter plan price tag">
+                    </span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="modal fade js-modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal7">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span>
+                    <input type="text" placeholder="Enter creator name">
+                </span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="modal fade js-modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal7">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span>
+                        <input type="text" placeholder="Enter creator name">
+                    </span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="modal fade js-modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal7">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span>
+                    <input type="text" placeholder="Enter creator name">
+                </span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade js-modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal7">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span>
+                    <input type="text" placeholder="Enter creator name">
+                </span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 
@@ -95,7 +226,7 @@
                 output = []
                     console.log(data.types)
                         $.each(data.types, function (i, e) {
-                        output += '<option id="'+ e.id+'" >'+ e.name + '</option>'
+                        output += '<option value="option'+e.id +'" id="'+ e.id+'" >'+ e.name + '</option>'
                         });
                         $(".js-get-elements").append(output)
             }
@@ -135,6 +266,32 @@
         })
 
         $('.js-save-changes').click(storePageElement);
+        $('.js-get-elements').change(function() {
+            var opval = $(this).val();
+            if(opval=="option7"){
+                console.log('modal7')
+                $('.js-modal7').modal("show");
+            }
+            if(opval=="option6"){
+                $('.js-modal6').modal("show");
+            }
+            if(opval=="option5"){
+                $('.js-modal5').modal("show");
+            }
+            if(opval=="option4"){
+                $('.js-modal4').modal("show");
+            }
+            if(opval=="option3"){
+                $('.js-modal3').modal("show");
+            }
+            if(opval=="option2"){
+                $('.js-modal2').modal("show");
+            }
+            if(opval=="option1"){
+                $('.js-modal1').modal("show");
+            }
+        });
+
     })
 
 </script>
