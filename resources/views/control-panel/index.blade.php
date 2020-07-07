@@ -91,6 +91,14 @@
                     <input type="text" placeholder="Enter user name">
                     <input type="text" placeholder="Enter user review">
                 </span>
+                <span>
+                    <input type="text" placeholder="Enter user name">
+                    <input type="text" placeholder="Enter user review">
+                </span>
+                <span>
+                    <input type="text" placeholder="Enter user name">
+                    <input type="text" placeholder="Enter user review">
+                </span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -99,7 +107,7 @@
         </div>
     </div>
 </div>
-
+<!-- Prices -->
     <div class="modal fade js-modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal7">
@@ -111,7 +119,26 @@
                 </div>
                 <div class="modal-body">
                     <span>
-                        <input type="text" placeholder="Enter plan price tag">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Enter month price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">/month</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Enter annual price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">/year</span>
+                            </div>
+                        </div>
+                        <span>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="">Plan benefits</span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Benefit">
+                                <input type="text" class="form-control" placeholder="Benefit">
+                                <input type="text" class="form-control" placeholder="Benefit">
+                            </div>
+                        </span>
                     </span>
                 </div>
                 <div class="modal-footer">
