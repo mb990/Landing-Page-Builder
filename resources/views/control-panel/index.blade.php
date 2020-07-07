@@ -233,20 +233,19 @@
         });
 
 
-
-        $.ajax({
+            $.ajax({
                 type: "GET",
                 url: "/templates",
                 success: function (data) {
                     output = []
                     console.log(data.templates)
-                    // $(".js-get-templates").append($('<option>'+data+'</option'));
                         $.each(data.templates, function (i, e) {
                         output += '<option data-id="'+ e.id +'" class="template'+ e.id+'">'+ e.name + '</option>'
                         });
                         $(".js-get-templates").append(output)
                 }
             });
+
         $(".js-add-template").click(function(){
             let name = $(".js-new-template-name").val();
             console.log(name)
@@ -259,9 +258,15 @@
                 success: function (data) {
                     console.log(data)
                     alert(data.success)
-                    $(".js-get-templates").append('<option class="template'+ data.template.id +'" >'+ name + '</option>')
                 }
-            });
+            })
+            .done(function(data){
+                $(".js-get-templates").append('<option data-id="'+ data.template.id +'" class="template'+ data.template.id +'" >'+ name + '</option>')
+
+
+            }
+
+            );
 
         })
 
