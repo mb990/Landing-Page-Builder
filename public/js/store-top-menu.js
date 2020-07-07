@@ -11,7 +11,7 @@ $(document).ready(function () {
 
             }
             ).done(function (data) {
-                console.log(data);
+            // saving new top menu element
             $.post('/page-element',
                 {
                     // template_id: template_id,
@@ -25,6 +25,20 @@ $(document).ready(function () {
                     console.log(data);
                 })
                 .fail(console.log('failed element'))
+            // saving top menu link
+            $('.js-top-menu-link').each(function (e, i) {
+                $.post('/link',
+                    {
+                        url: 'nesto',
+                        title: 'nesto',
+                        top_menu_settings_id: data.settings.id
+                    }
+                ).done(function (data) {
+                    console.log('link je dodat')
+                })
+                    .fail(console.log('link nije dodat'))
+            })
+
             })
             .fail(console.log('failed settings'))
     }

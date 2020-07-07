@@ -15,7 +15,6 @@ class CreatePageElementsTable extends Migration
     {
         Schema::create('page_elements', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->unsignedBigInteger('project_id')->nullable();
             $table->unsignedBigInteger('template_id')->nullable();
             $table->unsignedBigInteger('page_element_type_id');

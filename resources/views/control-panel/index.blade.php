@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    
+
     <!-- Modal7 TOP MENU -->
     <div class="modal fade js-modal7"  aria-hidden="true">
         <div class="modal-dialog">
@@ -56,15 +56,15 @@
                     <input type="file" name="img">
                     <br>
                     <span>
-                        <input type="text" placeholder="Link title">
+                        <input class="js-top-menu-link" type="text" placeholder="Link title">
                         <input type="text" placeholder="Link URL">
                     </span>
                     <span>
-                        <input type="text" placeholder="Link title">
+                        <input class="js-top-menu-link" type="text" placeholder="Link title">
                         <input type="text" placeholder="Link URL">
                     </span>
                     <span>
-                        <input type="text" placeholder="Link title">
+                        <input class="js-top-menu-link" type="text" placeholder="Link title">
                         <input type="text" placeholder="Link URL">
                     </span>
                 </div>
