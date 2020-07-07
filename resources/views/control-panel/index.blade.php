@@ -123,6 +123,73 @@
                 <div class="modal-body">
                     <span>
                         <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text text-primary" id="basic-addon2">Plan name</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Enter month price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        </div>
+                        <div class="input-group mb-3">
+                            
+                            <input type="text" class="form-control" placeholder="Enter month price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">/month</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Enter annual price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">/year</span>
+                            </div>
+                        </div>
+                        <span>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="">Plan benefits</span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Benefit">
+                                <input type="text" class="form-control" placeholder="Benefit">
+                                <input type="text" class="form-control" placeholder="Benefit">
+                            </div>
+                        </span>
+                    </span>
+                    <br>
+                    <span>
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text text-primary" id="basic-addon2">Second plan name</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Enter month price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        </div>
+                        <div class="input-group mb-3">
+                            
+                            <input type="text" class="form-control" placeholder="Enter month price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">/month</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Enter annual price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">/year</span>
+                            </div>
+                        </div>
+                        <span>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="">Plan benefits</span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Benefit">
+                                <input type="text" class="form-control" placeholder="Benefit">
+                                <input type="text" class="form-control" placeholder="Benefit">
+                            </div>
+                        </span>
+                    </span>
+                    <br>
+                    <span>
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text text-primary" id="basic-addon2">Third plan name</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Enter month price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        </div>
+                        <div class="input-group mb-3">
+                            
                             <input type="text" class="form-control" placeholder="Enter month price" aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon2">/month</span>

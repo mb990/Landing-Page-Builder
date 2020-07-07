@@ -1,11 +1,17 @@
 <section class="pricing py-5" style="background-color: lightgrey;font-size: 1.4rem;">
     <div class="container">
+        <!-- switcher -->
+        <div style="text-align: center;" class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitches">
+            <label class="custom-control-label" for="customSwitches">Toggle month / annual price</label>
+        </div>
         <div class="row">
             <div class="col-lg-4">
                 <div class="card mb-5 mb-lg-0">
                     <div class="card-body">
                         <h5 class="card-title text-muted text-uppercase text-center">Free</h5>
-                        <h6 class="card-price text-center price-tag">$0<span class="period">/month</span></h6>
+                        <h6 class="card-price text-center price-tag js-month">$0<span class="period">/month</span></h6>
+                        <h6 class="card-price text-center price-tag d-none js-year">$10<span class="period">/year</span></h6>
                         <hr>
                         <ul class="fa-ul">
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Single User</li>

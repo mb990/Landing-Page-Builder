@@ -117,10 +117,11 @@
 </div>
 <section class="pricing py-5" style="background-color: lightgrey;font-size: 1.4rem;">
     <div class="container">
-        <!-- Default switch -->
-        <div style="margin:auto;" class="custom-control custom-switch">
+        <!-- switcher -->
+        <div style="text-align: center;" class="custom-control custom-switch">
+            <label style="margin-right: 40px;" class="text-primary js-month-text">Monthly price</label>
             <input type="checkbox" class="custom-control-input" id="customSwitches">
-            <label class="custom-control-label" for="customSwitches">Toggle month / annual price</label>
+            <label class="custom-control-label js-year-text" for="customSwitches">Annually price</label>
         </div>
         <div class="row">
             <!-- single price plan -->
@@ -128,8 +129,8 @@
                 <div class="card mb-5 mb-lg-0">
                     <div class="card-body">
                         <h5 class="card-title text-muted text-uppercase text-center">Free</h5>
-                        <h6 class="card-price text-center price-tag">$0<span class="period">/month</span></h6>
-                        <h6 class="card-price text-center price-tag d-none">$10<span class="period">/year</span></h6>
+                        <h6 class="card-price text-center price-tag js-month">$0<span class="period">/month</span></h6>
+                        <h6 class="card-price text-center price-tag d-none js-year">$10<span class="period">/year</span></h6>
                         <hr>
                         <ul class="fa-ul">
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Single User</li>
@@ -145,8 +146,8 @@
                 <div class="card mb-5 mb-lg-0">
                     <div class="card-body">
                         <h5 class="card-title text-muted text-uppercase text-center">Basic</h5>
-                        <h6 class="card-price text-center price-tag">$12<span class="period">/month</span></h6>
-                        <h6 class="card-price text-center price-tag d-none">$1099<span class="period">/year</span></h6>
+                        <h6 class="card-price text-center price-tag js-month">$12<span class="period">/month</span></h6>
+                        <h6 class="card-price text-center price-tag d-none js-year">$1099<span class="period">/year</span></h6>
                         <hr>
                         <ul class="fa-ul">
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Five Users</li>
@@ -163,8 +164,8 @@
                 <div class="card mb-5 mb-lg-0">
                     <div class="card-body">
                         <h5 class="card-title text-muted text-uppercase text-center">Premium</h5>
-                        <h6 class="card-price text-center price-tag">$24<span class="period">/month</span></h6>
-                        <h6 class="card-price text-center price-tag d-none">$2199<span class="period">/year</span></h6>
+                        <h6 class="card-price text-center price-tag js-month">$24<span class="period">/month</span></h6>
+                        <h6 class="card-price text-center price-tag d-none js-year">$2199<span class="period">/year</span></h6>
                         <hr>
                         <ul class="fa-ul">
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Users</li>
@@ -289,4 +290,12 @@
 </div>
 <script>
 $('.js-reviews div:first').addClass('active');
+$(document).ready(function(){
+    $("#customSwitches").on("click", function(){
+        $(".js-month").toggleClass("d-none");
+        $(".js-year").toggleClass("d-none");
+        $(".js-month-text").toggleClass("text-primary");
+        $(".js-year-text").toggleClass("text-primary");
+    })
+})
 </script>
