@@ -27,10 +27,12 @@ $(document).ready(function () {
                 .fail(console.log('failed element'))
             // saving top menu link
             $('.js-top-menu-link').each(function (e, i) {
+                let url = $("#link-url-" + (e + 1)).val();
+                let title = $("#title-" + (e + 1)).val();
                 $.post('/link',
                     {
-                        url: 'nesto',
-                        title: 'nesto',
+                        url: url,
+                        title: title,
                         top_menu_settings_id: data.settings.id
                     }
                 ).done(function (data) {
