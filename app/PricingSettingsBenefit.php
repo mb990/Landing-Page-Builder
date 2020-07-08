@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pricing extends Model
+class PricingSettingsBenefit extends Model
 {
     protected $fillable = [
-        'plan_name', 'price', 'discount', 'discount_amount', 'pricing_settings_id'
+        'description', 'price_settings_id'
     ];
 
-    public function pricingSection()
+    public function pricingPlan()
     {
         return $this->belongsTo(PriceSettings::class);
     }

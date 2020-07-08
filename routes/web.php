@@ -42,9 +42,10 @@ Route::post('/top-menu-settings', 'TopMenuSettingsController@store')->name('top-
 //Testimonials
 Route::post('/testimonial-settings', 'TestimonialSettingsController@store')->name('testimonial-settings.store');
 
-Auth::routes();
+//Price Settings
+Route::post('/price-settings', 'PriceSettingsController@store')->name('price-settings.store');
 
-Route::post('/');
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test', 'PageController@test')->name('test');

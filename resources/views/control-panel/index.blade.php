@@ -7,6 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{asset('js/store-top-menu.js')}}"></script>
     <script src="{{asset('js/store-testimonials.js')}}"></script>
+    <script src="{{asset('js/store-price-settings.js')}}"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script type="text/javascript">
         $.ajaxSetup({
@@ -17,76 +18,76 @@
     </script>
 </head>
 <body>
+<div style="width: 50vw;margin-top: 100px;">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control js-new-template-name" placeholder="Enter new template name" aria-label="" aria-describedby="basic-addon1">
+        <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary js-add-template" type="button">Button</button>
+        </div>
+    </div>
+</div>
+<div>
     <div style="width: 50vw;margin-top: 100px;">
-        <div class="input-group mb-3">
-            <input type="text" class="form-control js-new-template-name" placeholder="Enter new template name" aria-label="" aria-describedby="basic-addon1">
-            <div class="input-group-prepend">
-                <button class="btn btn-outline-secondary js-add-template" type="button">Button</button>
-            </div>
-        </div>
+        <select class="form-control form-control-lg js-get-templates">
+            <option selected>Select template</option>
+        </select>
     </div>
-    <div>
-        <div style="width: 50vw;margin-top: 100px;">
-            <select class="form-control form-control-lg js-get-templates">
-                <option selected>Select template</option>
-            </select>
-        </div>
-    </div>
+</div>
 
-    <div>
-        <div style="width: 50vw;margin-top: 100px;">
-            <input type="hidden" id="template_id">
-            <input type="hidden" id="page_element_type_id">
-            <select class="form-control form-control-lg js-get-elements">
-                <option selected>Select element</option>
-            </select>
-        </div>
+<div>
+    <div style="width: 50vw;margin-top: 100px;">
+        <input type="hidden" id="template_id">
+        <input type="hidden" id="page_element_type_id">
+        <select class="form-control form-control-lg js-get-elements">
+            <option selected>Select element</option>
+        </select>
     </div>
+</div>
 
 
-    <!-- Modal7 TOP MENU -->
-    <div class="modal fade js-modal7"  aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Top Menu</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<!-- Modal7 TOP MENU -->
+<div class="modal fade js-modal7"  aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Top Menu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <label for="img">Add your Logo</label>
-                    <input type="file" name="img">
-                    <br>
-                    <span class="js-top-menu-link">
+                </button>
+            </div>
+            <div class="modal-body">
+                <label for="img">Add your Logo</label>
+                <input type="file" name="img">
+                <br>
+                <span class="js-top-menu-link">
                         <input name="title-1" id="title-1" type="text" placeholder="Link title">
                         <input type="text" id="link-url-1" name="link-url-1" placeholder="Link URL">
                     </span>
-                    <span class="js-top-menu-link">
+                <span class="js-top-menu-link">
                         <input name="title-2" id="title-2" type="text" placeholder="Link title">
                         <input type="text" id="link-url-2" name="link-url-2" placeholder="Link URL">
                     </span>
-                    <span class="js-top-menu-link">
+                <span class="js-top-menu-link">
                         <input name="title-3" id="title-3" type="text" placeholder="Link title">
                         <input type="text" id="link-url-3" name="link-url-3" placeholder="Link URL">
                     </span>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary js-save-top-menu">Save changes</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary js-save-top-menu">Save changes</button>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Modal6 TESTIMONIALS-->
+<!-- Modal6 TESTIMONIALS-->
 <div class="modal fade js-modal6"  aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Top Menu</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
@@ -111,36 +112,36 @@
     </div>
 </div>
 <!-- Prices -->
-    <div class="modal fade js-modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content modal5">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<div class="modal fade js-modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal5">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
+                </button>
+            </div>
+            <div class="modal-body js-all-plans">
                     <span>
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text text-primary" id="basic-addon2">Plan name</span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter first plan name" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                            <input type="text" class="form-control" placeholder="Enter discount" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2">%off</span>
-                            </div>
+                            <input type="text" class="form-control js-pricing-plan plan-1" placeholder="Enter plan name" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
                         <div class="input-group mb-3">
-                            
-                            <input type="text" class="form-control" placeholder="Enter month price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+
+                            <input type="text" class="form-control month-1" placeholder="Enter month price" aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon2">/month</span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter annual price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control year-1" placeholder="Enter annual price" aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon2">/year</span>
+                            </div>
+                            <input type="text" class="form-control discount-1" placeholder="Enter discount" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">discount</span>
                             </div>
                         </div>
                         <span>
@@ -148,33 +149,33 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="">Plan benefits</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Benefit">
-                                <input type="text" class="form-control" placeholder="Benefit">
-                                <input type="text" class="form-control" placeholder="Benefit">
+                                <input type="text" class="form-control js-plan-benefit-1 benefit-1" placeholder="Benefit">
+                                <input type="text" class="form-control js-plan-benefit-1 benefit-2" placeholder="Benefit">
+                                <input type="text" class="form-control js-plan-benefit-1 benefit-3" placeholder="Benefit">
                             </div>
                         </span>
                     </span>
-                    <br>
-                    <span>
+                <br>
+                <span>
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text text-primary" id="basic-addon2">Second plan name</span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter second plan name" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                            <input type="text" class="form-control" placeholder="Enter discount" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2">%off</span>
-                            </div>
+                            <input type="text" class="form-control js-pricing-plan plan-2" placeholder="Enter plan name" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
                         <div class="input-group mb-3">
-                            
-                            <input type="text" class="form-control" placeholder="Enter month price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+
+                            <input type="text" class="form-control month-2" placeholder="Enter month price" aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon2">/month</span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter annual price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control year-2" placeholder="Enter annual price" aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon2">/year</span>
+                            </div>
+                            <input type="text" class="form-control discount-2" placeholder="Enter discount" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">discount</span>
                             </div>
                         </div>
                         <span>
@@ -182,33 +183,33 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="">Plan benefits</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Benefit">
-                                <input type="text" class="form-control" placeholder="Benefit">
-                                <input type="text" class="form-control" placeholder="Benefit">
+                                <input type="text" class="form-control js-plan-benefit-2 benefit-4" placeholder="Benefit">
+                                <input type="text" class="form-control js-plan-benefit-2 benefit-5" placeholder="Benefit">
+                                <input type="text" class="form-control js-plan-benefit-2 benefit-6" placeholder="Benefit">
                             </div>
                         </span>
                     </span>
-                    <br>
-                    <span>
+                <br>
+                <span>
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text text-primary" id="basic-addon2">Third plan name</span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter third plan name" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                            <input type="text" class="form-control" placeholder="Enter discount" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2">%off</span>
-                            </div>
+                            <input type="text" class="form-control js-pricing-plan plan-3" placeholder="Enter plan name" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
                         <div class="input-group mb-3">
-                            
-                            <input type="text" class="form-control" placeholder="Enter month price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+
+                            <input type="text" class="form-control month-3" placeholder="Enter month price" aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon2">/month</span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter annual price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control year-3" placeholder="Enter annual price" aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon2">/year</span>
+                            </div>
+                            <input type="text" class="form-control discount-3" placeholder="Enter discount" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text discount-3" id="basic-addon2">discount</span>
                             </div>
                         </div>
                         <span>
@@ -216,20 +217,20 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="">Plan benefits</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Benefit">
-                                <input type="text" class="form-control" placeholder="Benefit">
-                                <input type="text" class="form-control" placeholder="Benefit">
+                                <input type="text" class="form-control js-plan-benefit-3 benefit-7" placeholder="Benefit">
+                                <input type="text" class="form-control js-plan-benefit-3 benefit-8" placeholder="Benefit">
+                                <input type="text" class="form-control js-plan-benefit-3 benefit-9" placeholder="Benefit">
                             </div>
                         </span>
                     </span>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary js-save-prices-changes">Save changes</button>
             </div>
         </div>
     </div>
+</div>
 
 <div class="modal fade js-modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -237,7 +238,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
@@ -253,27 +254,27 @@
     </div>
 </div>
 
-    <div class="modal fade js-modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content modal3">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<div class="modal fade js-modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal3">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
+                </button>
+            </div>
+            <div class="modal-body">
                     <span>
                         <input type="text" placeholder="Enter creator name">
                     </span>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
             </div>
         </div>
     </div>
+</div>
 
 <div class="modal fade js-modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -281,7 +282,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
@@ -303,7 +304,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
@@ -333,27 +334,27 @@
             url: "/page-element-types",
             success: function (data) {
                 output = []
-                    console.log(data.types)
-                        $.each(data.types, function (i, e) {
-                        output += '<option data-id="'+ e.id +'" value="option'+e.id +'" id="'+ e.id+'" >'+ e.name + '</option>'
-                        });
-                        $(".js-get-elements").append(output)
+                console.log(data.types)
+                $.each(data.types, function (i, e) {
+                    output += '<option data-id="'+ e.id +'" value="option'+e.id +'" id="'+ e.id+'" >'+ e.name + '</option>'
+                });
+                $(".js-get-elements").append(output)
             }
         });
 
 
-            $.ajax({
-                type: "GET",
-                url: "/templates",
-                success: function (data) {
-                    output = []
-                    console.log(data.templates)
-                        $.each(data.templates, function (i, e) {
-                        output += '<option data-id="'+ e.id +'" class="js-template">'+ e.name + '</option>'
-                        });
-                        $(".js-get-templates").append(output)
-                }
-            });
+        $.ajax({
+            type: "GET",
+            url: "/templates",
+            success: function (data) {
+                output = []
+                console.log(data.templates)
+                $.each(data.templates, function (i, e) {
+                    output += '<option data-id="'+ e.id +'" class="js-template">'+ e.name + '</option>'
+                });
+                $(".js-get-templates").append(output)
+            }
+        });
 
         $(".js-add-template").click(function(){
             let name = $(".js-new-template-name").val();
@@ -369,11 +370,11 @@
                     alert(data.success)
                 }
             })
-            .done(function(data){
-                $(".js-get-templates").append('<option data-id="'+ data.template.id +'" class="js-template" >'+ name + '</option>')
-            }
+                .done(function(data){
+                        $(".js-get-templates").append('<option data-id="'+ data.template.id +'" class="js-template" >'+ name + '</option>')
+                    }
 
-            );
+                );
 
         })
         // save template_id into hidden field
@@ -382,9 +383,11 @@
             $('#template_id').val(template_id);
         })
 
-        $('.js-save-top-menu').click(storePageElement);
+        $('.js-save-top-menu').click(storeTopMenuSettings);
 
         $('.js-save-testimonial-changes').click(storeTestimonial);
+
+        $('.js-save-prices-changes').click(storePriceSettings);
 
         $('.js-get-elements').change(function() {
             // save page_element_type_id into hidden field
@@ -417,7 +420,6 @@
         });
         $('.js-get-templates').change(function() {
             var id = $(this).find(':selected').data('id')
-            alert(id);
         })
     })
 

@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    window.storePageElement = function(e) {
+    window.storeTopMenuSettings = function(e) {
 
         e.preventDefault();
 

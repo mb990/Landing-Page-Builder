@@ -15,6 +15,10 @@ class CreatePriceSettingsTable extends Migration
     {
         Schema::create('price_settings', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->float('yearly_price');
+            $table->float('monthly_price');
+            $table->float('discount_amount');
             $table->timestamps();
         });
     }
