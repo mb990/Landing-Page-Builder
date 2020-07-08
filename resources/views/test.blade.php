@@ -86,6 +86,7 @@
     </section>
 </div>
 <div class="card col-md-6 mt-5 mb-5 my-0 mx-auto" style="background-color: lightgrey;">
+    <div style="text-align: center;"><h3>Reviews from our users</h3></div>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="100000">
         <div class="w-100 carousel-inner js-reviews" role="listbox">
             <div class="carousel-item">
@@ -210,68 +211,78 @@
     <div class="row text-center text-lg-left">
 
     <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
+        <a class="d-block mb-4 h-100 pop">
             <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/pWkk7iiCoDM/400x300" alt="">
             </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
+        <a class="d-block mb-4 h-100 pop">
             <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/aob0ukAYfuI/400x300" alt="">
             </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
+        <a class="d-block mb-4 h-100 pop">
             <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/EUfxH-pze7s/400x300" alt="">
             </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
+        <a class="d-block mb-4 h-100 pop">
             <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/M185_qYH8vg/400x300" alt="">
             </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
+        <a class="d-block mb-4 h-100 pop">
             <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/sesveuG_rNo/400x300" alt="">
             </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
+        <a class="d-block mb-4 h-100 pop">
             <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/AvhMzHwiE_0/400x300" alt="">
             </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
+        <a class="d-block mb-4 h-100 pop">
             <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/2gYsZUmockw/400x300" alt="">
             </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
+        <a class="d-block mb-4 h-100 pop">
             <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/EMSDtjVHdQ8/400x300" alt="">
             </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
+        <a class="d-block mb-4 h-100 pop">
             <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/8mUEy0ABdNE/400x300" alt="">
             </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
+        <a class="d-block mb-4 h-100 pop">
             <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/G9Rfc1qccH4/400x300" alt="">
             </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
+        <a class="d-block mb-4 h-100 pop">
             <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/aJeH0KcFkuc/400x300" alt="">
             </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
+        <a class="d-block mb-4 h-100 pop">
             <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/p2TQ-3Bh3Oo/400x300" alt="">
             </a>
     </div>
     </div>
-
+    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">              
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <img src="" class="imagepreview" style="width: 100%;" >
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
+
 <div class="page-content page-container" id="page-content" style="background-color: lightgrey;">
     <div class="padding">
         <div class="row container d-flex justify-content-center">
@@ -299,5 +310,11 @@ $(document).ready(function(){
         $(".js-month-text").toggleClass("text-primary");
         $(".js-year-text").toggleClass("text-primary");
     })
+    $(function() {
+		$('.pop').on('click', function() {
+			$('.imagepreview').attr('src', $(this).find('img').attr('src'));
+			$('#imagemodal').modal('show');   
+		});		
+});
 })
 </script>
