@@ -42,4 +42,16 @@ class TemplateService
     {
         return $this->template->delete($id);
     }
+
+    public function getComponentViews($elements)
+    {
+        $views = [];
+
+        foreach ($elements as $element) {
+
+            $views[] = view($element->blade_file)->render();
+        }
+
+        return $views;
+    }
 }

@@ -31,7 +31,8 @@ $(document).ready(function () {
                         template_id: template_id,
                         page_element_type_id: page_element_type_id,
                         page_elementable_id: data.settings.id,
-                        page_elementable_type: 'PriceSettings'
+                        page_elementable_type: 'PriceSettings',
+                        blade_file: 'page_elements.pricing'
                     })
                     .done(function (data_e) {
                         // console.log(data);

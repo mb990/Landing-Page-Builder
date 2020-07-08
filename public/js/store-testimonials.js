@@ -23,7 +23,8 @@ $(document).ready(function () {
                         template_id: template_id,
                         page_element_type_id: page_element_type_id,
                         page_elementable_id: data.settings.id,
-                        page_elementable_type: 'Testimonial'
+                        page_elementable_type: 'Testimonial',
+                        blade_file: 'page_elements.testimonial-single'
                     })
                     .done(function (data) {
                         console.log(data);

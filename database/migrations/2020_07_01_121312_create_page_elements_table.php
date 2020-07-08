@@ -20,6 +20,7 @@ class CreatePageElementsTable extends Migration
             $table->unsignedBigInteger('page_element_type_id');
             $table->unsignedBigInteger('page_elementable_id');
             $table->string('page_elementable_type');
+            $table->string('blade_file');
             $table->timestamps();
 
             $table->foreign('page_element_type_id')->references('id')->on('page_element_types')->onDelete('cascade');

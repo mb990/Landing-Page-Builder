@@ -23,6 +23,7 @@ Route::get('/control-panel', 'PageController@controlPanel');
 //Templates
 Route::post('/template', 'TemplateController@store')->name('template.store');
 Route::get('/templates', 'TemplateController@index');
+Route::get('/template/{id}', 'TemplateController@show')->name('template.show');
 
 //Page Element Types
 Route::get('/page-element-types', 'PageElementTypeController@index');
@@ -52,3 +53,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test', 'PageController@test')->name('test');
+
+Route::get('/test-project', 'PageController@testProject');
+Route::get('/template-view/{id}', 'PageController@testProject2');

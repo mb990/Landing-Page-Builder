@@ -18,7 +18,8 @@ $(document).ready(function () {
                     template_id: template_id,
                     page_element_type_id: page_element_type_id,
                     page_elementable_id: data.settings.id,
-                    page_elementable_type: 'TopMenuSettings'
+                    page_elementable_type: 'TopMenuSettings',
+                    blade_file: 'page_elements.top_menu'
                 })
                 .done(function (data) {
                     console.log(data);

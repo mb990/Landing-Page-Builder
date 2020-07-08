@@ -31,4 +31,15 @@ class TemplateController extends Controller
 
         return response()->json(['success' => 'Template created', 'template' => $template]);
     }
+
+    public function show($id)
+    {
+        $template = $this->templateService->find($id);
+
+        $elements = $template->pageElements;
+
+        $views = $this->templateService->getComponentViews($elements);
+
+        return response()->json(['template' => $template, 'elements' => $elements, 'views' => $views]);
+    }
 }
