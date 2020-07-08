@@ -85,7 +85,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Top Menu</h5>
+                <h5 class="modal-title">Testimonials</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -116,7 +116,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content modal5">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Pricing</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -231,19 +231,23 @@
         </div>
     </div>
 </div>
-
+<!-- Hero Section -->
 <div class="modal fade js-modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content modal4">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Hero section</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <span>
-                    <input type="text" placeholder="Enter creator name">
+                    <input type="text" placeholder="Enter title">
+                    <br>
+                    <input type="text" placeholder="Enter subtitle">
+                    <br>
+                    <input type="text" placeholder="Enter button text">
                 </span>
             </div>
             <div class="modal-footer">
@@ -253,12 +257,12 @@
         </div>
     </div>
 </div>
-
+<!-- General content -->
 <div class="modal fade js-modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content modal3">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
+                <h5 class="modal-title" id="exampleModalLabel">General content</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -275,12 +279,12 @@
         </div>
     </div>
 </div>
-
+<!-- Gallery -->
 <div class="modal fade js-modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content modal2">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Gallery</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -297,12 +301,12 @@
         </div>
     </div>
 </div>
-
+<!-- Footer -->
 <div class="modal fade js-modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content modal1">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Top Menu</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Footer</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
