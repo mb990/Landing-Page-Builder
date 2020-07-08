@@ -149,9 +149,9 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="">Plan benefits</span>
                                 </div>
-                                <input type="text" class="form-control js-plan-benefit-1 benefit-1" placeholder="Benefit">
-                                <input type="text" class="form-control js-plan-benefit-1 benefit-2" placeholder="Benefit">
-                                <input type="text" class="form-control js-plan-benefit-1 benefit-3" placeholder="Benefit">
+                                <input type="text" class="form-control js-plan-benefit-1 benefit-1-1" placeholder="Benefit">
+                                <input type="text" class="form-control js-plan-benefit-1 benefit-1-2" placeholder="Benefit">
+                                <input type="text" class="form-control js-plan-benefit-1 benefit-1-3" placeholder="Benefit">
                             </div>
                         </span>
                     </span>
@@ -183,9 +183,9 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="">Plan benefits</span>
                                 </div>
-                                <input type="text" class="form-control js-plan-benefit-2 benefit-4" placeholder="Benefit">
-                                <input type="text" class="form-control js-plan-benefit-2 benefit-5" placeholder="Benefit">
-                                <input type="text" class="form-control js-plan-benefit-2 benefit-6" placeholder="Benefit">
+                                <input type="text" class="form-control js-plan-benefit-2 benefit-2-1" placeholder="Benefit">
+                                <input type="text" class="form-control js-plan-benefit-2 benefit-2-2" placeholder="Benefit">
+                                <input type="text" class="form-control js-plan-benefit-2 benefit-2-3" placeholder="Benefit">
                             </div>
                         </span>
                     </span>
@@ -217,9 +217,9 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="">Plan benefits</span>
                                 </div>
-                                <input type="text" class="form-control js-plan-benefit-3 benefit-7" placeholder="Benefit">
-                                <input type="text" class="form-control js-plan-benefit-3 benefit-8" placeholder="Benefit">
-                                <input type="text" class="form-control js-plan-benefit-3 benefit-9" placeholder="Benefit">
+                                <input type="text" class="form-control js-plan-benefit-3 benefit-3-1" placeholder="Benefit">
+                                <input type="text" class="form-control js-plan-benefit-3 benefit-3-2" placeholder="Benefit">
+                                <input type="text" class="form-control js-plan-benefit-3 benefit-3-3" placeholder="Benefit">
                             </div>
                         </span>
                     </span>
@@ -404,12 +404,6 @@
             $('#template_id').val(template_id);
         })
 
-        $('.js-save-top-menu').click(storeTopMenuSettings);
-
-        $('.js-save-testimonial-changes').click(storeTestimonial);
-
-        $('.js-save-prices-changes').click(storePriceSettings);
-
         $('.js-get-elements').change(function() {
             // save page_element_type_id into hidden field
             let type = $(this).find(':selected').data('id');
@@ -442,6 +436,12 @@
         $('.js-get-templates').change(function() {
             var id = $(this).find(':selected').data('id')
         })
+
+        $('.js-save-top-menu').click(storeTopMenuSettings);
+
+        $('.js-save-testimonial-changes').click(storeTestimonial);
+
+        $('.js-save-prices-changes').click(storePriceSettings);
     })
 
 </script>

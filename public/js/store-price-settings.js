@@ -4,7 +4,8 @@ $(document).ready(function () {
 
         e.preventDefault();
 
-        console.log('usao u funkciju storePriceSettings');
+        let template_id = $('#template_id').val();
+        let page_element_type_id = $('#page_element_type_id').val();
 
         $('input.js-pricing-plan').each(function (e, i) {
 
@@ -22,8 +23,9 @@ $(document).ready(function () {
                 }
             ).done(function (data) {
 
-                // store pageElement ajax
+                console.log()
 
+                // store pageElement ajax
                 $.post('/page-element',
                     {
                         template_id: template_id,
@@ -31,15 +33,27 @@ $(document).ready(function () {
                         page_elementable_id: data.settings.id,
                         page_elementable_type: 'PriceSettings'
                     })
-                    .done(function (data) {
-                        console.log(data);
+                    .done(function (data_e) {
+                        // console.log(data);
                     })
                     .fail(console.log('failed element'))
 
                 // store benefits for settings
                 $('.js-plan-benefit-' + (e + 1)).each(function (u, j) {
 
-                    console.log('plan ' + (e + 1) + '- benefit ' + (u + 1))
+                    if ($('.benefit-' + (e + 1) + '-' + (u + 1)).val()) {
+
+                        let desc = $('.benefit-' + (e + 1) + '-' + (u + 1)).val();
+
+                        $.post('/benefit',
+                            {
+                                description: desc,
+                                price_settings_id: data.settings.id
+                            },
+
+                        ).done(console.log('dodat-benefit')
+                        ).fail(console.log('nije dodat benefit'))
+                    }
 
                 })
             }).fail(console.log('neuspelo'))

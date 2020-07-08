@@ -18,7 +18,7 @@ class CreatePriceSettingsTable extends Migration
             $table->string('name');
             $table->float('yearly_price');
             $table->float('monthly_price');
-            $table->float('discount_amount');
+            $table->float('discount_amount')->nullable();
             $table->timestamps();
         });
     }

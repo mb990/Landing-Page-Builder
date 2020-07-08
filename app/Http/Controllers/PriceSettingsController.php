@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePriceSettingsRequest;
 use App\Services\PriceSettingsService;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,7 @@ class PriceSettingsController extends Controller
         $this->priceSettingsService = $priceSettingsService;
     }
 
-    public function store(Request $request)
+    public function store(StorePriceSettingsRequest $request)
     {
         $settings = $this->priceSettingsService->store($request);
 

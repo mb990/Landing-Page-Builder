@@ -45,6 +45,9 @@ Route::post('/testimonial-settings', 'TestimonialSettingsController@store')->nam
 //Price Settings
 Route::post('/price-settings', 'PriceSettingsController@store')->name('price-settings.store');
 
+//Price Settings Benefits
+Route::post('/benefit', 'PricingSettingsBenefitController@store')->name('price-settings-benefit.store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
