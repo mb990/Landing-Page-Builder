@@ -19,7 +19,10 @@ class CreatePriceSettingsTable extends Migration
             $table->float('yearly_price');
             $table->float('monthly_price');
             $table->float('discount_amount')->nullable();
+            $table->unsignedBigInteger('pricing_section_id');
             $table->timestamps();
+
+            $table->foreign('pricing_section_id')->references('id')->on('pricing_sections')->onDelete('cascade');
         });
     }
 

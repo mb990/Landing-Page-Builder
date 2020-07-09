@@ -8,7 +8,7 @@ $(document).ready(function () {
 
         console.log(123);
 
-        $.get('/template/' + id, function (data) {
+        $.get(route('template.show', id), function (data) {
             console.log(data);
         }).done(function (data) {
             data.views.forEach(function (e) {

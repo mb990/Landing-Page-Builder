@@ -40,8 +40,14 @@ Route::post('/image', 'ImageController@store')->name('image.store');
 //Top Menu Settings
 Route::post('/top-menu-settings', 'TopMenuSettingsController@store')->name('top-menu-settings.store');
 
+//Testimonial Sections
+Route::post('/testimonial-section', 'TestimonialSectionController@store')->name('testimonial-section.store');
+
 //Testimonials
 Route::post('/testimonial-settings', 'TestimonialSettingsController@store')->name('testimonial-settings.store');
+
+//Pricing Sections
+Route::post('/pricing-section', 'PricingSectionController@store')->name('pricing-section.store');
 
 //Price Settings
 Route::post('/price-settings', 'PriceSettingsController@store')->name('price-settings.store');

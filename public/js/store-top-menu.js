@@ -7,13 +7,13 @@ $(document).ready(function () {
         let template_id = $('#template_id').val();
         let page_element_type_id = $('#page_element_type_id').val();
 
-        $.post('/top-menu-settings',
+        $.post(route('top-menu-settings.store'),
             {
                 //
             }
             ).done(function (data) {
             // saving new top menu element
-            $.post('/page-element',
+            $.post(route('page-element.store'),
                 {
                     template_id: template_id,
                     page_element_type_id: page_element_type_id,
@@ -29,7 +29,7 @@ $(document).ready(function () {
             $('.js-top-menu-link').each(function (e, i) {
                 let url = $("#link-url-" + (e + 1)).val();
                 let title = $("#title-" + (e + 1)).val();
-                $.post('/link',
+                $.post(route('top-menu-link.store'),
                     {
                         url: url,
                         title: title,

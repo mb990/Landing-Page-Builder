@@ -7,11 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class PriceSettings extends Model
 {
     protected $fillable = [
-        'name', 'yearly_price', 'monthly_price', 'discount_amount'
+        'name', 'yearly_price', 'monthly_price', 'discount_amount', 'pricing_section_id'
     ];
 
-    public function pageElement()
+    public function pricingSection()
     {
-        return $this->morphOne(PageElement::class, 'page_elementable');
+        return $this->belongsTo(PricingSection::class);
     }
+
+//    public function pageElement()
+//    {
+//        return $this->morphOne(PageElement::class, 'page_elementable');
+//    }
 }

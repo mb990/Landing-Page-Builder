@@ -17,7 +17,11 @@ class CreateTestimonialSettingsTable extends Migration
             $table->id();
             $table->text('text');
             $table->string('customer_name');
+            $table->unsignedBigInteger('testimonial_section_id');
             $table->timestamps();
+
+            $table->foreign('testimonial_section_id')->references('id')->on('testimonial_sections')->onDelete('cascade');
+
         });
     }
 
