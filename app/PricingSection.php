@@ -6,12 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class PricingSection extends Model
 {
-    protected $fillable = [
-        'blade_file'
-    ];
+//    protected $fillable = [
+//        'blade_file'
+//    ];
 
     public function pageElement()
     {
         return $this->morphOne(PageElement::class, 'page_elementable');
+    }
+
+    public function singleItems()
+    {
+        return $this->hasMany(PriceSettings::class);
     }
 }

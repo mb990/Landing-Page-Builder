@@ -36,7 +36,7 @@ class TemplateController extends Controller
     {
         $template = $this->templateService->find($id);
 
-        $elements = $template->pageElements;
+        $elements = $template->test();
 
         $views = $this->templateService->getComponentViews($elements);
 

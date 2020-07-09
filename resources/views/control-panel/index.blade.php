@@ -444,9 +444,9 @@
 
         $('.js-save-top-menu').click(storeTopMenuSettings);
 
-        $('.js-save-testimonial-changes').click(storeTestimonial);
+        $('.js-save-testimonial-changes').click(storeTestimonialSection);
 
-        $('.js-save-prices-changes').click(storePriceSettings);
+        $('.js-save-prices-changes').click(storePriceSection);
     })
 
 </script>

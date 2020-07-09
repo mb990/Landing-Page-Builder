@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    window.storeTestimonial = function(e) {
+    window.storeTestimonialSection = function(e) {
 
         e.preventDefault();
 
@@ -10,7 +10,7 @@ $(document).ready(function () {
         $.post(route('testimonial-section.store'),
 
             {
-                blade_file: 'page_elements.testimonials'
+                // blade_file: 'page_elements.testimonials'
             }
 
         ).done(function (data) {
@@ -24,7 +24,7 @@ $(document).ready(function () {
                     page_element_type_id: page_element_type_id,
                     page_elementable_id: section_id,
                     page_elementable_type: 'TestimonialSection',
-                    blade_file: 'page_elements.testimonial-single'
+                    blade_file: 'page_elements.testimonials'
                 })
                 .done(function (data) {
                     console.log(data);
@@ -39,7 +39,8 @@ $(document).ready(function () {
                     {
                         customer_name: customer,
                         text: testimonial_text,
-                        testimonial_section_id: section_id
+                        testimonial_section_id: section_id,
+                        blade_file: 'page_elements.testimonial-single'
                     }
                 )
             })

@@ -15,7 +15,7 @@ class CreatePricingSectionsTable extends Migration
     {
         Schema::create('pricing_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('blade_file');
+//            $table->string('blade_file');
             $table->timestamps();
         });
     }

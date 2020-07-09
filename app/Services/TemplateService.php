@@ -49,7 +49,14 @@ class TemplateService
 
         foreach ($elements as $element) {
 
-            $views[] = view($element->blade_file)->render();
+            $views[$element->id] = view($element->blade_file)->render();
+
+            return $elements;
+
+            foreach ($element->pageElement->singleItems as $item) {
+
+                $views[$element->id]['content'] = view($item->blade_file)->render();
+            }
         }
 
         return $views;

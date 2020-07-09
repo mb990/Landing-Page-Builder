@@ -19,4 +19,11 @@ class Template extends Model
     {
         return $this->hasMany(PageElement::class);
     }
+
+    public function test()
+    {
+        return $this->pageElements()
+//            ->with('pageElement')
+            ->get();
+    }
 }

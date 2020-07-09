@@ -6,16 +6,15 @@ $(document).ready(function () {
 
         let id = $('.js-template-id').val();
 
-        console.log(123);
-
         $.get(route('template.show', id), function (data) {
             console.log(data);
-        }).done(function (data) {
-            data.views.forEach(function (e) {
-                $('.main-div').append(e);
-                console.log(e);
-            })
         })
+        //     .done(function (data) {
+        //     data.views.forEach(function (e) {
+        //         $('.main-div').append(e);
+        //         console.log(e);
+        //     })
+        // })
 
     }
 

@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    window.storePriceSettings = function (e) {
+    window.storePriceSection = function (e) {
 
         e.preventDefault();
 
@@ -10,7 +10,7 @@ $(document).ready(function () {
         $.post(route('pricing-section.store'),
 
             {
-                blade_file: 'page_elements.pricing'
+                // blade_file: 'page_elements.pricing'
             }
 
             ).done(function (data) {
@@ -24,7 +24,7 @@ $(document).ready(function () {
                     page_element_type_id: page_element_type_id,
                     page_elementable_id: section_id,
                     page_elementable_type: 'PriceSection',
-                    blade_file: 'page_elements.pricing-single'
+                    blade_file: 'page_elements.pricings'
                 })
                 .done(function (data_e) {
                     // console.log(data);
@@ -44,7 +44,8 @@ $(document).ready(function () {
                         yearly_price: y_price,
                         monthly_price: m_price,
                         discount_amount: discount,
-                        pricing_section_id: section_id
+                        pricing_section_id: section_id,
+                        blade_file: 'page_elements.pricing-single'
                     }
                 ).done(function (data) {
 
