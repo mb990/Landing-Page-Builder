@@ -43,17 +43,20 @@ class TemplateService
         return $this->template->delete($id);
     }
 
-    public function getComponentViews($elements)
+    public function getComponentViews($template)
     {
         $views = [];
 
-        foreach ($elements as $element) {
+        foreach ($template->testimonialSections() as $testimonialSection) {
+
+            return $testimonialSection;
+        }
+
+        foreach ($template->testimonialSections() as $element) {
 
             $views[$element->id] = view($element->blade_file)->render();
 
-            return $elements;
-
-            foreach ($element->pageElement->singleItems as $item) {
+            foreach ($element as $item) {
 
                 $views[$element->id]['content'] = view($item->blade_file)->render();
             }

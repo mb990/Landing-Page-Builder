@@ -36,9 +36,9 @@ class TemplateController extends Controller
     {
         $template = $this->templateService->find($id);
 
-        $elements = $template->test();
+        $elements = $template->pageElements;
 
-        $views = $this->templateService->getComponentViews($elements);
+        $views = $this->templateService->getComponentViews($template);
 
         return response()->json(['template' => $template, 'elements' => $elements, 'views' => $views]);
     }

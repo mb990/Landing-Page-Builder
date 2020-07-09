@@ -10,7 +10,7 @@ class PageElement extends Model
         'page_element_type_id', 'page_elementable_id', 'page_elementable_type', 'project_id', 'template_id', 'blade_file'
     ];
 
-    public function pageElement()
+    public function pageElementable()
     {
         return $this->morphTo();
     }

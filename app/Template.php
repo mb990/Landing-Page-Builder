@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Template extends Model
 {
@@ -20,10 +21,11 @@ class Template extends Model
         return $this->hasMany(PageElement::class);
     }
 
-    public function test()
+    public function testimonialSections()
     {
         return $this->pageElements()
-//            ->with('pageElement')
+            ->where('page_elementable_type',TestimonialSection::class)
+            ->with('pageElementable.singleItems')
             ->get();
     }
 }
