@@ -1,3 +1,22 @@
 .content-text{
     font-size: 24px;
 }
+.img-responsive{
+    width: 560px;
+    @media screen and (max-width:425px){
+        width: 80vw;
+        height: auto;
+    }
+}
+.bullets-div{
+    padding: 20vh;
+    @media screen and (max-width:425px){
+        padding: 0px;
+    }
+}
+.bullets{
+    display: flex;
+    @media screen and (max-width:425px){
+        display: block;
+    }
+}

@@ -21,7 +21,7 @@
 </header>
 <section class="hero">
     <div class="hero-image">
-        <img style="position: inherit; width: 100vw;" src="/img/head-t1.jpg">
+        <img class="hero-background" src="/img/head-t1.jpg">
         <div class="hero-text">
             <h1>Your title goes here</h1>
             <h3>Subtitle goes here</h3>
@@ -35,7 +35,7 @@
     <section style="padding: 64px 0px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-7 col-sm-6 text-center mb-xs-24"><img class="img-responsive" style="width: 560px;height: 538px;" src="/img/t1-mac.jpg"></div>
+                <div class="col-md-7 col-sm-6 text-center mb-xs-24"><img class="img-responsive" src="/img/t1-mac.jpg"></div>
                 <div class="col-md-4 col-md-offset-1 col-sm-5 col-sm-offset-1">
                     <div class="content-text">
                         <h3>SEO Friendly</h3><div class="mb32"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar luctus sem, eget porta orci. 
@@ -86,8 +86,8 @@
             </div>
         </div>
     </section>
-    <div style=" padding: 20vh;">
-        <div class="content center" style="display: flex;">
+    <div class="bullets-div">
+        <div class="content center bullets">
             <div class="col span1of3 mid-span3of4 small-span1of1 align-left">
                 <h2 class="heading center">Find your people</h2>
                 <p>Personalize your signup form and share it with your community. Send a link to your landing page, embed the form on your site, or invite readers to subscribe right on Twitter. Send great emails, and watch your readership grow over time.</p>
