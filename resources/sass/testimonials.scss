@@ -1,5 +1,8 @@
 .card .carousel-item {
     height: 200px;
+    @media screen and (max-width:425px){
+      height:225px;
+    }
   }
   .card .carousel-caption {
     padding: 0;
