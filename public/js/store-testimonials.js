@@ -34,9 +34,11 @@ $(document).ready(function () {
             $('.js-testimonial').each(function (e, i) {
                 let customer = $('#customer_name-' + (e + 1)).val();
                 let testimonial_text = $('#testimonial_text-' + (e + 1)).val();
+                let title = $('#testimonial_title-' + (e + 1)).val();
 
                 $.post(route('testimonial-settings.store'),
                     {
+                        title: title,
                         customer_name: customer,
                         text: testimonial_text,
                         testimonial_section_id: section_id,

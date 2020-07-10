@@ -56,7 +56,7 @@ class TemplateService
 
             else {
 
-                $views[$element->id] = view($element->blade_file, ['items' => $element->pageElementable])->render();
+                $views[$element->id] = view($element->blade_file, ['items' => $element->pageElementable->links])->render();
             }
         }
 

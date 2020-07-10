@@ -9,7 +9,7 @@
 
             @forelse($items as $item)
 
-                @include($item->blade_file)
+                @include($item->blade_file, ['item' => $item])
 
             @empty
 

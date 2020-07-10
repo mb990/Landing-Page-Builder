@@ -15,6 +15,7 @@ class CreateTestimonialSettingsTable extends Migration
     {
         Schema::create('testimonial_settings', function (Blueprint $table) {
             $table->id();
+            $table->text('title');
             $table->text('text');
             $table->string('customer_name');
             $table->string('blade_file');

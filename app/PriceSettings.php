@@ -15,6 +15,11 @@ class PriceSettings extends Model
         return $this->belongsTo(PricingSection::class);
     }
 
+    public function benefits()
+    {
+        return $this->hasMany(PricingSettingsBenefit::class);
+    }
+
 //    public function pageElement()
 //    {
 //        return $this->morphOne(PageElement::class, 'page_elementable');

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TestimonialSettings extends Model
 {
     protected $fillable = [
-        'text', 'customer_name', 'testimonial_section_id', 'blade_file'
+        'title', 'text', 'customer_name', 'testimonial_section_id', 'blade_file'
     ];
 
     public function testimonialSection()
