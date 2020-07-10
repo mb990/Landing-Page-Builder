@@ -406,7 +406,7 @@
                 }
             })
                 .done(function(data){
-                        $(".js-get-templates").append('<option data-name="'+ data.name +'" data-id="'+ data.template.id +'" class="js-template" >'+ name + '</option>')
+                        $(".js-get-templates").append('<option data-name="'+ data.template.name +'" data-id="'+ data.template.id +'" class="js-template" >'+ name + '</option>')
                     }
 
                 );
