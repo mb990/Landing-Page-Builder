@@ -17,6 +17,7 @@ class CreateTestimonialSettingsTable extends Migration
             $table->id();
             $table->text('text');
             $table->string('customer_name');
+            $table->string('blade_file');
             $table->unsignedBigInteger('testimonial_section_id');
             $table->timestamps();
 

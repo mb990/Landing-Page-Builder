@@ -18,6 +18,7 @@ class CreatePriceSettingsTable extends Migration
             $table->string('name');
             $table->float('yearly_price');
             $table->float('monthly_price');
+            $table->string('blade_file');
             $table->float('discount_amount')->nullable();
             $table->unsignedBigInteger('pricing_section_id');
             $table->timestamps();

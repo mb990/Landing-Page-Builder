@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TestimonialSection extends Model
 {
 
-//    protected $with = ['singleItems'];
+    protected $with = ['singleItems'];
 
     public function pageElement()
     {

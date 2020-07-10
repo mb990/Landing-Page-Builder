@@ -47,18 +47,16 @@ class TemplateService
     {
         $views = [];
 
-        foreach ($template->testimonialSections() as $testimonialSection) {
+        foreach ($template->elementsWithItems() as $element) {
 
-            return $testimonialSection;
-        }
+            if ($element->pageElementable->singleItems) {
 
-        foreach ($template->testimonialSections() as $element) {
+                $views[$element->id] = view($element->blade_file, ['items' => $element->pageElementable->singleItems])->render();
+            }
 
-            $views[$element->id] = view($element->blade_file)->render();
+            else {
 
-            foreach ($element as $item) {
-
-                $views[$element->id]['content'] = view($item->blade_file)->render();
+                $views[$element->id] = view($element->blade_file, ['items' => $element->pageElementable])->render();
             }
         }
 

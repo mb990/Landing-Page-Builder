@@ -7,14 +7,17 @@ $(document).ready(function () {
         let id = $('.js-template-id').val();
 
         $.get(route('template.show', id), function (data) {
-            console.log(data);
+            // console.log(data);
         })
-        //     .done(function (data) {
-        //     data.views.forEach(function (e) {
-        //         $('.main-div').append(e);
-        //         console.log(e);
-        //     })
-        // })
+            .done(function (data) {
+                console.log(data.views);
+                // $('.main-div').append(data.views[2]);
+
+            jQuery.each(data.views, function (e, i) {
+                $('.main-div').append(i);
+                // console.log(i);
+            })
+        })
 
     }
 

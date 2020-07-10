@@ -6,7 +6,15 @@
             <label class="custom-control-label" for="customSwitches">Toggle month / annual price</label>
         </div>
         <div class="row">
-            @('include.pricing-single')
+
+            @forelse($items as $item)
+
+                @include($item->blade_file)
+
+            @empty
+
+            @endforelse
+
         </div>
     </div>
 </section>

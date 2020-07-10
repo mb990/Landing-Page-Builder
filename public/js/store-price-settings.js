@@ -23,8 +23,8 @@ $(document).ready(function () {
                     template_id: template_id,
                     page_element_type_id: page_element_type_id,
                     page_elementable_id: section_id,
-                    page_elementable_type: 'App\PriceSection',
-                    blade_file: 'page_elements.pricings'
+                    page_elementable_type: 'App\\PricingSection',
+                    blade_file: 'page_elements.pricing'
                 })
                 .done(function (data_e) {
                     // console.log(data);

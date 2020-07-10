@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class PriceSettings extends Model
 {
     protected $fillable = [
-        'name', 'yearly_price', 'monthly_price', 'discount_amount', 'pricing_section_id'
+        'name', 'yearly_price', 'monthly_price', 'discount_amount', 'pricing_section_id', 'blade_file'
     ];
 
     public function pricingSection()

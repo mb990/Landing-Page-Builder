@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class TopMenuSettings extends Model
 {
+    protected $with = ['links'];
+
     public function pageElement()
     {
         return $this->morphOne(PageElement::class, 'page_elementable');

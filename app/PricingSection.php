@@ -6,9 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class PricingSection extends Model
 {
-//    protected $fillable = [
-//        'blade_file'
-//    ];
+
+    protected $with = ['singleItems'];
 
     public function pageElement()
     {
