@@ -3,7 +3,7 @@
         <!-- switcher -->
         <div style="text-align: center;" class="custom-control custom-switch">
             <input type="checkbox" class="custom-control-input" id="customSwitches">
-            <label class="custom-control-label" for="customSwitches">Toggle month / annual price</label>
+            <label class="custom-control-label" for="customSwitches">Monthly / Annual</label>
         </div>
         <div class="row">
 

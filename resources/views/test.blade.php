@@ -104,7 +104,7 @@
     </div>
 </div>
 <div class="card col-md-6 mt-5 mb-5 my-0 mx-auto" style="background-color: lightgrey;">
-    <div style="text-align: center;"><h3>Reviews from our users</h3></div>
+    <div style="text-align: center;"><h3>Testimonials</h3></div>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="100000">
         <div class="w-100 carousel-inner js-reviews" role="listbox">
             <div class="carousel-item">
@@ -138,9 +138,9 @@
     <div class="container">
         <!-- switcher -->
         <div style="text-align: center;" class="custom-control custom-switch">
-            <label style="margin-right: 40px;" class="text-primary js-month-text">Monthly price</label>
+            <label style="margin-right: 40px;" class="text-primary js-month-text">Monthly</label>
             <input type="checkbox" class="custom-control-input" id="customSwitches">
-            <label class="custom-control-label js-year-text" for="customSwitches">Annually price</label>
+            <label class="custom-control-label js-year-text" for="customSwitches">Annual</label>
         </div>
         <div class="row">
             <!-- single price plan -->
