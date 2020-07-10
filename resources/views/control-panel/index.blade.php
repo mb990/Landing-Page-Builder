@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     @routes
-    <script src="{{asset('js/store-top-menu.js')}}"></script>
-    <script src="{{asset('js/store-testimonials.js')}}"></script>
-    <script src="{{asset('js/store-price-settings.js')}}"></script>
+    <script src="{{asset('js/templates/store-top-menu.js')}}"></script>
+    <script src="{{asset('js/templates/store-testimonials.js')}}"></script>
+    <script src="{{asset('js/templates/store-price-settings.js')}}"></script>
+    <script src="{{asset('js/templates/store-footer-settings.js')}}"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script type="text/javascript">
         $.ajaxSetup({
@@ -327,30 +328,30 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-sm">Creator name</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Add company name">
+                    <input type="text" class="form-control" id="footer_creator" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Add company name">
                 </div>
                 <div class="input-group input-group-sm mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-sm">Facebook</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Add link">
+                    <input type="text" class="form-control" id="facebook_url" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Add link">
                 </div>
                 <div class="input-group input-group-sm mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-sm">Twitter</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Add link">
+                    <input type="text" class="form-control" id="twitter_url" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Add link">
                 </div>
                 <div class="input-group input-group-sm mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-sm">Instagram</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Add link">
+                    <input type="text" class="form-control" id="instagram_url" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Add link">
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
+                <button type="button" class="btn btn-primary js-save-footer-changes">Save changes</button>
             </div>
         </div>
     </div>
@@ -455,6 +456,8 @@
         $('.js-save-testimonial-changes').click(storeTestimonialSection);
 
         $('.js-save-prices-changes').click(storePriceSection);
+
+        $('.js-save-footer-changes').click(storeTemplateFooter);
     })
 
 </script>

@@ -6,8 +6,6 @@ $(document).ready(function () {
 
         let template_id = $('#template_id').val();
         let template_name = $('#template_name').val();
-        console.log('id: ' + template_id);
-        console.log('template name: ' + template_name);
         let page_element_type_id = $('#page_element_type_id').val();
 
         $.post(route('top-menu-settings.store'),

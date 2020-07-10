@@ -55,6 +55,9 @@ Route::post('/price-settings', 'PriceSettingsController@store')->name('price-set
 //Price Settings Benefits
 Route::post('/benefit', 'PricingSettingsBenefitController@store')->name('price-settings-benefit.store');
 
+//Footer Settings
+Route::post('/footer-settings', 'FooterSettingsController@store')->name('footer-settings.store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

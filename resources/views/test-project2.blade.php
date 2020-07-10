@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/page_elements1.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script src="{{asset('js/show-template.js')}}"></script>
+    <script src="{{asset('js/templates/show-template.js')}}"></script>
     <script type="text/javascript">
         $.ajaxSetup({
             headers: {

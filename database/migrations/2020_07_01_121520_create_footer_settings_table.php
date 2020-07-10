@@ -15,11 +15,11 @@ class CreateFooterSettingsTable extends Migration
     {
         Schema::create('footer_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('text');
-            $table->string('facebook_url');
-            $table->string('instagram_url');
-            $table->string('twitter_url');
-            $table->integer('year_made');
+            $table->string('creator');
+            $table->string('facebook_url')->nullable();
+            $table->string('instagram_url')->nullable();
+            $table->string('twitter_url')->nullable();
+            $table->integer('year_made')->default(date('Y'));
             $table->timestamps();
         });
     }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class FooterSettings extends Model
 {
     protected $fillable = [
-        'text', 'year', 'facebook_link', 'instagram_link', 'twitter_link'
+        'creator', 'year_made', 'facebook_url', 'instagram_url', 'twitter_url'
     ];
 
     public function pageElement()
