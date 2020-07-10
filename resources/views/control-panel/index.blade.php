@@ -38,6 +38,7 @@
 <div>
     <div style="width: 50vw;margin-top: 100px;">
         <input type="hidden" id="template_id">
+        <input type="hidden" id="template_name">
         <input type="hidden" id="page_element_type_id">
         <select class="form-control form-control-lg js-get-elements">
             <option selected>Select element</option>
@@ -385,7 +386,7 @@
                 output = []
                 console.log(data.templates)
                 $.each(data.templates, function (i, e) {
-                    output += '<option data-id="'+ e.id +'" class="js-template">'+ e.name + '</option>'
+                    output += '<option data-name="'+ e.name +'" data-id="'+ e.id +'" class="js-template">'+ e.name + '</option>'
                 });
                 $(".js-get-templates").append(output)
             }
@@ -402,7 +403,6 @@
                 },
                 success: function (data) {
                     console.log(data)
-                    alert(data.success)
                 }
             })
                 .done(function(data){
@@ -415,7 +415,9 @@
         // save template_id into hidden field
         $('.js-get-templates').change(function() {
             let template_id = $(this).find(':selected').data('id');
+            let template_name = $(this).find(':selected').data('name');
             $('#template_id').val(template_id);
+            $('#template_name').val(template_name);
         })
 
         $('.js-get-elements').change(function() {
@@ -447,9 +449,6 @@
                 $('.js-modal1').modal("show");
             }
         });
-        $('.js-get-templates').change(function() {
-            var id = $(this).find(':selected').data('id')
-        })
 
         $('.js-save-top-menu').click(storeTopMenuSettings);
 

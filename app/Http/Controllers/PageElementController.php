@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreTemplatePageElementRequest;
 use App\Services\PageElementService;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,7 @@ class PageElementController extends Controller
         $this->pageElementService = $pageElementService;
     }
 
-    public function store(Request $request)
+    public function store(StoreTemplatePageElementRequest $request)
     {
         $element = $this->pageElementService->store($request);
 

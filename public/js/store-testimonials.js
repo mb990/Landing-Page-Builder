@@ -5,6 +5,7 @@ $(document).ready(function () {
         e.preventDefault();
 
         let template_id = $('#template_id').val();
+        let template_name = $('#template_name').val();
         let page_element_type_id = $('#page_element_type_id').val();
 
         $.post(route('testimonial-section.store'),
@@ -24,7 +25,7 @@ $(document).ready(function () {
                     page_element_type_id: page_element_type_id,
                     page_elementable_id: section_id,
                     page_elementable_type: 'App\\TestimonialSection',
-                    blade_file: 'page_elements.testimonials'
+                    blade_file: 'templates.' + template_name + '.page_elements.testimonials'
                 })
                 .done(function (data) {
                     console.log(data);
@@ -42,7 +43,7 @@ $(document).ready(function () {
                         customer_name: customer,
                         text: testimonial_text,
                         testimonial_section_id: section_id,
-                        blade_file: 'page_elements.testimonial-single'
+                        blade_file: 'templates.' + template_name + '.page_elements.testimonial-single'
                     }
                 )
             })

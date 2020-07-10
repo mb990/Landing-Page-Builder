@@ -5,6 +5,9 @@ $(document).ready(function () {
         e.preventDefault();
 
         let template_id = $('#template_id').val();
+        let template_name = $('#template_name').val();
+        console.log('id: ' + template_id);
+        console.log('template name: ' + template_name);
         let page_element_type_id = $('#page_element_type_id').val();
 
         $.post(route('top-menu-settings.store'),
@@ -19,7 +22,7 @@ $(document).ready(function () {
                     page_element_type_id: page_element_type_id,
                     page_elementable_id: data.settings.id,
                     page_elementable_type: 'App\\TopMenuSettings',
-                    blade_file: 'page_elements.top_menu'
+                    blade_file: 'templates.' + template_name +'.page_elements.top_menu'
                 })
                 .done(function (data) {
                     console.log(data);

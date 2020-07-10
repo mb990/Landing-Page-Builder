@@ -5,6 +5,7 @@ $(document).ready(function () {
         e.preventDefault();
 
         let template_id = $('#template_id').val();
+        let template_name = $('#template_name').val();
         let page_element_type_id = $('#page_element_type_id').val();
 
         $.post(route('pricing-section.store'),
@@ -24,7 +25,7 @@ $(document).ready(function () {
                     page_element_type_id: page_element_type_id,
                     page_elementable_id: section_id,
                     page_elementable_type: 'App\\PricingSection',
-                    blade_file: 'page_elements.pricing'
+                    blade_file: 'templates.' + template_name +'.page_elements.pricing'
                 })
                 .done(function (data_e) {
                     // console.log(data);
@@ -45,7 +46,7 @@ $(document).ready(function () {
                         monthly_price: m_price,
                         discount_amount: discount,
                         pricing_section_id: section_id,
-                        blade_file: 'page_elements.pricing-single'
+                        blade_file: 'templates.' + template_name + '.page_elements.pricing-single'
                     }
                 ).done(function (data) {
 
