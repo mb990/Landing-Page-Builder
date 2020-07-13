@@ -37227,6 +37227,16 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./templates/show-template */ "./resources/js/templates/show-template.js");
+
+__webpack_require__(/*! ./templates/store-footer-settings */ "./resources/js/templates/store-footer-settings.js");
+
+__webpack_require__(/*! ./templates/store-price-settings */ "./resources/js/templates/store-price-settings.js");
+
+__webpack_require__(/*! ./templates/store-testimonials */ "./resources/js/templates/store-testimonials.js");
+
+__webpack_require__(/*! ./templates/store-top-menu */ "./resources/js/templates/store-top-menu.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37271,6 +37281,211 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/templates/show-template.js":
+/*!*************************************************!*\
+  !*** ./resources/js/templates/show-template.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.showTemplate = function () {
+    // e.preventDefault();
+    var id = $('.js-template-id').val();
+    $.get(route('template.show', id), function (data) {// console.log(data);
+    }).done(function (data) {
+      // console.log(data.views);
+      // $('.main-div').append(data.views[2]);
+      jQuery.each(data.views, function (e, i) {
+        $('.main-div').append(i); // console.log(i);
+      });
+    });
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/templates/store-footer-settings.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/templates/store-footer-settings.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.storeTemplateFooter = function (e) {
+    e.preventDefault();
+    var template_id = $('#template_id').val();
+    var template_name = $('#template_name').val();
+    var page_element_type_id = $('#page_element_type_id').val();
+    var creator = $('#footer_creator').val();
+    var facebook = $('#facebook_url').val();
+    var instagram = $('#instagram_url').val();
+    var twitter = $('#twitter_url').val();
+    $.post(route('footer-settings.store'), {
+      creator: creator,
+      facebook_url: facebook,
+      instagram_url: instagram,
+      twitter_url: twitter
+    }).done(function (data) {
+      // saving new footer element
+      $.post(route('page-element.store'), {
+        template_id: template_id,
+        page_element_type_id: page_element_type_id,
+        page_elementable_id: data.settings.id,
+        page_elementable_type: 'App\\FooterSettings',
+        blade_file: 'templates.' + template_name + '.page_elements.footer'
+      });
+    });
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/templates/store-price-settings.js":
+/*!********************************************************!*\
+  !*** ./resources/js/templates/store-price-settings.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.storePriceSection = function (e) {
+    e.preventDefault();
+    var template_id = $('#template_id').val();
+    var template_name = $('#template_name').val();
+    var page_element_type_id = $('#page_element_type_id').val();
+    $.post(route('pricing-section.store'), {// blade_file: 'page_elements.pricing'
+    }).done(function (data) {
+      var section_id = data.section.id; // store pricing section page element ajax
+
+      $.post(route('page-element.store'), {
+        template_id: template_id,
+        page_element_type_id: page_element_type_id,
+        page_elementable_id: section_id,
+        page_elementable_type: 'App\\PricingSection',
+        blade_file: 'templates.' + template_name + '.page_elements.pricing'
+      }).done(function (data_e) {// console.log(data);
+      }).fail(console.log('failed element'));
+      $('input.js-pricing-plan').each(function (e, i) {
+        var name = $('.plan-' + (e + 1)).val();
+        var y_price = $('.year-' + (e + 1)).val();
+        var m_price = $('.month-' + (e + 1)).val();
+        var discount = $('.discount-' + (e + 1)).val();
+        $.post(route('price-settings.store'), {
+          name: name,
+          yearly_price: y_price,
+          monthly_price: m_price,
+          discount_amount: discount,
+          pricing_section_id: section_id,
+          blade_file: 'templates.' + template_name + '.page_elements.pricing-single'
+        }).done(function (data) {
+          // store benefits for settings
+          $('.js-plan-benefit-' + (e + 1)).each(function (u, j) {
+            if ($('.benefit-' + (e + 1) + '-' + (u + 1)).val()) {
+              var desc = $('.benefit-' + (e + 1) + '-' + (u + 1)).val();
+              $.post(route('price-settings-benefit.store'), {
+                description: desc,
+                price_settings_id: data.settings.id
+              }).done(console.log('dodat-benefit')).fail(console.log('nije dodat benefit'));
+            }
+          });
+        }).fail(console.log('neuspelo'));
+      });
+    });
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/templates/store-testimonials.js":
+/*!******************************************************!*\
+  !*** ./resources/js/templates/store-testimonials.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.storeTestimonialSection = function (e) {
+    e.preventDefault();
+    var template_id = $('#template_id').val();
+    var template_name = $('#template_name').val();
+    var page_element_type_id = $('#page_element_type_id').val();
+    $.post(route('testimonial-section.store'), {// blade_file: 'page_elements.testimonials'
+    }).done(function (data) {
+      var section_id = data.section.id; // saving new testimonial section element
+
+      $.post(route('page-element.store'), {
+        template_id: template_id,
+        page_element_type_id: page_element_type_id,
+        page_elementable_id: section_id,
+        page_elementable_type: 'App\\TestimonialSection',
+        blade_file: 'templates.' + template_name + '.page_elements.testimonials'
+      }).done(function (data) {
+        console.log(data);
+      }).fail(console.log('failed element'));
+      $('.js-testimonial').each(function (e, i) {
+        var customer = $('#customer_name-' + (e + 1)).val();
+        var testimonial_text = $('#testimonial_text-' + (e + 1)).val();
+        var title = $('#testimonial_title-' + (e + 1)).val();
+        $.post(route('testimonial-settings.store'), {
+          title: title,
+          customer_name: customer,
+          text: testimonial_text,
+          testimonial_section_id: section_id,
+          blade_file: 'templates.' + template_name + '.page_elements.testimonial-single'
+        });
+      });
+    });
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/templates/store-top-menu.js":
+/*!**************************************************!*\
+  !*** ./resources/js/templates/store-top-menu.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.storeTopMenuSettings = function (e) {
+    e.preventDefault();
+    var template_id = $('#template_id').val();
+    var template_name = $('#template_name').val();
+    var page_element_type_id = $('#page_element_type_id').val();
+    $.post(route('top-menu-settings.store'), {//
+    }).done(function (data) {
+      // saving new top menu element
+      $.post(route('page-element.store'), {
+        template_id: template_id,
+        page_element_type_id: page_element_type_id,
+        page_elementable_id: data.settings.id,
+        page_elementable_type: 'App\\TopMenuSettings',
+        blade_file: 'templates.' + template_name + '.page_elements.top_menu'
+      }).done(function (data) {
+        console.log(data);
+      }).fail(console.log('failed element')); // saving top menu link
+
+      $('.js-top-menu-link').each(function (e, i) {
+        var url = $("#link-url-" + (e + 1)).val();
+        var title = $("#title-" + (e + 1)).val();
+        $.post(route('top-menu-link.store'), {
+          url: url,
+          title: title,
+          top_menu_settings_id: data.settings.id
+        }).done(function (data) {
+          console.log('link je dodat');
+          $(".modal").modal('hide');
+        }).fail(console.log('link nije dodat'));
+      });
+    }).fail(console.log('failed settings'));
+  };
+});
 
 /***/ }),
 
@@ -37325,11 +37540,11 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
 
 
 /***/ })

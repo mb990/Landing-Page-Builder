@@ -17,4 +17,3 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/page_elements1.scss', 'public/css')
     .sass('resources/sass/registration.scss', 'public/css')
     .sass('resources/sass/master.scss', 'public/css');
-
