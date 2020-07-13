@@ -1,10 +1,10 @@
 <section class="hero">
     <div class="hero-image">
-        <img style="position: inherit; width: 100vw;" src="/img/head-t1.jpg">
+        <img style="position: inherit; width: 100vw;" src="{{IMAGE}">
         <div class="hero-text">
-            <h1>Your title goes here</h1>
-            <h3>Subtitle goes here</h3>
-            <button class="btn btn-primary">Button text goes here</button>
+            <h1>{{TITLE}</h1>
+            <h3>{{SUBTITLE}</h3>
+            <button class="btn btn-primary">{{BTN TEXT}</button>
         </div>
     </div>
     <div>

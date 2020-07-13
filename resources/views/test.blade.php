@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/page_elements1.css') }}">
-    <link rel="stylesheet" href="{{ asset('js/elements.js') }}">
+    <link rel="stylesheet" href="{{ asset('js/example.js') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
@@ -34,7 +34,7 @@
 <div class="general-content">
     <section style="padding: 64px 0px;">
         <div class="container">
-            <div class="row">
+            <div class="row row-col">
                 <div class="col-md-7 col-sm-6 text-center mb-xs-24"><img class="img-responsive" src="/img/t1-mac.jpg"></div>
                 <div class="col-md-4 col-md-offset-1 col-sm-5 col-sm-offset-1">
                     <div class="content-text">
@@ -49,7 +49,7 @@
 <div class="general-content" style="background-color: lightgrey;">
     <section style="padding: 64px 0px;">
         <div class="container">
-            <div class="row">
+            <div class="row row-col">
                 <div class="col-md-4 col-md-offset-1 col-sm-5 col-sm-offset-1" style="margin: auto;">
                     <div class="content-text">
                         <h3>Portfolio Section</h3>
@@ -291,14 +291,14 @@
     </div>
     <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">              
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-              <img src="" class="imagepreview" style="width: 100%;" >
+            <div class="modal-content">              
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <img src="" class="imagepreview" style="width: 100%;" >
             </div>
-          </div>
         </div>
-      </div>
+        </div>
+    </div>
 </div>
 
 <div class="page-content page-container" id="page-content" style="background-color: lightgrey;">
@@ -333,6 +333,6 @@ $(document).ready(function(){
 			$('.imagepreview').attr('src', $(this).find('img').attr('src'));
 			$('#imagemodal').modal('show');   
 		});		
-});
+    });
 })
 </script>

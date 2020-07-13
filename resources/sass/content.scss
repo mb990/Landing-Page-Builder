@@ -1,6 +1,14 @@
 .content-text{
     font-size: 24px;
 }
+.row-col{
+        @media screen and (min-width: 768px) and (max-width:1000px){
+            flex-direction: column;
+            .col-md-4{
+                max-width: 100%;
+            }
+        }
+}
 .img-responsive{
     width: 560px;
     @media screen and (max-width:425px){

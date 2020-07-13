@@ -268,7 +268,7 @@
         </div>
     </div>
 </div>
-<!-- General content -->
+<!-- General content-1 -->
 <div class="modal fade js-modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content modal3">
@@ -283,6 +283,8 @@
                         <input type="text" placeholder="Enter section title">
                         <input type="text" placeholder="Enter section text">
                         <input type="file">
+                        <input type="text" placeholder="Enter link url">
+                        <input type="text" placeholder="Enter link button text">
                     </span>
             </div>
             <div class="modal-footer">
@@ -357,9 +359,88 @@
         </div>
     </div>
 </div>
-
-
-
+<!-- General content-2 -->
+<div class="modal fade js-modal8" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal8">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">General content-2</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    <span>
+                        <input type="text" placeholder="Enter section title">
+                        <input type="text" placeholder="Enter section text">
+                        <input type="file">
+                        <input type="text" placeholder="Enter link url">
+                        <input type="text" placeholder="Enter link button text">
+                    </span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- General content-3 -->
+<div class="modal fade js-modal9" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal9">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">General content-3</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    <span>
+                        <input type="text" placeholder="Enter section title">
+                        <input type="text" placeholder="Enter section text">
+                        <input type="text" placeholder="Enter link url">
+                        <input type="text" placeholder="Enter link button text">
+                    </span>
+                    <span>
+                        <input type="text" placeholder="Bullet 1 title">
+                        <input type="text" placeholder="Bullet 1 text">
+                        <input type="text" placeholder="Bullet 2 title">
+                        <input type="text" placeholder="Bullet 2 text">
+                        <input type="text" placeholder="Bullet 3 title">
+                        <input type="text" placeholder="Bullet 3 text">
+                    </span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- SUBSCRIBE -->
+<div class="modal fade js-modal10" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal10">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Subscribe</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    <span>
+                        <input type="text" placeholder="Enter subscribe title">
+                        <input type="text" placeholder="Enter button text like 'Subscribe now'">
+                    </span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -428,8 +509,16 @@
             $('#page_element_type_id').val(type);
 
             var opval = $(this).val();
+            if(opval=="option10"){
+                $('.js-modal10').modal("show");
+            }
+            if(opval=="option9"){
+                $('.js-modal9').modal("show");
+            }
+            if(opval=="option8"){
+                $('.js-modal8').modal("show");
+            }
             if(opval=="option7"){
-                console.log('modal7')
                 $('.js-modal7').modal("show");
             }
             if(opval=="option6"){
