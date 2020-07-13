@@ -38,4 +38,14 @@ class PageController extends Controller
     {
         return view('test-project2');
     }
+
+    public function test2()
+    {
+        return view('test2');
+    }
+
+    public function profile()
+    {
+        return view('profile');
+    }
 }
