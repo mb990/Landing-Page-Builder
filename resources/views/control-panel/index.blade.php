@@ -61,7 +61,7 @@
             </div>
             <div class="modal-body">
                 <label for="img">Add your Logo</label>
-                <input type="file" name="img">
+                <input type="file" id="top-menu-image" name="img">
                 <br>
                 <span class="js-top-menu-link">
                         <input name="title-1" id="title-1" type="text" placeholder="Link title">

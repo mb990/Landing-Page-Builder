@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TopMenuSettings extends Model
 {
-    protected $with = ['links'];
+    protected $with = ['links', 'image'];
 
     public function pageElement()
     {
@@ -16,5 +16,10 @@ class TopMenuSettings extends Model
     public function links()
     {
         return $this->hasMany(TopMenuLink::class);
+    }
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
     }
 }

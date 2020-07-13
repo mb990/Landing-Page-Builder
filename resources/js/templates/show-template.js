@@ -7,7 +7,7 @@ $(document).ready(function () {
         let id = $('.js-template-id').val();
 
         $.get(route('template.show', id), function (data) {
-            // console.log(data);
+            console.log(data);
         })
             .done(function (data) {
                 // console.log(data.views);
@@ -21,4 +21,4 @@ $(document).ready(function () {
 
     }
 
-})
+});

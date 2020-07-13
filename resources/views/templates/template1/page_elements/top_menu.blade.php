@@ -1,5 +1,5 @@
 <header class="header-addon">
-    <div style="flex-grow: 1;"><img class="header-logo" src="#" ></div>
+    <div style="flex-grow: 1;"><img class="header-logo" src="{{$image_url}}" ></div>
     <div class="header-links">
 
         @forelse($items as $link)

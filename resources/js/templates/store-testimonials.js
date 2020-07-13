@@ -30,7 +30,7 @@ $(document).ready(function () {
                 .done(function (data) {
                     console.log(data);
                 })
-                .fail(console.log('failed element'))
+                .fail(console.log('failed element'));
 
             $('.js-testimonial').each(function (e, i) {
                 let customer = $('#customer_name-' + (e + 1)).val();
@@ -50,4 +50,4 @@ $(document).ready(function () {
         })
     }
 
-})
+});

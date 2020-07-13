@@ -23,9 +23,14 @@ class ImageRepository
         return $this->image->find($id);
     }
 
-    public function store($request)
+    public function store($data)
     {
-        return $this->image->create($request->all());
+        return $this->image->create([
+            'url' => $data['url'],
+            'filename' => $data['filename'],
+            'imageable_type' => $data['imageable_type'],
+            'imageable_id' => $data['imageable_id']
+        ]);
     }
 
     public function update($request, $id)

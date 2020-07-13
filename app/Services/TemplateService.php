@@ -12,10 +12,15 @@ class TemplateService
      * @var TemplateRepository
      */
     private $template;
+    /**
+     * @var S3Service
+     */
+    private $s3Service;
 
-    public function __construct(TemplateRepository $template)
+    public function __construct(TemplateRepository $template, S3Service $s3Service)
     {
         $this->template = $template;
+        $this->s3Service = $s3Service;
     }
 
     public function all()
@@ -56,7 +61,11 @@ class TemplateService
 
             else if ($element->pageElementable->links) {
 
-                $views[$element->id] = view($element->blade_file, ['items' => $element->pageElementable->links])->render();
+                $url = $this->s3Service->showTemplateImage($element->template, $element->pageElementable->image);
+
+//                return $url;
+
+                $views[$element->id] = view($element->blade_file, ['image_url' => $url, 'items' => $element->pageElementable->links])->render();
             }
 
             else {

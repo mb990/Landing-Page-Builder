@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     protected $fillable = [
-        'url', 'filename'
+        'url', 'filename', 'imageable_id', 'imageable_type'
     ];
 
     public function imageable()

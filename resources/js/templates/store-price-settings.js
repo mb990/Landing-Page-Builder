@@ -30,7 +30,7 @@ $(document).ready(function () {
                 .done(function (data_e) {
                     // console.log(data);
                 })
-                .fail(console.log('failed element'))
+                .fail(console.log('failed element'));
 
             $('input.js-pricing-plan').each(function (e, i) {
 
