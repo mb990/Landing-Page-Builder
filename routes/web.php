@@ -64,4 +64,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test', 'PageController@test')->name('test');
 
 Route::get('/test-project', 'PageController@testProject');
+Route::get('/test2', 'PageController@test2');
+Route::get('/profile', 'PageController@profile');
 Route::get('/template-view/{id}', 'PageController@testProject2');
