@@ -17,7 +17,6 @@ $(document).ready(function () {
             ).done(function (data) {
 
             // saving top menu image
-
             let form_data = new FormData();
             form_data.append('image', $('#top-menu-image')[0].files[0]);
             form_data.append('template_name', template_name);
@@ -40,7 +39,7 @@ $(document).ready(function () {
                 console.log(data.image);
             });
 
-            // // saving new top menu element
+            // saving new top menu element
             $.post(route('page-element.store'),
                 {
                     template_id: template_id,

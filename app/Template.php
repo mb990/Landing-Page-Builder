@@ -21,10 +21,10 @@ class Template extends Model
         return $this->hasMany(PageElement::class);
     }
 
-    public function elementsWithItems()
+    public function getSection($sectionModel)
     {
         return $this->pageElements()
-//            ->where('page_elementable_type',TestimonialSection::class)
+            ->where('page_elementable_type', $sectionModel)
             ->with('pageElementable')
             ->get();
     }

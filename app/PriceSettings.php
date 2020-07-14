@@ -10,6 +10,8 @@ class PriceSettings extends Model
         'name', 'yearly_price', 'monthly_price', 'discount_amount', 'pricing_section_id', 'blade_file'
     ];
 
+    protected $with = ['benefits'];
+
     public function pricingSection()
     {
         return $this->belongsTo(PricingSection::class);
@@ -19,9 +21,4 @@ class PriceSettings extends Model
     {
         return $this->hasMany(PricingSettingsBenefit::class);
     }
-
-//    public function pageElement()
-//    {
-//        return $this->morphOne(PageElement::class, 'page_elementable');
-//    }
 }

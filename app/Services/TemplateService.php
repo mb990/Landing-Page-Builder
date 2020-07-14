@@ -4,7 +4,12 @@
 namespace App\Services;
 
 
+use App\FooterSettings;
+use App\HeroSectionSettings;
+use App\PricingSection;
 use App\Repositories\TemplateRepository;
+use App\TestimonialSection;
+use App\TopMenuSettings;
 
 class TemplateService
 {
@@ -52,33 +57,72 @@ class TemplateService
     {
         $views = [];
 
-        foreach ($template->elementsWithItems() as $element) {
+        $views['heroSection'] = $this->getHeroSectionViewWithData($template);
 
-            if ($element->pageElementable->singleItems) {
+        $views['testimonialsSection'] = $this->getTestimonialsSectionViewWithData($template);
 
-                $imageLinks = [];
+        $views['topMenuSection'] = $this->getTopMenuSectionViewWithData($template);
 
-                foreach ($element->pageElementable->singleItems as $singleTestimonial) {
+        $views['footerSection'] = $this->getFooterSectionWithData($template);
 
-                    $imageLinks[$singleTestimonial->id] = $this->s3Service->showTemplateTestimonialImage($element->template, $singleTestimonial->image, 60);
-                }
-
-                $views[$element->id] = view($element->blade_file, ['images' => $imageLinks, 'items' => $element->pageElementable->singleItems])->render();
-            }
-
-            else if ($element->pageElementable->links) {
-
-                $url = $this->s3Service->showTemplateTopMenuImage($element->template, $element->pageElementable->image, 60);
-
-                $views[$element->id] = view($element->blade_file, ['image_url' => $url, 'items' => $element->pageElementable->links])->render();
-            }
-
-            else {
-
-                $views[$element->id] = view($element->blade_file, ['element' => $element->pageElementable])->render();
-            }
-        }
+        $views['pricingSection'] = $this->getPricingSectionWithData($template);
 
         return $views;
+    }
+
+    public function getHeroSectionViewWithData($template)
+    {
+        $heroSection = $template->getSection(HeroSectionSettings::class)[0];
+
+        $imageUrl = $this->s3Service->showTemplateHeroSectionImage($template, $heroSection->pageElementable->image, 60);
+
+        $viewWithData = view($heroSection->blade_file, ['image_url' => $imageUrl, 'data' => $heroSection->pageElementable])->render();
+
+        return $viewWithData;
+    }
+
+    public function getTestimonialsSectionViewWithData($template)
+    {
+        $testimonialSection = $template->getSection(TestimonialSection::class)[0];
+
+        $images = [];
+
+        foreach ($testimonialSection->pageElementable->singleItems as $singleItem) {
+
+            $images[$singleItem->id] = $this->s3Service->showTemplateTestimonialImage($template, $singleItem->image, 60);
+        }
+
+        $heroSectionData = view($testimonialSection->blade_file, ['images' => $images, 'items' => $testimonialSection->pageElementable->singleItems])->render();
+
+        return $heroSectionData;
+    }
+
+    public function getTopMenuSectionViewWithData($template)
+    {
+        $topMenuSection = $template->getSection(TopMenuSettings::class)[0];
+
+        $imageUrl = $this->s3Service->showTemplateTopMenuImage($template, $topMenuSection->pageElementable->image, 60);
+
+        $viewWithData = view($topMenuSection->blade_file, ['image_url' => $imageUrl, 'items' => $topMenuSection->pageElementable->links])->render();
+
+        return $viewWithData;
+    }
+
+    public function getFooterSectionWithData($template)
+    {
+        $footerSection = $template->getSection(FooterSettings::class)[0];
+
+        $viewWithData = view($footerSection->blade_file, ['data' => $footerSection->pageElementable])->render();
+
+        return $viewWithData;
+    }
+
+    public function getPricingSectionWithData($template)
+    {
+        $pricingSection = $template->getSection(PricingSection::class)[0];
+
+        $viewWithData = view($pricingSection->blade_file, ['items' => $pricingSection->pageElementable->singleItems])->render();
+
+        return $viewWithData;
     }
 }

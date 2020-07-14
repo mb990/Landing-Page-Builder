@@ -10,8 +10,15 @@ class HeroSectionSettings extends Model
         'title', 'subtitle', 'button_value'
     ];
 
+    protected $with = ['image'];
+
     public function pageElement()
     {
         return $this->morphOne(PageElement::class, 'page_elementable');
+    }
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
     }
 }

@@ -31,7 +31,7 @@ class TemplateImageService
 
     public function store($request)
     {
-        if ($request->imageable_type === 'App\\TopMenuSettings') {
+        if ($request->imageable_type === 'App\\TopMenuSettings' || $request->imageable_type === 'App\\HeroSectionSettings') {
 
             $image = $this->s3Service->storeTemplateTopMenuImage($request);
         }

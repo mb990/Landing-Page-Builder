@@ -37,6 +37,7 @@ Route::post('/link', 'TopMenuLinkController@store')->name('top-menu-link.store')
 //Template Images
 Route::post('/template-top-menu-image', 'Template\TopMenuImageController@store')->name('template.top-menu-image.store');
 Route::post('/template-testimonial-image', 'Template\TestimonialImageController@store')->name('template.testimonial-image.store');
+Route::post('/template-hero-section-image', 'Template\HeroSectionImageController@store')->name('template.hero-section-image.store');
 
 //Top Menu Settings
 Route::post('/top-menu-settings', 'TopMenuSettingsController@store')->name('top-menu-settings.store');
@@ -58,6 +59,9 @@ Route::post('/benefit', 'PricingSettingsBenefitController@store')->name('price-s
 
 //Footer Settings
 Route::post('/footer-settings', 'FooterSettingsController@store')->name('footer-settings.store');
+
+//Hero Section Settings
+Route::post('/hero-section-settings', 'HeroSectionSettingsController@store')->name('hero-section-settings.store');
 
 Auth::routes();
 

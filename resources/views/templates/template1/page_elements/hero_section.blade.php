@@ -1,10 +1,10 @@
 <section class="hero">
     <div class="hero-image">
-        <img style="position: inherit; width: 100vw;" src="{{IMAGE}">
+        <img style="position: inherit; width: 100vw;" src="{{$image_url}}">
         <div class="hero-text">
-            <h1>{{TITLE}</h1>
-            <h3>{{SUBTITLE}</h3>
-            <button class="btn btn-primary">{{BTN TEXT}</button>
+            <h1>{{$data->title}}</h1>
+            <h3>{{$data->subtitle}}</h3>
+            <button class="btn btn-primary">{{$data->button_value}}</button>
         </div>
     </div>
     <div>

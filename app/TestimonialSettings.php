@@ -21,9 +21,4 @@ class TestimonialSettings extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
-
-//    public function pageElement()
-//    {
-//        return $this->morphOne(PageElement::class, 'page_elementable');
-//    }
 }

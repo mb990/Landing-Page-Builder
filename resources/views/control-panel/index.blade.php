@@ -256,17 +256,17 @@
             <div class="modal-body">
                 <span>
                     <label>Add image</label>
-                    <input type="file">
-                    <input type="text" placeholder="Enter title">
+                    <input type="file" id="hero-section-image">
+                    <input type="text" class="js-hero-section-title" placeholder="Enter title">
                     <br>
-                    <input type="text" placeholder="Enter subtitle">
+                    <input type="text" class="js-hero-section-subtitle" placeholder="Enter subtitle">
                     <br>
-                    <input type="text" placeholder="Enter button text">
+                    <input type="text" class="js-hero-section-button" placeholder="Enter button text">
                 </span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
+                <button type="button" class="btn btn-primary js-save-hero-section-changes">Save changes</button>
             </div>
         </div>
     </div>
@@ -551,6 +551,8 @@
         $('.js-save-prices-changes').click(storePriceSection);
 
         $('.js-save-footer-changes').click(storeTemplateFooter);
+
+        $('.js-save-hero-section-changes').click(storeHeroSectionSettings);
     })
 
 </script>

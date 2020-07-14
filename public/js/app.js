@@ -37237,6 +37237,8 @@ __webpack_require__(/*! ./templates/store-testimonials */ "./resources/js/templa
 
 __webpack_require__(/*! ./templates/store-top-menu */ "./resources/js/templates/store-top-menu.js");
 
+__webpack_require__(/*! ./templates/store-hero-section-settings */ "./resources/js/templates/store-hero-section-settings.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37340,6 +37342,64 @@ $(document).ready(function () {
         page_elementable_type: 'App\\FooterSettings',
         blade_file: 'templates.' + template_name + '.page_elements.footer'
       });
+    });
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/templates/store-hero-section-settings.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/templates/store-hero-section-settings.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.storeHeroSectionSettings = function (e) {
+    e.preventDefault();
+    var template_id = $('#template_id').val();
+    var template_name = $('#template_name').val();
+    var page_element_type_id = $('#page_element_type_id').val();
+    var modelType = 'App\\HeroSectionSettings';
+    var title = $('.js-hero-section-title').val();
+    var subtitle = $('.js-hero-section-subtitle').val();
+    var button = $('.js-hero-section-button').val();
+    $.post(route('hero-section-settings.store'), {
+      title: title,
+      subtitle: subtitle,
+      button_value: button
+    }).done(function (data) {
+      var element_id = data.settings.id; // saving hero section settings image
+
+      var form_data = new FormData();
+      form_data.append('image', $('#hero-section-image')[0].files[0]);
+      form_data.append('template_name', template_name);
+      form_data.append('image_name', 'hero-section');
+      form_data.append('imageable_type', modelType);
+      form_data.append('imageable_id', element_id);
+      $.ajax({
+        url: route('template.hero-section-image.store'),
+        type: "post",
+        data: form_data,
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+
+      }).done(function (data) {
+        console.log(data.image);
+      }); // saving new hero section element
+
+      $.post(route('page-element.store'), {
+        template_id: template_id,
+        page_element_type_id: page_element_type_id,
+        page_elementable_id: element_id,
+        page_elementable_type: modelType,
+        blade_file: 'templates.' + template_name + '.page_elements.hero_section'
+      }).done(function (data) {
+        console.log(data);
+      }).fail(console.log('failed element'));
     });
   };
 });
@@ -37502,7 +37562,7 @@ $(document).ready(function () {
 
       }).done(function (data) {
         console.log(data.image);
-      }); // // saving new top menu element
+      }); // saving new top menu element
 
       $.post(route('page-element.store'), {
         template_id: template_id,
