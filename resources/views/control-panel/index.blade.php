@@ -49,8 +49,8 @@
 </div>
 
 
-<!-- Modal7 TOP MENU -->
-<div class="modal fade js-modal7"  aria-hidden="true">
+<!-- Modal9 TOP MENU -->
+<div class="modal fade js-modal9"  aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -84,10 +84,10 @@
     </div>
 </div>
 
-<!-- Modal6 TESTIMONIALS-->
-<div class="modal fade js-modal6"  aria-hidden="true">
+<!-- Modal8 TESTIMONIALS-->
+<div class="modal fade js-modal8"  aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content modal8">
             <div class="modal-header">
                 <h5 class="modal-title">Testimonials</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -124,9 +124,9 @@
     </div>
 </div>
 <!-- Prices -->
-<div class="modal fade js-modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade js-modal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content modal5">
+        <div class="modal-content modal7">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Pricing</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -244,9 +244,9 @@
     </div>
 </div>
 <!-- Hero Section -->
-<div class="modal fade js-modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade js-modal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content modal4">
+        <div class="modal-content modal6">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Hero section</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -363,9 +363,9 @@
     </div>
 </div>
 <!-- General content-2 -->
-<div class="modal fade js-modal8" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade js-modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content modal8">
+        <div class="modal-content modal4">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">General content-2</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -389,9 +389,9 @@
     </div>
 </div>
 <!-- General content-3 -->
-<div class="modal fade js-modal9" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade js-modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content modal9">
+        <div class="modal-content modal5">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">General content-3</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
