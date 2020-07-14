@@ -3,8 +3,7 @@
 
 namespace App\Services;
 
-
-use App\Http\Requests\StoreTopMenuImageRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -18,9 +17,9 @@ class S3Service
         return $image;
     }
 
-    public function showTemplateImage($template, $image)
+    public function showTemplateImage($template, $image, $minutes)
     {
-        $url = Storage::disk('s3')->url('templates/' . $template->name . '/' . $image->filename);
+        $url = Storage::disk('s3')->temporaryUrl('templates/' . $template->name . '/' . $image->filename, Carbon::now()->addMinutes($minutes));
 
         return $url;
     }
