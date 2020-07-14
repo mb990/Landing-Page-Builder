@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GeneralContentBulletPoint extends Model
+class GeneralContentThreeBulletPoints extends Model
 {
     protected $fillable = [
-        'text', 'general_content_settings_id'
+        'title', 'text'
     ];
 
     public function generalContentSection()
     {
-        return $this->belongsTo(GeneralContentSettings::class);
+        return $this->belongsTo(GeneralContentThreeSettings::class);
     }
 }
