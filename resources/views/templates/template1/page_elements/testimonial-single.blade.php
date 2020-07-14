@@ -2,7 +2,7 @@
     <div class="carousel-caption">
         <div class="row">
             <div class="col-sm-3">
-                <img src="http://via.placeholder.com/100x100" style="margin: auto;" class="rounded-circle img-fluid"/>
+                <img src="{{$images[$testimonial->id]}}" style="margin: auto;" class="rounded-circle img-fluid"/>
             </div>
             <div class="col-sm-9" style="margin: auto;">
                 <h3>{{$testimonial->title}}</h3>

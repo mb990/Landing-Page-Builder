@@ -10,16 +10,30 @@ use Illuminate\Support\Facades\Storage;
 class S3Service
 {
 
-    public function storeTemplateImage($request)
+    public function storeTemplateTopMenuImage($request)
     {
         $image = $request->file('image')->storeAs('templates/' . $request->template_name, $request->image_name . '.' . $request->file('image')->getClientOriginalExtension(), 's3');
 
         return $image;
     }
 
-    public function showTemplateImage($template, $image, $minutes)
+    public function storeTemplateTestimonialImage($request)
+    {
+        $image = $request->file('image')->storeAs('templates/' . $request->template_name . '/testimonials', $request->image_name . '.' . $request->file('image')->getClientOriginalExtension(), 's3');
+
+        return $image;
+    }
+
+    public function showTemplateTopMenuImage($template, $image, $minutes)
     {
         $url = Storage::disk('s3')->temporaryUrl('templates/' . $template->name . '/' . $image->filename, Carbon::now()->addMinutes($minutes));
+
+        return $url;
+    }
+
+    public function showTemplateTestimonialImage($template, $image, $minutes)
+    {
+        $url = Storage::disk('s3')->temporaryUrl('templates/' . $template->name . '/testimonials/' . $image->filename, Carbon::now()->addMinutes($minutes));
 
         return $url;
     }

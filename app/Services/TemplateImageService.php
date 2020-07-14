@@ -31,7 +31,15 @@ class TemplateImageService
 
     public function store($request)
     {
-        $image = $this->s3Service->storeTemplateImage($request);
+        if ($request->imageable_type === 'App\\TopMenuSettings') {
+
+            $image = $this->s3Service->storeTemplateTopMenuImage($request);
+        }
+
+        else if ($request->imageable_type === 'App\\TestimonialSettings') {
+
+            $image = $this->s3Service->storeTemplateTestimonialImage($request);
+        }
 
         $data = $this->prepareStoringData($image, $request);
 

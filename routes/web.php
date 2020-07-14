@@ -34,8 +34,9 @@ Route::post('/page-element', 'PageElementController@store')->name('page-element.
 //Top Menu Links
 Route::post('/link', 'TopMenuLinkController@store')->name('top-menu-link.store');
 
-//Teplate Image
-Route::post('/template-image', 'TemplateImageController@store')->name('image.store');
+//Template Images
+Route::post('/template-top-menu-image', 'Template\TopMenuImageController@store')->name('template.top-menu-image.store');
+Route::post('/template-testimonial-image', 'Template\TestimonialImageController@store')->name('template.testimonial-image.store');
 
 //Top Menu Settings
 Route::post('/top-menu-settings', 'TopMenuSettingsController@store')->name('top-menu-settings.store');

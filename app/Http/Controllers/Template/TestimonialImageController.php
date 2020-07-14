@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Template;
 
-use App\Http\Requests\StoreTopMenuImageRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreTemplateTestimonialImageRequest;
 use App\Services\TemplateImageService;
 use Illuminate\Http\Request;
 
-class TemplateImageController extends Controller
+class TestimonialImageController extends Controller
 {
     /**
      * @var TemplateImageService
@@ -18,9 +19,8 @@ class TemplateImageController extends Controller
         $this->templateImageService = $templateImageService;
     }
 
-    public function store(StoreTopMenuImageRequest $request)
+    public function store(StoreTemplateTestimonialImageRequest $request)
     {
-
         $image = $this->templateImageService->store($request);
 
         return response()->json(['image' => $image]);

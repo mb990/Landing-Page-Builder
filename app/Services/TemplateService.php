@@ -56,12 +56,19 @@ class TemplateService
 
             if ($element->pageElementable->singleItems) {
 
-                $views[$element->id] = view($element->blade_file, ['items' => $element->pageElementable->singleItems])->render();
+                $imageLinks = [];
+
+                foreach ($element->pageElementable->singleItems as $singleTestimonial) {
+
+                    $imageLinks[$singleTestimonial->id] = $this->s3Service->showTemplateTestimonialImage($element->template, $singleTestimonial->image, 60);
+                }
+
+                $views[$element->id] = view($element->blade_file, ['images' => $imageLinks, 'items' => $element->pageElementable->singleItems])->render();
             }
 
             else if ($element->pageElementable->links) {
 
-                $url = $this->s3Service->showTemplateImage($element->template, $element->pageElementable->image, 60);
+                $url = $this->s3Service->showTemplateTopMenuImage($element->template, $element->pageElementable->image, 60);
 
                 $views[$element->id] = view($element->blade_file, ['image_url' => $url, 'items' => $element->pageElementable->links])->render();
             }

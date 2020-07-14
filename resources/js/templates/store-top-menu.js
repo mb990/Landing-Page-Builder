@@ -27,7 +27,7 @@ $(document).ready(function () {
 
             $.ajax({
 
-                url: route('image.store'),
+                url: route('template.top-menu-image.store'),
                 type: "post",
                 data: form_data,
                 contentType: false,

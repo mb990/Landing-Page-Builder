@@ -37415,15 +37415,18 @@ $(document).ready(function () {
     var template_id = $('#template_id').val();
     var template_name = $('#template_name').val();
     var page_element_type_id = $('#page_element_type_id').val();
+    var modelType = 'App\\TestimonialSection';
     $.post(route('testimonial-section.store'), {// blade_file: 'page_elements.testimonials'
     }).done(function (data) {
-      var section_id = data.section.id; // saving new testimonial section element
+      var section_id = data.section.id; // saving testimonial image
+
+      $('.js-testimonial-image').each(function (e, i) {}); // saving new testimonial section element
 
       $.post(route('page-element.store'), {
         template_id: template_id,
         page_element_type_id: page_element_type_id,
         page_elementable_id: section_id,
-        page_elementable_type: 'App\\TestimonialSection',
+        page_elementable_type: modelType,
         blade_file: 'templates.' + template_name + '.page_elements.testimonials'
       }).done(function (data) {
         console.log(data);
@@ -37438,6 +37441,25 @@ $(document).ready(function () {
           text: testimonial_text,
           testimonial_section_id: section_id,
           blade_file: 'templates.' + template_name + '.page_elements.testimonial-single'
+        }).done(function (data) {
+          var form_data = new FormData();
+          form_data.append('image', $('#js-testimonial-image-' + (e + 1))[0].files[0]);
+          form_data.append('template_name', template_name);
+          form_data.append('image_name', 'testimonial-' + data.settings.id);
+          form_data.append('imageable_type', 'App\\TestimonialSettings');
+          form_data.append('imageable_id', data.settings.id);
+          $.ajax({
+            url: route('template.testimonial-image.store'),
+            type: "post",
+            data: form_data,
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+
+          }).done(function (data) {
+            console.log(data.image);
+          });
         });
       });
     });
@@ -37470,7 +37492,7 @@ $(document).ready(function () {
       form_data.append('imageable_type', modelType);
       form_data.append('imageable_id', data.settings.id);
       $.ajax({
-        url: route('image.store'),
+        url: route('template.top-menu-image.store'),
         type: "post",
         data: form_data,
         contentType: false,
@@ -37561,11 +37583,11 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
 
 
 /***/ })

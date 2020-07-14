@@ -18,7 +18,7 @@
 
                 @forelse($items as $item)
 
-                    @include($item->blade_file, ['testimonial' => $item])
+                    @include($item->blade_file, ['testimonial' => $item, 'images' => $images])
 
                 @empty
 
