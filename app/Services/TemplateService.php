@@ -61,9 +61,7 @@ class TemplateService
 
             else if ($element->pageElementable->links) {
 
-                $url = $this->s3Service->showTemplateImage($element->template, $element->pageElementable->image);
-
-//                return $url;
+                $url = $this->s3Service->showTemplateImage($element->template, $element->pageElementable->image, 60);
 
                 $views[$element->id] = view($element->blade_file, ['image_url' => $url, 'items' => $element->pageElementable->links])->render();
             }
