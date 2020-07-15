@@ -9,6 +9,7 @@ use App\GeneralContentOneSettings;
 use App\GeneralContentThreeSettings;
 use App\GeneralContentTwoSettings;
 use App\HeroSectionSettings;
+use App\NewsletterSettings;
 use App\PricingSection;
 use App\Repositories\TemplateRepository;
 use App\TestimonialSection;
@@ -70,11 +71,13 @@ class TemplateService
 
 //        $views['pricingSection'] = $this->getPricingSectionWithData($template);
 
-        $views['generalContentOneSection'] = $this->getGeneralContentOneSectionViewWithData($template);
+//        $views['generalContentOneSection'] = $this->getGeneralContentOneSectionViewWithData($template);
 
-        $views['generalContentTwoSection'] = $this->getGeneralContentTwoSectionViewWithData($template);
+//        $views['generalContentTwoSection'] = $this->getGeneralContentTwoSectionViewWithData($template);
 
-        $views['generalContentThreeSection'] = $this->getGeneralContentThreeSectionViewWithData($template);
+//        $views['generalContentThreeSection'] = $this->getGeneralContentThreeSectionViewWithData($template);
+
+        $views['newsletterSection'] = $this->getNewslatterSectionViewWithData($template);
 
         return $views;
     }
@@ -162,6 +165,15 @@ class TemplateService
         $generalContentThreeSection = $template->getSection(GeneralContentThreeSettings::class)[0];
 
         $viewWithData = view($generalContentThreeSection->blade_file, ['data' => $generalContentThreeSection->pageElementable])->render();
+
+        return $viewWithData;
+    }
+
+    public function getNewslatterSectionViewWithData($template)
+    {
+        $newsletterSection = $template->getSection(NewsletterSettings::class)[0];
+
+        $viewWithData = view($newsletterSection->blade_file, ['data' => $newsletterSection->pageElementable])->render();
 
         return $viewWithData;
     }

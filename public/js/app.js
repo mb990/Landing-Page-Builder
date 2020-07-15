@@ -37245,6 +37245,8 @@ __webpack_require__(/*! ./templates/store-general-content-two-settings */ "./res
 
 __webpack_require__(/*! ./templates/store-general-content-three-settings */ "./resources/js/templates/store-general-content-three-settings.js");
 
+__webpack_require__(/*! ./templates/store-newsletter-settings */ "./resources/js/templates/store-newsletter-settings.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37594,6 +37596,40 @@ $(document).ready(function () {
 
 /***/ }),
 
+/***/ "./resources/js/templates/store-newsletter-settings.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/templates/store-newsletter-settings.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.storeTemplateNewsletter = function (e) {
+    e.preventDefault();
+    var template_id = $('#template_id').val();
+    var template_name = $('#template_name').val();
+    var page_element_type_id = $('#page_element_type_id').val();
+    var modelType = 'App\\NewsletterSettings';
+    var title = $('.js-newsletter-title').val();
+    var button_value = $('.js-newsletter-button-value').val();
+    $.post(route('newsletter.store'), {
+      title: title,
+      button_value: button_value
+    }).done(function (data) {
+      // saving new newsletter element
+      $.post(route('page-element.store'), {
+        template_id: template_id,
+        page_element_type_id: page_element_type_id,
+        page_elementable_id: data.settings.id,
+        page_elementable_type: modelType,
+        blade_file: 'templates.' + template_name + '.page_elements.newsletter'
+      });
+    });
+  };
+});
+
+/***/ }),
+
 /***/ "./resources/js/templates/store-price-settings.js":
 /*!********************************************************!*\
   !*** ./resources/js/templates/store-price-settings.js ***!
@@ -37842,12 +37878,12 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
 
 
 /***/ })

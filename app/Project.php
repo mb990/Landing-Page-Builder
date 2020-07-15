@@ -27,7 +27,7 @@ class Project extends Model
 
     public function newsletters()
     {
-        return $this->hasMany(Newsletter::class);
+        return $this->hasMany(NewsletterSettings::class);
     }
 
     public function subscribers()

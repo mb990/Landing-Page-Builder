@@ -4,15 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Newsletter extends Model
+class NewsletterSettings extends Model
 {
     protected $fillable = [
-        'subject', 'main_text', 'project_id'
+        'title', 'button_value'
     ];
 
-    public function project()
+    protected $with = ['image'];
+
+    public function pageElement()
     {
-        return $this->belongsTo(Project::class);
+        return $this->morphOne(PageElement::class, 'page_elementable');
     }
 
     public function image()

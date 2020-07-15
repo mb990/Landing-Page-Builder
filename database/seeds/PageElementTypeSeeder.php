@@ -23,7 +23,7 @@ class PageElementTypeSeeder extends Seeder
     public function run()
     {
         $types = [
-            'Footer', 'Gallery', 'General content section one', 'General content section two', 'General content section three', 'Hero section', 'Prices', 'Testimonials', 'Top menu'
+            'Footer', 'Gallery', 'General content section one', 'General content section two', 'General content section three', 'Hero section', 'Newsletter', 'Prices', 'Testimonials', 'Top menu'
         ];
 
         foreach ($types as $type) {

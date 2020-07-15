@@ -437,13 +437,13 @@
             </div>
             <div class="modal-body">
                     <span>
-                        <input type="text" placeholder="Enter subscribe title">
-                        <input type="text" placeholder="Enter button text like 'Subscribe now'">
+                        <input type="text" class="js-newsletter-title" placeholder="Enter subscribe title">
+                        <input type="text" class="js-newsletter-button-value" placeholder="Enter button text like 'Subscribe now'">
                     </span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
+                <button type="button" class="btn btn-primary js-save-newsletter-changes">Save changes</button>
             </div>
         </div>
     </div>
@@ -563,6 +563,8 @@
         $('.js-save-general-content-two-changes').click(storeGeneralContentTwoSettings);
 
         $('.js-save-general-content-three-changes').click(storeGeneralContentThreeSettings);
+
+        $('.js-save-newsletter-changes').click(storeTemplateNewsletter);
     })
 
 </script>
