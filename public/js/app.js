@@ -37243,6 +37243,8 @@ __webpack_require__(/*! ./templates/store-general-content-one-settings */ "./res
 
 __webpack_require__(/*! ./templates/store-general-content-two-settings */ "./resources/js/templates/store-general-content-two-settings.js");
 
+__webpack_require__(/*! ./templates/store-general-content-three-settings */ "./resources/js/templates/store-general-content-three-settings.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37412,6 +37414,47 @@ $(document).ready(function () {
 
 /***/ }),
 
+/***/ "./resources/js/templates/store-general-content-three-settings.js":
+/*!************************************************************************!*\
+  !*** ./resources/js/templates/store-general-content-three-settings.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.storeGeneralContentThreeSettings = function (e) {
+    e.preventDefault();
+    var template_id = $('#template_id').val();
+    var template_name = $('#template_name').val();
+    var page_element_type_id = $('#page_element_type_id').val();
+    var modelType = 'App\\GeneralContentThreeSettings';
+    var title = $('.js-general-content-three-title').val();
+    var text = $('.js-general-content-three-text').val();
+    var link_url = $('.js-general-content-three-link-url').val();
+    var button_value = $('.js-general-content-three-button-value').val();
+    $.post(route('general-content-three-settings.store'), {
+      title: title,
+      text: text,
+      link_url: link_url,
+      button_value: button_value
+    }).done(function (data) {
+      var element_id = data.settings.id; // saving new general content three section element
+
+      $.post(route('page-element.store'), {
+        template_id: template_id,
+        page_element_type_id: page_element_type_id,
+        page_elementable_id: element_id,
+        page_elementable_type: modelType,
+        blade_file: 'templates.' + template_name + '.page_elements.general-content3'
+      }).done(function (data) {
+        console.log(data);
+      }).fail(console.log('failed element'));
+    });
+  };
+});
+
+/***/ }),
+
 /***/ "./resources/js/templates/store-general-content-two-settings.js":
 /*!**********************************************************************!*\
   !*** ./resources/js/templates/store-general-content-two-settings.js ***!
@@ -37436,7 +37479,7 @@ $(document).ready(function () {
       link_url: link_url,
       button_value: button_value
     }).done(function (data) {
-      var element_id = data.settings.id; // saving general content one settings image
+      var element_id = data.settings.id; // saving general content two settings image
 
       var form_data = new FormData();
       form_data.append('image', $('.js-general-content-section-two-image')[0].files[0]);
@@ -37455,7 +37498,7 @@ $(document).ready(function () {
 
       }).done(function (data) {
         console.log(data.image);
-      }); // saving new general content one section element
+      }); // saving new general content two section element
 
       $.post(route('page-element.store'), {
         template_id: template_id,

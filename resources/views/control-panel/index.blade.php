@@ -400,10 +400,10 @@
             </div>
             <div class="modal-body">
                     <span>
-                        <input type="text" placeholder="Enter section title">
-                        <input type="text" placeholder="Enter section text">
-                        <input type="text" placeholder="Enter link url">
-                        <input type="text" placeholder="Enter link button text">
+                        <input type="text" class="js-general-content-three-title" placeholder="Enter section title">
+                        <input type="text" class="js-general-content-three-text" placeholder="Enter section text">
+                        <input type="text" class="js-general-content-three-link-url" placeholder="Enter link url">
+                        <input type="text" class="js-general-content-three-button-value" placeholder="Enter link button text">
                     </span>
                     <span>
                         <input type="text" placeholder="Bullet 1 title">
@@ -416,7 +416,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
+                <button type="button" class="btn btn-primary js-save-general-content-three-changes">Save changes</button>
             </div>
         </div>
     </div>
@@ -557,6 +557,8 @@
         $('.js-save-general-content-one-changes').click(storeGeneralContentOneSettings);
 
         $('.js-save-general-content-two-changes').click(storeGeneralContentTwoSettings);
+
+        $('.js-save-general-content-three-changes').click(storeGeneralContentThreeSettings);
     })
 
 </script>

@@ -71,6 +71,9 @@ Route::post('/general-content-one-settings', 'GeneralContentOneSettingsControlle
 //General Content Two Settings
 Route::post('/general-content-two-settings', 'GeneralContentTwoSettingsController@store')->name('general-content-two-settings.store');
 
+//General Content Three Settings
+Route::post('/general-content-three-settings', 'GeneralContentThreeSettingsController@store')->name('general-content-three-settings.store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -28,7 +28,7 @@ $(document).ready(function () {
 
             let element_id = data.settings.id;
 
-            // saving general content one settings image
+            // saving general content two settings image
             let form_data = new FormData();
             form_data.append('image', $('.js-general-content-section-two-image')[0].files[0]);
             form_data.append('template_name', template_name);
@@ -51,7 +51,7 @@ $(document).ready(function () {
                 console.log(data.image);
             });
 
-            // saving new general content one section element
+            // saving new general content two section element
             $.post(route('page-element.store'),
                 {
                     template_id: template_id,
