@@ -29,17 +29,36 @@ class TemplateImageService
         return $this->image->find($id);
     }
 
-    public function store($request)
+    public function storeTopMenuImage($request)
     {
-        if ($request->imageable_type === 'App\\TopMenuSettings' || $request->imageable_type === 'App\\HeroSectionSettings') {
+        $image = $this->s3Service->storeTemplateTopMenuImage($request);
 
-            $image = $this->s3Service->storeTemplateTopMenuImage($request);
-        }
+        $data = $this->prepareStoringData($image, $request);
 
-        else if ($request->imageable_type === 'App\\TestimonialSettings') {
+        return $this->image->store($data);
+    }
 
-            $image = $this->s3Service->storeTemplateTestimonialImage($request);
-        }
+    public function storeHeroSectionImage($request)
+    {
+        $image = $this->s3Service->storeTemplateHeroSectionImage($request);
+
+        $data = $this->prepareStoringData($image, $request);
+
+        return $this->image->store($data);
+    }
+
+    public function storeTestimonialImage($request)
+    {
+        $image = $this->s3Service->storeTemplateTestimonialImage($request);
+
+        $data = $this->prepareStoringData($image, $request);
+
+        return $this->image->store($data);
+    }
+
+    public function storeGeneralContentOneImage($request)
+    {
+        $image = $this->s3Service->storeTemplateGeneralContentOneImage($request);
 
         $data = $this->prepareStoringData($image, $request);
 

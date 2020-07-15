@@ -20,7 +20,7 @@ class TopMenuImageController extends Controller
 
     public function store(StoreTopMenuImageRequest $request)
     {
-        $image = $this->templateImageService->store($request);
+        $image = $this->templateImageService->storeTopMenuImage($request);
 
         return response()->json(['image' => $image]);
     }

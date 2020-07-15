@@ -24,7 +24,11 @@ class StoreTopMenuImageRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'required|mimes:jpeg,jpg,png|max:20'
+            'image' => 'required|mimes:jpeg,jpg,png|max:20',
+            'template_name' => 'required',
+            'image_name' => 'required',
+            'imageable_type' => 'required',
+            'imageable_id' => 'required',
         ];
     }
 }

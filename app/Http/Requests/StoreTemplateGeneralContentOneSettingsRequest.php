@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreTemplateTestimonialImageRequest extends FormRequest
+class StoreTemplateGeneralContentOneSettingsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,8 @@ class StoreTemplateTestimonialImageRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'required|mimes:jpeg,jpg,png|max:40',
-            'template_name' => 'required',
-            'image_name' => 'required',
-            'imageable_type' => 'required',
-            'imageable_id' => 'required',
+            'title' => 'required',
+            'text' => 'required'
         ];
     }
 }

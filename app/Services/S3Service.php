@@ -31,6 +31,13 @@ class S3Service
         return $image;
     }
 
+    public function storeTemplateGeneralContentOneImage($request)
+    {
+        $image = $request->file('image')->storeAs('templates/' . $request->template_name, $request->image_name . '.' . $request->file('image')->getClientOriginalExtension(), 's3');
+
+        return $image;
+    }
+
     public function showTemplateTopMenuImage($template, $image, $minutes)
     {
         $url = Storage::disk('s3')->temporaryUrl('templates/' . $template->name . '/' . $image->filename, Carbon::now()->addMinutes($minutes));
@@ -46,6 +53,13 @@ class S3Service
     }
 
     public function showTemplateHeroSectionImage($template, $image, $minutes)
+    {
+        $url = Storage::disk('s3')->temporaryUrl('templates/' . $template->name . '/' . $image->filename, Carbon::now()->addMinutes($minutes));
+
+        return $url;
+    }
+
+    public function showTemplateGeneralContentOneImage($template, $image, $minutes)
     {
         $url = Storage::disk('s3')->temporaryUrl('templates/' . $template->name . '/' . $image->filename, Carbon::now()->addMinutes($minutes));
 

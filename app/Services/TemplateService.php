@@ -5,6 +5,7 @@ namespace App\Services;
 
 
 use App\FooterSettings;
+use App\GeneralContentOneSettings;
 use App\HeroSectionSettings;
 use App\PricingSection;
 use App\Repositories\TemplateRepository;
@@ -57,15 +58,17 @@ class TemplateService
     {
         $views = [];
 
-        $views['heroSection'] = $this->getHeroSectionViewWithData($template);
+//        $views['heroSection'] = $this->getHeroSectionViewWithData($template);
 
-        $views['testimonialsSection'] = $this->getTestimonialsSectionViewWithData($template);
+//        $views['testimonialsSection'] = $this->getTestimonialsSectionViewWithData($template);
 
-        $views['topMenuSection'] = $this->getTopMenuSectionViewWithData($template);
+//        $views['topMenuSection'] = $this->getTopMenuSectionViewWithData($template);
 
-        $views['footerSection'] = $this->getFooterSectionWithData($template);
+//        $views['footerSection'] = $this->getFooterSectionWithData($template);
 
-        $views['pricingSection'] = $this->getPricingSectionWithData($template);
+//        $views['pricingSection'] = $this->getPricingSectionWithData($template);
+
+        $views['generalContentOneSection'] = $this->getGeneralContentOneSectionViewWithData($template);
 
         return $views;
     }
@@ -122,6 +125,17 @@ class TemplateService
         $pricingSection = $template->getSection(PricingSection::class)[0];
 
         $viewWithData = view($pricingSection->blade_file, ['items' => $pricingSection->pageElementable->singleItems])->render();
+
+        return $viewWithData;
+    }
+
+    public function getGeneralContentOneSectionViewWithData($template)
+    {
+        $generalContentOneSection = $template->getSection(GeneralContentOneSettings::class)[0];
+
+        $imageUrl = $this->s3Service->showTemplateGeneralContentOneImage($template, $generalContentOneSection->pageElementable->image, 60);
+
+        $viewWithData = view($generalContentOneSection->blade_file, ['data' => $generalContentOneSection->pageElementable ,'image_url' => $imageUrl])->render();
 
         return $viewWithData;
     }

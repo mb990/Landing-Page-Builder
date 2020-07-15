@@ -38,6 +38,7 @@ Route::post('/link', 'TopMenuLinkController@store')->name('top-menu-link.store')
 Route::post('/template-top-menu-image', 'Template\TopMenuImageController@store')->name('template.top-menu-image.store');
 Route::post('/template-testimonial-image', 'Template\TestimonialImageController@store')->name('template.testimonial-image.store');
 Route::post('/template-hero-section-image', 'Template\HeroSectionImageController@store')->name('template.hero-section-image.store');
+Route::post('/template-general-content-one-section-image', 'Template\GeneralContentSectionOneImageController@store')->name('template.general-content-one-section-image.store');
 
 //Top Menu Settings
 Route::post('/top-menu-settings', 'TopMenuSettingsController@store')->name('top-menu-settings.store');
@@ -62,6 +63,9 @@ Route::post('/footer-settings', 'FooterSettingsController@store')->name('footer-
 
 //Hero Section Settings
 Route::post('/hero-section-settings', 'HeroSectionSettingsController@store')->name('hero-section-settings.store');
+
+//General Content One Settings
+Route::post('/general-content-one-settings', 'GeneralContentOneSettingsController@store')->name('general-content-one-settings.store');
 
 Auth::routes();
 

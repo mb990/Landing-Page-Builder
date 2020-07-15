@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Template;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreTemplateTestimonialImageRequest;
+use App\Http\Requests\StoreTemplateGeneralContentSectionOneImageRequest;
 use App\Services\TemplateImageService;
 use Illuminate\Http\Request;
 
-class TestimonialImageController extends Controller
+class GeneralContentSectionOneImageController extends Controller
 {
     /**
      * @var TemplateImageService
@@ -19,9 +19,9 @@ class TestimonialImageController extends Controller
         $this->templateImageService = $templateImageService;
     }
 
-    public function store(StoreTemplateTestimonialImageRequest $request)
+    public function store(StoreTemplateGeneralContentSectionOneImageRequest $request)
     {
-        $image = $this->templateImageService->storeTestimonialImage($request);
+        $image = $this->templateImageService->storeGeneralContentOneImage($request);
 
         return response()->json(['image' => $image]);
     }
