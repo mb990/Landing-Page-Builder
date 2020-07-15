@@ -205,6 +205,5 @@ body::-webkit-scrollbar {
   min-height: 100vh;
   min-width: 20vw;
   background-color: skyblue;
-  float: left;
 }
 
