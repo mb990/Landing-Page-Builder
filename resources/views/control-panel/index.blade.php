@@ -374,16 +374,16 @@
             </div>
             <div class="modal-body">
                     <span>
-                        <input type="text" placeholder="Enter section title">
-                        <input type="text" placeholder="Enter section text">
-                        <input type="file">
-                        <input type="text" placeholder="Enter link url">
-                        <input type="text" placeholder="Enter link button text">
+                        <input type="text" class="js-general-content-section-two-title" placeholder="Enter section title">
+                        <input type="text" class="js-general-content-section-two-text" placeholder="Enter section text">
+                        <input type="file" class="js-general-content-section-two-image">
+                        <input type="text" class="js-general-content-section-two-link-url" placeholder="Enter link url">
+                        <input type="text" class="js-general-content-section-two-button-value" placeholder="Enter link button text">
                     </span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
+                <button type="button" class="btn btn-primary js-save-general-content-two-changes">Save changes</button>
             </div>
         </div>
     </div>
@@ -555,6 +555,8 @@
         $('.js-save-hero-section-changes').click(storeHeroSectionSettings);
 
         $('.js-save-general-content-one-changes').click(storeGeneralContentOneSettings);
+
+        $('.js-save-general-content-two-changes').click(storeGeneralContentTwoSettings);
     })
 
 </script>

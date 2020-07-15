@@ -65,6 +65,15 @@ class TemplateImageService
         return $this->image->store($data);
     }
 
+    public function storeGeneralContentTwoImage($request)
+    {
+        $image = $this->s3Service->storeTemplateGeneralContentTwoImage($request);
+
+        $data = $this->prepareStoringData($image, $request);
+
+        return $this->image->store($data);
+    }
+
     public function update($request, $id)
     {
         return $this->image->update($request, $id);

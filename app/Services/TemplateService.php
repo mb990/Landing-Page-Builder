@@ -6,6 +6,7 @@ namespace App\Services;
 
 use App\FooterSettings;
 use App\GeneralContentOneSettings;
+use App\GeneralContentTwoSettings;
 use App\HeroSectionSettings;
 use App\PricingSection;
 use App\Repositories\TemplateRepository;
@@ -69,6 +70,8 @@ class TemplateService
 //        $views['pricingSection'] = $this->getPricingSectionWithData($template);
 
         $views['generalContentOneSection'] = $this->getGeneralContentOneSectionViewWithData($template);
+
+        $views['generalContentTwoSection'] = $this->getGeneralContentTwoSectionViewWithData($template);
 
         return $views;
     }
@@ -136,6 +139,17 @@ class TemplateService
         $imageUrl = $this->s3Service->showTemplateGeneralContentOneImage($template, $generalContentOneSection->pageElementable->image, 60);
 
         $viewWithData = view($generalContentOneSection->blade_file, ['data' => $generalContentOneSection->pageElementable ,'image_url' => $imageUrl])->render();
+
+        return $viewWithData;
+    }
+
+    public function getGeneralContentTwoSectionViewWithData($template)
+    {
+        $generalContentTwoSection = $template->getSection(GeneralContentTwoSettings::class)[0];
+
+        $imageUrl = $this->s3Service->showTemplateGeneralContentTwoImage($template, $generalContentTwoSection->pageElementable->image, 60);
+
+        $viewWithData = view($generalContentTwoSection->blade_file, ['data' => $generalContentTwoSection->pageElementable ,'image_url' => $imageUrl])->render();
 
         return $viewWithData;
     }
