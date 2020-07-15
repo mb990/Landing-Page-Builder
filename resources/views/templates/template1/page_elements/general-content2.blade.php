@@ -8,7 +8,7 @@
                         <div class="mb32">
                             <p>{{$data->text}}</p>
                         </div>
-                        <a class="btn" style="background-color: rgb(103, 103, 238); color: white;" href="{{$data->link_url}}">{{$data->button_value}}</a>
+                        <a class="btn" style="background-color: rgb(103, 103, 238); color: white;" href="//{{$data->link_url}}">{{$data->button_value}}</a>
                     </div>
                 </div>
                 <div class="col-md-7 col-sm-6 text-center mb-xs-24"><img class="img-responsive" style="max-width: 560px;" src="{{$image_url}}"></div>

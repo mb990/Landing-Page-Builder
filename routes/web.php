@@ -74,6 +74,9 @@ Route::post('/general-content-two-settings', 'GeneralContentTwoSettingsControlle
 //General Content Three Settings
 Route::post('/general-content-three-settings', 'GeneralContentThreeSettingsController@store')->name('general-content-three-settings.store');
 
+//General Content Three Settings
+Route::post('/general-content-three-bullet-point', 'GeneralContentThreeBulletPointController@store')->name('general-content-three-bullet-point.store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

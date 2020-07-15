@@ -19,6 +19,6 @@ class GeneralContentThreeSettings extends Model
 
     public function bulletPoints()
     {
-        return $this->hasMany(GeneralContentThreeBulletPoints::class);
+        return $this->hasMany(GeneralContentThreeBulletPoint::class);
     }
 }

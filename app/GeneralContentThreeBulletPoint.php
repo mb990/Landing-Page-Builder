@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GeneralContentThreeBulletPoints extends Model
+class GeneralContentThreeBulletPoint extends Model
 {
     protected $fillable = [
-        'title', 'text'
+        'title', 'text', 'general_content_three_settings_id', 'blade_file'
     ];
 
     public function generalContentSection()

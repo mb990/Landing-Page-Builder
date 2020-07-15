@@ -61,19 +61,19 @@
             </div>
             <div class="modal-body">
                 <label for="img">Add your Logo</label>
-                <input type="file" id="top-menu-image" name="img">
+                <input type="file" id="top-menu-image" name="img" required>
                 <br>
                 <span class="js-top-menu-link">
-                        <input name="title-1" id="title-1" type="text" placeholder="Link title">
-                        <input type="text" id="link-url-1" name="link-url-1" placeholder="Link URL">
+                        <input name="title-1" id="title-1" type="text" placeholder="Link title" required>
+                        <input type="text" id="link-url-1" name="link-url-1" placeholder="Link URL" required>
                     </span>
                 <span class="js-top-menu-link">
-                        <input name="title-2" id="title-2" type="text" placeholder="Link title">
-                        <input type="text" id="link-url-2" name="link-url-2" placeholder="Link URL">
+                        <input name="title-2" id="title-2" type="text" placeholder="Link title" required>
+                        <input type="text" id="link-url-2" name="link-url-2" placeholder="Link URL" required>
                     </span>
                 <span class="js-top-menu-link">
-                        <input name="title-3" id="title-3" type="text" placeholder="Link title">
-                        <input type="text" id="link-url-3" name="link-url-3" placeholder="Link URL">
+                        <input name="title-3" id="title-3" type="text" placeholder="Link title" required>
+                        <input type="text" id="link-url-3" name="link-url-3" placeholder="Link URL" required>
                     </span>
             </div>
             <div class="modal-footer">
@@ -285,7 +285,7 @@
                     <span>
                         <input type="text" class="js-general-content-section-one-title" placeholder="Enter section title">
                         <input type="text" class="js-general-content-section-one-text" placeholder="Enter section text">
-                        <input type="file" class="js-general-content-section-one-image">
+                        <input type="file" class="js-general-content-section-one-image" required>
                         <input type="text" class="js-general-content-section-one-link-url" placeholder="Enter link url">
                         <input type="text" class="js-general-content-section-one-button-value" placeholder="Enter link button text">
                     </span>
@@ -376,7 +376,7 @@
                     <span>
                         <input type="text" class="js-general-content-section-two-title" placeholder="Enter section title">
                         <input type="text" class="js-general-content-section-two-text" placeholder="Enter section text">
-                        <input type="file" class="js-general-content-section-two-image">
+                        <input type="file" class="js-general-content-section-two-image" required>
                         <input type="text" class="js-general-content-section-two-link-url" placeholder="Enter link url">
                         <input type="text" class="js-general-content-section-two-button-value" placeholder="Enter link button text">
                     </span>
@@ -405,13 +405,17 @@
                         <input type="text" class="js-general-content-three-link-url" placeholder="Enter link url">
                         <input type="text" class="js-general-content-three-button-value" placeholder="Enter link button text">
                     </span>
-                    <span>
-                        <input type="text" placeholder="Bullet 1 title">
-                        <input type="text" placeholder="Bullet 1 text">
-                        <input type="text" placeholder="Bullet 2 title">
-                        <input type="text" placeholder="Bullet 2 text">
-                        <input type="text" placeholder="Bullet 3 title">
-                        <input type="text" placeholder="Bullet 3 text">
+                    <span class="js-general-content-three-bullets">
+                        <input type="text" class="js-general-content-three-bullet-point-title-1" placeholder="Bullet 1 title" required>
+                        <input type="text" class="js-general-content-three-bullet-point-text-1" placeholder="Bullet 1 text" required>
+                    </span>
+                    <span class="js-general-content-three-bullets">
+                        <input type="text" class="js-general-content-three-bullet-point-title-2" placeholder="Bullet 2 title" required>
+                        <input type="text" class="js-general-content-three-bullet-point-text-2" placeholder="Bullet 2 text" required>
+                    </span>
+                    <span class="js-general-content-three-bullets">
+                        <input type="text" class="js-general-content-three-bullet-point-title-3" placeholder="Bullet 3 title" required>
+                        <input type="text" class="js-general-content-three-bullet-point-text-3" placeholder="Bullet 3 text" required>
                     </span>
             </div>
             <div class="modal-footer">

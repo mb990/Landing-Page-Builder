@@ -17,6 +17,7 @@ class CreateGeneralContentThreeBulletPointsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('text');
+            $table->string('blade_file');
             $table->unsignedBigInteger('general_content_three_settings_id');
             $table->timestamps();
 

@@ -8,7 +8,7 @@
                         <div class="mb32">
                             <p>{{$data->text}}</p>
                         </div>
-                        <a class="btn btn-lg btn-filled btn-secondary" href="{{$data->link_url}}">{{$data->button_value}}</a>
+                        <a class="btn btn-lg btn-filled btn-secondary" href="//{{$data->link_url}}">{{$data->button_value}}</a>
                     </div>
                 </div>
             </div>
@@ -16,7 +16,12 @@
     </section>
     <div style=" padding: 20vh;">
         <div class="content center" style="display: flex;">
-{{--            @include('general-content3-bullet.blade.php')--}}
+
+            @foreach($data->bulletPoints as $bulletPoint)
+
+                @include($bulletPoint->blade_file, ['data' => $bulletPoint])
+
+            @endforeach
         </div>
     </div>
 </div>
