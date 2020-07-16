@@ -1,5 +1,6 @@
 //TEMPLATE 2
 .body-t2{
+    font-family: 'Poppins', sans-serif;
 }
 .hero-image-t2{
     height: 100vh;
@@ -17,9 +18,20 @@
 }
 .hero-background-t2{
     position: inherit;
-    width: 80vw;
+    width: 100vw;
     object-fit: cover;
 }
 .about-t2{
     margin: 30px 0px;
+}
+.content1-t2{
+    margin: 50px 0px;
+}
+.bullets-div-t2{
+    padding: 20vh;
+    text-align: center;
+    background-color: lightgrey;
+    @media screen and (max-width:425px){
+        padding: 0px;
+    }
 }
