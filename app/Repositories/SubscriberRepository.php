@@ -4,33 +4,33 @@
 namespace App\Repositories;
 
 
-use App\PricingSection;
+use App\Subscriber;
 
-class PricingSectionRepository
+class SubscriberRepository
 {
     /**
-     * @var PricingSection
+     * @var Subscriber
      */
-    private $pricingSection;
+    private $subscriber;
 
-    public function __construct(PricingSection $pricingSection)
+    public function __construct(Subscriber $subscriber)
     {
-        $this->pricingSection = $pricingSection;
+        $this->subscriber = $subscriber;
     }
 
     public function all()
     {
-        return $this->pricingSection->all();
+        return $this->subscriber->all();
     }
 
     public function find($id)
     {
-        return $this->pricingSection->find($id);
+        return $this->subscriber->find($id);
     }
 
     public function store($request)
     {
-        return $this->pricingSection->create($request->all());
+        return $this->subscriber->create($request->all());
     }
 
     public function update($request, $id)

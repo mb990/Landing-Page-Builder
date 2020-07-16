@@ -25,11 +25,6 @@ class Project extends Model
         return $this->hasMany(PageElement::class);
     }
 
-    public function newsletters()
-    {
-        return $this->hasMany(NewsletterSettings::class);
-    }
-
     public function subscribers()
     {
         return $this->hasMany(Subscriber::class);

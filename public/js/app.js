@@ -37247,6 +37247,8 @@ __webpack_require__(/*! ./templates/store-general-content-three-settings */ "./r
 
 __webpack_require__(/*! ./templates/store-newsletter-settings */ "./resources/js/templates/store-newsletter-settings.js");
 
+__webpack_require__(/*! ./projects/store-subscriber */ "./resources/js/projects/store-subscriber.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37291,6 +37293,22 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/projects/store-subscriber.js":
+/*!***************************************************!*\
+  !*** ./resources/js/projects/store-subscriber.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  function storeSubscriber(e) {
+    e.preventDefault();
+    console.log('za uraditi');
+  }
+});
 
 /***/ }),
 

@@ -10,4 +10,9 @@ class GallerySettings extends Model
     {
         return $this->morphOne(PageElement::class, 'page_elementable');
     }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }
