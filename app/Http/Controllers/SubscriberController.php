@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreSubscriberRequest;
 use App\Services\SubscriberService;
-use Illuminate\Http\Request;
 
 class SubscriberController extends Controller
 {
@@ -17,7 +17,7 @@ class SubscriberController extends Controller
         $this->subscriberService = $subscriberService;
     }
 
-    public function store(Request $request)
+    public function store(StoreSubscriberRequest $request)
     {
         $subscriber = $this->subscriberService->store($request);
 

@@ -40,6 +40,7 @@ Route::post('/template-testimonial-image', 'Template\TestimonialImageController@
 Route::post('/template-hero-section-image', 'Template\HeroSectionImageController@store')->name('template.hero-section-image.store');
 Route::post('/template-general-content-one-section-image', 'Template\GeneralContentSectionOneImageController@store')->name('template.general-content-one-section-image.store');
 Route::post('/template-general-content-two-section-image', 'Template\GeneralContentSectionTwoImageController@store')->name('template.general-content-two-section-image.store');
+Route::post('/template-gallery-image-item-image', 'Template\GalleryImageItemImageController@store')->name('template.gallery-image-item-image.store');
 
 //Top Menu Settings
 Route::post('/top-menu-settings', 'TopMenuSettingsController@store')->name('top-menu-settings.store');
@@ -79,6 +80,12 @@ Route::post('/general-content-three-bullet-point', 'GeneralContentThreeBulletPoi
 
 //NewsletterSettings Section
 Route::post('/newsletter', 'NewsletterSettingsController@store')->name('newsletter.store');
+
+//Gallery Settings
+Route::post('/gallery-settings', 'GallerySettingsController@store')->name('gallery-settings.store');
+
+//Gallery Settings Image Item
+Route::post('/gallery-image-item', 'GalleryImageItemController@store')->name('gallery-image-item.store');
 
 Auth::routes();
 

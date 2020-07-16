@@ -20,14 +20,6 @@ $(document).ready(function () {
 
             let section_id = data.section.id;
 
-            // saving testimonial image
-
-            $('.js-testimonial-image').each(function (e, i) {
-
-
-
-            });
-
             // saving new testimonial section element
             $.post(route('page-element.store'),
                 {

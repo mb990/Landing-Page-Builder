@@ -5,6 +5,7 @@ namespace App\Services;
 
 
 use App\FooterSettings;
+use App\GallerySettings;
 use App\GeneralContentOneSettings;
 use App\GeneralContentThreeSettings;
 use App\GeneralContentTwoSettings;
@@ -79,6 +80,8 @@ class TemplateService
 
         $views['newsletterSection'] = $this->getNewslatterSectionViewWithData($template);
 
+        $views['gallerySection'] = $this->getGallerySectionViewWithData($template);
+
         return $views;
     }
 
@@ -99,9 +102,12 @@ class TemplateService
 
         $images = [];
 
-        foreach ($testimonialSection->pageElementable->singleItems as $singleItem) {
+        if ($testimonialSection->pageElementable->singleItems) {
 
-            $images[$singleItem->id] = $this->s3Service->showTemplateTestimonialImage($template, $singleItem->image, 60);
+            foreach ($testimonialSection->pageElementable->singleItems as $singleItem) {
+
+                $images[$singleItem->id] = $this->s3Service->showTemplateTestimonialImage($template, $singleItem->image, 60);
+            }
         }
 
         $heroSectionData = view($testimonialSection->blade_file, ['images' => $images, 'items' => $testimonialSection->pageElementable->singleItems])->render();
@@ -176,5 +182,28 @@ class TemplateService
         $viewWithData = view($newsletterSection->blade_file, ['data' => $newsletterSection->pageElementable])->render();
 
         return $viewWithData;
+    }
+
+    public function getGallerySectionViewWithData($template)
+    {
+        $gallerySettings = $template->getSection(GallerySettings::class)[0];
+
+        $images = [];
+
+        $videos = [];
+
+        // add videos
+
+        if ($gallerySettings->pageElementable->imageItems) {
+
+            foreach ($gallerySettings->pageElementable->imageItems as $imageItem) {
+
+                $images[$imageItem->id] = $this->s3Service->showTemplateGalleryImageItemImage($template, $imageItem->image, 60);
+            }
+        }
+
+        $heroSectionData = view($gallerySettings->blade_file, ['images' => $images, 'image_items' => $gallerySettings->pageElementable->imageItems])->render();
+
+        return $heroSectionData;
     }
 }

@@ -10,5 +10,6 @@ require('./templates/store-general-content-one-settings');
 require('./templates/store-general-content-two-settings');
 require('./templates/store-general-content-three-settings');
 require('./templates/store-newsletter-settings');
+require('./templates/store-gallery-settings-with-items');
 
 require('./projects/store-subscriber');

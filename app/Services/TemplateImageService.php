@@ -74,6 +74,15 @@ class TemplateImageService
         return $this->image->store($data);
     }
 
+    public function storeGalleryImageItemImage($request)
+    {
+        $image = $this->s3Service->storeTemplateGalleryImageItemImage($request);
+
+        $data = $this->prepareStoringData($image, $request);
+
+        return $this->image->store($data);
+    }
+
     public function update($request, $id)
     {
         return $this->image->update($request, $id);

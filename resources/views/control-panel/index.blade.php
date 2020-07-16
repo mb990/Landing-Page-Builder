@@ -309,12 +309,12 @@
             </div>
             <div class="modal-body">
                 <span>
-                    <input type="text" placeholder="Enter creator name">
+                    <input type="file" class="js-gallery-image" multiple>
                 </span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary js-save-changes">Save changes</button>
+                <button type="button" class="btn btn-primary js-save-gallery-changes">Save changes</button>
             </div>
         </div>
     </div>
@@ -565,6 +565,8 @@
         $('.js-save-general-content-three-changes').click(storeGeneralContentThreeSettings);
 
         $('.js-save-newsletter-changes').click(storeTemplateNewsletter);
+
+        $('.js-save-gallery-changes').click(storeGallery);
     })
 
 </script>
