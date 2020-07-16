@@ -406,16 +406,16 @@
                         <input type="text" class="js-general-content-three-button-value" placeholder="Enter link button text">
                     </span>
                     <span class="js-general-content-three-bullets">
-                        <input type="text" class="js-general-content-three-bullet-point-title-1" placeholder="Bullet 1 title" required>
-                        <input type="text" class="js-general-content-three-bullet-point-text-1" placeholder="Bullet 1 text" required>
+                        <input type="text" id="js-general-content-three-bullet-point-title-1" class="js-general-content-three-bullet-point-title-1" placeholder="Bullet 1 title" required>
+                        <input type="text" id="js-general-content-three-bullet-point-text-1" class="js-general-content-three-bullet-point-text-1" placeholder="Bullet 1 text" required>
                     </span>
                     <span class="js-general-content-three-bullets">
-                        <input type="text" class="js-general-content-three-bullet-point-title-2" placeholder="Bullet 2 title" required>
-                        <input type="text" class="js-general-content-three-bullet-point-text-2" placeholder="Bullet 2 text" required>
+                        <input type="text" id="js-general-content-three-bullet-point-title-2" class="js-general-content-three-bullet-point-title-2" placeholder="Bullet 2 title" required>
+                        <input type="text" id="js-general-content-three-bullet-point-text-2" class="js-general-content-three-bullet-point-text-2" placeholder="Bullet 2 text" required>
                     </span>
                     <span class="js-general-content-three-bullets">
-                        <input type="text" class="js-general-content-three-bullet-point-title-3" placeholder="Bullet 3 title" required>
-                        <input type="text" class="js-general-content-three-bullet-point-text-3" placeholder="Bullet 3 text" required>
+                        <input type="text" id="js-general-content-three-bullet-point-title-3" class="js-general-content-three-bullet-point-title-3" placeholder="Bullet 3 title" required>
+                        <input type="text" id="js-general-content-three-bullet-point-text-3" class="js-general-content-three-bullet-point-text-3" placeholder="Bullet 3 text" required>
                     </span>
             </div>
             <div class="modal-footer">
