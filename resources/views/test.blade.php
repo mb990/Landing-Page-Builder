@@ -294,9 +294,12 @@
             <div class="modal-content">              
                 <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <img src="" class="imagepreview" style="width: 100%;" >
+                    <img src="" class="imagepreview" style="width: 100%;" >
+                    <video class="videopreview" controls style="width: 100%;">
+                        <source src="" class="videopreview" style="width: 100%;" type="video/ogg">
+                </div>
+                </div>
             </div>
-        </div>
         </div>
     </div>
 </div>
@@ -330,7 +333,19 @@ $(document).ready(function(){
     })
     $(function() {
 		$('.pop').on('click', function() {
-			$('.imagepreview').attr('src', $(this).find('img').attr('src'));
+            if($(this).find('img').attr('src') == "/img/video-logo.png"){
+                $('.videopreview').attr('src', $(this).find('source').attr('src'));
+                $('.imagepreview').hide();
+                $('.videopreview').show();
+
+
+            } else if($(this).find('img').attr('src') != "/img/video-logo.png"){
+                $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+                $('.imagepreview').show();
+                $('.videopreview').hide()
+
+
+            }
 			$('#imagemodal').modal('show');   
 		});		
     });
