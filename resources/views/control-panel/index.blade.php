@@ -474,7 +474,7 @@
 
         $.ajax({
             type: "GET",
-            url: "/page-element-types",
+            url: route('page-element-types.show'),
             success: function (data) {
                 output = [];
                 console.log(data.types);
@@ -488,7 +488,7 @@
 
         $.ajax({
             type: "GET",
-            url: "/templates",
+            url: route('templates.show'),
             success: function (data) {
                 output = [];
                 console.log(data.templates);
@@ -504,7 +504,7 @@
             console.log(name);
             $.ajax({
                 type: "POST",
-                url: "/template",
+                url: route('template.store'),
                 data: {
                     name: name
                 },

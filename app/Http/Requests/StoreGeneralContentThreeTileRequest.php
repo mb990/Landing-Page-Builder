@@ -25,7 +25,9 @@ class StoreGeneralContentThreeTileRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'text' => 'required'
+            'text' => 'required',
+            'general_content_three_settings_id' => 'required',
+            'awesome_icon_id' => 'required',
         ];
     }
 }

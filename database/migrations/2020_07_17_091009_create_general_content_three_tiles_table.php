@@ -19,9 +19,11 @@ class CreateGeneralContentThreeTilesTable extends Migration
             $table->string('text');
             $table->string('blade_file');
             $table->unsignedBigInteger('general_content_three_settings_id');
+            $table->unsignedBigInteger('awesome_icon_id');
             $table->timestamps();
 
             $table->foreign('general_content_three_settings_id', 'tiles_section_id')->references('id')->on('general_content_three_settings')->onDelete('cascade');
+            $table->foreign('awesome_icon_id')->references('id')->on('awesome_icons')->onDelete('cascade');
         });
     }
 

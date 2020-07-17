@@ -20,13 +20,16 @@ Route::get('/', function () {
 
 Route::get('/control-panel', 'PageController@controlPanel');
 
+//Awesome Icons
+Route::get('/awesome-icons', 'AwesomeIconController@index')->name('awesome-icons.show');
+
 //Templates
 Route::post('/template', 'TemplateController@store')->name('template.store');
-Route::get('/templates', 'TemplateController@index');
+Route::get('/templates', 'TemplateController@index')->name('templates.show');
 Route::get('/template/{id}', 'TemplateController@show')->name('template.show');
 
 //Page Element Types
-Route::get('/page-element-types', 'PageElementTypeController@index');
+Route::get('/page-element-types', 'PageElementTypeController@index')->name('page-element-types.show');
 
 //Page Elements
 Route::post('/page-element', 'PageElementController@store')->name('page-element.store');

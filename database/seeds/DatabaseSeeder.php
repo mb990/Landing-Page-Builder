@@ -12,7 +12,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
          $this->call([
-             PageElementTypeSeeder::class
+             TemplateSeeder::class,
+             PageElementTypeSeeder::class,
+             AwesomeIconsSeeder::class
          ]);
     }
 }
