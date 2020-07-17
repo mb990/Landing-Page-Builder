@@ -87,6 +87,9 @@ Route::post('/gallery-settings', 'GallerySettingsController@store')->name('galle
 //Gallery Settings Image Item
 Route::post('/gallery-image-item', 'GalleryImageItemController@store')->name('gallery-image-item.store');
 
+//Gallery Settings Video Item
+Route::post('/gallery-video-item', 'GalleryVideoItemController@store')->name('gallery-video-item.store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
