@@ -421,13 +421,6 @@
                     <span class="js-general-content-three-tiles">
                         <input type="text" id="js-general-content-three-tile-title-1" class="js-general-content-three-tile-title-1" placeholder="Tile1 title" required>
                         <input type="text" id="js-general-content-three-tile-text-1" class="js-general-content-three-tile-text-1" placeholder="Tile1 short text" required>
-                        <select>
-                            <options>1</options>
-                            <options>2</options>
-                            <options>3</options>
-                            <options>4</options>
-                            <options>5</options>
-                        </select>>
                     </span>
                     <span class="js-general-content-three-tiles">
                         <input type="text" id="js-general-content-three-tile-title-2" class="js-general-content-three-tile-title-2" placeholder="Tile2 title" required>
@@ -489,6 +482,7 @@
                     output += '<option data-id="'+ e.id +'" value="option'+e.id +'" id="'+ e.id+'" >'+ e.name + '</option>'
                 });
                 $(".js-get-elements").append(output)
+                $('.js-general-content-three-tiles').append('<select class="js-get-icons"></select><br>');
             }
         });
 
@@ -526,6 +520,20 @@
                 );
 
         });
+
+        $.ajax({
+            type: "GET",
+            url: route('awesome-icons.show'),
+            success: function (data) {
+                output = [];
+                $.each(data.awesomeIcons, function (i, e) {
+                    output += '<option data-id="'+ e.id +'">'+ e.name + '</option>'
+                });
+                $(".js-get-icons").append(output)
+            }
+        });
+
+
         // save template_id into hidden field
         $('.js-get-templates').change(function() {
             let template_id = $(this).find(':selected').data('id');
