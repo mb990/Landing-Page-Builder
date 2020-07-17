@@ -67,7 +67,7 @@
     
 </div>
 <div class="general-content">
-    <div class="row row-pad-all">
+    <div class="row row-pad-all" style="margin: 0px;">
         <div class="column col-mar-bot">
             <div class="card">
                 <h4><i class="fa fa-calendar-o"></i></h4>
