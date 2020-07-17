@@ -12,8 +12,6 @@ $(document).ready(function () {
 
                 if (!document.getElementById('js-general-content-three-bullet-point-title-' + (e + 1)).validity.valid || !document.getElementById('js-general-content-three-bullet-point-text-' + (e + 1)).validity.valid) {
 
-                    console.log('u if-u');
-
                     bool = false;
                 }
 

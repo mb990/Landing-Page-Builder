@@ -37459,51 +37459,66 @@ $(document).ready(function () {
 $(document).ready(function () {
   window.storeGeneralContentOneSettings = function (e) {
     e.preventDefault();
-    var template_id = $('#template_id').val();
-    var template_name = $('#template_name').val();
-    var page_element_type_id = $('#page_element_type_id').val();
-    var modelType = 'App\\GeneralContentOneSettings';
-    var title = $('.js-general-content-section-one-title').val();
-    var text = $('.js-general-content-section-one-text').val();
-    var link_url = $('.js-general-content-section-one-link-url').val();
-    var button_value = $('.js-general-content-section-one-button-value').val();
-    $.post(route('general-content-one-settings.store'), {
-      title: title,
-      text: text,
-      link_url: link_url,
-      button_value: button_value
-    }).done(function (data) {
-      var element_id = data.settings.id; // saving general content one settings image
 
-      var form_data = new FormData();
-      form_data.append('image', $('.js-general-content-section-one-image')[0].files[0]);
-      form_data.append('template_name', template_name);
-      form_data.append('image_name', 'general-content-one-section');
-      form_data.append('imageable_type', modelType);
-      form_data.append('imageable_id', element_id);
-      $.ajax({
-        url: route('template.general-content-one-section-image.store'),
-        type: "post",
-        data: form_data,
-        contentType: false,
-        cache: false,
-        processData: false,
-        success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+    function validate() {
+      var bool = true;
 
+      if (!document.getElementById('js-general-content-section-one-image').validity.valid) {
+        bool = false;
+      }
+
+      return bool;
+    }
+
+    if (validate()) {
+      var template_id = $('#template_id').val();
+      var template_name = $('#template_name').val();
+      var page_element_type_id = $('#page_element_type_id').val();
+      var modelType = 'App\\GeneralContentOneSettings';
+      var title = $('.js-general-content-section-one-title').val();
+      var text = $('.js-general-content-section-one-text').val();
+      var link_url = $('.js-general-content-section-one-link-url').val();
+      var button_value = $('.js-general-content-section-one-button-value').val();
+      $.post(route('general-content-one-settings.store'), {
+        title: title,
+        text: text,
+        link_url: link_url,
+        button_value: button_value
       }).done(function (data) {
-        console.log(data.image);
-      }); // saving new general content one section element
+        var element_id = data.settings.id; // saving general content one settings image
 
-      $.post(route('page-element.store'), {
-        template_id: template_id,
-        page_element_type_id: page_element_type_id,
-        page_elementable_id: element_id,
-        page_elementable_type: modelType,
-        blade_file: 'templates.' + template_name + '.page_elements.general-content1'
-      }).done(function (data) {
-        console.log(data);
-      }).fail(console.log('failed element'));
-    });
+        var form_data = new FormData();
+        form_data.append('image', $('.js-general-content-section-one-image')[0].files[0]);
+        form_data.append('template_name', template_name);
+        form_data.append('image_name', 'general-content-one-section');
+        form_data.append('imageable_type', modelType);
+        form_data.append('imageable_id', element_id);
+        $.ajax({
+          url: route('template.general-content-one-section-image.store'),
+          type: "post",
+          data: form_data,
+          contentType: false,
+          cache: false,
+          processData: false,
+          success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+
+        }).done(function (data) {
+          console.log(data.image);
+        }); // saving new general content one section element
+
+        $.post(route('page-element.store'), {
+          template_id: template_id,
+          page_element_type_id: page_element_type_id,
+          page_elementable_id: element_id,
+          page_elementable_type: modelType,
+          blade_file: 'templates.' + template_name + '.page_elements.general-content1'
+        }).done(function (data) {
+          console.log(data);
+        }).fail(console.log('failed element'));
+      });
+    } else {
+      alert('You need to add image');
+    }
   };
 });
 
@@ -37524,7 +37539,6 @@ $(document).ready(function () {
       var bool = true;
       $('.js-general-content-three-bullets').each(function (e, i) {
         if (!document.getElementById('js-general-content-three-bullet-point-title-' + (e + 1)).validity.valid || !document.getElementById('js-general-content-three-bullet-point-text-' + (e + 1)).validity.valid) {
-          console.log('u if-u');
           bool = false;
         }
       });
@@ -37597,51 +37611,66 @@ $(document).ready(function () {
 $(document).ready(function () {
   window.storeGeneralContentTwoSettings = function (e) {
     e.preventDefault();
-    var template_id = $('#template_id').val();
-    var template_name = $('#template_name').val();
-    var page_element_type_id = $('#page_element_type_id').val();
-    var modelType = 'App\\GeneralContentTwoSettings';
-    var title = $('.js-general-content-section-two-title').val();
-    var text = $('.js-general-content-section-two-text').val();
-    var link_url = $('.js-general-content-section-two-link-url').val();
-    var button_value = $('.js-general-content-section-two-button-value').val();
-    $.post(route('general-content-two-settings.store'), {
-      title: title,
-      text: text,
-      link_url: link_url,
-      button_value: button_value
-    }).done(function (data) {
-      var element_id = data.settings.id; // saving general content two settings image
 
-      var form_data = new FormData();
-      form_data.append('image', $('.js-general-content-section-two-image')[0].files[0]);
-      form_data.append('template_name', template_name);
-      form_data.append('image_name', 'general-content-two-section');
-      form_data.append('imageable_type', modelType);
-      form_data.append('imageable_id', element_id);
-      $.ajax({
-        url: route('template.general-content-two-section-image.store'),
-        type: "post",
-        data: form_data,
-        contentType: false,
-        cache: false,
-        processData: false,
-        success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+    function validate() {
+      var bool = true;
 
+      if (!document.getElementById('js-general-content-section-two-image').validity.valid) {
+        bool = false;
+      }
+
+      return bool;
+    }
+
+    if (validate()) {
+      var template_id = $('#template_id').val();
+      var template_name = $('#template_name').val();
+      var page_element_type_id = $('#page_element_type_id').val();
+      var modelType = 'App\\GeneralContentTwoSettings';
+      var title = $('.js-general-content-section-two-title').val();
+      var text = $('.js-general-content-section-two-text').val();
+      var link_url = $('.js-general-content-section-two-link-url').val();
+      var button_value = $('.js-general-content-section-two-button-value').val();
+      $.post(route('general-content-two-settings.store'), {
+        title: title,
+        text: text,
+        link_url: link_url,
+        button_value: button_value
       }).done(function (data) {
-        console.log(data.image);
-      }); // saving new general content two section element
+        var element_id = data.settings.id; // saving general content two settings image
 
-      $.post(route('page-element.store'), {
-        template_id: template_id,
-        page_element_type_id: page_element_type_id,
-        page_elementable_id: element_id,
-        page_elementable_type: modelType,
-        blade_file: 'templates.' + template_name + '.page_elements.general-content2'
-      }).done(function (data) {
-        console.log(data);
-      }).fail(console.log('failed element'));
-    });
+        var form_data = new FormData();
+        form_data.append('image', $('.js-general-content-section-two-image')[0].files[0]);
+        form_data.append('template_name', template_name);
+        form_data.append('image_name', 'general-content-two-section');
+        form_data.append('imageable_type', modelType);
+        form_data.append('imageable_id', element_id);
+        $.ajax({
+          url: route('template.general-content-two-section-image.store'),
+          type: "post",
+          data: form_data,
+          contentType: false,
+          cache: false,
+          processData: false,
+          success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+
+        }).done(function (data) {
+          console.log(data.image);
+        }); // saving new general content two section element
+
+        $.post(route('page-element.store'), {
+          template_id: template_id,
+          page_element_type_id: page_element_type_id,
+          page_elementable_id: element_id,
+          page_elementable_type: modelType,
+          blade_file: 'templates.' + template_name + '.page_elements.general-content2'
+        }).done(function (data) {
+          console.log(data);
+        }).fail(console.log('failed element'));
+      });
+    } else {
+      alert('You need to add image');
+    }
   };
 });
 
@@ -37657,49 +37686,64 @@ $(document).ready(function () {
 $(document).ready(function () {
   window.storeHeroSectionSettings = function (e) {
     e.preventDefault();
-    var template_id = $('#template_id').val();
-    var template_name = $('#template_name').val();
-    var page_element_type_id = $('#page_element_type_id').val();
-    var modelType = 'App\\HeroSectionSettings';
-    var title = $('.js-hero-section-title').val();
-    var subtitle = $('.js-hero-section-subtitle').val();
-    var button = $('.js-hero-section-button').val();
-    $.post(route('hero-section-settings.store'), {
-      title: title,
-      subtitle: subtitle,
-      button_value: button
-    }).done(function (data) {
-      var element_id = data.settings.id; // saving hero section settings image
 
-      var form_data = new FormData();
-      form_data.append('image', $('#hero-section-image')[0].files[0]);
-      form_data.append('template_name', template_name);
-      form_data.append('image_name', 'hero-section');
-      form_data.append('imageable_type', modelType);
-      form_data.append('imageable_id', element_id);
-      $.ajax({
-        url: route('template.hero-section-image.store'),
-        type: "post",
-        data: form_data,
-        contentType: false,
-        cache: false,
-        processData: false,
-        success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+    function validate() {
+      var bool = true;
 
+      if (!document.getElementById('hero-section-image').validity.valid) {
+        bool = false;
+      }
+
+      return bool;
+    }
+
+    if (validate()) {
+      var template_id = $('#template_id').val();
+      var template_name = $('#template_name').val();
+      var page_element_type_id = $('#page_element_type_id').val();
+      var modelType = 'App\\HeroSectionSettings';
+      var title = $('.js-hero-section-title').val();
+      var subtitle = $('.js-hero-section-subtitle').val();
+      var button = $('.js-hero-section-button').val();
+      $.post(route('hero-section-settings.store'), {
+        title: title,
+        subtitle: subtitle,
+        button_value: button
       }).done(function (data) {
-        console.log(data.image);
-      }); // saving new hero section element
+        var element_id = data.settings.id; // saving hero section settings image
 
-      $.post(route('page-element.store'), {
-        template_id: template_id,
-        page_element_type_id: page_element_type_id,
-        page_elementable_id: element_id,
-        page_elementable_type: modelType,
-        blade_file: 'templates.' + template_name + '.page_elements.hero_section'
-      }).done(function (data) {
-        console.log(data);
-      }).fail(console.log('failed element'));
-    });
+        var form_data = new FormData();
+        form_data.append('image', $('#hero-section-image')[0].files[0]);
+        form_data.append('template_name', template_name);
+        form_data.append('image_name', 'hero-section');
+        form_data.append('imageable_type', modelType);
+        form_data.append('imageable_id', element_id);
+        $.ajax({
+          url: route('template.hero-section-image.store'),
+          type: "post",
+          data: form_data,
+          contentType: false,
+          cache: false,
+          processData: false,
+          success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+
+        }).done(function (data) {
+          console.log(data.image);
+        }); // saving new hero section element
+
+        $.post(route('page-element.store'), {
+          template_id: template_id,
+          page_element_type_id: page_element_type_id,
+          page_elementable_id: element_id,
+          page_elementable_type: modelType,
+          blade_file: 'templates.' + template_name + '.page_elements.hero_section'
+        }).done(function (data) {
+          console.log(data);
+        }).fail(console.log('failed element'));
+      });
+    } else {
+      alert('You need to add image');
+    }
   };
 });
 
@@ -37805,55 +37849,70 @@ $(document).ready(function () {
 $(document).ready(function () {
   window.storeTestimonialSection = function (e) {
     e.preventDefault();
-    var template_id = $('#template_id').val();
-    var template_name = $('#template_name').val();
-    var page_element_type_id = $('#page_element_type_id').val();
-    var modelType = 'App\\TestimonialSection';
-    $.post(route('testimonial-section.store'), {// blade_file: 'page_elements.testimonials'
-    }).done(function (data) {
-      var section_id = data.section.id; // saving new testimonial section element
 
-      $.post(route('page-element.store'), {
-        template_id: template_id,
-        page_element_type_id: page_element_type_id,
-        page_elementable_id: section_id,
-        page_elementable_type: modelType,
-        blade_file: 'templates.' + template_name + '.page_elements.testimonials'
-      }).done(function (data) {
-        console.log(data);
-      }).fail(console.log('failed element'));
+    function validate() {
+      var bool = true;
       $('.js-testimonial').each(function (e, i) {
-        var customer = $('#customer_name-' + (e + 1)).val();
-        var testimonial_text = $('#testimonial_text-' + (e + 1)).val();
-        var title = $('#testimonial_title-' + (e + 1)).val();
-        $.post(route('testimonial-settings.store'), {
-          title: title,
-          customer_name: customer,
-          text: testimonial_text,
-          testimonial_section_id: section_id,
-          blade_file: 'templates.' + template_name + '.page_elements.testimonial-single'
-        }).done(function (data) {
-          var form_data = new FormData();
-          form_data.append('image', $('#js-testimonial-image-' + (e + 1))[0].files[0]);
-          form_data.append('template_name', template_name);
-          form_data.append('image_name', 'testimonial-' + data.settings.id);
-          form_data.append('imageable_type', 'App\\TestimonialSettings');
-          form_data.append('imageable_id', data.settings.id);
-          $.ajax({
-            url: route('template.testimonial-image.store'),
-            type: "post",
-            data: form_data,
-            contentType: false,
-            cache: false,
-            processData: false,
-            success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+        if (!document.getElementById('js-testimonial-image-' + (e + 1)).validity.valid) {
+          bool = false;
+        }
+      });
+      return bool;
+    }
 
+    if (validate()) {
+      var template_id = $('#template_id').val();
+      var template_name = $('#template_name').val();
+      var page_element_type_id = $('#page_element_type_id').val();
+      var modelType = 'App\\TestimonialSection';
+      $.post(route('testimonial-section.store'), {// blade_file: 'page_elements.testimonials'
+      }).done(function (data) {
+        var section_id = data.section.id; // saving new testimonial section element
+
+        $.post(route('page-element.store'), {
+          template_id: template_id,
+          page_element_type_id: page_element_type_id,
+          page_elementable_id: section_id,
+          page_elementable_type: modelType,
+          blade_file: 'templates.' + template_name + '.page_elements.testimonials'
+        }).done(function (data) {
+          console.log(data);
+        }).fail(console.log('failed element'));
+        $('.js-testimonial').each(function (e, i) {
+          var customer = $('#customer_name-' + (e + 1)).val();
+          var testimonial_text = $('#testimonial_text-' + (e + 1)).val();
+          var title = $('#testimonial_title-' + (e + 1)).val();
+          $.post(route('testimonial-settings.store'), {
+            title: title,
+            customer_name: customer,
+            text: testimonial_text,
+            testimonial_section_id: section_id,
+            blade_file: 'templates.' + template_name + '.page_elements.testimonial-single'
           }).done(function (data) {
-            console.log(data.image);
+            var form_data = new FormData();
+            form_data.append('image', $('#js-testimonial-image-' + (e + 1))[0].files[0]);
+            form_data.append('template_name', template_name);
+            form_data.append('image_name', 'testimonial-' + data.settings.id);
+            form_data.append('imageable_type', 'App\\TestimonialSettings');
+            form_data.append('imageable_id', data.settings.id);
+            $.ajax({
+              url: route('template.testimonial-image.store'),
+              type: "post",
+              data: form_data,
+              contentType: false,
+              cache: false,
+              processData: false,
+              success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+
+            }).done(function (data) {
+              console.log(data.image);
+            });
           });
         });
       });
-    });
+    } else {
+      alert('You need to add image for all testimonials');
+    }
   };
 });
 
@@ -37869,55 +37928,70 @@ $(document).ready(function () {
 $(document).ready(function () {
   window.storeTopMenuSettings = function (e) {
     e.preventDefault();
-    var template_id = $('#template_id').val();
-    var template_name = $('#template_name').val();
-    var page_element_type_id = $('#page_element_type_id').val();
-    var modelType = 'App\\TopMenuSettings';
-    $.post(route('top-menu-settings.store'), {//np
-    }).done(function (data) {
-      // saving top menu image
-      var form_data = new FormData();
-      form_data.append('image', $('#top-menu-image')[0].files[0]);
-      form_data.append('template_name', template_name);
-      form_data.append('image_name', 'top-menu');
-      form_data.append('imageable_type', modelType);
-      form_data.append('imageable_id', data.settings.id);
-      $.ajax({
-        url: route('template.top-menu-image.store'),
-        type: "post",
-        data: form_data,
-        contentType: false,
-        cache: false,
-        processData: false,
-        success: console.log('poslato') // error: console.log('greska pri uploadu slike')
 
+    function validate() {
+      var bool = true;
+
+      if (!document.getElementById('top-menu-image').validity.valid) {
+        bool = false;
+      }
+
+      return bool;
+    }
+
+    if (validate()) {
+      var template_id = $('#template_id').val();
+      var template_name = $('#template_name').val();
+      var page_element_type_id = $('#page_element_type_id').val();
+      var modelType = 'App\\TopMenuSettings';
+      $.post(route('top-menu-settings.store'), {//np
       }).done(function (data) {
-        console.log(data.image);
-      }); // saving new top menu element
+        // saving top menu image
+        var form_data = new FormData();
+        form_data.append('image', $('#top-menu-image')[0].files[0]);
+        form_data.append('template_name', template_name);
+        form_data.append('image_name', 'top-menu');
+        form_data.append('imageable_type', modelType);
+        form_data.append('imageable_id', data.settings.id);
+        $.ajax({
+          url: route('template.top-menu-image.store'),
+          type: "post",
+          data: form_data,
+          contentType: false,
+          cache: false,
+          processData: false,
+          success: console.log('poslato') // error: console.log('greska pri uploadu slike')
 
-      $.post(route('page-element.store'), {
-        template_id: template_id,
-        page_element_type_id: page_element_type_id,
-        page_elementable_id: data.settings.id,
-        page_elementable_type: modelType,
-        blade_file: 'templates.' + template_name + '.page_elements.top_menu'
-      }).done(function (data) {
-        console.log(data);
-      }).fail(console.log('failed element')); // saving top menu link
-
-      $('.js-top-menu-link').each(function (e, i) {
-        var url = $("#link-url-" + (e + 1)).val();
-        var title = $("#title-" + (e + 1)).val();
-        $.post(route('top-menu-link.store'), {
-          url: url,
-          title: title,
-          top_menu_settings_id: data.settings.id
         }).done(function (data) {
-          console.log('link je dodat');
-          $(".modal").modal('hide');
-        }).fail(console.log('link nije dodat'));
-      });
-    }).fail(console.log('failed settings'));
+          console.log(data.image);
+        }); // saving new top menu element
+
+        $.post(route('page-element.store'), {
+          template_id: template_id,
+          page_element_type_id: page_element_type_id,
+          page_elementable_id: data.settings.id,
+          page_elementable_type: modelType,
+          blade_file: 'templates.' + template_name + '.page_elements.top_menu'
+        }).done(function (data) {
+          console.log(data);
+        }).fail(console.log('failed element')); // saving top menu link
+
+        $('.js-top-menu-link').each(function (e, i) {
+          var url = $("#link-url-" + (e + 1)).val();
+          var title = $("#title-" + (e + 1)).val();
+          $.post(route('top-menu-link.store'), {
+            url: url,
+            title: title,
+            top_menu_settings_id: data.settings.id
+          }).done(function (data) {
+            console.log('link je dodat');
+            $(".modal").modal('hide');
+          }).fail(console.log('link nije dodat'));
+        });
+      }).fail(console.log('failed settings'));
+    } else {
+      alert('You need to add top menu image');
+    }
   };
 });
 

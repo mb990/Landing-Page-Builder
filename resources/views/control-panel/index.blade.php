@@ -96,21 +96,21 @@
             </div>
             <div class="modal-body">
                 <span class="js-testimonial" style="display:flex; flex-direction:column;">
-                <input type="file" id="js-testimonial-image-1">
+                <input type="file" id="js-testimonial-image-1" required>
                 <input type="text" id="customer_name-1" placeholder="Enter user name">
                 <input type="text" id="testimonial_title-1" placeholder="Review title">
                 <input type="text" id="testimonial_text-1" placeholder="Enter user review">
                 </span>
                 <br>
                 <span class="js-testimonial" style="display:flex; flex-direction:column;">
-                <input type="file" id="js-testimonial-image-2">
+                <input type="file" id="js-testimonial-image-2" required>
                 <input type="text" id="customer_name-2" placeholder="Enter user name">
                 <input type="text" id="testimonial_title-2" placeholder="Review title">
                 <input type="text" id="testimonial_text-2" placeholder="Enter user review">
                 </span>
                 <br>
                 <span class="js-testimonial" style="display:flex; flex-direction:column;">
-                <input type="file" id="js-testimonial-image-3">
+                <input type="file" id="js-testimonial-image-3" required>
                 <input type="text" id="customer_name-3" placeholder="Enter user name">
                 <input type="text" id="testimonial_title-3" placeholder="Review title">
                 <input type="text" id="testimonial_text-3" placeholder="Enter user review">
@@ -256,7 +256,7 @@
             <div class="modal-body">
                 <span>
                     <label>Add image</label>
-                    <input type="file" id="hero-section-image">
+                    <input type="file" id="hero-section-image" required>
                     <input type="text" class="js-hero-section-title" placeholder="Enter title">
                     <br>
                     <input type="text" class="js-hero-section-subtitle" placeholder="Enter subtitle">
@@ -285,7 +285,7 @@
                     <span>
                         <input type="text" class="js-general-content-section-one-title" placeholder="Enter section title">
                         <input type="text" class="js-general-content-section-one-text" placeholder="Enter section text">
-                        <input type="file" class="js-general-content-section-one-image" required>
+                        <input type="file" id="js-general-content-section-one-image" class="js-general-content-section-one-image" required>
                         <input type="text" class="js-general-content-section-one-link-url" placeholder="Enter link url">
                         <input type="text" class="js-general-content-section-one-button-value" placeholder="Enter link button text">
                     </span>
@@ -376,7 +376,7 @@
                     <span>
                         <input type="text" class="js-general-content-section-two-title" placeholder="Enter section title">
                         <input type="text" class="js-general-content-section-two-text" placeholder="Enter section text">
-                        <input type="file" class="js-general-content-section-two-image" required>
+                        <input type="file" id="js-general-content-section-two-image" class="js-general-content-section-two-image" required>
                         <input type="text" class="js-general-content-section-two-link-url" placeholder="Enter link url">
                         <input type="text" class="js-general-content-section-two-button-value" placeholder="Enter link button text">
                     </span>
