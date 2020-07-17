@@ -21,4 +21,9 @@ class GeneralContentThreeSettings extends Model
     {
         return $this->hasMany(GeneralContentThreeBulletPoint::class);
     }
+
+    public function tiles()
+    {
+        return $this->hasMany(GeneralContentThreeTile::class);
+    }
 }

@@ -75,8 +75,11 @@ Route::post('/general-content-two-settings', 'GeneralContentTwoSettingsControlle
 //General Content Three Settings
 Route::post('/general-content-three-settings', 'GeneralContentThreeSettingsController@store')->name('general-content-three-settings.store');
 
-//General Content Three Settings
+//General Content Three Bullet Point
 Route::post('/general-content-three-bullet-point', 'GeneralContentThreeBulletPointController@store')->name('general-content-three-bullet-point.store');
+
+//General Content Three Tile
+Route::post('/general-content-three-tile', 'GeneralContentThreeTileController@store')->name('general-content-three-tile.store');
 
 //NewsletterSettings Section
 Route::post('/newsletter', 'NewsletterSettingsController@store')->name('newsletter.store');
