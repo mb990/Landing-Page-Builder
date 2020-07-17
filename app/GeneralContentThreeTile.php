@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class GeneralContentThreeTile extends Model
 {
     protected $fillable = [
-        'title', 'text', 'general_content_three_settings_id'
+        'title', 'text', 'general_content_three_settings_id', 'blade_file'
     ];
 
     public function generalContentSection()

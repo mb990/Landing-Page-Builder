@@ -418,21 +418,21 @@
                         <input type="text" id="js-general-content-three-bullet-point-text-3" class="js-general-content-three-bullet-point-text-3" placeholder="Bullet 3 text" required>
                     </span>
                     <p>Add tiles</p>
-                    <span class="js-general-content-three-bullets">
-                        <input type="text" id="" class="" placeholder="Tile1 title" required>
-                        <input type="text" id="" class="" placeholder="Tile1 short text" required>
+                    <span class="js-general-content-three-tiles">
+                        <input type="text" id="js-general-content-three-tile-title-1" class="js-general-content-three-tile-title-1" placeholder="Tile1 title" required>
+                        <input type="text" id="js-general-content-three-tile-text-1" class="js-general-content-three-tile-text-1" placeholder="Tile1 short text" required>
                     </span>
-                    <span class="js-general-content-three-bullets">
-                        <input type="text" id="" class="" placeholder="Tile2 title" required>
-                        <input type="text" id="" class="" placeholder="Tile2 short text" required>
+                    <span class="js-general-content-three-tiles">
+                        <input type="text" id="js-general-content-three-tile-title-2" class="js-general-content-three-tile-title-2" placeholder="Tile2 title" required>
+                        <input type="text" id="js-general-content-three-tile-text-2" class="js-general-content-three-tile-text-2" placeholder="Tile2 short text" required>
                     </span>
-                    <span class="js-general-content-three-bullets">
-                        <input type="text" id="" class="" placeholder="Tile3 title" required>
-                        <input type="text" id="" class="" placeholder="Tile3 short text" required>
+                    <span class="js-general-content-three-tiles">
+                        <input type="text" id="js-general-content-three-tile-title-3" class="js-general-content-three-tile-title-3" placeholder="Tile3 title" required>
+                        <input type="text" id="js-general-content-three-tile-text-3" class="js-general-content-three-tile-text-3" placeholder="Tile3 short text" required>
                     </span>
-                    <span class="js-general-content-three-bullets">
-                        <input type="text" id="" class="" placeholder="Tile4 title" required>
-                        <input type="text" id="" class="" placeholder="Tile4 short text" required>
+                    <span class="js-general-content-three-tiles">
+                        <input type="text" id="js-general-content-three-tile-title-4" class="js-general-content-three-tile-title-4" placeholder="Tile4 title" required>
+                        <input type="text" id="js-general-content-three-tile-text-4" class="js-general-content-three-tile-text-4" placeholder="Tile4 short text" required>
                     </span>
             </div>
             <div class="modal-footer">
@@ -476,8 +476,8 @@
             type: "GET",
             url: "/page-element-types",
             success: function (data) {
-                output = []
-                console.log(data.types)
+                output = [];
+                console.log(data.types);
                 $.each(data.types, function (i, e) {
                     output += '<option data-id="'+ e.id +'" value="option'+e.id +'" id="'+ e.id+'" >'+ e.name + '</option>'
                 });
@@ -490,8 +490,8 @@
             type: "GET",
             url: "/templates",
             success: function (data) {
-                output = []
-                console.log(data.templates)
+                output = [];
+                console.log(data.templates);
                 $.each(data.templates, function (i, e) {
                     output += '<option data-name="'+ e.name +'" data-id="'+ e.id +'" class="js-template">'+ e.name + '</option>'
                 });
@@ -501,7 +501,7 @@
 
         $(".js-add-template").click(function(){
             let name = $(".js-new-template-name").val();
-            console.log(name)
+            console.log(name);
             $.ajax({
                 type: "POST",
                 url: "/template",
@@ -518,14 +518,14 @@
 
                 );
 
-        })
+        });
         // save template_id into hidden field
         $('.js-get-templates').change(function() {
             let template_id = $(this).find(':selected').data('id');
             let template_name = $(this).find(':selected').data('name');
             $('#template_id').val(template_id);
             $('#template_name').val(template_name);
-        })
+        });
 
         $('.js-get-elements').change(function() {
             // save page_element_type_id into hidden field

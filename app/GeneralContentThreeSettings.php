@@ -10,7 +10,7 @@ class GeneralContentThreeSettings extends Model
         'title', 'text', 'link_url', 'button_value'
     ];
 
-    protected $with = ['bulletPoints'];
+    protected $with = ['bulletPoints', 'tiles'];
 
     public function pageElement()
     {

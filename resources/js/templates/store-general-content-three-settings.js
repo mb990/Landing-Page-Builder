@@ -8,9 +8,20 @@ $(document).ready(function () {
 
             let bool = true;
 
+            //check if all bullet points are added
             $('.js-general-content-three-bullets').each(function (e, i) {
 
                 if (!document.getElementById('js-general-content-three-bullet-point-title-' + (e + 1)).validity.valid || !document.getElementById('js-general-content-three-bullet-point-text-' + (e + 1)).validity.valid) {
+
+                    bool = false;
+                }
+
+            });
+
+            //check if all tiles are added
+            $('.js-general-content-three-tiles').each(function (e, i) {
+
+                if (!document.getElementById('js-general-content-three-tile-title-' + (e + 1)).validity.valid || !document.getElementById('js-general-content-three-tile-text-' + (e + 1)).validity.valid) {
 
                     bool = false;
                 }
@@ -32,13 +43,6 @@ $(document).ready(function () {
           let text = $('.js-general-content-three-text').val();
           let link_url = $('.js-general-content-three-link-url').val();
           let button_value = $('.js-general-content-three-button-value').val();
-
-          // $('.js-general-content-three-bullets input[type=text]').each(function () {
-          //     console.log($(this).val());
-          //     if ($(this).val() === "") {
-          //         return false;
-          //     }
-          // });
 
           $.post(route('general-content-three-settings.store'),
 
@@ -82,7 +86,26 @@ $(document).ready(function () {
                           blade_file: 'templates.' + template_name +'.page_elements.general-content3-bullet'
                       }
                   ).done(function (data) {
-                      console.log('bullet point je dodat');
+                      console.log('bullet point added');
+                      $(".modal").modal('hide');
+                  })
+              });
+
+              // saving section's tiles
+              $('.js-general-content-three-tiles').each(function (e, i) {
+
+                  let title = $(".js-general-content-three-tile-title-" + (e + 1)).val();
+                  let text = $(".js-general-content-three-tile-text-" + (e + 1)).val();
+
+                  $.post(route('general-content-three-tile.store'),
+                      {
+                          title: title,
+                          text: text,
+                          general_content_three_settings_id: element_id,
+                          blade_file: 'templates.' + template_name +'.page_elements.general-content3-tile'
+                      }
+                  ).done(function (data) {
+                      console.log('tile added');
                       $(".modal").modal('hide');
                   })
               })
@@ -92,7 +115,7 @@ $(document).ready(function () {
 
       else {
 
-          alert('You need to enter all bullet points data');
+          alert('You need to enter all bullet points/tiles data');
       }
     }
 

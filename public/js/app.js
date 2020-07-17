@@ -37536,9 +37536,16 @@ $(document).ready(function () {
     e.preventDefault();
 
     function validate() {
-      var bool = true;
+      var bool = true; //check if all bullet points are added
+
       $('.js-general-content-three-bullets').each(function (e, i) {
         if (!document.getElementById('js-general-content-three-bullet-point-title-' + (e + 1)).validity.valid || !document.getElementById('js-general-content-three-bullet-point-text-' + (e + 1)).validity.valid) {
+          bool = false;
+        }
+      }); //check if all tiles are added
+
+      $('.js-general-content-three-tiles').each(function (e, i) {
+        if (!document.getElementById('js-general-content-three-tile-title-' + (e + 1)).validity.valid || !document.getElementById('js-general-content-three-tile-text-' + (e + 1)).validity.valid) {
           bool = false;
         }
       });
@@ -37553,13 +37560,7 @@ $(document).ready(function () {
       var title = $('.js-general-content-three-title').val();
       var text = $('.js-general-content-three-text').val();
       var link_url = $('.js-general-content-three-link-url').val();
-      var button_value = $('.js-general-content-three-button-value').val(); // $('.js-general-content-three-bullets input[type=text]').each(function () {
-      //     console.log($(this).val());
-      //     if ($(this).val() === "") {
-      //         return false;
-      //     }
-      // });
-
+      var button_value = $('.js-general-content-three-button-value').val();
       $.post(route('general-content-three-settings.store'), {
         title: title,
         text: text,
@@ -37588,13 +37589,27 @@ $(document).ready(function () {
             general_content_three_settings_id: element_id,
             blade_file: 'templates.' + template_name + '.page_elements.general-content3-bullet'
           }).done(function (data) {
-            console.log('bullet point je dodat');
+            console.log('bullet point added');
+            $(".modal").modal('hide');
+          });
+        }); // saving section's tiles
+
+        $('.js-general-content-three-tiles').each(function (e, i) {
+          var title = $(".js-general-content-three-tile-title-" + (e + 1)).val();
+          var text = $(".js-general-content-three-tile-text-" + (e + 1)).val();
+          $.post(route('general-content-three-tile.store'), {
+            title: title,
+            text: text,
+            general_content_three_settings_id: element_id,
+            blade_file: 'templates.' + template_name + '.page_elements.general-content3-tile'
+          }).done(function (data) {
+            console.log('tile added');
             $(".modal").modal('hide');
           });
         });
       });
     } else {
-      alert('You need to enter all bullet points data');
+      alert('You need to enter all bullet points/tiles data');
     }
   };
 });
@@ -38059,12 +38074,12 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
 
 
 /***/ })
