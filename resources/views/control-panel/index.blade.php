@@ -421,6 +421,13 @@
                     <span class="js-general-content-three-tiles">
                         <input type="text" id="js-general-content-three-tile-title-1" class="js-general-content-three-tile-title-1" placeholder="Tile1 title" required>
                         <input type="text" id="js-general-content-three-tile-text-1" class="js-general-content-three-tile-text-1" placeholder="Tile1 short text" required>
+                        <select>
+                            <options>1</options>
+                            <options>2</options>
+                            <options>3</options>
+                            <options>4</options>
+                            <options>5</options>
+                        </select>>
                     </span>
                     <span class="js-general-content-three-tiles">
                         <input type="text" id="js-general-content-three-tile-title-2" class="js-general-content-three-tile-title-2" placeholder="Tile2 title" required>

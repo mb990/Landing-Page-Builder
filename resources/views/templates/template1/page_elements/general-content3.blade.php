@@ -1,6 +1,6 @@
 <div class="general-content">
 
-    <div class="row row-pad-all">
+    <div class="row row-pad-all" style="margin: 0px;">
         @foreach($data->tiles as $tile)
 
             @include($tile->blade_file, ['data' => $tile])
