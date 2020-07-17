@@ -482,10 +482,8 @@
                     output += '<option data-id="'+ e.id +'" value="option'+e.id +'" id="'+ e.id+'" >'+ e.name + '</option>'
                 });
                 $(".js-get-elements").append(output)
-                $('.js-general-content-three-tiles').append('<select class="js-get-icons"></select><br>');
             }
         });
-
 
         $.ajax({
             type: "GET",
@@ -521,17 +519,27 @@
 
         });
 
-        $.ajax({
-            type: "GET",
-            url: route('awesome-icons.show'),
-            success: function (data) {
-                output = [];
-                $.each(data.awesomeIcons, function (i, e) {
-                    output += '<option data-id="'+ e.id +'">'+ e.name + '</option>'
-                });
-                $(".js-get-icons").append(output)
-            }
+        // add dropdown to every tile with unique class
+        $('.js-general-content-three-tiles').each(function (e, i) {
+
+            let select = "<select class='js-awesome-icons-tile-"+ (e + 1) +"'><option selected>Select awesome icon</option></select><br>";
+
+            $(this).append(select);
+
+            // get awesome icons
+            $.ajax({
+                type: "GET",
+                url: route('awesome-icons.show'),
+                success: function (data) {
+                    output = [];
+                    $.each(data.awesomeIcons, function (e, i) {
+                        output += '<option value="'+ i.id +'" data-id="'+ i.id +'">'+ i.name + '</option>'
+                    });
+                    $(".js-awesome-icons-tile-" + (e + 1)).append(output)
+                }
+            });
         });
+
 
 
         // save template_id into hidden field

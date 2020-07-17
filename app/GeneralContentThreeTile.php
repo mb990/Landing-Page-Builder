@@ -10,7 +10,7 @@ class GeneralContentThreeTile extends Model
         'title', 'text', 'general_content_three_settings_id', 'blade_file', 'awesome_icon_id'
     ];
 
-    protected $with = ['awesomeIcons'];
+    protected $with = ['awesomeIcon'];
 
     public function generalContentSection()
     {

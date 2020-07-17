@@ -37597,12 +37597,12 @@ $(document).ready(function () {
         $('.js-general-content-three-tiles').each(function (e, i) {
           var title = $(".js-general-content-three-tile-title-" + (e + 1)).val();
           var text = $(".js-general-content-three-tile-text-" + (e + 1)).val();
-          var awesome_icon_id = $(".js-general-content-three-tile-text-" + (e + 1)).val();
+          var awesome_icon_id = $(".js-awesome-icons-tile-" + (e + 1)).val();
           $.post(route('general-content-three-tile.store'), {
             title: title,
             text: text,
             general_content_three_settings_id: element_id,
-            awesome_icon_id: nesto,
+            awesome_icon_id: awesome_icon_id,
             blade_file: 'templates.' + template_name + '.page_elements.general-content3-tile'
           }).done(function (data) {
             console.log('tile added');
