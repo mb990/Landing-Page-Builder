@@ -67,6 +67,37 @@
     
 </div>
 <div class="general-content">
+    <div class="row row-pad-all">
+        <div class="column col-mar-bot">
+            <div class="card">
+                <h4><i class="fa fa-calendar-o"></i></h4>
+                <p>Title</p>
+                <p>TEXT</p>
+            </div>
+        </div>
+        <div class="column col-mar-bot">
+            <div class="card">
+                <h4><i class="fa fa-cubes"></i></h4>
+                <p>Title</p>
+                <p>TEXT</p>
+            </div>
+        </div>
+        <div class="column col-mar-bot">
+            <div class="card">
+                <h4><i class="fa fa-gear"></i></h4>
+                <p>Title</p>
+                <p>TEXT</p>
+            </div>
+        </div>
+        <div class="column col-mar-bot">
+            <div class="card">
+                <h4><i class="fa fa-sitemap"></i></h4>
+                <p>Title</p>
+                <p>TEXT</p>
+            </div>
+        </div>
+    </div>
+
     <section>
         <div>
             <div>

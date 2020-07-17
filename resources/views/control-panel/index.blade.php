@@ -50,7 +50,7 @@
 
 
 <!-- Modal9 TOP MENU -->
-<div class="modal fade js-modal9"  aria-hidden="true">
+<div class="modal fade js-modal10"  aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -85,9 +85,9 @@
 </div>
 
 <!-- Modal8 TESTIMONIALS-->
-<div class="modal fade js-modal8"  aria-hidden="true">
+<div class="modal fade js-modal9"  aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content modal8">
+        <div class="modal-content modal9">
             <div class="modal-header">
                 <h5 class="modal-title">Testimonials</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -124,9 +124,9 @@
     </div>
 </div>
 <!-- Prices -->
-<div class="modal fade js-modal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade js-modal8" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content modal7">
+        <div class="modal-content modal8">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Pricing</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -417,6 +417,23 @@
                         <input type="text" id="js-general-content-three-bullet-point-title-3" class="js-general-content-three-bullet-point-title-3" placeholder="Bullet 3 title" required>
                         <input type="text" id="js-general-content-three-bullet-point-text-3" class="js-general-content-three-bullet-point-text-3" placeholder="Bullet 3 text" required>
                     </span>
+                    <p>Add tiles</p>
+                    <span class="js-general-content-three-bullets">
+                        <input type="text" id="" class="" placeholder="Tile1 title" required>
+                        <input type="text" id="" class="" placeholder="Tile1 short text" required>
+                    </span>
+                    <span class="js-general-content-three-bullets">
+                        <input type="text" id="" class="" placeholder="Tile2 title" required>
+                        <input type="text" id="" class="" placeholder="Tile2 short text" required>
+                    </span>
+                    <span class="js-general-content-three-bullets">
+                        <input type="text" id="" class="" placeholder="Tile3 title" required>
+                        <input type="text" id="" class="" placeholder="Tile3 short text" required>
+                    </span>
+                    <span class="js-general-content-three-bullets">
+                        <input type="text" id="" class="" placeholder="Tile4 title" required>
+                        <input type="text" id="" class="" placeholder="Tile4 short text" required>
+                    </span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -426,9 +443,9 @@
     </div>
 </div>
 <!-- SUBSCRIBE -->
-<div class="modal fade js-modal10" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade js-modal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content modal10">
+        <div class="modal-content modal7">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Subscribe</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">

@@ -1,4 +1,11 @@
 <div class="general-content">
+
+    <div class="row row-pad-all">
+        <div class="column col-mar-bot">
+            @include('general-content3-tile.blade.php')
+        </div>
+    </div>
+
     <section>
         <div>
             <div>
