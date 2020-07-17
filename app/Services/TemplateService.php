@@ -73,15 +73,9 @@ class TemplateService
     {
         $views = [];
 
-        $views['heroSection'] = $this->getHeroSectionViewWithData($template);
-
-        $views['testimonialsSection'] = $this->getTestimonialsSectionViewWithData($template);
-
         $views['topMenuSection'] = $this->getTopMenuSectionViewWithData($template);
 
-        $views['footerSection'] = $this->getFooterSectionWithData($template);
-
-        $views['pricingSection'] = $this->getPricingSectionWithData($template);
+        $views['heroSection'] = $this->getHeroSectionViewWithData($template);
 
         $views['generalContentOneSection'] = $this->getGeneralContentOneSectionViewWithData($template);
 
@@ -89,9 +83,15 @@ class TemplateService
 
         $views['generalContentThreeSection'] = $this->getGeneralContentThreeSectionViewWithData($template);
 
+        $views['testimonialsSection'] = $this->getTestimonialsSectionViewWithData($template);
+
+        $views['pricingSection'] = $this->getPricingSectionWithData($template);
+
         $views['newsletterSection'] = $this->getNewslatterSectionViewWithData($template);
 
         $views['gallerySection'] = $this->getGallerySectionViewWithData($template);
+
+        $views['footerSection'] = $this->getFooterSectionWithData($template);
 
         return $this->checkIfAllComponentsExist($views);
     }
