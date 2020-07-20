@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{ asset('css/page_elements1.css') }}">
     <link rel="stylesheet" href="{{ asset('css/page_elements2.css') }}">
     <link rel="stylesheet" href="{{ asset('js/example.js') }}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -67,7 +67,7 @@
                         Serbs are the most hospitable nation – according to the international polls.</p>
                 </div>
                 <div class="col span1of3 mid-span3of4 small-span1of1 align-left">
-                    <p><strong style="font-size: 24px;">Nightlife</strong>, Lonely Planet named Belgrade as the City with the Best Nightlife in the World. 
+                    <p><strong style="font-size: 24px;">Nightlife</strong>, Lonely Planet named Belgrade as the City with the Best Nightlife in the World.
                         The city has more than 170 river clubs which are the mark of the city’s nightlife.
                         No matter what kind of music you listen to, you will definitely find a river club that will suit your taste.</p>
                 </div>
@@ -81,12 +81,12 @@
                             <h1>Did you now?</h1>
                             <div class="mb32">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. m dolor sit amet, consectetur adipi.
-                                    Vivamus imperdiet rhoncus porta. Ut quis sem quis purus lobortis dictum. Tam pulvinar luctus sem, eget porta orci. 
+                                    Vivamus imperdiet rhoncus porta. Ut quis sem quis purus lobortis dictum. Tam pulvinar luctus sem, eget porta orci.
                                     Maecenas molestie dui id diam feugiat, eu tincidunt mauris aliquam. Duis commodo vitae ligula et int
                                     Aliquam nec dignissim nisl. Vivamus cursus feugiat sapien, eget tincidunt leo ornare quis.</p>
                             </div>
                             <a class="btn btn-lg btn-filled btn-primary" href="#">MORE INFO</a>
-                            
+
                         </div>
                     </div>
                 </div>

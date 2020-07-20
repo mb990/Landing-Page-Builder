@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/page_elements1.css') }}">
     <link rel="stylesheet" href="{{ asset('js/example.js') }}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -38,7 +38,7 @@
                 <div class="col-md-7 col-sm-6 text-center mb-xs-24"><img class="img-responsive" src="/img/t1-mac.jpg"></div>
                 <div class="col-md-4 col-md-offset-1 col-sm-5 col-sm-offset-1">
                     <div class="content-text">
-                        <h3>SEO Friendly</h3><div class="mb32"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar luctus sem, eget porta orci. 
+                        <h3>SEO Friendly</h3><div class="mb32"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar luctus sem, eget porta orci.
                             Maecenas molestie dui id diam feugiat, eu tincidunt mauris aliquam. Duis commodo vitae ligula et interdum. Maecenas faucibus mattis imperdiet. In rhoncus ac ligula id ultricies.</p>
                         </div><a class="btn" style="background-color: rgb(103, 103, 238); color: white;" href="#">Read more</a> </div>
                 </div>
@@ -54,7 +54,7 @@
                     <div class="content-text">
                         <h3>Portfolio Section</h3>
                         <div class="mb32">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar luctus sem, eget porta orci. 
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar luctus sem, eget porta orci.
                                 Maecenas molestie dui id diam feugiat, eu tincidunt maurisaiet. In rhoncus ac ligula id ultricies.</p>
                         </div>
                         <a class="btn" style="background-color: rgb(103, 103, 238); color: white;" href="#">See in action</a>
@@ -64,7 +64,7 @@
             </div>
         </div>
     </section>
-    
+
 </div>
 <div class="general-content">
     <div class="row row-pad-all" style="margin: 0px;">
@@ -106,12 +106,12 @@
                         <h1>General Section</h1>
                         <div class="mb32">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. m dolor sit amet, consectetur adipi.
-                                Vivamus imperdiet rhoncus porta. Ut quis sem quis purus lobortis dictum. Tam pulvinar luctus sem, eget porta orci. 
+                                Vivamus imperdiet rhoncus porta. Ut quis sem quis purus lobortis dictum. Tam pulvinar luctus sem, eget porta orci.
                                 Maecenas molestie dui id diam feugiat, eu tincidunt mauris aliquam. Duis commodo vitae ligula et int
                                 Aliquam nec dignissim nisl. Vivamus cursus feugiat sapien, eget tincidunt leo ornare quis.</p>
                         </div>
                         <a class="btn btn-lg btn-filled btn-secondary" href="#">MORE INFO</a>
-                        
+
                     </div>
                 </div>
             </div>
@@ -322,7 +322,7 @@
     </div>
     <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">              
+            <div class="modal-content">
                 <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     <img src="" class="imagepreview" style="width: 100%;" >
@@ -377,8 +377,8 @@ $(document).ready(function(){
 
 
             }
-			$('#imagemodal').modal('show');   
-		});		
+			$('#imagemodal').modal('show');
+		});
     });
 })
 </script>
