@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -16,12 +17,14 @@ class UploadTopMenuImage implements ShouldQueue
     private $imagePath;
     private $templateName;
     private $imageName;
+    private $extension;
 
-    public function __construct($templateName, $imageName, $imagePath)
+    public function __construct($templateName, $imageName, $extension, $imagePath)
     {
         $this->imagePath = $imagePath;
         $this->templateName = $templateName;
         $this->imageName = $imageName;
+        $this->extension = $extension;
     }
 
     /**
@@ -31,8 +34,16 @@ class UploadTopMenuImage implements ShouldQueue
      */
     public function handle()
     {
-//        $image = Storage::disk('public')->get($this->imagePath);
-//
-//        $image->storeAs('templates/' . $this->templateName, $this->imageName . '.' . $image->getClientOriginalExtension(), 's3');
+        if (Storage::disk('local')->exists($this->imagePath)) {
+
+            try {
+                $image = Storage::disk('local')->get($this->imagePath);
+            } catch (FileNotFoundException $e) {
+            }
+
+            $path = 'templates/' . $this->templateName . '/' . $this->imageName . '.' . $this->extension;
+
+            Storage::disk('s3')->put($path, $image);
+        }
     }
 }

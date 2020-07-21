@@ -11,20 +11,24 @@ class StorageService
 {
     public function store($request)
     {
+        $data = [];
+
         $image = $request->file('image');
 
         $name = $request->template_name . '-' . $request->image_name . '.' . $image->getClientOriginalExtension();
 
         $path = Storage::disk('local')->putFileAs('temporary/' . $request->template_name, $image, $name);
 
-//        $path = asset('temporary/' . $request->template_name . '/' . $name);
+        $data['path'] = $path;
 
-        return $path;
+        $data['extension'] = $image->getClientOriginalExtension();
 
-//        if (Storage::disk('public')->exists($path)) {
-//
-//            return Storage::disk('public')->get($path);
-//        }
+        return $data;
+    }
+
+    public function delete()
+    {
+        //
     }
 
 }

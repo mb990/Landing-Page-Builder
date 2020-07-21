@@ -12,26 +12,9 @@ use Illuminate\Support\Facades\Storage;
 class S3Service
 {
 
-    public function storeTemplateTopMenuImage($templateName, $imageName, $imagePath)
+    public function storeTemplateTopMenuImage($templateName, $imageName, $extension, $imagePath)
     {
-//        UploadTopMenuImage::dispatch($templateName, $imageName, $imagePath);
-
-        $data = '';
-
-        if (Storage::disk('local')->exists($imagePath)) {
-
-            try {
-                $image = Storage::disk('local')->get($imagePath);
-            } catch (FileNotFoundException $e) {
-            }
-
-            $image->putFileAs('templates/' . $templateName, $imageName . '.' . $image->getClientOriginalExtension(), 's3');
-
-            return $data = 'ima slika';
-        }
-
-        return $data = 'nema slike';
-
+        UploadTopMenuImage::dispatch($templateName, $imageName, $extension, $imagePath);
     }
 
     public function storeTemplateTestimonialImage($request)

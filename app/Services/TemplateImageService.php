@@ -36,11 +36,9 @@ class TemplateImageService
 
     public function storeTopMenuImage($request)
     {
-        $imagePath = $this->storageService->store($request);
+        $data = $this->storageService->store($request);
 
-//        return $image;
-
-        $this->s3Service->storeTemplateTopMenuImage($request->template_name, $request->image_name, $imagePath);
+        $this->s3Service->storeTemplateTopMenuImage($request->template_name, $request->image_name, $data['extension'], $data['path']);
 
         $data = $this->prepareStoringData($request);
 
@@ -107,9 +105,6 @@ class TemplateImageService
         $data = [];
 
         $data['filename'] = $request->file('image')->getClientOriginalName() . '.' . $request->file('image')->getClientOriginalExtension();
-
-//        $data['url'] = Storage::disk('s3')->url($image);
-        $data['url'] = 'url';
 
         $data['imageable_type'] = $request->imageable_type;
 

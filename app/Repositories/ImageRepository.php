@@ -26,7 +26,7 @@ class ImageRepository
     public function store($data)
     {
         return $this->image->create([
-            'url' => $data['url'],
+//            'url' => $data['url'],
             'filename' => $data['filename'],
             'imageable_type' => $data['imageable_type'],
             'imageable_id' => $data['imageable_id']
