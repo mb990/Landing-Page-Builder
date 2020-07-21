@@ -36,7 +36,7 @@ class TemplateImageService
 
     public function storeImage($request)
     {
-        $data = $this->storageService->store($request);
+        $data = $this->storageService->storeImage($request);
 
         $this->s3Service->storeImage($request->image_name, $data['extension'], $data['path'], $request->storing_path);
 

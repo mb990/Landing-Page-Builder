@@ -44,6 +44,8 @@ class UploadImageToS3Disk implements ShouldQueue
             $path = $this->storingPath . '/' . $this->imageName . '.' . $this->extension;
 
             Storage::disk('s3')->put($path, $imageContents);
+
+            Storage::disk('local')->delete($this->imagePath);
         }
     }
 }

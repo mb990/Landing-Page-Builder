@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class StorageService
 {
-    public function store($request)
+    public function storeImage($request)
     {
         $data = [];
 
@@ -25,10 +25,4 @@ class StorageService
 
         return $data;
     }
-
-    public function delete()
-    {
-        //
-    }
-
 }
