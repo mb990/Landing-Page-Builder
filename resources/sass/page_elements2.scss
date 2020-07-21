@@ -2,6 +2,14 @@
 .body-t2{
     font-family: 'Poppins', sans-serif;
 }
+.fixed-top{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    width: 100vw;
+}
 .navbar-fixed-top.scrolled {
     background-color: rgb(12, 12, 12) !important;
     transition: background-color 200ms linear;
@@ -71,5 +79,14 @@
     }
     &:hover{
         background-color: lightskyblue;
+    }
+}
+
+.gallery-tiles{
+    display: flex;
+    flex-wrap: wrap;
+    figure{
+        padding: 0px;
+        margin: 0px;
     }
 }
