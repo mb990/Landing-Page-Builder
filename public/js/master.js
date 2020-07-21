@@ -146,7 +146,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\js\master.js */"./resources/js/master.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\js\master.js */"./resources/js/master.js");
 
 
 /***/ })

@@ -2,6 +2,10 @@
 .body-t2{
     font-family: 'Poppins', sans-serif;
 }
+.width-limit{
+    max-width: 1600px;
+    margin: auto;
+}
 .fixed-top{
     position: fixed;
     top: 0;
@@ -45,6 +49,9 @@
     background-color: lightgrey;
     @media screen and (max-width:425px){
         padding: 0px;
+    }
+    @media screen and (min-width:1600px){
+        padding: 5vh;
     }
 }
 .row-container{

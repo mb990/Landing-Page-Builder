@@ -42,7 +42,7 @@
         </div>
     </section>
 
-    <section class="about-section text-center content1-t2 container" id="about">
+    <section class="about-section text-center content1-t2 container width-limit" id="about">
         <div class="row align-items-center no-gutters mb-4 mb-lg-5">
             <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="/img/bgd3.jpg" alt=""></div>
             <div class="col-xl-4 col-lg-5">
@@ -55,7 +55,7 @@
         </div>
     </section>
 
-    <div class="general-content" id="projects">
+    <div class="general-content width-limit" id="projects">
         <div class="bullets-div-t2">
             <div class="content center">
                 <div class="col span1of3 mid-span3of4 small-span1of1 align-left">
@@ -154,7 +154,7 @@
 
 
 <!-- Section: Testimonials v.3 -->
-<section class="team-section text-center my-5">
+<section class="team-section text-center my-5 width-limit">
     <h2 class="h1-responsive font-weight-bold my-5">Testimonials</h2>
     <div class="row text-center" style="max-width: 100%; padding: 20px;">
         <!--Grid column-->
@@ -196,7 +196,8 @@
         </div>
     </div>
 </section>
-<section class="newsletter">
+<!-- NEWSLETTERS -->
+<section class="newsletter width-limit">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -217,13 +218,14 @@
         </div>
     </div>
 </section>
-<div class="row-container">
+<!-- GALLERY -->
+<div class="row-container width-limit">
     <div class="col-md-12" style="padding: 0px;">
 
         <div class="gallery-tiles no-margin">
 
         <figure class="col-md-4">
-          <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(117).jpg" data-size="1600x1067">
+          <a class="pop-t2"  data-size="1600x1067">
             <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(117).jpg"
               class="img-fluid">
           </a>
@@ -288,7 +290,20 @@
       </div>
   
     </div>
-  </div>
+    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <img src="" class="imagepreview" style="width: 100%;" data-size="1600x1067">
+                    <video class="videopreview" controls style="width: 100%;">
+                        <source src="" class="videopreview" style="width: 100%;" type="video/ogg">
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     $(function () {
         $(document).scroll(function () {
@@ -296,5 +311,23 @@
 	        nav.toggleClass('scrolled', $(this).scrollTop() > nav.height());
 	});
 });
+$(function() {
+		$('.pop-t2').on('click', function() {
+            if($(this).find('img').attr('src') == "/img/video-logo.png"){
+                $('.videopreview').attr('src', $(this).find('source').attr('src'));
+                $('.imagepreview').hide();
+                $('.videopreview').show();
+
+
+            } else if($(this).find('img').attr('src') != "/img/video-logo.png"){
+                $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+                $('.imagepreview').show();
+                $('.videopreview').hide()
+
+
+            }
+			$('#imagemodal').modal('show');
+		});
+    });
 </script>
 </body>
