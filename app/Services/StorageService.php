@@ -15,7 +15,7 @@ class StorageService
 
         $image = $request->file('image');
 
-        $name = $request->template_name . '-' . $request->image_name . '.' . $image->getClientOriginalExtension();
+        $name = $request->image_name . '.' . $image->getClientOriginalExtension();
 
         $path = Storage::disk('local')->putFileAs('temporary/' . $request->template_name, $image, $name);
 

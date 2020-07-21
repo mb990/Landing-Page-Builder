@@ -10,21 +10,21 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Storage;
 
-class UploadTopMenuImage implements ShouldQueue
+class UploadImageToS3Disk implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    private $imagePath;
-    private $templateName;
     private $imageName;
     private $extension;
+    private $imagePath;
+    private $storingPath;
 
-    public function __construct($templateName, $imageName, $extension, $imagePath)
+    public function __construct($imageName, $extension, $imagePath, $storingPath)
     {
-        $this->imagePath = $imagePath;
-        $this->templateName = $templateName;
         $this->imageName = $imageName;
         $this->extension = $extension;
+        $this->imagePath = $imagePath;
+        $this->storingPath = $storingPath;
     }
 
     /**
@@ -37,13 +37,13 @@ class UploadTopMenuImage implements ShouldQueue
         if (Storage::disk('local')->exists($this->imagePath)) {
 
             try {
-                $image = Storage::disk('local')->get($this->imagePath);
+                $imageContents = Storage::disk('local')->get($this->imagePath);
             } catch (FileNotFoundException $e) {
             }
 
-            $path = 'templates/' . $this->templateName . '/' . $this->imageName . '.' . $this->extension;
+            $path = $this->storingPath . '/' . $this->imageName . '.' . $this->extension;
 
-            Storage::disk('s3')->put($path, $image);
+            Storage::disk('s3')->put($path, $imageContents);
         }
     }
 }

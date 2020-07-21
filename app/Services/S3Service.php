@@ -3,7 +3,7 @@
 
 namespace App\Services;
 
-use App\Jobs\UploadTopMenuImage;
+use App\Jobs\UploadImageToS3Disk;
 use Carbon\Carbon;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Request;
@@ -12,44 +12,9 @@ use Illuminate\Support\Facades\Storage;
 class S3Service
 {
 
-    public function storeTemplateTopMenuImage($templateName, $imageName, $extension, $imagePath)
+    public function storeImage($imageName, $extension, $imagePath, $storingPath)
     {
-        UploadTopMenuImage::dispatch($templateName, $imageName, $extension, $imagePath);
-    }
-
-    public function storeTemplateTestimonialImage($request)
-    {
-        $image = $request->file('image')->storeAs('templates/' . $request->template_name . '/testimonials', $request->image_name . '.' . $request->file('image')->getClientOriginalExtension(), 's3');
-
-        return $image;
-    }
-
-    public function storeTemplateHeroSectionImage($request)
-    {
-        $image = $request->file('image')->storeAs('templates/' . $request->template_name, $request->image_name . '.' . $request->file('image')->getClientOriginalExtension(), 's3');
-
-        return $image;
-    }
-
-    public function storeTemplateGeneralContentOneImage($request)
-    {
-        $image = $request->file('image')->storeAs('templates/' . $request->template_name, $request->image_name . '.' . $request->file('image')->getClientOriginalExtension(), 's3');
-
-        return $image;
-    }
-
-    public function storeTemplateGeneralContentTwoImage($request)
-    {
-        $image = $request->file('image')->storeAs('templates/' . $request->template_name, $request->image_name . '.' . $request->file('image')->getClientOriginalExtension(), 's3');
-
-        return $image;
-    }
-
-    public function storeTemplateGalleryImageItemImage($request)
-    {
-        $image = $request->file('image')->storeAs('templates/' . $request->template_name . '/gallery/images', $request->image_name . '.' . $request->file('image')->getClientOriginalExtension(), 's3');
-
-        return $image;
+        UploadImageToS3Disk::dispatch($imageName, $extension, $imagePath, $storingPath);
     }
 
     public function showTemplateTopMenuImage($template, $image, $minutes)

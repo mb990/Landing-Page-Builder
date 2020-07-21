@@ -26,6 +26,7 @@ class StoreTemplateGeneralContentSectionOneImageRequest extends FormRequest
         return [
            'image' => 'required|mimes:jpeg,jpg,png|max:150',
            'template_name' => 'required',
+           'storing_path' => 'required',
            'image_name' => 'required',
            'imageable_type' => 'required',
            'imageable_id' => 'required',

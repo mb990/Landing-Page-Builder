@@ -44,6 +44,7 @@ $(document).ready(function () {
                 let form_data = new FormData();
                 form_data.append('image', $('#hero-section-image')[0].files[0]);
                 form_data.append('template_name', template_name);
+                form_data.append('storing_path', 'templates/' + template_name);
                 form_data.append('image_name', 'hero-section');
                 form_data.append('imageable_type', modelType);
                 form_data.append('imageable_id', element_id);

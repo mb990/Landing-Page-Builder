@@ -70,6 +70,7 @@ $(document).ready(function () {
                         let form_data = new FormData();
                         form_data.append('image', $('#js-testimonial-image-' + (e + 1))[0].files[0]);
                         form_data.append('template_name', template_name);
+                        form_data.append('storing_path', 'templates/' + template_name + '/testimonials');
                         form_data.append('image_name', 'testimonial-' + data.settings.id);
                         form_data.append('imageable_type','App\\TestimonialSettings');
                         form_data.append('imageable_id', data.settings.id);

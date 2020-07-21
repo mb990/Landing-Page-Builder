@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Template;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTopMenuImageRequest;
-use App\Jobs\UploadTopMenuImage;
+use App\Jobs\UploadImageToS3Disk;
 use App\Services\TemplateImageService;
 use Illuminate\Http\Request;
 
@@ -22,7 +22,7 @@ class TopMenuImageController extends Controller
 
     public function store(StoreTopMenuImageRequest $request)
     {
-        $image = $this->templateImageService->storeTopMenuImage($request);
+        $image = $this->templateImageService->storeImage($request);
 
         return response()->json(['image' => $image]);
     }

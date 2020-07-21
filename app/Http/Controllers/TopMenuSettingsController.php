@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\UploadTopMenuImage;
+use App\Jobs\UploadImageToS3Disk;
 use App\Services\TopMenuSettingsService;
 use Illuminate\Http\Request;
 

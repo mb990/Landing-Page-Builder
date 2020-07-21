@@ -67,6 +67,7 @@ $(document).ready(function () {
                     let form_data = new FormData();
                     form_data.append('image', file);
                     form_data.append('template_name', template_name);
+                    form_data.append('storing_path', 'templates/' + template_name + '/gallery/images');
                     form_data.append('image_name', 'image-' + data.item.id);
                     form_data.append('imageable_type','App\\GalleryImageItem');
                     form_data.append('imageable_id', data.item.id);

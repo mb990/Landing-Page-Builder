@@ -37425,6 +37425,7 @@ $(document).ready(function () {
           var form_data = new FormData();
           form_data.append('image', file);
           form_data.append('template_name', template_name);
+          form_data.append('storing_path', 'templates/' + template_name + '/gallery/images');
           form_data.append('image_name', 'image-' + data.item.id);
           form_data.append('imageable_type', 'App\\GalleryImageItem');
           form_data.append('imageable_id', data.item.id);
@@ -37490,6 +37491,7 @@ $(document).ready(function () {
         var form_data = new FormData();
         form_data.append('image', $('.js-general-content-section-one-image')[0].files[0]);
         form_data.append('template_name', template_name);
+        form_data.append('storing_path', 'templates/' + template_name);
         form_data.append('image_name', 'general-content-one-section');
         form_data.append('imageable_type', modelType);
         form_data.append('imageable_id', element_id);
@@ -37659,6 +37661,7 @@ $(document).ready(function () {
         var form_data = new FormData();
         form_data.append('image', $('.js-general-content-section-two-image')[0].files[0]);
         form_data.append('template_name', template_name);
+        form_data.append('storing_path', 'templates/' + template_name);
         form_data.append('image_name', 'general-content-two-section');
         form_data.append('imageable_type', modelType);
         form_data.append('imageable_id', element_id);
@@ -37732,6 +37735,7 @@ $(document).ready(function () {
         var form_data = new FormData();
         form_data.append('image', $('#hero-section-image')[0].files[0]);
         form_data.append('template_name', template_name);
+        form_data.append('storing_path', 'templates/' + template_name);
         form_data.append('image_name', 'hero-section');
         form_data.append('imageable_type', modelType);
         form_data.append('imageable_id', element_id);
@@ -37909,6 +37913,7 @@ $(document).ready(function () {
             var form_data = new FormData();
             form_data.append('image', $('#js-testimonial-image-' + (e + 1))[0].files[0]);
             form_data.append('template_name', template_name);
+            form_data.append('storing_path', 'templates/' + template_name + '/testimonials');
             form_data.append('image_name', 'testimonial-' + data.settings.id);
             form_data.append('imageable_type', 'App\\TestimonialSettings');
             form_data.append('imageable_id', data.settings.id);
@@ -37967,6 +37972,7 @@ $(document).ready(function () {
         var form_data = new FormData();
         form_data.append('image', $('#top-menu-image')[0].files[0]);
         form_data.append('template_name', template_name);
+        form_data.append('storing_path', 'templates/' + template_name);
         form_data.append('image_name', 'top-menu');
         form_data.append('imageable_type', modelType);
         form_data.append('imageable_id', data.settings.id);

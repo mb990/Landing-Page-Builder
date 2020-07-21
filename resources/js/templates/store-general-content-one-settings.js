@@ -46,6 +46,7 @@ $(document).ready(function () {
                 let form_data = new FormData();
                 form_data.append('image', $('.js-general-content-section-one-image')[0].files[0]);
                 form_data.append('template_name', template_name);
+                form_data.append('storing_path', 'templates/' + template_name);
                 form_data.append('image_name', 'general-content-one-section');
                 form_data.append('imageable_type', modelType);
                 form_data.append('imageable_id', element_id);

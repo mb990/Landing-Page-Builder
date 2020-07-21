@@ -21,7 +21,7 @@ class GalleryImageItemImageController extends Controller
 
     public function store(StoreTemplateGalleryImageItemImageRequest $request)
     {
-        $image = $this->templateImageService->storeGalleryImageItemImage($request);
+        $image = $this->templateImageService->storeImage($request);
 
         return response()->json(['image' => $image]);
     }
