@@ -13,7 +13,7 @@
 
 </head>
 <body class="body-t2">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="#page-top"><img class="header-logo" src="#"></a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,6 +93,63 @@
             </div>
         </section>
 
+        <div class="row-container row-custom">
+            <div class=" tile-t2">
+                <div class="card card-hov">
+                    <p class="text-secondary">Some tsdsadext</p>
+                    <h3><i class="fa fa-calendar-o text-primary"></i></h3>
+                    <p class="text-secondary">Some tsadsad sadsadas dasdasdas dasdasd asd ext</p>
+                </div>
+            </div>
+            <div class=" tile-t2">
+                <div class="card">
+                    <p class="text-secondary">Some tsdsadext</p>
+                    <h3><i class="fa fa-calendar-o text-primary"></i></h3>
+                    <p class="text-secondary">Some tsadsad sadsadas dasdasdas dasdasd asd ext</p>
+                </div>
+            </div>
+            <div class=" tile-t2">
+                <div class="card">
+                    <p class="text-secondary">Some tsdsadext</p>
+                    <h3><i class="fa fa-calendar-o text-primary"></i></h3>
+                    <p class="text-secondary">Some tsadsad sadsadas dasdasdas dasdasd asd ext</p>
+                </div>
+            </div>
+            <div class=" tile-t2">
+                <div class="card">
+                    <p class="text-secondary">Some tsdsadext</p>
+                    <h3><i class="fa fa-calendar-o text-primary"></i></h3>
+                    <p class="text-secondary">Some tsadsad sadsadas dasdasdas dasdasd asd ext</p>
+                </div>
+            </div>
+            <div class=" tile-t2">
+                <div class="card">
+                    <p class="text-secondary">Some tsdsadext</p>
+                    <h3><i class="fa fa-calendar-o text-primary"></i></h3>
+                    <p class="text-secondary">Some tsadsad sadsadas dasdasdas dasdasd asd ext</p>
+                </div>
+            </div><div class=" tile-t2">
+                <div class="card">
+                    <p class="text-secondary">Some tsdsadext</p>
+                    <h3><i class="fa fa-calendar-o text-primary"></i></h3>
+                    <p class="text-secondary">Some tsadsad sadsadas dasdasdas dasdasd asd ext</p>
+                </div>
+            </div>
+            <div class=" tile-t2">
+                <div class="card">
+                    <p class="text-secondary">Some tsdsadext</p>
+                    <h3><i class="fa fa-calendar-o text-primary"></i></h3>
+                    <p class="text-secondary">Some tsadsad sadsadas dasdasdas dasdasd asd ext</p>
+                </div>
+            </div>
+            <div class=" tile-t2">
+                <div class="card">
+                    <p class="text-secondary">Some tsdsadext</p>
+                    <h3><i class="fa fa-calendar-o text-primary"></i></h3>
+                    <p class="text-secondary">Some tsadsad sadsadas dasdasdas dasdasd asd ext</p>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -138,7 +195,34 @@
             </div>
         </div>
     </div>
-
 </section>
-
+<section class="newsletter">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="content">
+                    <h2>SUBSCRIBE</h2>
+                    <div>
+                        <span class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email">
+                            <input type="text" class="form-control" placeholder="Enter your Name">
+                        </span>
+                        <br>
+                        <span class="input-group-btn">
+                            <button class="btn btn-warning" type="submit">Subscribe Now</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(function () {
+        $(document).scroll(function () {
+	        var nav = $(".navbar-fixed-top");
+	        nav.toggleClass('scrolled', $(this).scrollTop() > nav.height());
+	});
+});
+</script>
 </body>

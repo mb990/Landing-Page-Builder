@@ -2,6 +2,10 @@
 .body-t2{
     font-family: 'Poppins', sans-serif;
 }
+.navbar-fixed-top.scrolled {
+    background-color: rgb(12, 12, 12) !important;
+    transition: background-color 200ms linear;
+}
 .hero-image-t2{
     height: 100vh;
 }
@@ -33,5 +37,39 @@
     background-color: lightgrey;
     @media screen and (max-width:425px){
         padding: 0px;
+    }
+}
+.row-container{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.row-custom{
+    padding: 50px;
+    @media screen and (max-width:425px){
+        padding: 0px;
+    }
+}
+.tile-t2{
+    float: left;
+    width: 18vw;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 20px;
+    @media screen and (max-width:768px){
+        width: 25vw;
+        padding: 0px;
+    }
+    @media screen and (max-width:425px){
+        width: 40vw;
+        padding: 0px;
+    }
+    @media screen and (max-width:374px){
+        width: 100vw;
+        padding: 0px;
+    }
+    &:hover{
+        background-color: lightskyblue;
     }
 }
