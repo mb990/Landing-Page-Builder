@@ -12,10 +12,10 @@ $(document).ready(function () {
 
         let files = $('.js-gallery-image')[0].files;
 
-        // check if exactly 12 images are added
+        // check if exactly 12 files are added
         if (files.length !== 12) {
 
-            alert('You must add 12 images');
+            alert('You must add 12 files');
 
             return;
         }
@@ -44,37 +44,27 @@ $(document).ready(function () {
                 })
                 .fail(console.log('failed element'));
 
-            // saving gallery image item
-
-            console.log('broj slika je: ' + files.length);
-
             let number = 0;
 
             for (var i = 0; i < files.length; i++) {
 
-                $.post(route('gallery-image-item.store'),
-                    {
-                        gallery_settings_id: settings_id,
-                        blade_file: 'templates.' + template_name + '.page_elements.gallery-content'
-                    }
-                ).done(function (data) {
+                let file = files[number];
 
-                    // console.log('trenutni broj: ' + (number + 1));
+                if (file.type.includes('video')) {
 
-                    // saving gallery image item image
-                    let file = files[number];
+                    // saving gallery video item
 
                     let form_data = new FormData();
-                    form_data.append('image', file);
+                    form_data.append('video', file);
                     form_data.append('template_name', template_name);
-                    form_data.append('storing_path', 'templates/' + template_name + '/gallery/images');
-                    form_data.append('image_name', 'image-' + data.item.id);
-                    form_data.append('imageable_type','App\\GalleryImageItem');
-                    form_data.append('imageable_id', data.item.id);
+                    form_data.append('storing_path', 'templates/' + template_name + '/gallery/videos');
+                    form_data.append('video_name', 'video-' + file.name);
+                    form_data.append('gallery_settings_id', settings_id);
+                    form_data.append('blade_file', 'templates.' + template_name + '.page_elements.gallery-content-video');
 
                     $.ajax({
 
-                        url: route('template.gallery-image-item-image.store'),
+                        url: route('gallery-video-item.store'),
                         type: "post",
                         data: form_data,
                         contentType: false,
@@ -84,12 +74,49 @@ $(document).ready(function () {
                         // error: console.log('greska pri uploadu slike')
 
                     }).done(function (data) {
-                        console.log(data.image);
+                        console.log(data.video);
                     });
+                }
 
-                    number ++;
+                else {
 
-                })
+                    // saving gallery image item
+
+                    $.post(route('gallery-image-item.store'),
+                        {
+                            gallery_settings_id: settings_id,
+                            blade_file: 'templates.' + template_name + '.page_elements.gallery-content'
+                        }
+                    ).done(function (data) {
+
+                        // saving gallery image item image
+
+                        let form_data = new FormData();
+                        form_data.append('image', file);
+                        form_data.append('template_name', template_name);
+                        form_data.append('storing_path', 'templates/' + template_name + '/gallery/images');
+                        form_data.append('image_name', 'image-' + data.item.id);
+                        form_data.append('imageable_type','App\\GalleryImageItem');
+                        form_data.append('imageable_id', data.item.id);
+
+                        $.ajax({
+
+                            url: route('template.gallery-image-item-image.store'),
+                            type: "post",
+                            data: form_data,
+                            contentType: false,
+                            cache: false,
+                            processData: false,
+                            success: console.log('poslato'),
+                            // error: console.log('greska pri uploadu slike')
+
+                        }).done(function (data) {
+                            console.log(data.image);
+                        });
+                    })
+                }
+
+                number ++;
             }
         })
     }

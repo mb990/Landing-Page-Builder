@@ -28,9 +28,13 @@ class GalleryVideoItemRepository
         return $this->galleryVideoItem->find($id);
     }
 
-    public function store($request)
+    public function store($data)
     {
-        return $this->galleryVideoItem->create($request->all());
+        return $this->galleryVideoItem->create([
+            'filename' => $data['filename'],
+            'blade_file' => $data['blade_file'],
+            'gallery_settings_id' => $data['gallery_settings_id']
+            ]);
     }
 
     public function update($request, $id)

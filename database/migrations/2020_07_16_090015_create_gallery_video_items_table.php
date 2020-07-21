@@ -15,7 +15,6 @@ class CreateGalleryVideoItemsTable extends Migration
     {
         Schema::create('gallery_video_items', function (Blueprint $table) {
             $table->id();
-            $table->string('url');
             $table->string('filename');
             $table->string('blade_file');
             $table->unsignedBigInteger('gallery_settings_id');

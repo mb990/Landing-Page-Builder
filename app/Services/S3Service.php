@@ -14,7 +14,7 @@ class S3Service
 
     public function storeImage($imageName, $extension, $imagePath, $storingPath)
     {
-        UploadImageToS3Disk::dispatch($imageName, $extension, $imagePath, $storingPath);
+        UploadImageToS3Disk::dispatch($imageName, $extension, $imagePath, $storingPath)->delay(Carbon::now()->addSeconds(5));
     }
 
     public function showTemplateTopMenuImage($template, $image, $minutes)

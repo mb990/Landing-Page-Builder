@@ -24,10 +24,13 @@ class StoreGalleryVideoItemRequest extends FormRequest
     public function rules()
     {
         return [
+//            mimes:x-flv,video/mp4,3gpp,quicktime,x-msvideo,x-ms-wmv
+            'video' => 'required||max:10240',
             'gallery_settings_id' => 'required',
             'blade_file' => 'required',
-            'url' => 'required',
-            'filename' => 'required'
+            'video_name' => 'required',
+            'template_name' => 'required',
+            'storing_path' => 'required'
         ];
     }
 }

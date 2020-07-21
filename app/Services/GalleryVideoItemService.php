@@ -12,10 +12,15 @@ class GalleryVideoItemService
      * @var GalleryVideoItemRepository
      */
     private $galleryVideoItem;
+    /**
+     * @var StorageService
+     */
+    private $storageService;
 
-    public function __construct(GalleryVideoItemRepository $galleryVideoItem)
+    public function __construct(GalleryVideoItemRepository $galleryVideoItem, StorageService $storageService)
     {
         $this->galleryVideoItem = $galleryVideoItem;
+        $this->storageService = $storageService;
     }
 
     public function all()
@@ -30,7 +35,11 @@ class GalleryVideoItemService
 
     public function store($request)
     {
-        return $this->galleryVideoItem->store($request);
+        $data = $this->storageService->storeVideo($request);
+
+        $storingData = $this->prepareStoringData($request);
+
+        return $this->galleryVideoItem->store($storingData);
     }
 
     public function update($request, $id)
@@ -41,5 +50,18 @@ class GalleryVideoItemService
     public function delete($id)
     {
         return $this->galleryVideoItem->delete($id);
+    }
+
+    public function prepareStoringData($request)
+    {
+        $data = [];
+
+        $data['filename'] = $request->video_name;
+
+        $data['gallery_settings_id'] = $request->gallery_settings_id;
+
+        $data['blade_file'] = $request->blade_file;
+
+        return $data;
     }
 }

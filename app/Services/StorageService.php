@@ -25,4 +25,21 @@ class StorageService
 
         return $data;
     }
+
+    public function storeVideo($request)
+    {
+        $data = [];
+
+        $video = $request->file('video');
+
+        $name = $request->video_name . '.' . $video->getClientOriginalExtension();
+
+        $path = Storage::disk('local')->putFileAs('temporary/' . $request->template_name, $video, $name);
+
+        $data['path'] = $path;
+
+        $data['extension'] = $video->getClientOriginalExtension();
+
+        return $data;
+    }
 }

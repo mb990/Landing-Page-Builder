@@ -38,11 +38,11 @@ class TemplateImageService
     {
         $data = $this->storageService->storeImage($request);
 
-        $this->s3Service->storeImage($request->image_name, $data['extension'], $data['path'], $request->storing_path);
+//        $this->s3Service->storeImage($request->image_name, $data['extension'], $data['path'], $request->storing_path);
 
-        $data = $this->prepareStoringData($request);
+        $savingData = $this->prepareStoringData($request);
 
-        return $this->image->store($data);
+        return $this->image->store($savingData);
     }
 
     public function update($request, $id)
