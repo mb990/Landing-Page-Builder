@@ -3,18 +3,35 @@
 
 namespace App\Services;
 
+use App\Jobs\UploadTopMenuImage;
 use Carbon\Carbon;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class S3Service
 {
 
-    public function storeTemplateTopMenuImage($request)
+    public function storeTemplateTopMenuImage($templateName, $imageName, $imagePath)
     {
-        $image = $request->file('image')->storeAs('templates/' . $request->template_name, $request->image_name . '.' . $request->file('image')->getClientOriginalExtension(), 's3');
+//        UploadTopMenuImage::dispatch($templateName, $imageName, $imagePath);
 
-        return $image;
+        $data = '';
+
+        if (Storage::disk('local')->exists($imagePath)) {
+
+            try {
+                $image = Storage::disk('local')->get($imagePath);
+            } catch (FileNotFoundException $e) {
+            }
+
+            $image->putFileAs('templates/' . $templateName, $imageName . '.' . $image->getClientOriginalExtension(), 's3');
+
+            return $data = 'ima slika';
+        }
+
+        return $data = 'nema slike';
+
     }
 
     public function storeTemplateTestimonialImage($request)

@@ -17,11 +17,16 @@ class TemplateImageService
      * @var S3Service
      */
     private $s3Service;
+    /**
+     * @var StorageService
+     */
+    private $storageService;
 
-    public function __construct(ImageRepository $image, S3Service $s3Service)
+    public function __construct(ImageRepository $image, S3Service $s3Service, StorageService $storageService)
     {
         $this->image = $image;
         $this->s3Service = $s3Service;
+        $this->storageService = $storageService;
     }
 
     public function find($id)
@@ -31,9 +36,13 @@ class TemplateImageService
 
     public function storeTopMenuImage($request)
     {
-        $image = $this->s3Service->storeTemplateTopMenuImage($request);
+        $imagePath = $this->storageService->store($request);
 
-        $data = $this->prepareStoringData($image, $request);
+//        return $image;
+
+        $this->s3Service->storeTemplateTopMenuImage($request->template_name, $request->image_name, $imagePath);
+
+        $data = $this->prepareStoringData($request);
 
         return $this->image->store($data);
     }
@@ -93,13 +102,14 @@ class TemplateImageService
         return $this->image->delete($id);
     }
 
-    public function prepareStoringData($image, $request)
+    public function prepareStoringData($request)
     {
         $data = [];
 
-        $data['filename'] = basename($image);
+        $data['filename'] = $request->file('image')->getClientOriginalName() . '.' . $request->file('image')->getClientOriginalExtension();
 
-        $data['url'] = Storage::disk('s3')->url($image);
+//        $data['url'] = Storage::disk('s3')->url($image);
+        $data['url'] = 'url';
 
         $data['imageable_type'] = $request->imageable_type;
 

@@ -50,7 +50,9 @@ $(document).ready(function () {
                     // error: console.log('greska pri uploadu slike')
 
                 }).done(function (data) {
+                    console.log('ispod ovoga treba da je ispis slike');
                     console.log(data.image);
+                    console.log('iznad ovoga treba da je ispis slike');
                 });
 
                 // saving new top menu element

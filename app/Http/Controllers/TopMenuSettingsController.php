@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\UploadTopMenuImage;
 use App\Services\TopMenuSettingsService;
 use Illuminate\Http\Request;
 
