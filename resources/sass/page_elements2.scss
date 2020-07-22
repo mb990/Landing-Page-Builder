@@ -1,6 +1,12 @@
 //TEMPLATE 2
 .body-t2{
     font-family: 'Poppins', sans-serif;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.body-t2::-webkit-scrollbar {
+    display: none;
 }
 .width-limit{
     max-width: 1600px;
