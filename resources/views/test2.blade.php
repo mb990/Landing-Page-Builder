@@ -272,7 +272,15 @@
               class="img-fluid" />
           </a>
         </figure>
-  
+        <figure class="col-md-4">
+            <a class="pop-t2">
+                <img src="/img/video-logo.png"  alt="Audition" class="img-fluid mx-auto d-block">
+                <span style="display: none;">
+                    <video controls >
+                        <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
+                </span>
+            </a>
+        </figure>
         <figure class="col-md-4">
             <a class="pop-t2"  data-size="1600x1067">
                 <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(115).jpg"
@@ -280,21 +288,20 @@
           </a>
         </figure>
   
-        <figure class="col-md-4">
+        <!-- <figure class="col-md-4">
             <a class="pop-t2"  data-size="1600x1067">
-                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(133).jpg"
-              class="img-fluid" />
-          </a>
-        </figure>
-  
-      </div>
-  
+                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(133).jpg" class="img-fluid" />
+            </a>
+        </figure> -->
+
+    </div>
+
     </div>
     <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="max-width: 100vw;">
+        <div class="modal-dialog" style="max-width: 70vw;">
             <div class="modal-content">
                 <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <button type="button" class="close js-stop-video" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     <img src="" class="imagepreview" style="width: 100%;" data-size="1600x1067">
                     <video class="videopreview" controls style="width: 100%;">
                         <source src="" class="videopreview" style="width: 100%;" type="video/ogg">
@@ -304,6 +311,29 @@
         </div>
     </div>
 </div>
+<!-- FOOTER -->
+<footer class="page-footer font-small cyan darken-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 py-5">
+                <div class="mb-5 flex-center" style="text-align: center;">
+                <a class="fb-ic text-warning" href="">
+                    <i class="fa fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                </a>
+                <a class="tw-ic text-warning" href="">
+                    <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                </a>
+                <a class="ins-ic text-warning" href="">
+                    <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="" class="text-warning">FutureWeb</a>
+    </div>
+</footer>
 <script>
     $(function () {
         $(document).scroll(function () {
@@ -326,8 +356,12 @@ $(function() {
 
 
             }
+
 			$('#imagemodal').modal('show');
-		});
+        });
+        $("#imagemodal").on("hidden.bs.modal", function () {
+            $('.videopreview').attr('src', "/");
+        });
     });
 </script>
 </body>
