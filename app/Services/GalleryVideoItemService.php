@@ -16,11 +16,16 @@ class GalleryVideoItemService
      * @var StorageService
      */
     private $storageService;
+    /**
+     * @var VideoConvertService
+     */
+    private $videoConvertService;
 
-    public function __construct(GalleryVideoItemRepository $galleryVideoItem, StorageService $storageService)
+    public function __construct(GalleryVideoItemRepository $galleryVideoItem, StorageService $storageService, VideoConvertService $videoConvertService)
     {
         $this->galleryVideoItem = $galleryVideoItem;
         $this->storageService = $storageService;
+        $this->videoConvertService = $videoConvertService;
     }
 
     public function all()
@@ -36,6 +41,10 @@ class GalleryVideoItemService
     public function store($request)
     {
         $data = $this->storageService->storeVideo($request);
+
+        $videoName = $this->getVideoFileName($request);
+
+        $this->convertVideoToMp4($data['path'], $request, $videoName);
 
         $storingData = $this->prepareStoringData($request);
 
@@ -63,5 +72,32 @@ class GalleryVideoItemService
         $data['blade_file'] = $request->blade_file;
 
         return $data;
+    }
+
+    public function getVideoFileName($request)
+    {
+        $videoName = pathinfo($request->video_name, PATHINFO_FILENAME);
+
+        return $videoName;
+    }
+
+    public function checkIfVideoIsMp4($videoPath)
+    {
+        $info = pathinfo($videoPath);
+
+        if ($info['extension'] === 'mp4') {
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function convertVideoToMp4($videoPath, $request, $videoName)
+    {
+//        if (!$this->checkIfVideoIsMp4($videoPath)) {
+
+            $this->videoConvertService->convertVideoToMp4($videoPath, $videoName, $request->template_name);
+//        }
     }
 }
