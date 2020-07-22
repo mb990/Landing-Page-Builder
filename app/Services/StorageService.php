@@ -32,7 +32,7 @@ class StorageService
 
         $video = $request->file('video');
 
-        $name = $request->video_name . '.' . $video->getClientOriginalExtension();
+        $name = $request->video_name;
 
         $path = Storage::disk('local')->putFileAs('temporary/' . $request->template_name, $video, $name);
 
