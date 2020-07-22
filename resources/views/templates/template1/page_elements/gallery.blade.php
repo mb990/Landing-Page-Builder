@@ -55,5 +55,9 @@
                 $('#imagemodal').modal('show');
             });
         });
+
+        $("#imagemodal").on("hidden.bs.modal", function () {
+            $('.videopreview').attr('src', "/");
+        });
     })
 </script>
