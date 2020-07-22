@@ -1,20 +1,7 @@
 @charset "UTF-8";
 
-.wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -190px 0 0 -468px;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  color: #9f9f9f;
-  font-size: 15px;
-}
-
 .package {
   box-sizing: border-box;
-  width: 301px;
-  height: 380px;
   border: 3px solid #e8e8e8;
   border-radius: 7px;
   display: inline-block;
@@ -58,7 +45,7 @@ hr {
   font-size: 0.9rem;
   font-weight: 600;
   padding: 2px 21px 2px 21px;
-  color: #33c4b6;
+  color: #ffed4a;
   border: 1px solid #e4e4e4;
   display: inline-block;
   border-radius: 15px;
@@ -67,32 +54,32 @@ hr {
   bottom: -20px;
 }
 
-ul {
+.package ul {
   list-style: none;
   padding: 0;
   text-align: left;
   margin-top: 29px;
 }
 
-li {
+.package li {
   margin-bottom: 15px;
 }
 
-li:before {
+.package li:before {
   font-size: 1.3rem;
-  color: #33c4b6;
+  color: #ffed4a;
   margin-right: 3px;
 }
 
 .checkIcon,
 .brilliant::after,
-li:before {
+.package li:before {
   font-family: "FontAwesome";
   content: "\F00C";
 }
 
 .brilliant {
-  border-color: #33c4b6;
+  border-color: #ffed4a;
 }
 
 .brilliant::before {
@@ -100,7 +87,7 @@ li:before {
   height: 0;
   border-style: solid;
   border-width: 64px 64px 0 0;
-  border-color: #3bc6b8 transparent transparent transparent;
+  border-color: #ffed4a transparent transparent transparent;
   position: absolute;
   left: 0;
   top: 0;

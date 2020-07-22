@@ -1,19 +1,8 @@
- $accent-color: #33c4b6;
-
- .wrapper {
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     margin: -190px 0 0 -468px;
-     font-family: 'Open Sans', sans-serif;
-     font-weight: 400;
-     color: #9f9f9f;
-     font-size: 15px;
- }
+ $accent-color: #ffed4a;
  .package {
      box-sizing: border-box;
-     width: 301px;
-     height: 380px;
+    //  width: 301px;
+    //  height: 380px;
      border: 3px solid #e8e8e8;
      border-radius: 7px;
      display: inline-block;
@@ -61,13 +50,13 @@
      position: relative;
      bottom: -20px;
  }
- ul {
-     list-style: none;
-     padding: 0;
-     text-align: left;
-     margin-top: 29px;
- }
- li {
+.package ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-top: 29px;
+}
+.package li {
      margin-bottom: 15px;
    &:before {
      @extend .checkIcon;
@@ -87,7 +76,7 @@
      height: 0;
      border-style: solid;
      border-width: 64px 64px 0 0;
-     border-color: #3bc6b8 transparent transparent transparent;
+     border-color: #ffed4a transparent transparent transparent;
      position: absolute;
      left: 0;
      top: 0;
