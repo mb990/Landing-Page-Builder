@@ -3,7 +3,8 @@
             <img src="/img/video-logo.png"  alt="Audition" class="img-fluid mx-auto d-block">
             <span style="display: none;">
                 <video controls style="max-width: 210px; max-height: 160px;">
-                    <source src="{{URL}" type="video/mp4">
+                    <source src="{{$video_url}}" type="video/mp4">
+                </video>
             </span>
             </a>
     </div>

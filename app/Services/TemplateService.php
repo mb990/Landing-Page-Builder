@@ -280,7 +280,13 @@ class TemplateService
 
             $videos = [];
 
-            // add videos
+            if ($gallerySettings->pageElementable->videoItems) {
+
+                foreach ($gallerySettings->pageElementable->videoItems as $videoItem) {
+
+                    $videos[$videoItem->id] = $this->s3Service->showGalleryVideo($template, $videoItem, 60);
+                }
+            }
 
             if ($gallerySettings->pageElementable->imageItems) {
 
@@ -290,7 +296,7 @@ class TemplateService
                 }
             }
 
-            $heroSectionData = view($gallerySettings->blade_file, ['images' => $images, 'image_items' => $gallerySettings->pageElementable->imageItems])->render();
+            $heroSectionData = view($gallerySettings->blade_file, ['images' => $images, 'videos' => $videos, 'video_items' => $gallerySettings->pageElementable->videoItems , 'image_items' => $gallerySettings->pageElementable->imageItems])->render();
 
             return $heroSectionData;
 
