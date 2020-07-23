@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreTemplateGeneralContentTwoSettingsRequest extends FormRequest
 {
@@ -13,7 +14,12 @@ class StoreTemplateGeneralContentTwoSettingsRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        if (Auth::check() && auth()->user()->hasRole('admin')) {
+
+            return true;
+        }
+
+        return false;
     }
 
     /**
