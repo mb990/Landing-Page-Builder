@@ -16,15 +16,15 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="#page-top"><img class="header-logo" src="#"></a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler navbar-toggler-right text-secondary" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <svg class="svg-inline--fa fa-bars fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg><!-- <i class="fas fa-bars"></i> -->
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger text-light" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-light" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-light" href="#signup">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-light" href="#visitors">Visitors</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-light" href="#gallery">Gallery</a></li>
                 </ul>
             </div>
         </div>
@@ -37,8 +37,6 @@
                 <h6 class="text-light">Enjoy in one of oldest cities in Europe</h6>
                 <button class="btn btn-warning">Get your tour</button>
             </div>
-        </div>
-        <div>
         </div>
     </section>
 
@@ -154,7 +152,7 @@
 
 
 <!-- Section: Testimonials v.3 -->
-<section class="team-section text-center my-5 width-limit">
+<section class="team-section text-center my-5 width-limit" id="visitors">
     <h2 class="h1-responsive font-weight-bold my-5">Testimonials</h2>
     <div class="row text-center" style="max-width: 100%; padding: 20px;">
         <!--Grid column-->
@@ -219,7 +217,7 @@
     </div>
 </section>
 <!-- GALLERY -->
-<div class="row-container width-limit">
+<div class="row-container width-limit" id="gallery">
     <div class="col-md-12" style="padding: 0px;">
 
         <div class="gallery-tiles no-margin">
@@ -315,15 +313,17 @@
     <div class="container">
         <!-- switcher -->
         <div style="text-align: center;" class="custom-control custom-switch">
+            <label style="margin-right: 50px;">Monthly</label>
             <input type="checkbox" class="custom-control-input" id="customSwitches">
-            <label class="custom-control-label" for="customSwitches">Monthly / Annual</label>
+            <label class="custom-control-label test-switch" for="customSwitches">Annual</label>
         </div>
         <br>
         <div class="row" style="justify-content: center;">
         <div class='package'>
             <div class='name'>Limited</div>
-            <div class='price text-secondary'>€2</div>
-            <div class='trial text-secondary'>Available for a month</div>
+            <div class='price text-secondary js-month'>€2</div>
+            <div class='price-year text-secondary d-none js-year'>€22</div>
+            <div class='trial text-secondary d-none js-year'>5%off</div>
             <hr>
             <ul>
                 <li>
@@ -344,8 +344,9 @@
         </div>
         <div class='package brilliant'>
             <div class='name'>Brilliant</div>
-            <div class='price'>€5</div>
-            <div class='trial'>Free 30 day trial</div>
+            <div class='price text-secondary js-month'>€5</div>
+            <div class='price-year text-secondary d-none js-year'>€55</div>
+            <div class='trial text-secondary d-none js-year'>10%off</div>
             <hr>
             <ul>
             <li>
@@ -372,8 +373,9 @@
         </div>
             <div class='package'>
                 <div class='name'>Basic</div>
-                <div class='price'>€0</div>
-                <div class='trial'>Totally free</div>
+                <div class='price text-secondary js-month'>€1</div>
+                <div class='price-year text-secondary d-none js-year'>€9</div>
+                <div class='trial text-secondary d-none js-year'>20%off</div>
                 <hr>
                 <ul>
                 <li>
@@ -422,33 +424,39 @@
         $(document).scroll(function () {
 	        var nav = $(".navbar-fixed-top");
 	        nav.toggleClass('scrolled', $(this).scrollTop() > nav.height());
-	});
-});
-$(function() {
-		$('.pop-t2').on('click', function() {
-            if($(this).find('img').attr('src') == "/img/video-logo.png"){
-                $('.videopreview').attr('src', $(this).find('source').attr('src'));
-                $('.imagepreview').hide();
-                $('.videopreview').show();
-
-
-            } else if($(this).find('img').attr('src') != "/img/video-logo.png"){
-                $('.imagepreview').attr('src', $(this).find('img').attr('src'));
-                $('.imagepreview').show();
-                $('.videopreview').hide()
-
-
-            }
-
-			$('#imagemodal').modal('show');
         });
-        $("#imagemodal").on("hidden.bs.modal", function () {
-            $('.videopreview').attr('src', "/");
-        });
-        $(".package").on('click', function(){
-            $("div .package").removeClass("brilliant");
-            $(this).addClass("brilliant");
-        })
     });
+    $("#customSwitches").on("click", function(){
+        $(".js-month").toggleClass("d-none");
+        $(".js-year").toggleClass("d-none");
+        $(".js-month-text").toggleClass("text-primary");
+        $(".js-year-text").toggleClass("text-primary");
+    })
+    $(function() {
+            $('.pop-t2').on('click', function() {
+                if($(this).find('img').attr('src') == "/img/video-logo.png"){
+                    $('.videopreview').attr('src', $(this).find('source').attr('src'));
+                    $('.imagepreview').hide();
+                    $('.videopreview').show();
+
+
+                } else if($(this).find('img').attr('src') != "/img/video-logo.png"){
+                    $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+                    $('.imagepreview').show();
+                    $('.videopreview').hide()
+
+
+                }
+
+                $('#imagemodal').modal('show');
+            });
+            $("#imagemodal").on("hidden.bs.modal", function () {
+                $('.videopreview').attr('src', "/");
+            });
+            $(".package").on('click', function(){
+                $("div .package").removeClass("brilliant");
+                $(this).addClass("brilliant");
+            })
+        });
 </script>
 </body>

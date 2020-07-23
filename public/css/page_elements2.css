@@ -31,7 +31,17 @@
 }
 
 .price::after {
-  content: " / month per user";
+  content: " / per month";
+  font-weight: normal;
+}
+
+.price-year {
+  margin-top: 7px;
+  font-weight: bold;
+}
+
+.price-year::after {
+  content: " / per year";
   font-weight: normal;
 }
 
@@ -101,6 +111,12 @@ hr {
   top: 6px;
   text-shadow: 0 0 2px #37c5b6;
   font-size: 1.4rem;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  color: #fff;
+  border-color: #ffed4a;
+  background-color: #ffed4a !important;
 }
 
 .body-t2 {
