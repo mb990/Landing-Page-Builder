@@ -445,6 +445,10 @@ $(function() {
         $("#imagemodal").on("hidden.bs.modal", function () {
             $('.videopreview').attr('src', "/");
         });
+        $(".package").on('click', function(){
+            $("div .package").removeClass("brilliant");
+            $(this).addClass("brilliant");
+        })
     });
 </script>
 </body>
