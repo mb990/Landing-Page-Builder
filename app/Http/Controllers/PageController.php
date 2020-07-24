@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdminRequest;
 use App\Services\TemplateService;
 use Illuminate\Http\Request;
 
@@ -22,24 +23,24 @@ class PageController extends Controller
         return view('test');
     }
 
-    public function adminPanel()
+    public function adminPanel(AdminRequest $request)
     {
         return view('admin.index');
     }
 
-    public function addTemplate()
+    public function addTemplate(AdminRequest $request)
     {
         return view('admin.add-template');
     }
 
-    public function templates()
+    public function templates(AdminRequest $request)
     {
         $templates = $this->templateService->all();
 
         return view('admin.templates', compact('templates'));
     }
 
-    public function showTemplate($id)
+    public function showTemplate(AdminRequest $request, $id)
     {
         return view('admin.show-template');
     }

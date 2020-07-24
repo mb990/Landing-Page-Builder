@@ -37356,14 +37356,14 @@ $(document).ready(function () {
     var facebook = $('#facebook_url').val();
     var instagram = $('#instagram_url').val();
     var twitter = $('#twitter_url').val();
-    $.post(route('footer-settings.store'), {
+    $.post(route('template.footer-settings.store'), {
       creator: creator,
       facebook_url: facebook,
       instagram_url: instagram,
       twitter_url: twitter
     }).done(function (data) {
       // saving new footer element
-      $.post(route('page-element.store'), {
+      $.post(route('template.page-element.store'), {
         template_id: template_id,
         page_element_type_id: page_element_type_id,
         page_elementable_id: data.settings.id,
@@ -37397,11 +37397,11 @@ $(document).ready(function () {
       return;
     }
 
-    $.post(route('gallery-settings.store'), {// blade_file: 'page_elements.testimonials'
+    $.post(route('template.gallery-settings.store'), {// blade_file: 'page_elements.testimonials'
     }).done(function (data) {
       var settings_id = data.settings.id; // saving new gallery settings element
 
-      $.post(route('page-element.store'), {
+      $.post(route('template.page-element.store'), {
         template_id: template_id,
         page_element_type_id: page_element_type_id,
         page_elementable_id: settings_id,
@@ -37425,7 +37425,7 @@ $(document).ready(function () {
           form_data.append('gallery_settings_id', settings_id);
           form_data.append('blade_file', 'templates.' + template_name + '.page_elements.gallery-content-video');
           $.ajax({
-            url: route('gallery-video-item.store'),
+            url: route('template.gallery-video-item.store'),
             type: "post",
             data: form_data,
             contentType: false,
@@ -37438,7 +37438,7 @@ $(document).ready(function () {
           });
         } else {
           // saving gallery image item
-          $.post(route('gallery-image-item.store'), {
+          $.post(route('template.gallery-image-item.store'), {
             gallery_settings_id: settings_id,
             blade_file: 'templates.' + template_name + '.page_elements.gallery-content'
           }).done(function (data) {
@@ -37507,7 +37507,7 @@ $(document).ready(function () {
       var text = $('.js-general-content-section-one-text').val();
       var link_url = $('.js-general-content-section-one-link-url').val();
       var button_value = $('.js-general-content-section-one-button-value').val();
-      $.post(route('general-content-one-settings.store'), {
+      $.post(route('template.general-content-one-settings.store'), {
         title: title,
         text: text,
         link_url: link_url,
@@ -37535,7 +37535,7 @@ $(document).ready(function () {
           console.log(data.image);
         }); // saving new general content one section element
 
-        $.post(route('page-element.store'), {
+        $.post(route('template.page-element.store'), {
           template_id: template_id,
           page_element_type_id: page_element_type_id,
           page_elementable_id: element_id,
@@ -37590,7 +37590,7 @@ $(document).ready(function () {
       var text = $('.js-general-content-three-text').val();
       var link_url = $('.js-general-content-three-link-url').val();
       var button_value = $('.js-general-content-three-button-value').val();
-      $.post(route('general-content-three-settings.store'), {
+      $.post(route('template.general-content-three-settings.store'), {
         title: title,
         text: text,
         link_url: link_url,
@@ -37612,7 +37612,7 @@ $(document).ready(function () {
           console.log('usao u bullet point' + (e + 1));
           var title = $(".js-general-content-three-bullet-point-title-" + (e + 1)).val();
           var text = $(".js-general-content-three-bullet-point-text-" + (e + 1)).val();
-          $.post(route('general-content-three-bullet-point.store'), {
+          $.post(route('template.general-content-three-bullet-point.store'), {
             title: title,
             text: text,
             general_content_three_settings_id: element_id,
@@ -37627,7 +37627,7 @@ $(document).ready(function () {
           var title = $(".js-general-content-three-tile-title-" + (e + 1)).val();
           var text = $(".js-general-content-three-tile-text-" + (e + 1)).val();
           var awesome_icon_id = $(".js-awesome-icons-tile-" + (e + 1)).val();
-          $.post(route('general-content-three-tile.store'), {
+          $.post(route('template.general-content-three-tile.store'), {
             title: title,
             text: text,
             general_content_three_settings_id: element_id,
@@ -37677,7 +37677,7 @@ $(document).ready(function () {
       var text = $('.js-general-content-section-two-text').val();
       var link_url = $('.js-general-content-section-two-link-url').val();
       var button_value = $('.js-general-content-section-two-button-value').val();
-      $.post(route('general-content-two-settings.store'), {
+      $.post(route('template.general-content-two-settings.store'), {
         title: title,
         text: text,
         link_url: link_url,
@@ -37693,7 +37693,7 @@ $(document).ready(function () {
         form_data.append('imageable_type', modelType);
         form_data.append('imageable_id', element_id);
         $.ajax({
-          url: route('template.general-content-two-section-image.store'),
+          url: route('template.template.general-content-two-section-image.store'),
           type: "post",
           data: form_data,
           contentType: false,
@@ -37705,7 +37705,7 @@ $(document).ready(function () {
           console.log(data.image);
         }); // saving new general content two section element
 
-        $.post(route('page-element.store'), {
+        $.post(route('template.page-element.store'), {
           template_id: template_id,
           page_element_type_id: page_element_type_id,
           page_elementable_id: element_id,
@@ -37752,7 +37752,7 @@ $(document).ready(function () {
       var title = $('.js-hero-section-title').val();
       var subtitle = $('.js-hero-section-subtitle').val();
       var button = $('.js-hero-section-button').val();
-      $.post(route('hero-section-settings.store'), {
+      $.post(route('template.hero-section-settings.store'), {
         title: title,
         subtitle: subtitle,
         button_value: button
@@ -37779,7 +37779,7 @@ $(document).ready(function () {
           console.log(data.image);
         }); // saving new hero section element
 
-        $.post(route('page-element.store'), {
+        $.post(route('template.page-element.store'), {
           template_id: template_id,
           page_element_type_id: page_element_type_id,
           page_elementable_id: element_id,
@@ -37818,7 +37818,7 @@ $(document).ready(function () {
       button_value: button_value
     }).done(function (data) {
       // saving new newsletter element
-      $.post(route('page-element.store'), {
+      $.post(route('template.page-element.store'), {
         template_id: template_id,
         page_element_type_id: page_element_type_id,
         page_elementable_id: data.settings.id,
@@ -37844,11 +37844,11 @@ $(document).ready(function () {
     var template_id = $('#template_id').val();
     var template_name = $('#template_name').val();
     var page_element_type_id = $('#page_element_type_id').val();
-    $.post(route('pricing-section.store'), {// blade_file: 'page_elements.pricing'
+    $.post(route('template.pricing-section.store'), {// blade_file: 'page_elements.pricing'
     }).done(function (data) {
       var section_id = data.section.id; // store pricing section page element ajax
 
-      $.post(route('page-element.store'), {
+      $.post(route('template.page-element.store'), {
         template_id: template_id,
         page_element_type_id: page_element_type_id,
         page_elementable_id: section_id,
@@ -37861,7 +37861,7 @@ $(document).ready(function () {
         var y_price = $('.year-' + (e + 1)).val();
         var m_price = $('.month-' + (e + 1)).val();
         var discount = $('.discount-' + (e + 1)).val();
-        $.post(route('price-settings.store'), {
+        $.post(route('template.price-settings.store'), {
           name: name,
           yearly_price: y_price,
           monthly_price: m_price,
@@ -37913,11 +37913,11 @@ $(document).ready(function () {
       var template_name = $('#template_name').val();
       var page_element_type_id = $('#page_element_type_id').val();
       var modelType = 'App\\TestimonialSection';
-      $.post(route('testimonial-section.store'), {// blade_file: 'page_elements.testimonials'
+      $.post(route('template.testimonial-section.store'), {// blade_file: 'page_elements.testimonials'
       }).done(function (data) {
         var section_id = data.section.id; // saving new testimonial section element
 
-        $.post(route('page-element.store'), {
+        $.post(route('template.page-element.store'), {
           template_id: template_id,
           page_element_type_id: page_element_type_id,
           page_elementable_id: section_id,
@@ -37930,7 +37930,7 @@ $(document).ready(function () {
           var customer = $('#customer_name-' + (e + 1)).val();
           var testimonial_text = $('#testimonial_text-' + (e + 1)).val();
           var title = $('#testimonial_title-' + (e + 1)).val();
-          $.post(route('testimonial-settings.store'), {
+          $.post(route('template.testimonial-settings.store'), {
             title: title,
             customer_name: customer,
             text: testimonial_text,
@@ -37993,7 +37993,7 @@ $(document).ready(function () {
       var template_name = $('#template_name').val();
       var page_element_type_id = $('#page_element_type_id').val();
       var modelType = 'App\\TopMenuSettings';
-      $.post(route('top-menu-settings.store'), {//np
+      $.post(route('template.top-menu-settings.store'), {//np
       }).done(function (data) {
         // saving top menu image
         var form_data = new FormData();
@@ -38018,7 +38018,7 @@ $(document).ready(function () {
           console.log('iznad ovoga treba da je ispis slike');
         }); // saving new top menu element
 
-        $.post(route('page-element.store'), {
+        $.post(route('template.page-element.store'), {
           template_id: template_id,
           page_element_type_id: page_element_type_id,
           page_elementable_id: data.settings.id,
@@ -38111,12 +38111,12 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
 
 
 /***/ })
