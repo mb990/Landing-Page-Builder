@@ -45,6 +45,6 @@ class LoginController extends Controller
             return '/admin';
         }
 
-        return '/profile';
+        return '/profile/' . auth()->user()->id;
     }
 }
