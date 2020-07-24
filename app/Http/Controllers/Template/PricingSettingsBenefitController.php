@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Template;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreTemplatePricingSettingsBenefitRequest;
 use App\Services\PricingSettingsBenefitService;
-use Illuminate\Http\Request;
 
 class PricingSettingsBenefitController extends Controller
 {
@@ -17,7 +18,7 @@ class PricingSettingsBenefitController extends Controller
         $this->pricingSettingsBenefitService = $pricingSettingsBenefitService;
     }
 
-    public function store(Request $request)
+    public function store(StoreTemplatePricingSettingsBenefitRequest $request)
     {
         $benefit = $this->pricingSettingsBenefitService->store($request);
 

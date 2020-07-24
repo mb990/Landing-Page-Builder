@@ -44,7 +44,7 @@ $(document).ready(function () {
           let link_url = $('.js-general-content-three-link-url').val();
           let button_value = $('.js-general-content-three-button-value').val();
 
-          $.post(route('general-content-three-settings.store'),
+          $.post(route('template.general-content-three-settings.store'),
 
               {
                   title: title,
@@ -78,7 +78,7 @@ $(document).ready(function () {
                   let title = $(".js-general-content-three-bullet-point-title-" + (e + 1)).val();
                   let text = $(".js-general-content-three-bullet-point-text-" + (e + 1)).val();
 
-                  $.post(route('general-content-three-bullet-point.store'),
+                  $.post(route('template.general-content-three-bullet-point.store'),
                       {
                           title: title,
                           text: text,
@@ -98,7 +98,7 @@ $(document).ready(function () {
                   let text = $(".js-general-content-three-tile-text-" + (e + 1)).val();
                   let awesome_icon_id = $(".js-awesome-icons-tile-" + (e + 1)).val();
 
-                  $.post(route('general-content-three-tile.store'),
+                  $.post(route('template.general-content-three-tile.store'),
                       {
                           title: title,
                           text: text,

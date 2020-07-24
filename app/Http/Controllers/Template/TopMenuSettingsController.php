@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Template;
 
-use App\Jobs\UploadImageToS3Disk;
+use App\Http\Controllers\Controller;
 use App\Services\TopMenuSettingsService;
 use Illuminate\Http\Request;
 

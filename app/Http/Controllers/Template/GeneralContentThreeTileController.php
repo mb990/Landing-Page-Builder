@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Template;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreGeneralContentThreeTileRequest;
 use App\Services\GeneralContentThreeTileService;
 use Illuminate\Http\Request;

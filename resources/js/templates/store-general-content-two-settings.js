@@ -29,7 +29,7 @@ $(document).ready(function () {
             let link_url = $('.js-general-content-section-two-link-url').val();
             let button_value = $('.js-general-content-section-two-button-value').val();
 
-            $.post(route('general-content-two-settings.store'),
+            $.post(route('template.general-content-two-settings.store'),
 
                 {
                     title: title,
@@ -53,7 +53,7 @@ $(document).ready(function () {
 
                 $.ajax({
 
-                    url: route('template.general-content-two-section-image.store'),
+                    url: route('template.template.general-content-two-section-image.store'),
                     type: "post",
                     data: form_data,
                     contentType: false,
@@ -67,7 +67,7 @@ $(document).ready(function () {
                 });
 
                 // saving new general content two section element
-                $.post(route('page-element.store'),
+                $.post(route('template.page-element.store'),
                     {
                         template_id: template_id,
                         page_element_type_id: page_element_type_id,

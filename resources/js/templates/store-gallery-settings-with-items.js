@@ -20,7 +20,7 @@ $(document).ready(function () {
             return;
         }
 
-        $.post(route('gallery-settings.store'),
+        $.post(route('template.gallery-settings.store'),
 
             {
                 // blade_file: 'page_elements.testimonials'
@@ -31,7 +31,7 @@ $(document).ready(function () {
             let settings_id = data.settings.id;
 
             // saving new gallery settings element
-            $.post(route('page-element.store'),
+            $.post(route('template.page-element.store'),
                 {
                     template_id: template_id,
                     page_element_type_id: page_element_type_id,
@@ -64,7 +64,7 @@ $(document).ready(function () {
 
                     $.ajax({
 
-                        url: route('gallery-video-item.store'),
+                        url: route('template.gallery-video-item.store'),
                         type: "post",
                         data: form_data,
                         contentType: false,
@@ -82,7 +82,7 @@ $(document).ready(function () {
 
                     // saving gallery image item
 
-                    $.post(route('gallery-image-item.store'),
+                    $.post(route('template.gallery-image-item.store'),
                         {
                             gallery_settings_id: settings_id,
                             blade_file: 'templates.' + template_name + '.page_elements.gallery-content'

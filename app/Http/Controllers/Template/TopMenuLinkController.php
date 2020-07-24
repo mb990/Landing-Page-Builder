@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Template;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateTopMenuLinkRequest;
 use App\Services\TopMenuLinkService;
-use Illuminate\Http\Request;
 
 class TopMenuLinkController extends Controller
 {
@@ -17,7 +18,7 @@ class TopMenuLinkController extends Controller
         $this->topMenuLinkService = $topMenuLinkService;
     }
 
-    public function store(Request $request)
+    public function store(CreateTopMenuLinkRequest $request)
     {
         $link = $this->topMenuLinkService->store($request);
 

@@ -46,55 +46,55 @@ Route::post('/template-general-content-two-section-image', 'Template\GeneralCont
 Route::post('/template-gallery-image-item-image', 'Template\GalleryImageItemImageController@store')->name('template.gallery-image-item-image.store');
 
 //Top Menu Settings
-Route::post('/top-menu-settings', 'TopMenuSettingsController@store')->name('top-menu-settings.store');
+Route::post('/template/top-menu-settings', 'Template\TopMenuSettingsController@store')->name('template.top-menu-settings.store');
 
 //Testimonial Sections
-Route::post('/testimonial-section', 'TestimonialSectionController@store')->name('testimonial-section.store');
+Route::post('/template/testimonial-section', 'Template\TestimonialSectionController@store')->name('template.testimonial-section.store');
 
 //Testimonials
-Route::post('/testimonial-settings', 'TestimonialSettingsController@store')->name('testimonial-settings.store');
+Route::post('/template/testimonial-settings', 'Template\TestimonialSettingsController@store')->name('template.testimonial-settings.store');
 
 //Pricing Sections
-Route::post('/pricing-section', 'PricingSectionController@store')->name('pricing-section.store');
+Route::post('/template/pricing-section', 'Template\PricingSectionController@store')->name('template.pricing-section.store');
 
 //Price Settings
-Route::post('/price-settings', 'PriceSettingsController@store')->name('price-settings.store');
+Route::post('/template/price-settings', 'Template\PriceSettingsController@store')->name('template.price-settings.store');
 
 //Price Settings Benefits
-Route::post('/benefit', 'PricingSettingsBenefitController@store')->name('price-settings-benefit.store');
+Route::post('/template/benefit', 'Template\PricingSettingsBenefitController@store')->name('template.price-settings-benefit.store');
 
 //Footer Settings
-Route::post('/footer-settings', 'FooterSettingsController@store')->name('footer-settings.store');
+Route::post('/template/footer-settings', 'Template\FooterSettingsController@store')->name('template.footer-settings.store');
 
 //Hero Section Settings
-Route::post('/hero-section-settings', 'HeroSectionSettingsController@store')->name('hero-section-settings.store');
+Route::post('/template/hero-section-settings', 'Template\HeroSectionSettingsController@store')->name('template.hero-section-settings.store');
 
 //General Content One Settings
-Route::post('/general-content-one-settings', 'GeneralContentOneSettingsController@store')->name('general-content-one-settings.store');
+Route::post('/template/general-content-one-settings', 'Template\GeneralContentOneSettingsController@store')->name('template.general-content-one-settings.store');
 
 //General Content Two Settings
-Route::post('/general-content-two-settings', 'GeneralContentTwoSettingsController@store')->name('general-content-two-settings.store');
+Route::post('/template/general-content-two-settings', 'Template\GeneralContentTwoSettingsController@store')->name('template.general-content-two-settings.store');
 
 //General Content Three Settings
-Route::post('/general-content-three-settings', 'GeneralContentThreeSettingsController@store')->name('general-content-three-settings.store');
+Route::post('/template/general-content-three-settings', 'Template\GeneralContentThreeSettingsController@store')->name('template.general-content-three-settings.store');
 
 //General Content Three Bullet Point
-Route::post('/general-content-three-bullet-point', 'GeneralContentThreeBulletPointController@store')->name('general-content-three-bullet-point.store');
+Route::post('/template/general-content-three-bullet-point', 'Template\GeneralContentThreeBulletPointController@store')->name('template.general-content-three-bullet-point.store');
 
 //General Content Three Tile
-Route::post('/general-content-three-tile', 'GeneralContentThreeTileController@store')->name('general-content-three-tile.store');
+Route::post('/template/general-content-three-tile', 'Template\GeneralContentThreeTileController@store')->name('template.general-content-three-tile.store');
 
 //NewsletterSettings Section
-Route::post('/newsletter', 'NewsletterSettingsController@store')->name('newsletter.store');
+Route::post('/template/newsletter', 'Template\NewsletterSettingsController@store')->name('template.newsletter.store');
 
 //Gallery Settings
-Route::post('/gallery-settings', 'GallerySettingsController@store')->name('gallery-settings.store');
+Route::post('/template/gallery-settings', 'Template\GallerySettingsController@store')->name('template.gallery-settings.store');
 
 //Gallery Settings Image Item
-Route::post('/gallery-image-item', 'GalleryImageItemController@store')->name('gallery-image-item.store');
+Route::post('/template/gallery-image-item', 'Template\GalleryImageItemController@store')->name('template.gallery-image-item.store');
 
 //Gallery Settings Video Item
-Route::post('/gallery-video-item', 'GalleryVideoItemController@store')->name('gallery-video-item.store');
+Route::post('/template/gallery-video-item', 'Template\GalleryVideoItemController@store')->name('template.gallery-video-item.store');
 
 Auth::routes();
 

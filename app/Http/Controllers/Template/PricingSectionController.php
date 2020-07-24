@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Template;
 
+use App\Http\Controllers\Controller;
 use App\Services\PricingSectionService;
 use Illuminate\Http\Request;
 

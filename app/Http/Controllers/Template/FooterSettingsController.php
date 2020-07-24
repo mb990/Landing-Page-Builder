@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Template;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFooterSettingsRequest;
 use App\Services\FooterSettingsService;
 use Illuminate\Http\Request;

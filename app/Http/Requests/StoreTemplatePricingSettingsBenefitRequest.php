@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class StoreFooterSettingsRequest extends FormRequest
+class StoreTemplatePricingSettingsBenefitRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,7 +30,8 @@ class StoreFooterSettingsRequest extends FormRequest
     public function rules()
     {
         return [
-            'creator' => 'required',
+            'description' => 'required',
+            'price_settings_id' => 'required'
         ];
     }
 }

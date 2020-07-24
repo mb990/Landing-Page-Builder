@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Template;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTemplateHeroSectionSettingsRequest;
 use App\Services\HeroSectionSettingsService;
 use Illuminate\Http\Request;

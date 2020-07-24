@@ -28,7 +28,7 @@ $(document).ready(function () {
             let subtitle = $('.js-hero-section-subtitle').val();
             let button = $('.js-hero-section-button').val();
 
-            $.post(route('hero-section-settings.store'),
+            $.post(route('template.hero-section-settings.store'),
 
                 {
                     title: title,
@@ -65,7 +65,7 @@ $(document).ready(function () {
                 });
 
                 // saving new hero section element
-                $.post(route('page-element.store'),
+                $.post(route('template.page-element.store'),
                     {
                         template_id: template_id,
                         page_element_type_id: page_element_type_id,

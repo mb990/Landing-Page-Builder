@@ -22,7 +22,7 @@ $(document).ready(function () {
         ).done(function (data) {
 
             // saving new newsletter element
-            $.post(route('page-element.store'),
+            $.post(route('template.page-element.store'),
                 {
                     template_id: template_id,
                     page_element_type_id: page_element_type_id,

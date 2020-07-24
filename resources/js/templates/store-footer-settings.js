@@ -13,7 +13,7 @@ $(document).ready(function () {
         let instagram = $('#instagram_url').val();
         let twitter = $('#twitter_url').val();
 
-        $.post(route('footer-settings.store'),
+        $.post(route('template.footer-settings.store'),
 
             {
                 creator: creator,
@@ -24,7 +24,7 @@ $(document).ready(function () {
         ).done(function (data) {
 
             // saving new footer element
-            $.post(route('page-element.store'),
+            $.post(route('template.page-element.store'),
                 {
                     template_id: template_id,
                     page_element_type_id: page_element_type_id,

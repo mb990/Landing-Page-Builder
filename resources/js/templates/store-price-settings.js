@@ -8,7 +8,7 @@ $(document).ready(function () {
         let template_name = $('#template_name').val();
         let page_element_type_id = $('#page_element_type_id').val();
 
-        $.post(route('pricing-section.store'),
+        $.post(route('template.pricing-section.store'),
 
             {
                 // blade_file: 'page_elements.pricing'
@@ -19,7 +19,7 @@ $(document).ready(function () {
                 let section_id = data.section.id;
 
             // store pricing section page element ajax
-            $.post(route('page-element.store'),
+            $.post(route('template.page-element.store'),
                 {
                     template_id: template_id,
                     page_element_type_id: page_element_type_id,
@@ -39,7 +39,7 @@ $(document).ready(function () {
                 let m_price = $('.month-' + (e + 1)).val();
                 let discount = $('.discount-' + (e + 1)).val();
 
-                $.post(route('price-settings.store'),
+                $.post(route('template.price-settings.store'),
                     {
                         name: name,
                         yearly_price: y_price,

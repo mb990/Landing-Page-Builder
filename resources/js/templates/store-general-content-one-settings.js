@@ -29,7 +29,7 @@ $(document).ready(function () {
             let link_url = $('.js-general-content-section-one-link-url').val();
             let button_value = $('.js-general-content-section-one-button-value').val();
 
-            $.post(route('general-content-one-settings.store'),
+            $.post(route('template.general-content-one-settings.store'),
 
                 {
                     title: title,
@@ -67,7 +67,7 @@ $(document).ready(function () {
                 });
 
                 // saving new general content one section element
-                $.post(route('page-element.store'),
+                $.post(route('template.page-element.store'),
                     {
                         template_id: template_id,
                         page_element_type_id: page_element_type_id,

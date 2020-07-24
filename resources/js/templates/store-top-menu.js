@@ -24,7 +24,7 @@ $(document).ready(function () {
 
             let modelType = 'App\\TopMenuSettings';
 
-            $.post(route('top-menu-settings.store'),
+            $.post(route('template.top-menu-settings.store'),
                 {
                     //np
                 }
@@ -57,7 +57,7 @@ $(document).ready(function () {
                 });
 
                 // saving new top menu element
-                $.post(route('page-element.store'),
+                $.post(route('template.page-element.store'),
                     {
                         template_id: template_id,
                         page_element_type_id: page_element_type_id,

@@ -28,7 +28,7 @@ $(document).ready(function () {
 
             let modelType = 'App\\TestimonialSection';
 
-            $.post(route('testimonial-section.store'),
+            $.post(route('template.testimonial-section.store'),
 
                 {
                     // blade_file: 'page_elements.testimonials'
@@ -39,7 +39,7 @@ $(document).ready(function () {
                 let section_id = data.section.id;
 
                 // saving new testimonial section element
-                $.post(route('page-element.store'),
+                $.post(route('template.page-element.store'),
                     {
                         template_id: template_id,
                         page_element_type_id: page_element_type_id,
@@ -57,7 +57,7 @@ $(document).ready(function () {
                     let testimonial_text = $('#testimonial_text-' + (e + 1)).val();
                     let title = $('#testimonial_title-' + (e + 1)).val();
 
-                    $.post(route('testimonial-settings.store'),
+                    $.post(route('template.testimonial-settings.store'),
                         {
                             title: title,
                             customer_name: customer,
