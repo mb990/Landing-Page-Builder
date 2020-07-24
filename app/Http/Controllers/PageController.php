@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\TemplateImageService;
 use App\Services\TemplateService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class PageController extends Controller
 {
@@ -13,15 +11,10 @@ class PageController extends Controller
      * @var TemplateService
      */
     private $templateService;
-    /**
-     * @var TemplateImageService
-     */
-    private $templateImageService;
 
-    public function __construct(TemplateService $templateService, TemplateImageService $templateImageService)
+    public function __construct(TemplateService $templateService)
     {
         $this->templateService = $templateService;
-        $this->templateImageService = $templateImageService;
     }
 
     public function test()
@@ -29,21 +22,26 @@ class PageController extends Controller
         return view('test');
     }
 
-    public function controlPanel()
+    public function adminPanel()
     {
-        return view('control-panel.index');
+        return view('admin.index');
     }
 
-    public function testProject()
+    public function addTemplate()
+    {
+        return view('admin.add-template');
+    }
+
+    public function templates()
     {
         $templates = $this->templateService->all();
 
-        return view('test-project', compact('templates'));
+        return view('admin.templates', compact('templates'));
     }
 
-    public function testProject2($id)
+    public function showTemplate($id)
     {
-        return view('test-project2');
+        return view('admin.show-template');
     }
 
     public function test2()
