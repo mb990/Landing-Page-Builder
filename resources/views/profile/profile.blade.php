@@ -158,6 +158,11 @@
                 $('.js-modal-content').hide();
                 $('.js-content-'+$(this).val()).show();
             });
+            $("#exampleModal").on("hidden.bs.modal", function () {
+                $('.js-modal-content').hide();
+                var select = $("#select");
+                select.val(select[0].options[0].value);
+            });
         </script>
     </body>
 </html>
