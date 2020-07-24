@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<div style="text-align:center;">
+    <h3>Welcome back</h3>
+</div>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -30,6 +33,7 @@
 
                                 <div class="col-md-6">
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -52,16 +56,21 @@
                             </div>
 
                             <div class="form-group row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                <div class="col-md-8 offset-md-4" style="text-align:center;margin: auto;">
+                                    <button type="submit" class="btn btn-success">
                                         {{ __('Login') }}
                                     </button>
-
-                                    @if (Route::has('password.request'))
+                                    <div style="text-align: center;">
+                                        <span><a href="/">go back</a> / <a href="register">don't have account?</a>
+                                        <br>
+                                        @if (Route::has('password.request'))
                                         <a class="btn btn-link" href="{{ route('password.request') }}">
                                             {{ __('Forgot Your Password?') }}
                                         </a>
+                                        </span>
                                     @endif
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </form>
