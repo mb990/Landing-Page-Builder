@@ -9,9 +9,10 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <style>
-            .form-control:focus{border-color: #5cb85c;  box-shadow: none; -webkit-box-shadow: none;} 
+            .form-control:focus{border-color: #5cb85c;  box-shadow: none; -webkit-box-shadow: none;}
             .has-error .form-control:focus{box-shadow: none; -webkit-box-shadow: none;}
-            </style>
+        </style>
+        @routes
     </head>
     <body>
         <header class="header-main-profile">
@@ -34,6 +35,8 @@
                 </div>
             </aside>
             <div class="profile-main js-profile-main">
+                <input type="hidden" class="template-id-main">
+                <input type="hidden" class="user-id" value="{{auth()->user()->id}}">
                 <div class="tab-content" id="v-pills-tabContent">
                     <!-- TAB1 -->
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -41,10 +44,11 @@
                             @forelse($templates as $template)
 
                                 <div class="card">
+                                    <input type="hidden" class="template-id" id="template-id" value="{{$template->id}}">
                                     <img class="card-img-top" src="https://source.unsplash.com/2gYsZUmockw/100px160/" alt="Card image cap">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ucfirst($template->name)}}</h5>
-                                        <a type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                                        <a type="button" class="btn btn-success js-choose-template" data-toggle="modal" data-target="#exampleModal">
                                             Choose
                                         </a>
                                         <a type="button" class="btn btn-success">
@@ -61,7 +65,7 @@
 
                         </div>
 
-                        
+
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -73,10 +77,10 @@
                                 </button>
                                 </div>
                                 <div class="modal-body">
-                                    <input class="form-control form-control-lg" type="text" placeholder="Enter project name">                                </div>
+                                    <input class="form-control form-control-lg js-project-name" type="text" placeholder="Enter project name">                                </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-success">Continue</button>
+                                <button type="button" class="btn btn-success js-chosen-template">Continue</button>
                                 </div>
                             </div>
                             </div>
@@ -111,6 +115,13 @@
             $(".js-desktop").click(function() {
                 $(".js-profile-main").css('width','100vw');
             });
+
+            $('.js-choose-template').change(function () {
+                // let template_id = $(this).find()
+                // $('.template-id-main').val() =
+            });
+
+            $('.js-chosen-template').click(storeProject());
         </script>
     </body>
 </html>

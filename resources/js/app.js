@@ -13,3 +13,4 @@ require('./templates/store-newsletter-settings');
 require('./templates/store-gallery-settings-with-items');
 
 require('./projects/store-subscriber');
+require('./projects/store-project');

@@ -37251,6 +37251,8 @@ __webpack_require__(/*! ./templates/store-gallery-settings-with-items */ "./reso
 
 __webpack_require__(/*! ./projects/store-subscriber */ "./resources/js/projects/store-subscriber.js");
 
+__webpack_require__(/*! ./projects/store-project */ "./resources/js/projects/store-project.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37295,6 +37297,31 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/projects/store-project.js":
+/*!************************************************!*\
+  !*** ./resources/js/projects/store-project.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.storeProject = function (e) {
+    e.preventDefault();
+    var template_id = 1;
+    var user_id = $('.user-id').val();
+    var name = $('.js-project-name').val();
+    $.post(route('project.store'), {
+      template_id: template_id,
+      user_id: user_id,
+      name: name
+    }).done(function (data) {
+      console.log(data.project);
+    });
+  };
+});
 
 /***/ }),
 
