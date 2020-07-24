@@ -53,7 +53,7 @@ class PageController extends Controller
 
     public function profile()
     {
-        return view('profile');
+        return view('profile.profile');
     }
 
 //    public function imageTest($id)
