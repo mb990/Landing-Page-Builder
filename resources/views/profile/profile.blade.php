@@ -8,7 +8,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
+        <style>
+            .form-control:focus{border-color: #5cb85c;  box-shadow: none; -webkit-box-shadow: none;} 
+            .has-error .form-control:focus{box-shadow: none; -webkit-box-shadow: none;}
+            </style>
     </head>
     <body>
         <header class="header-main-profile">
@@ -35,14 +38,18 @@
                     <!-- TAB1 -->
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <div class="card-columns">
-
                             @forelse($templates as $template)
 
                                 <div class="card">
                                     <img class="card-img-top" src="https://source.unsplash.com/2gYsZUmockw/100px160/" alt="Card image cap">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ucfirst($template->name)}}</h5>
-                                        <a href="#" class="btn btn-primary">Use this template</a>
+                                        <a type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                                            Choose
+                                        </a>
+                                        <a type="button" class="btn btn-success">
+                                            Preview
+                                        </a>
                                     </div>
                                 </div>
 
@@ -52,6 +59,27 @@
 
                             @endforelse
 
+                        </div>
+
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Project name</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <input class="form-control form-control-lg" type="text" placeholder="Enter project name">                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-success">Continue</button>
+                                </div>
+                            </div>
+                            </div>
                         </div>
                     </div>
                     <!-- TAB2 -->

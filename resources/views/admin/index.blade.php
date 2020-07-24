@@ -14,8 +14,7 @@
     <header class="header-main">
         <div style="flex-grow: 1;"><img style="width: 100px;transform: translateY(-25%);" src="{{ asset('img/logo.png') }}"></div>
         <div class="js-link">
-            <button class="head-link" id="js-about">About</button>
-            <button class="head-link" id="js-info">Info</button>
+            <button class="head-link">Logout</button>
         </div>
     </header>
     <main class="main-content">
