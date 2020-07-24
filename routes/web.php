@@ -18,16 +18,35 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
+
+//Admin
+Route::get('/admin', 'PageController@adminPanel');
+Route::get('/admin/add-template', 'PageController@addTemplate');
+Route::get('/admin/templates', 'PageController@templates');
+Route::get('/admin/template/{id}', 'PageController@showTemplate')->name('admin.template.show');
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/test', 'PageController@test')->name('test');
+
+
+Route::get('/test2', 'PageController@test2');
+
+//User
+Route::get('/profile/{id}', 'PageController@profile')->name('user.profile');
+Route::get('/new-project', 'PageController@newProject');
+
 //Awesome Icons
 Route::get('/awesome-icons', 'AwesomeIconController@index')->name('awesome-icons.show');
 
-//Templates
+//Page Element Types
+Route::get('/page-element-types', 'PageElementTypeController@index')->name('page-element-types.show');
+
+//TEMPLATE
+
 Route::post('/template', 'TemplateController@store')->name('template.store');
 Route::get('/templates', 'TemplateController@index')->name('templates.show');
 Route::get('/template/{id}', 'TemplateController@show')->name('template.show');
-
-//Page Element Types
-Route::get('/page-element-types', 'PageElementTypeController@index')->name('page-element-types.show');
 
 //Page Elements
 Route::post('/page-element', 'PageElementController@store')->name('page-element.store');
@@ -94,20 +113,6 @@ Route::post('/template/gallery-image-item', 'Template\GalleryImageItemController
 //Gallery Settings Video Item
 Route::post('/template/gallery-video-item', 'Template\GalleryVideoItemController@store')->name('template.gallery-video-item.store');
 
-Auth::routes();
+//PROJECT
 
-//Admin
-Route::get('/admin', 'PageController@adminPanel');
-Route::get('/admin/add-template', 'PageController@addTemplate');
-Route::get('/admin/templates', 'PageController@templates');
-Route::get('/admin/template/{id}', 'PageController@showTemplate')->name('admin.template.show');
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/test', 'PageController@test')->name('test');
-
-
-Route::get('/test2', 'PageController@test2');
-
-Route::get('/profile/{id}', 'PageController@profile')->name('user.profile');
-Route::get('/new-project', 'PageController@newProject');
-
+Route::post('/project/new/{templateId}', 'ProjectController@store')->name('project.store');

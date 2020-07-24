@@ -16,4 +16,9 @@ class ProjectController extends Controller
     {
         $this->projectService = $projectService;
     }
+
+    public function store()
+    {
+        //
+    }
 }

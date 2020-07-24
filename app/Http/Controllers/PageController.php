@@ -53,7 +53,9 @@ class PageController extends Controller
 
     public function profile(ProfileRequest $request)
     {
-        return view('profile.profile');
+        $templates = $this->templateService->all();
+
+        return view('profile.profile', compact('templates'));
     }
 
     public function newProject()

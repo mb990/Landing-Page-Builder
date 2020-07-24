@@ -35,13 +35,23 @@
                     <!-- TAB1 -->
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <div class="card-columns">
-                            <div class="card">
-                                <img class="card-img-top" src="https://source.unsplash.com/2gYsZUmockw/100px160/" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Template1</h5>
-                                    <a href="#" class="btn btn-primary">Use this template</a>
+
+                            @forelse($templates as $template)
+
+                                <div class="card">
+                                    <img class="card-img-top" src="https://source.unsplash.com/2gYsZUmockw/100px160/" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ucfirst($template->name)}}</h5>
+                                        <a href="#" class="btn btn-primary">Use this template</a>
+                                    </div>
                                 </div>
-                            </div>
+
+                            @empty
+
+                                <p>No templates.</p>
+
+                            @endforelse
+
                         </div>
                     </div>
                     <!-- TAB2 -->
