@@ -18,8 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/control-panel', 'PageController@controlPanel');
-
 //Awesome Icons
 Route::get('/awesome-icons', 'AwesomeIconController@index')->name('awesome-icons.show');
 
@@ -98,11 +96,18 @@ Route::post('/template/gallery-video-item', 'Template\GalleryVideoItemController
 
 Auth::routes();
 
+//Admin
+Route::get('/admin', 'PageController@adminPanel');
+Route::get('/admin/add-template', 'PageController@addTemplate');
+Route::get('/admin/templates', 'PageController@templates');
+Route::get('/admin/template/{id}', 'PageController@showTemplate')->name('admin.template.show');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test', 'PageController@test')->name('test');
 
-Route::get('/test-project', 'PageController@testProject');
+
 Route::get('/test2', 'PageController@test2');
+
 Route::get('/profile', 'PageController@profile');
 Route::get('/new-project', 'PageController@newProject');
-Route::get('/template-view/{id}', 'PageController@testProject2');
+
