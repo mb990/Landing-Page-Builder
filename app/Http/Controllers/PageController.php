@@ -56,10 +56,8 @@ class PageController extends Controller
         return view('profile.profile');
     }
 
-//    public function imageTest($id)
-//    {
-//        $image = $this->templateImageService->find($id);
-//
-//        return Storage::disk('s3')->response('templates/template1/' . $image->filename);
-//    }
+    public function newProject()
+    {
+        return view('profile.new-project');
+    }
 }

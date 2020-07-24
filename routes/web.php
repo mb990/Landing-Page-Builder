@@ -104,6 +104,5 @@ Route::get('/test', 'PageController@test')->name('test');
 Route::get('/test-project', 'PageController@testProject');
 Route::get('/test2', 'PageController@test2');
 Route::get('/profile', 'PageController@profile');
+Route::get('/new-project', 'PageController@newProject');
 Route::get('/template-view/{id}', 'PageController@testProject2');
-
-//Route::get('image/{id}', 'PageController@imageTest');
