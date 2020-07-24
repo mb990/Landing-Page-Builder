@@ -108,6 +108,6 @@ Route::get('/test', 'PageController@test')->name('test');
 
 Route::get('/test2', 'PageController@test2');
 
-Route::get('/profile', 'PageController@profile');
+Route::get('/profile/{id}', 'PageController@profile')->name('user.profile');
 Route::get('/new-project', 'PageController@newProject');
 

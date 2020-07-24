@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AdminRequest;
+use App\Http\Requests\ProfileRequest;
 use App\Services\TemplateService;
 use Illuminate\Http\Request;
 
@@ -50,7 +51,7 @@ class PageController extends Controller
         return view('test2');
     }
 
-    public function profile()
+    public function profile(ProfileRequest $request)
     {
         return view('profile.profile');
     }
