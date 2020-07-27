@@ -19,9 +19,9 @@ class PageController extends Controller
         $this->templateService = $templateService;
     }
 
-    public function test()
+    public function test1()
     {
-        return view('test');
+        return view('test1');
     }
 
     public function adminPanel(AdminRequest $request)

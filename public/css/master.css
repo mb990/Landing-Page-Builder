@@ -199,11 +199,21 @@ body::-webkit-scrollbar {
 .profile-main {
   background-color: lightgrey;
   min-height: 70vh;
+  width: 80vw;
 }
 
 .profile-aside {
   min-height: 100vh;
   min-width: 20vw;
-  background-color: skyblue;
+  max-width: 20vw;
+  background-color: #75d38b;
+}
+
+.nav-link.active {
+  background-color: #28a745 !important;
+}
+
+.nav a {
+  color: black !important;
 }
 

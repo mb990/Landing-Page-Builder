@@ -17,10 +17,10 @@
     <body>
         <header class="header-main-profile">
             <div style="flex-grow: 1;"><img style="width: 100px;transform: translateY(-25%);" src="{{ asset('img/logo.png') }}"></div>
-            <div style="flex-grow: 1;">
+            <!-- <div style="flex-grow: 1;">
                 <button class="js-mobile">Mobile</button>
                 <button class="js-desktop">Desktop</button>
-            </div>
+            </div> -->
             <div class="js-link">
                 <button class="head-link" id="js-info">Log out</button>
             </div>
@@ -39,7 +39,9 @@
                 <input type="hidden" class="user-id" value="{{auth()->user()->id}}">
                 <div class="tab-content" id="v-pills-tabContent">
                     <!-- TAB1 -->
-                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" style="padding: 20px; text-align: center;">
+                        <span>OUR TEMPLATES</span>
+
                         <div class="card-columns">
                             @forelse($templates as $template)
 
@@ -51,7 +53,7 @@
                                         <a type="button" class="btn btn-success js-choose-template" data-toggle="modal" data-target="#exampleModal">
                                             Choose
                                         </a>
-                                        <a type="button" class="btn btn-success">
+                                        <a href="/test{{($template->id)}}" type="button" class="btn btn-success" target="blank">
                                             Preview
                                         </a>
                                     </div>
@@ -89,17 +91,42 @@
                     <!-- TAB2 -->
                     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
                     <!-- TAB3 -->
-                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                        <div>
+
+                            <div style="display: flex;">
+                                <div style="padding: 60px 20px;">
+                                    <h4>Choose group</h4>
+                                    <select name="" id="">
+                                        <option value="" selected disabled>Select subscribers group</option>
+                                        <option value="">Site 1</option>
+                                        <option value="">Site 2</option>
+                                        <option value="">Site 3</option>
+                                    </select>
+                                </div>
+                                <div style="text-align: center;padding: 20px;">
+                                    <h4>Send newsletter e-mail</h4>
+                                    <textarea style="resize: none;padding: 20px;" name="" id="" cols="60" rows="10" placeholder="Write an email to your subscribers"></textarea>
+                                    <br>
+                                    <label for="banner" style="margin-right: 10px;">Attach image</label><input name="banner" type="file">
+                                    <br>
+                                    <button class="btn btn-success">Send email</button>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
                     <!-- TAB4 -->
                     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" style="padding: 20px; text-align: center;">
                             <span>YOUR PROJECTS</span>
-                            <div class="card-columns">
-                                <div class="card">
-                                    <img class="card-img-top" src="https://source.unsplash.com/2gYsZUmockw/100px160/" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Template1</h5>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <div class="row">
+                                <div class="col-sm-6" style="max-width: 25vw; margin-bottom: 10px;">
+                                    <div class="card">
+                                        <img class="card-img-top" src="https://source.unsplash.com/2gYsZUmockw/100px160/" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Template1</h5>
+                                            <a href="#" class="btn btn-success">Go somewhere</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

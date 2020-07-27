@@ -27,7 +27,7 @@ Route::get('/admin/templates', 'PageController@templates');
 Route::get('/admin/template/{id}', 'PageController@showTemplate')->name('admin.template.show');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/test', 'PageController@test')->name('test');
+Route::get('/test1', 'PageController@test1')->name('test1');
 
 
 Route::get('/test2', 'PageController@test2');
