@@ -11,13 +11,30 @@
 
     </head>
     <body>
-    <header class="header-main">
+    <header class="header-main-profile">
         <div style="flex-grow: 1;"><img style="width: 100px;transform: translateY(-25%);" src="{{ asset('img/logo.png') }}"></div>
         <div class="js-link">
             <button class="head-link">Logout</button>
         </div>
     </header>
-    <main class="main-content">
+    <main class=""  style="display: flex;">
+        <aside class="profile-aside">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="v-pills-template-tab" data-toggle="pill" href="#v-pills-template" role="tab" aria-controls="v-pills-template" aria-selected="true">New template</a>
+                <a class="nav-link" id="v-pills-users-tab" data-toggle="pill" href="#v-pills-users" role="tab" aria-controls="v-pills-users" aria-selected="false">Users</a>
+            </div>
+        </aside>
+        <div class="profile-main">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-template" role="tabpanel" aria-labelledby="v-pills-template-tab" style="padding: 20px;">
+                    @include('admin.add-template')
+                </div>
+                
+                <div class="tab-pane fade" id="v-pills-users" role="tabpanel" aria-labelledby="v-pills-users-tab" style="padding: 20px; text-align: center;">
+                    
+                </div>
+            </div>
+        </div>
     </main>
     </body>
 </html>

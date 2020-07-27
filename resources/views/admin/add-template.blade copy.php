@@ -1,4 +1,10 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     @routes
 {{--    <script src="{{asset('js/templates/store-top-menu.js')}}"></script>--}}
 {{--    <script src="{{asset('js/templates/store-testimonials.js')}}"></script>--}}
@@ -13,16 +19,18 @@
             }
         });
     </script>
-<div style="max-width: 50vw;margin-top: 50px;">
+</head>
+<body>
+<div style="width: 50vw;margin-top: 100px;">
     <div class="input-group mb-3">
         <input type="text" class="form-control js-new-template-name" placeholder="Enter new template name" aria-label="" aria-describedby="basic-addon1">
         <div class="input-group-prepend">
-            <button class="btn btn-outline-success js-add-template" type="button">Button</button>
+            <button class="btn btn-outline-secondary js-add-template" type="button">Button</button>
         </div>
     </div>
 </div>
 <div>
-    <div style="max-width: 50vw;margin-top: 50px;">
+    <div style="width: 50vw;margin-top: 100px;">
         <select class="form-control form-control-lg js-get-templates">
             <option selected>Select template</option>
         </select>
@@ -30,7 +38,7 @@
 </div>
 
 <div>
-    <div style="max-width: 50vw;margin-top: 50px;">
+    <div style="width: 50vw;margin-top: 100px;">
         <input type="hidden" id="template_id">
         <input type="hidden" id="template_name">
         <input type="hidden" id="page_element_type_id">
@@ -70,7 +78,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success js-save-top-menu">Save changes</button>
+                <button type="button" class="btn btn-primary js-save-top-menu">Save changes</button>
             </div>
         </div>
     </div>
@@ -110,7 +118,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success js-save-testimonial-changes">Save changes</button>
+                <button type="button" class="btn btn-primary js-save-testimonial-changes">Save changes</button>
             </div>
         </div>
     </div>
@@ -230,7 +238,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success js-save-prices-changes">Save changes</button>
+                <button type="button" class="btn btn-primary js-save-prices-changes">Save changes</button>
             </div>
         </div>
     </div>
@@ -258,7 +266,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success js-save-hero-section-changes">Save changes</button>
+                <button type="button" class="btn btn-primary js-save-hero-section-changes">Save changes</button>
             </div>
         </div>
     </div>
@@ -284,7 +292,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success js-save-general-content-one-changes">Save changes</button>
+                <button type="button" class="btn btn-primary js-save-general-content-one-changes">Save changes</button>
             </div>
         </div>
     </div>
@@ -311,7 +319,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success js-save-gallery-changes">Save changes</button>
+                <button type="button" class="btn btn-primary js-save-gallery-changes">Save changes</button>
             </div>
         </div>
     </div>
@@ -354,7 +362,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success js-save-footer-changes">Save changes</button>
+                <button type="button" class="btn btn-primary js-save-footer-changes">Save changes</button>
             </div>
         </div>
     </div>
@@ -380,7 +388,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success js-save-general-content-two-changes">Save changes</button>
+                <button type="button" class="btn btn-primary js-save-general-content-two-changes">Save changes</button>
             </div>
         </div>
     </div>
@@ -434,7 +442,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success js-save-general-content-three-changes">Save changes</button>
+                <button type="button" class="btn btn-primary js-save-general-content-three-changes">Save changes</button>
             </div>
         </div>
     </div>
@@ -457,7 +465,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success js-save-newsletter-changes">Save changes</button>
+                <button type="button" class="btn btn-primary js-save-newsletter-changes">Save changes</button>
             </div>
         </div>
     </div>
@@ -607,3 +615,5 @@
     })
 
 </script>
+</body>
+</html>

@@ -11,6 +11,10 @@
         <style>
             .form-control:focus{border-color: #5cb85c;  box-shadow: none; -webkit-box-shadow: none;}
             .has-error .form-control:focus{box-shadow: none; -webkit-box-shadow: none;}
+            .bootstrap-select.btn-group .dropdown-menu option:hover {
+                color: whitesmoke !important;
+                background: #5cb85c !important;
+            }
         </style>
         @routes
     </head>
@@ -40,97 +44,19 @@
                 <div class="tab-content" id="v-pills-tabContent">
                     <!-- TAB1 -->
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" style="padding: 20px; text-align: center;">
-                        <span>OUR TEMPLATES</span>
-
-                        <div class="card-columns">
-                            @forelse($templates as $template)
-
-                                <div class="card">
-                                    <input type="hidden" class="template-id" id="template-id" value="{{$template->id}}">
-                                    <img class="card-img-top" src="https://source.unsplash.com/2gYsZUmockw/100px160/" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ucfirst($template->name)}}</h5>
-                                        <a type="button" class="btn btn-success js-choose-template" data-toggle="modal" data-target="#exampleModal">
-                                            Choose
-                                        </a>
-                                        <a href="/test{{($template->id)}}" type="button" class="btn btn-success" target="blank">
-                                            Preview
-                                        </a>
-                                    </div>
-                                </div>
-
-                            @empty
-
-                                <p>No templates.</p>
-
-                            @endforelse
-
-                        </div>
-
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Project name</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <div class="modal-body">
-                                    <input class="form-control form-control-lg js-project-name" type="text" placeholder="Enter project name">                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-success js-chosen-template">Continue</button>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
+                        @include('profile.profile-tabs.templates-tab')
                     </div>
                     <!-- TAB2 -->
-                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+
+                    </div>
                     <!-- TAB3 -->
                     <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                        <div>
-
-                            <div style="display: flex;">
-                                <div style="padding: 60px 20px;">
-                                    <h4>Choose group</h4>
-                                    <select name="" id="">
-                                        <option value="" selected disabled>Select subscribers group</option>
-                                        <option value="">Site 1</option>
-                                        <option value="">Site 2</option>
-                                        <option value="">Site 3</option>
-                                    </select>
-                                </div>
-                                <div style="text-align: center;padding: 20px;">
-                                    <h4>Send newsletter e-mail</h4>
-                                    <textarea style="resize: none;padding: 20px;" name="" id="" cols="60" rows="10" placeholder="Write an email to your subscribers"></textarea>
-                                    <br>
-                                    <label for="banner" style="margin-right: 10px;">Attach image</label><input name="banner" type="file">
-                                    <br>
-                                    <button class="btn btn-success">Send email</button>
-                                </div>
-                                </div>
-                        </div>
+                        @include('profile.profile-tabs.message-tab')
                     </div>
                     <!-- TAB4 -->
-                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" style="padding: 20px; text-align: center;">
-                            <span>YOUR PROJECTS</span>
-                            <div class="row">
-                                <div class="col-sm-6" style="max-width: 25vw; margin-bottom: 10px;">
-                                    <div class="card">
-                                        <img class="card-img-top" src="https://source.unsplash.com/2gYsZUmockw/100px160/" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Template1</h5>
-                                            <a href="#" class="btn btn-success">Go somewhere</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" style="padding: 20px; text-align: center;">
+                        @include('profile.profile-tabs.projects-tab')
                     </div>
                 </div>
             </div>
