@@ -23,7 +23,7 @@
 </div>
 <div>
     <div style="max-width: 50vw;margin-top: 50px;">
-        <select class="form-control form-control-lg js-get-templates">
+        <select class="form-control form-control-lg js-get-templates text-success">
             <option selected>Select template</option>
         </select>
     </div>
@@ -34,7 +34,7 @@
         <input type="hidden" id="template_id">
         <input type="hidden" id="template_name">
         <input type="hidden" id="page_element_type_id">
-        <select class="form-control form-control-lg js-get-elements">
+        <select class="form-control form-control-lg js-get-elements text-success">
             <option selected>Select element</option>
         </select>
     </div>
@@ -476,7 +476,7 @@
                 output = [];
                 console.log(data.types);
                 $.each(data.types, function (i, e) {
-                    output += '<option data-id="'+ e.id +'" value="option'+e.id +'" id="'+ e.id+'" >'+ e.name + '</option>'
+                    output += '<option data-id="'+ e.id +'" value="option'+e.id +'" id="'+ e.id+'" class="btn-success" >'+ e.name + '</option>'
                 });
                 $(".js-get-elements").append(output)
             }
@@ -489,7 +489,7 @@
                 output = [];
                 console.log(data.templates);
                 $.each(data.templates, function (i, e) {
-                    output += '<option data-name="'+ e.name +'" data-id="'+ e.id +'" class="js-template">'+ e.name + '</option>'
+                    output += '<option data-name="'+ e.name +'" data-id="'+ e.id +'" class="js-template btn-success">'+ e.name + '</option>'
                 });
                 $(".js-get-templates").append(output)
             }
