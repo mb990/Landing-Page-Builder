@@ -28,6 +28,11 @@ class ProjectService
         return $this->project->findBySlug($slug);
     }
 
+    public function findLatestForUser($user)
+    {
+        return $this->project->findLatestForUser($user);
+    }
+
     public function store($request)
     {
         return $this->project->store($request);

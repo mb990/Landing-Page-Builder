@@ -28,6 +28,13 @@ class ProjectRepository
             ->firstOrFail();
     }
 
+    public function findLatestForUser($user)
+    {
+        return $this->project->where('user_id', $user->id)
+            ->latest()
+            ->first();
+    }
+
     public function store($request)
     {
         return $this->project->create($request->all());

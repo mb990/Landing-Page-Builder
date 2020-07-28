@@ -19,7 +19,8 @@ $(document).ready(function () {
             }
 
         ).done(function (data) {
-            console.log(data.project);
+            // console.log(data.project);
+            window.location = route('project.new', data.project.slug);
         })
 
     }

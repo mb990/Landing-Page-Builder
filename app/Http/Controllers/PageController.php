@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AdminRequest;
 use App\Http\Requests\AuthRequest;
 use App\Http\Requests\ProfileRequest;
+use App\Project;
+use App\Services\ProjectService;
 use App\Services\TemplateService;
 use Illuminate\Http\Request;
 
@@ -14,10 +16,15 @@ class PageController extends Controller
      * @var TemplateService
      */
     private $templateService;
+    /**
+     * @var ProjectService
+     */
+    private $projectService;
 
-    public function __construct(TemplateService $templateService)
+    public function __construct(TemplateService $templateService, ProjectService $projectService)
     {
         $this->templateService = $templateService;
+        $this->projectService = $projectService;
     }
 
     public function test1()
@@ -66,6 +73,9 @@ class PageController extends Controller
 
     public function newProject()
     {
-        return view('profile.new-project');
+        $project = $this->projectService->findLatestForUser(auth()->user());
+
+        return view('profile.new-project')
+            ->with('project', $project);
     }
 }

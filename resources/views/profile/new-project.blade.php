@@ -22,7 +22,7 @@
             </div>
         </header>
         <main><!--style="display: flex;" -->
-            
+            <input type="hidden" name="project-id" id="project-id" value="{{$project->id}}">
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add element</button>
 
             <!-- <aside class="profile-aside">
