@@ -140,6 +140,10 @@ body{
     background-color: lightgrey;
     min-height: 70vh;
     width: 80vw;
+    @media screen and (max-width:452px){
+        width: 100vw;
+        max-width: 100vw;
+    }
 }
 .profile-aside{
     min-height: 100vh;
@@ -148,6 +152,16 @@ body{
     background-color: #75d38b;
     @media screen and (max-width:452px){
         display: none;
+        width: 100vw;
+        max-width: 100vw;
+    }
+}
+.menu-icon{
+    position: absolute;
+    padding: 10px;
+    @media screen and (max-width:452px){
+        display: block !important;
+
     }
 }
 .nav-link.active{

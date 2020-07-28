@@ -1,6 +1,6 @@
 <div>
     <div class="messages-tab">
-        <div style="padding: 60px 20px;">
+        <div style="padding: 60px 20px;text-align:center;">
             <h4>Choose group</h4>
             <select class="js-get-subs-group" name="" id="">
                 <option value="0" selected disabled>Select subscribers group</option>

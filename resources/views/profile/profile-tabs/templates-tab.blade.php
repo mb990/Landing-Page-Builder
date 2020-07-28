@@ -19,7 +19,7 @@
 
     @empty
 
-        <p>No templates.</p>
+        <p style="width:300px;">No templates.</p>
 
     @endforelse
 

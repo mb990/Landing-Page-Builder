@@ -14,7 +14,7 @@
 
         @empty
 
-            <p style="transform: translateX(100%)">You dont have projects yet.</p>
+            <p style="width:300px">You dont have projects yet.</p>
 
         @endforelse
 

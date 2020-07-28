@@ -36,12 +36,10 @@
             <div style="flex-grow: 1;">
                 <!-- <button class="js-mobile">Mobile</button>
                 <button class="js-desktop">Desktop</button> -->
-                <i class="fa fa-list js-menu" style="position: absolute; padding: 10px;display: none;"></i>
-
+                <i class="fa fa-list js-menu menu-icon d-none"></i>
             </div>
-
-            <div class="js-link">
-                <a href="{{route('logout')}}"><button class="head-link" id="js-info">Log out</button></a>
+            <div style="flex-grow: 1;" class="js-link">
+                <a style="float: right;" href="{{route('logout')}}"><button class="btn btn-secondary" id="js-info">Log out</button></a>
             </div>
         </header>
         <main style="display: flex;">
@@ -101,6 +99,7 @@
 
 
             })
+
 
         </script>
     </body>

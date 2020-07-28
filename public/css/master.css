@@ -202,6 +202,13 @@ body::-webkit-scrollbar {
   width: 80vw;
 }
 
+@media screen and (max-width: 452px) {
+  .profile-main {
+    width: 100vw;
+    max-width: 100vw;
+  }
+}
+
 .profile-aside {
   min-height: 100vh;
   min-width: 20vw;
@@ -212,6 +219,19 @@ body::-webkit-scrollbar {
 @media screen and (max-width: 452px) {
   .profile-aside {
     display: none;
+    width: 100vw;
+    max-width: 100vw;
+  }
+}
+
+.menu-icon {
+  position: absolute;
+  padding: 10px;
+}
+
+@media screen and (max-width: 452px) {
+  .menu-icon {
+    display: block !important;
   }
 }
 
