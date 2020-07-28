@@ -25,6 +25,7 @@ Route::get('/test2', 'PageController@test2');
 //User
 Route::get('/profile/{id}', 'PageController@profile')->name('user.profile');
 Route::get('/new-project', 'PageController@newProject');
+Route::get('/profile/template/{id}', 'PageController@userShowTemplate')->name('user.template.show');
 
 //Awesome Icons
 Route::get('/awesome-icons', 'AwesomeIconController@index')->name('awesome-icons.show');

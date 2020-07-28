@@ -11,7 +11,7 @@
                 <a type="button" data-id="{{$template->id}}" class="btn btn-success js-choose-template" data-toggle="modal" data-target="#exampleModal">
                     Choose
                 </a>
-                <a href="{{route('template.show', $template->id)}}" type="button" class="btn btn-success" target="blank">
+                <a href="{{route('user.template.show', $template->id)}}" type="button" class="btn btn-success" target="blank">
                     Preview
                 </a>
             </div>
