@@ -8,6 +8,15 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script src="{{asset('js/app.js')}}"></script>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <script type="text/javascript">
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        </script>
         <style>
             .form-control:focus{border-color: #5cb85c;  box-shadow: none; -webkit-box-shadow: none;}
             .has-error .form-control:focus{box-shadow: none; -webkit-box-shadow: none;}
@@ -40,6 +49,7 @@
             </aside>
             <div class="profile-main js-profile-main">
                 <input type="hidden" class="template-id-main">
+                <input type="hidden" class="route-id" value="{{Request()->id}}">
                 <input type="hidden" class="user-id" value="{{auth()->user()->id}}">
                 <div class="tab-content" id="v-pills-tabContent">
                     <!-- TAB1 -->
@@ -69,12 +79,19 @@
                 $(".js-profile-main").css('width','100vw');
             });
 
-            $('.js-choose-template').change(function () {
-                // let template_id = $(this).find()
-                // $('.template-id-main').val() =
+            $('.js-choose-template').click(function () {
+                let template_id = $(this).data('id');
+                $('.template-id-main').val(template_id);
             });
 
-            $('.js-chosen-template').click(storeProject());
+            console.log('ruta id: ' + $('.route-id').val());
+
+            $(document).ready(function () {
+
+                $('.js-chosen-template').click(storeProject);
+            })
+
+
         </script>
     </body>
 </html>

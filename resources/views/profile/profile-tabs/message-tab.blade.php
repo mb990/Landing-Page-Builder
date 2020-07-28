@@ -21,17 +21,17 @@
 </div>
 <script>
 $(document).ready(function(){
-    $.ajax({
-            type: "GET",
-            url: "ALL GROUP URL",
-            success: function (data) {
-                output = [];
-                $.each(data.types, function (i, e) {
-                    output += '<option data-id="'+ e.id +'" value="option'+e.id +'" id="'+ e.id+'" >'+ e.name + '</option>'
-                });
-                $(".js-get-subs-group").append(output)
-            }
-        });
+    // $.ajax({
+    //         type: "GET",
+    //         url: "ALL GROUP URL",
+    //         success: function (data) {
+    //             output = [];
+    //             $.each(data.types, function (i, e) {
+    //                 output += '<option data-id="'+ e.id +'" value="option'+e.id +'" id="'+ e.id+'" >'+ e.name + '</option>'
+    //             });
+    //             $(".js-get-subs-group").append(output)
+    //         }
+    //     });
     //CLEAR FIELDS AFTER SEND
     $(".js-send-mail").on("click", function(){
         $(".js-mail-area").val('');
