@@ -14,7 +14,7 @@
     <header class="header-main-profile">
         <div style="flex-grow: 1;"><img style="width: 100px;transform: translateY(-25%);" src="{{ asset('img/logo.png') }}"></div>
         <div class="js-link">
-            <button class="head-link">Logout</button>
+            <a href="{{route('logout')}}"><button class="head-link">Logout</button></a>
         </div>
     </header>
     <main class=""  style="display: flex;">
@@ -29,9 +29,9 @@
                 <div class="tab-pane fade show active" id="v-pills-template" role="tabpanel" aria-labelledby="v-pills-template-tab" style="padding: 20px;">
                     @include('admin.add-template')
                 </div>
-                
+
                 <div class="tab-pane fade" id="v-pills-users" role="tabpanel" aria-labelledby="v-pills-users-tab" style="padding: 20px; text-align: center;">
-                    
+
                 </div>
             </div>
         </div>

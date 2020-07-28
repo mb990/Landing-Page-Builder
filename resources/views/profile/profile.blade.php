@@ -38,7 +38,7 @@
                 <button class="js-desktop">Desktop</button>
             </div> -->
             <div class="js-link">
-                <button class="head-link" id="js-info">Log out</button>
+                <a href="{{route('logout')}}"><button class="head-link" id="js-info">Log out</button></a>
             </div>
         </header>
         <main style="display: flex;">

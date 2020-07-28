@@ -8,12 +8,13 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout');
 
 //Admin
 Route::get('/admin', 'PageController@adminPanel');
 Route::get('/admin/add-template', 'PageController@addTemplate');
 Route::get('/admin/templates', 'PageController@templates');
-Route::get('/admin/template/{id}', 'PageController@showTemplate')->name('admin.template.show');
+Route::get('/admin/template/{id}', 'PageController@adminShowTemplate')->name('admin.template.show');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test1', 'PageController@test1')->name('test1');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AdminRequest;
+use App\Http\Requests\AuthRequest;
 use App\Http\Requests\ProfileRequest;
 use App\Services\TemplateService;
 use Illuminate\Http\Request;
@@ -41,7 +42,12 @@ class PageController extends Controller
         return view('admin.templates', compact('templates'));
     }
 
-    public function showTemplate(AdminRequest $request, $id)
+    public function adminShowTemplate(AdminRequest $request, $id)
+    {
+        return view('admin.show-template');
+    }
+
+    public function userShowTemplate(AuthRequest $request, $id)
     {
         return view('admin.show-template');
     }
