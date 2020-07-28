@@ -1,5 +1,5 @@
 <div>
-    <div style="display: flex;">
+    <div class="messages-tab">
         <div style="padding: 60px 20px;">
             <h4>Choose group</h4>
             <select class="js-get-subs-group" name="" id="">
@@ -9,11 +9,12 @@
                 <option value="">Site 3</option>
             </select>
         </div>
-        <div style="text-align: center;padding: 20px;">
+        <div class="mail-div">
             <h4>Send newsletter e-mail</h4>
-            <textarea class="js-mail-area" style="resize: none;padding: 20px;" name="" id="" cols="60" rows="10" placeholder="Write an email to your subscribers"></textarea>
+            <textarea class="mail-area js-mail-area" name="" id="" cols="60" rows="10" placeholder="Write an email to your subscribers"></textarea>
             <br>
-            <label for="banner" style="margin-right: 10px;">Attach image</label><input name="banner" type="file">
+            <label for="banner" style="margin-right: 10px;">Attach image</label><input style="max-width:60vw;" name="banner" type="file">
+            <br>
             <br>
             <button class="btn btn-success js-send-mail">Send email</button>
         </div>

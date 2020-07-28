@@ -209,11 +209,49 @@ body::-webkit-scrollbar {
   background-color: #75d38b;
 }
 
+@media screen and (max-width: 452px) {
+  .profile-aside {
+    display: none;
+  }
+}
+
 .nav-link.active {
   background-color: #28a745 !important;
 }
 
 .nav a {
   color: black !important;
+}
+
+.messages-tab {
+  display: flex;
+}
+
+@media screen and (max-width: 452px) {
+  .messages-tab {
+    flex-direction: column;
+  }
+}
+
+.mail-div {
+  text-align: center;
+  padding: 20px;
+}
+
+@media screen and (max-width: 452px) {
+  .mail-div {
+    padding: 0px;
+  }
+}
+
+.mail-area {
+  resize: none;
+  padding: 20px;
+}
+
+@media screen and (max-width: 452px) {
+  .mail-area {
+    width: 80vw;
+  }
 }
 

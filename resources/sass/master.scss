@@ -146,10 +146,33 @@ body{
     min-width: 20vw;
     max-width: 20vw;
     background-color: #75d38b;
+    @media screen and (max-width:452px){
+        display: none;
+    }
 }
 .nav-link.active{
     background-color: #28a745 !important;
 }
 .nav a{
     color: black !important;
+}
+.messages-tab{
+    display: flex;
+    @media screen and (max-width:452px){
+        flex-direction: column;
+    }
+}
+.mail-div{
+    text-align: center;
+    padding: 20px;
+    @media screen and (max-width:452px){
+        padding: 0px;
+    }
+}
+.mail-area{
+    resize: none;
+    padding: 20px;
+    @media screen and (max-width:452px){
+        width: 80vw;
+    }
 }
