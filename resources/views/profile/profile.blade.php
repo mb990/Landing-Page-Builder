@@ -33,16 +33,20 @@
     <body>
         <header class="header-main-profile">
             <div style="flex-grow: 1;"><img style="width: 100px;transform: translateY(-25%);" src="{{ asset('img/logo.png') }}"></div>
-            <!-- <div style="flex-grow: 1;">
-                <button class="js-mobile">Mobile</button>
-                <button class="js-desktop">Desktop</button>
-            </div> -->
+            <div style="flex-grow: 1;">
+                <!-- <button class="js-mobile">Mobile</button>
+                <button class="js-desktop">Desktop</button> -->
+                <i class="fa fa-list js-menu" style="position: absolute; padding: 10px;display: none;"></i>
+
+            </div>
+
             <div class="js-link">
                 <a href="{{route('logout')}}"><button class="head-link" id="js-info">Log out</button></a>
             </div>
         </header>
         <main style="display: flex;">
-            <aside class="profile-aside">
+
+            <aside class="profile-aside js-aside">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">New project</a>
                     <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
@@ -91,7 +95,12 @@
 
                 $('.js-chosen-template').click(storeProject);
             })
+            $('.js-menu').on("click", function(){
+                $(".js-profile-main").slideToggle();
+                $(".js-aside").slideToggle();
 
+
+            })
 
         </script>
     </body>
