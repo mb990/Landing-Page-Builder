@@ -28,6 +28,12 @@ class TemplateRepository
         return $this->template->find($id);
     }
 
+    public function findBySlug($slug)
+    {
+        return $this->template->where('slug', $slug)
+            ->firstOrFail();
+    }
+
     public function store($request)
     {
         return $this->template->create($request->all());

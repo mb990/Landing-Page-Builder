@@ -2,12 +2,15 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+    use Sluggable;
+
     protected $fillable = [
-        'user_id', 'template_id', 'name'
+        'user_id', 'template_id', 'name', 'slug'
     ];
 
     public function template()
@@ -28,5 +31,14 @@ class Project extends Model
     public function subscribers()
     {
         return $this->hasMany(Subscriber::class);
+    }
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
     }
 }

@@ -37313,12 +37313,12 @@ $(document).ready(function () {
     var template_id = $('.template-id-main').val();
     var user_id = $('.user-id').val();
     var name = $('.js-project-name').val();
-    var route_id = $('.route-id').val();
+    var route_slug = $('.route-slug').val();
     $.post(route('project.store', template_id), {
       template_id: template_id,
       user_id: user_id,
       name: name,
-      route_id: route_id
+      route_slug: route_slug
     }).done(function (data) {
       console.log(data.project);
     });
@@ -37353,8 +37353,8 @@ $(document).ready(function () {
 $(document).ready(function () {
   window.showTemplate = function () {
     // e.preventDefault();
-    var id = $('.js-template-id').val();
-    $.get(route('template.show', id), function (data) {
+    var slug = $('.js-template-slug').val();
+    $.get(route('template.show', slug), function (data) {
       console.log(data);
     }).done(function (data) {
       // console.log(data.views);

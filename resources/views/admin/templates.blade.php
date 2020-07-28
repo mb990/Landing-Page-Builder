@@ -18,7 +18,7 @@
 
 @forelse($templates as $template)
 
-    <a href="{{route('admin.template.show', $template->id)}}">{{$template->name}}</a>
+    <a href="{{route('admin.template.show', $template->slug)}}">{{$template->name}}</a>
 
 @empty
 

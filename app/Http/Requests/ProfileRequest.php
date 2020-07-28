@@ -14,7 +14,7 @@ class ProfileRequest extends FormRequest
      */
     public function authorize()
     {
-        if (Auth::check() && auth()->user()->id == request()->route('id')) {
+        if (Auth::check() && auth()->user()->slug == request()->route('slug')) {
 
             return true;
         }

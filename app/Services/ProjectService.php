@@ -23,6 +23,11 @@ class ProjectService
         return $this->project->find($id);
     }
 
+    public function findBySlug($slug)
+    {
+        return $this->project->findBySlug($slug);
+    }
+
     public function store($request)
     {
         return $this->project->store($request);

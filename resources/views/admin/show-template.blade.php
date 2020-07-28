@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<input type="hidden" class="js-template-id" value="{{request()->id}}">
+<input type="hidden" class="js-template-slug" value="{{request()->slug}}">
 
 <div class="main-div">
 

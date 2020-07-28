@@ -42,12 +42,12 @@ class PageController extends Controller
         return view('admin.templates', compact('templates'));
     }
 
-    public function adminShowTemplate(AdminRequest $request, $id)
+    public function adminShowTemplate(AdminRequest $request, $slug)
     {
         return view('admin.show-template');
     }
 
-    public function userShowTemplate(AuthRequest $request, $id)
+    public function userShowTemplate(AuthRequest $request, $slug)
     {
         return view('admin.show-template');
     }

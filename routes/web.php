@@ -14,7 +14,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/admin', 'PageController@adminPanel');
 Route::get('/admin/add-template', 'PageController@addTemplate');
 Route::get('/admin/templates', 'PageController@templates');
-Route::get('/admin/template/{id}', 'PageController@adminShowTemplate')->name('admin.template.show');
+Route::get('/admin/template/{slug}', 'PageController@adminShowTemplate')->name('admin.template.show');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test1', 'PageController@test1')->name('test1');
@@ -23,9 +23,9 @@ Route::get('/test1', 'PageController@test1')->name('test1');
 Route::get('/test2', 'PageController@test2');
 
 //User
-Route::get('/profile/{id}', 'PageController@profile')->name('user.profile');
+Route::get('/profile/{slug}', 'PageController@profile')->name('user.profile');
 Route::get('/new-project', 'PageController@newProject');
-Route::get('/profile/template/{id}', 'PageController@userShowTemplate')->name('user.template.show');
+Route::get('/profile/template/{slug}', 'PageController@userShowTemplate')->name('user.template.show');
 
 //Awesome Icons
 Route::get('/awesome-icons', 'AwesomeIconController@index')->name('awesome-icons.show');
@@ -37,7 +37,7 @@ Route::get('/page-element-types', 'PageElementTypeController@index')->name('page
 
 Route::post('/template', 'TemplateController@store')->name('template.store');
 Route::get('/templates', 'TemplateController@index')->name('templates.show');
-Route::get('/template/{id}', 'TemplateController@show')->name('template.show');
+Route::get('/template/{slug}', 'TemplateController@show')->name('template.show');
 
 //Page Elements
 Route::post('/page-element', 'PageElementController@store')->name('page-element.store');

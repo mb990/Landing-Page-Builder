@@ -44,6 +44,11 @@ class TemplateService
         return $this->template->find($id);
     }
 
+    public function findBySlug($slug)
+    {
+        return $this->template->findBySlug($slug);
+    }
+
     public function store($request)
     {
         return $this->template->store($request);

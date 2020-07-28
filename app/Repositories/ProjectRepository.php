@@ -22,6 +22,12 @@ class ProjectRepository
         return $this->project->find($id);
     }
 
+    public function findBySlug($slug)
+    {
+        return $this->project->where('slug', $slug)
+            ->firstOrFail();
+    }
+
     public function store($request)
     {
         return $this->project->create($request->all());

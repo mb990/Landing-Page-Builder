@@ -32,9 +32,9 @@ class TemplateController extends Controller
         return response()->json(['success' => 'Template created', 'template' => $template]);
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        $template = $this->templateService->find($id);
+        $template = $this->templateService->findBySlug($slug);
 
         $elements = $template->pageElements;
 

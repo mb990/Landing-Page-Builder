@@ -15,7 +15,7 @@ class StoreProjectRequest extends FormRequest
     public function authorize()
     {
         if (Auth::check()
-            && auth()->user()->id == $this->input('route_id')
+            && auth()->user()->slug == $this->input('route_slug')
         ) {
 
             return true;

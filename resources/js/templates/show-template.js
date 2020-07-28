@@ -4,9 +4,9 @@ $(document).ready(function () {
 
         // e.preventDefault();
 
-        let id = $('.js-template-id').val();
+        let slug = $('.js-template-slug').val();
 
-        $.get(route('template.show', id), function (data) {
+        $.get(route('template.show', slug), function (data) {
             console.log(data);
         })
             .done(function (data) {

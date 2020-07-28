@@ -52,7 +52,7 @@
             </aside>
             <div class="profile-main js-profile-main">
                 <input type="hidden" class="template-id-main">
-                <input type="hidden" class="route-id" value="{{Request()->id}}">
+                <input type="hidden" class="route-slug" value="{{Request()->slug}}">
                 <input type="hidden" class="user-id" value="{{auth()->user()->id}}">
                 <div class="tab-content" id="v-pills-tabContent">
                     <!-- TAB1 -->
@@ -86,8 +86,6 @@
                 let template_id = $(this).data('id');
                 $('.template-id-main').val(template_id);
             });
-
-            console.log('ruta id: ' + $('.route-id').val());
 
             $(document).ready(function () {
 
