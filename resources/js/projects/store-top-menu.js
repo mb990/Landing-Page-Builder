@@ -20,9 +20,9 @@ $(document).ready(function () {
 
         if (validate()) {
 
-            // let template_id = $('#template_id').val();
+            let template_id = $('.js-project-template-id').val();
             let template_name = $('.js-project-template-name').val();
-            let page_element_type_id = $('#page_element_type_id').val();
+            let page_element_type_id = $('.js-project-page-element-type-id').val();
             let project_id = $('.js-project-id').val();
 
             let modelType = 'App\\TopMenuSettings';

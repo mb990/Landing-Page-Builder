@@ -37370,9 +37370,9 @@ $(document).ready(function () {
     }
 
     if (validate()) {
-      // let template_id = $('#template_id').val();
+      var template_id = $('.js-project-template-id').val();
       var template_name = $('.js-project-template-name').val();
-      var page_element_type_id = $('#page_element_type_id').val();
+      var page_element_type_id = $('.js-project-page-element-type-id').val();
       var project_id = $('.js-project-id').val();
       var modelType = 'App\\TopMenuSettings';
       $.post(route('project.top-menu-settings.store'), {//np

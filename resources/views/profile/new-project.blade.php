@@ -22,7 +22,9 @@
             </div>
         </header>
         <main><!--style="display: flex;" -->
+            <input type="hidden" class="js-project-page-element-type-id">
             <input type="hidden" class="js-project-id" name="project-id" id="project-id" value="{{$project->id}}">
+            <input type="hidden" class="js-project-template-id" name="project-template-id" id="project-template-id" value="{{$project->template->id}}">
             <input type="hidden" class="js-project-template-name" name="template-name" id="template-name" value="{{$project->template->name}}">
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add element</button>
 
@@ -159,6 +161,8 @@
                 $('#select').on("change",function () {
                     var title = $('#select').find(":selected").text();
                     var ide = $('#select').find(":selected").val();
+                    let type = $(this).find(':selected').data('id');
+                    $('.js-project-page-element-type-id').val(type);
                     $('#exampleModalLabel').text(title)
                     $('.js-modal-content').hide();
                     $('.js-content-'+ide).show();
