@@ -18,7 +18,7 @@ $(document).ready(function () {
 
         if (validate()) {
 
-            let template_id = $('.js-project-template-id').val();
+            // let template_id = $('.js-project-template-id').val();
             let template_name = $('.js-project-template-name').val();
             let page_element_type_id = $('.js-project-page-element-type-id').val();
             let project_id = $('.js-project-id').val();
@@ -44,7 +44,7 @@ $(document).ready(function () {
 
                 $.ajax({
 
-                    url: route('project.top-menu-image.store'),
+                    url: route('project.top-menu-image.store', project_slug),
                     type: "post",
                     data: form_data,
                     contentType: false,
@@ -60,7 +60,7 @@ $(document).ready(function () {
                 });
 
                 // saving new top menu element
-                $.post(route('project.page-element.store'),
+                $.post(route('project.page-element.store', project_slug),
                     {
                         project_id: project_id,
                         page_element_type_id: page_element_type_id,
@@ -79,7 +79,7 @@ $(document).ready(function () {
 
                     if (url !== '' && title !== '') {
 
-                        $.post(route('project.top-menu-link.store'),
+                        $.post(route('project.top-menu-link.store', project_slug),
                             {
                                 url: url,
                                 title: title,

@@ -109,7 +109,7 @@ Route::post('/template/gallery-video-item', 'Template\GalleryVideoItemController
 Route::post('/project/new/{templateId}', 'ProjectController@store')->name('project.store');
 
 //Page Elements
-Route::post('/project/page-element', 'Project\PageElementController@store')->name('project.page-element.store');
+Route::post('/project/{slug}/page-element', 'Project\PageElementController@store')->name('project.page-element.store');
 
 //Project Images
 Route::post('/project-top-menu-image', 'Project\TopMenuImageController@store')->name('project.top-menu-image.store');
@@ -123,7 +123,7 @@ Route::post('/project-gallery-image-item-image', 'Project\GalleryImageItemImageC
 Route::post('/project/{slug}/top-menu-settings', 'Project\TopMenuSettingsController@store')->name('project.top-menu-settings.store');
 
 //Top Menu Links
-Route::post('/link', 'Template\TopMenuLinkController@store')->name('project.top-menu-link.store');
+Route::post('/project/{slug}/link', 'Template\TopMenuLinkController@store')->name('project.top-menu-link.store');
 
 //Testimonial Sections
 Route::post('/project/{slug}/testimonial-section', 'Project\TestimonialSectionController@store')->name('project.testimonial-section.store');

@@ -37255,6 +37255,8 @@ __webpack_require__(/*! ./projects/store-project */ "./resources/js/projects/sto
 
 __webpack_require__(/*! ./projects/store-top-menu */ "./resources/js/projects/store-top-menu.js");
 
+__webpack_require__(/*! ./projects/store-footer */ "./resources/js/projects/store-footer.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37299,6 +37301,45 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/projects/store-footer.js":
+/*!***********************************************!*\
+  !*** ./resources/js/projects/store-footer.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.storeProjectFooter = function (e) {
+    e.preventDefault();
+    var template_name = $('.js-project-template-name').val();
+    var page_element_type_id = $('.js-project-page-element-type-id').val();
+    var project_id = $('.js-project-id').val();
+    var project_slug = $('.js-project-slug').val(); // let project_name = $('.js-project-name').val();
+
+    var creator = $('.js-project-footer-creator').val();
+    var facebook = $('.js-project-footer-facebook').val();
+    var instagram = $('.js-project-footer-instagram').val();
+    var twitter = $('.js-project-footer-twitter').val();
+    $.post(route('project.footer-settings.store', project_slug), {
+      creator: creator,
+      facebook_url: facebook,
+      instagram_url: instagram,
+      twitter_url: twitter
+    }).done(function (data) {
+      // saving new footer element
+      $.post(route('project.page-element.store', project_slug), {
+        project_id: project_id,
+        page_element_type_id: page_element_type_id,
+        page_elementable_id: data.settings.id,
+        page_elementable_type: 'App\\FooterSettings',
+        blade_file: 'templates.' + template_name + '.page_elements.footer'
+      });
+    });
+  };
+});
 
 /***/ }),
 
@@ -37368,7 +37409,7 @@ $(document).ready(function () {
     }
 
     if (validate()) {
-      var template_id = $('.js-project-template-id').val();
+      // let template_id = $('.js-project-template-id').val();
       var template_name = $('.js-project-template-name').val();
       var page_element_type_id = $('.js-project-page-element-type-id').val();
       var project_id = $('.js-project-id').val();
@@ -37386,7 +37427,7 @@ $(document).ready(function () {
         form_data.append('imageable_type', modelType);
         form_data.append('imageable_id', data.settings.id);
         $.ajax({
-          url: route('project.top-menu-image.store'),
+          url: route('project.top-menu-image.store', project_slug),
           type: "post",
           data: form_data,
           contentType: false,
@@ -37400,7 +37441,7 @@ $(document).ready(function () {
           console.log('iznad ovoga treba da je ispis slike');
         }); // saving new top menu element
 
-        $.post(route('project.page-element.store'), {
+        $.post(route('project.page-element.store', project_slug), {
           project_id: project_id,
           page_element_type_id: page_element_type_id,
           page_elementable_id: data.settings.id,
@@ -37415,7 +37456,7 @@ $(document).ready(function () {
           var title = $("#title-" + (e + 1)).val();
 
           if (url !== '' && title !== '') {
-            $.post(route('project.top-menu-link.store'), {
+            $.post(route('project.top-menu-link.store', project_slug), {
               url: url,
               title: title,
               top_menu_settings_id: data.settings.id

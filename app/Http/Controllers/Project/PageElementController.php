@@ -18,7 +18,7 @@ class PageElementController extends Controller
         $this->pageElementService = $pageElementService;
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $slug)
     {
         $element = $this->pageElementService->store($request);
 
