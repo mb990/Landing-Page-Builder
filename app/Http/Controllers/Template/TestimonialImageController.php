@@ -21,7 +21,7 @@ class TestimonialImageController extends Controller
 
     public function store(StoreTemplateTestimonialImageRequest $request)
     {
-        $image = $this->templateImageService->storeImage($request);
+        $image = $this->templateImageService->store($request);
 
         return response()->json(['image' => $image]);
     }

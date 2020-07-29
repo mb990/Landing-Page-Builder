@@ -20,6 +20,8 @@ class PageElementController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $element = $this->pageElementService->store($request);
+
+        return response()->json(['element' => $element, 'success' => 'Page element is created']);
     }
 }

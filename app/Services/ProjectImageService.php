@@ -6,7 +6,7 @@ namespace App\Services;
 
 use App\Repositories\ImageRepository;
 
-class TemplateImageService
+class ProjectImageService
 {
     /**
      * @var ImageRepository
@@ -35,7 +35,7 @@ class TemplateImageService
 
     public function store($request)
     {
-        $data = $this->storageService->storeTemplateImage($request);
+        $data = $this->storageService->storeProjectImage($request);
 
         $this->s3Service->storeImage($request->image_name, $data['extension'], $data['path'], $request->storing_path);
 

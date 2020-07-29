@@ -40,7 +40,7 @@ class GalleryVideoItemService
 
     public function store($request)
     {
-        $data = $this->storageService->storeVideo($request);
+        $data = $this->storageService->storeTemplateVideo($request);
 
         $videoName = $this->getVideoFileName($request);
 

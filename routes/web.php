@@ -111,5 +111,64 @@ Route::post('/project/new/{templateId}', 'ProjectController@store')->name('proje
 //Page Elements
 Route::post('/project/page-element', 'Project\PageElementController@store')->name('project.page-element.store');
 
+//Project Images
+Route::post('/project-top-menu-image', 'Project\TopMenuImageController@store')->name('project.top-menu-image.store');
+Route::post('/project-testimonial-image', 'Project\TestimonialImageController@store')->name('project.testimonial-image.store');
+Route::post('/project-hero-section-image', 'Project\HeroSectionImageController@store')->name('project.hero-section-image.store');
+Route::post('/project-general-content-one-section-image', 'Project\GeneralContentSectionOneImageController@store')->name('project.general-content-one-section-image.store');
+Route::post('/project-general-content-two-section-image', 'Project\GeneralContentSectionTwoImageController@store')->name('project.general-content-two-section-image.store');
+Route::post('/project-gallery-image-item-image', 'Project\GalleryImageItemImageController@store')->name('project.gallery-image-item-image.store');
+
 //Top Menu Settings
 Route::post('/project/{slug}/top-menu-settings', 'Project\TopMenuSettingsController@store')->name('project.top-menu-settings.store');
+
+//Top Menu Links
+Route::post('/link', 'Template\TopMenuLinkController@store')->name('project.top-menu-link.store');
+
+//Testimonial Sections
+Route::post('/project/{slug}/testimonial-section', 'Project\TestimonialSectionController@store')->name('project.testimonial-section.store');
+
+//Testimonials
+Route::post('/project/{slug}/testimonial-settings', 'Project\TestimonialSettingsController@store')->name('project.testimonial-settings.store');
+
+//Pricing Sections
+Route::post('/project/{slug}/pricing-section', 'Project\PricingSectionController@store')->name('project.pricing-section.store');
+
+//Price Settings
+Route::post('/project/{slug}/price-settings', 'Project\PriceSettingsController@store')->name('project.price-settings.store');
+
+//Price Settings Benefits
+Route::post('/project/{slug}/benefit', 'Project\PricingSettingsBenefitController@store')->name('project.price-settings-benefit.store');
+
+//Footer Settings
+Route::post('/project/{slug}/footer-settings', 'Project\FooterSettingsController@store')->name('project.footer-settings.store');
+
+//Hero Section Settings
+Route::post('/project/{slug}/hero-section-settings', 'Project\HeroSectionSettingsController@store')->name('project.hero-section-settings.store');
+
+//General Content One Settings
+Route::post('/project/{slug}/general-content-one-settings', 'Project\GeneralContentOneSettingsController@store')->name('project.general-content-one-settings.store');
+
+//General Content Two Settings
+Route::post('/project/{slug}/general-content-two-settings', 'Project\GeneralContentTwoSettingsController@store')->name('project.general-content-two-settings.store');
+
+//General Content Three Settings
+Route::post('/project/{slug}/general-content-three-settings', 'Project\GeneralContentThreeSettingsController@store')->name('project.general-content-three-settings.store');
+
+//General Content Three Bullet Point
+Route::post('/project/{slug}/general-content-three-bullet-point', 'Project\GeneralContentThreeBulletPointController@store')->name('project.general-content-three-bullet-point.store');
+
+//General Content Three Tile
+Route::post('/project/{slug}/general-content-three-tile', 'Project\GeneralContentThreeTileController@store')->name('project.general-content-three-tile.store');
+
+//NewsletterSettings Section
+Route::post('/project/{slug}/newsletter', 'Project\NewsletterSettingsController@store')->name('project.newsletter.store');
+
+//Gallery Settings
+Route::post('/project/{slug}/gallery-settings', 'Project\GallerySettingsController@store')->name('project.gallery-settings.store');
+
+//Gallery Settings Image Item
+Route::post('/project/{slug}/gallery-image-item', 'Project\GalleryImageItemController@store')->name('project.gallery-image-item.store');
+
+//Gallery Settings Video Item
+Route::post('/project/{slug}/gallery-video-item', 'Project\GalleryVideoItemController@store')->name('project.gallery-video-item.store');

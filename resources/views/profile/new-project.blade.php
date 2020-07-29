@@ -8,6 +8,17 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+        <script src="{{asset('js/app.js')}}"></script>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <script type="text/javascript">
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        </script>
+
         @routes
     </head>
     <body>
@@ -23,7 +34,9 @@
         </header>
         <main><!--style="display: flex;" -->
             <input type="hidden" class="js-project-page-element-type-id">
+            <input type="hidden" class="js-project-slug" name="js-project-slug" value="{{$project->slug}}">
             <input type="hidden" class="js-project-id" name="project-id" id="project-id" value="{{$project->id}}">
+            <input type="hidden" class="js-project-name" name="project-name" id="project-name" value="{{$project->name}}">
             <input type="hidden" class="js-project-template-id" name="project-template-id" id="project-template-id" value="{{$project->template->id}}">
             <input type="hidden" class="js-project-template-name" name="template-name" id="template-name" value="{{$project->template->name}}">
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add element</button>

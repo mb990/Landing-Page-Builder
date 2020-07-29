@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class StoreTopMenuImageRequest extends FormRequest
+class StoreProjectTopMenuImageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class StoreTopMenuImageRequest extends FormRequest
      */
     public function authorize()
     {
-        if (Auth::check() && auth()->user()->hasRole('admin')) {
+        if (Auth::check()) {
 
             return true;
         }
@@ -31,7 +31,7 @@ class StoreTopMenuImageRequest extends FormRequest
     {
         return [
             'image' => 'required|mimes:jpeg,jpg,png|max:20',
-            'template_name' => 'required',
+            'project_name' => 'required',
             'storing_path' => 'required',
             'image_name' => 'required',
             'imageable_type' => 'required',

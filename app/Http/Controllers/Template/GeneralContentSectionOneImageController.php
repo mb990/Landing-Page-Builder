@@ -21,7 +21,7 @@ class GeneralContentSectionOneImageController extends Controller
 
     public function store(StoreTemplateGeneralContentSectionOneImageRequest $request)
     {
-        $image = $this->templateImageService->storeImage($request);
+        $image = $this->templateImageService->store($request);
 
         return response()->json(['image' => $image]);
     }

@@ -21,7 +21,7 @@ class HeroSectionImageController extends Controller
 
     public function store(StoreTemplateHeroSectionImageRequest $request)
     {
-        $image = $this->templateImageService->storeImage($request);
+        $image = $this->templateImageService->store($request);
 
         return response()->json(['image' => $image]);
     }
