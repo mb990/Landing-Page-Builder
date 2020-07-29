@@ -36,7 +36,7 @@
             <div style="flex-grow: 1;">
                 <!-- <button class="js-mobile">Mobile</button>
                 <button class="js-desktop">Desktop</button> -->
-                <i class="fa fa-list js-menu menu-icon d-none"></i>
+                <i class="fa fa-list js-menu-media menu-icon d-none"></i>
             </div>
             <div style="flex-grow: 1;" class="js-link">
                 <a style="float: right;" href="{{route('logout')}}"><button class="btn btn-secondary" id="js-info">Log out</button></a>
@@ -94,14 +94,39 @@
 
                 $('.js-chosen-template').click(storeProject);
             })
-            $('.js-menu').on("click", function(){
+            $('.js-menu-media').on("click", function(){
                 $(".js-profile-main").slideToggle();
                 $(".js-aside").slideToggle();
-
-
             })
+            $('.js-media-nav-link').on("click", function(){
+                $(".js-profile-main").slideToggle();
+                $(".js-aside").slideToggle();
+            })
+            function checkWidth() {
+                if ($(window).width() < 525) {
+                    console.log($(window).width())
+                    $(".js-aside").hide();
 
+                    $('.nav-link').addClass('js-media-nav-link');
+                    $(".js-profile-main").css("width", "100vw");
+                    $(".js-aside").css("width", "100vw");
+                    $('.js-media-nav-link').on("click", function(){
+                        $(".js-profile-main").toggle();
+                        $(".js-aside").toggle();
+                    })
+            
+                } else {
+                    console.log("test")
 
+                    $('.nav-link').removeClass('js-media-nav-link');
+                    $(".js-profile-main").css("width", "80vw");
+                    $(".js-aside").css("width", "20vw");
+                    $(".js-profile-main").show();
+                    $(".js-aside").show();
+                }
+            }
+
+            $(window).resize(checkWidth);
         </script>
     </body>
 </html>
