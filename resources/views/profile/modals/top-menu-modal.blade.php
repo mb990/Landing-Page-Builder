@@ -29,6 +29,10 @@
         <input type="text" id="link-url-4" name="link-url-4" placeholder="Link URL">
     </span>
 </div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-success js-add-element-btn">Add element</button>
+</div>
 <script>
 $(document).ready(function(){
     $('.js-link-number').on('change', function(){

@@ -35,6 +35,10 @@
     <input type="text" id="testimonial_title-4" placeholder="Review title">
     <input type="text" id="testimonial_text-4" placeholder="Enter user review">
 </span>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-success js-add-element-btn">Add element</button>
+</div>
 <script>
 $(document).ready(function(){
     $('.js-testimonial-number').on('change', function(){

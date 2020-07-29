@@ -7,3 +7,7 @@
     <br>
     <input type="text" class="js-hero-section-button" placeholder="Enter button text">
 </span>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-success js-add-element-btn">Add element</button>
+</div>

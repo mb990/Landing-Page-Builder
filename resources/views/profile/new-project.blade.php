@@ -142,10 +142,7 @@
 
 
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success js-add-element-btn">Add element</button>
-            </div>
+
         </div>
     </div>
 </div>
@@ -169,6 +166,8 @@
                 });
                 $("#exampleModal").on("hidden.bs.modal", function () {
                     $('.js-modal-content').hide();
+                    $('#exampleModalLabel').text("Element name")
+
                     var select = $("#select");
                     select.val(select[0].options[0].value);
                 });

@@ -33,3 +33,7 @@
     <input type="text" id="js-general-content-three-tile-title-4" class="js-general-content-three-tile-title-4" placeholder="Tile4 title" required>
     <input type="text" id="js-general-content-three-tile-text-4" class="js-general-content-three-tile-text-4" placeholder="Tile4 short text" required>
 </span>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-success js-add-element-btn">Add element</button>
+</div>
