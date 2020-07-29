@@ -148,22 +148,25 @@
     </div>
 </div>
         <script>
-            $(".js-mobile").click(function() {
-                $(".js-profile-main").css('width','425px');
-            });
-            $(".js-desktop").click(function() {
-                $(".js-profile-main").css('width','100vw');
-            });
-            $('.js-modal-content').hide();
-            $('#select').on("change",function () {
+            $(document).ready(function(){
+                $(".js-mobile").click(function() {
+                    $(".js-profile-main").css('width','425px');
+                });
+                $(".js-desktop").click(function() {
+                    $(".js-profile-main").css('width','100vw');
+                });
                 $('.js-modal-content').hide();
-                $('.js-content-'+$(this).data('value')).show();
-            });
-            $("#exampleModal").on("hidden.bs.modal", function () {
-                $('.js-modal-content').hide();
-                var select = $("#select");
-                select.val(select[0].options[0].value);
-            });
+                $('#select').on("change",function () {
+                    var ide = $('#select').find(":selected").val();
+                    $('.js-modal-content').hide();
+                    $('.js-content-'+ide).show();
+                });
+                $("#exampleModal").on("hidden.bs.modal", function () {
+                    $('.js-modal-content').hide();
+                    var select = $("#select");
+                    select.val(select[0].options[0].value);
+                });
+            })
 
             $(document).ready(function () {
 
@@ -174,7 +177,7 @@
                         output = [];
                         console.log(data.types);
                         $.each(data.types, function (i, e) {
-                            output += '<option data-value="'+ e.id + '" data-id="'+ e.id +'" value="option'+e.id +'" id="'+ e.id+'" class="btn-success" >'+ e.name + '</option>'
+                            output += '<option data-value="'+ e.id + '" data-id="'+ e.id +'" value="'+e.id +'" id="'+ e.id+'" class="btn-success test1" >'+ e.name + '</option>'
                         });
                         $(".js-get-elements-types-project").append(output)
                     }
