@@ -71,9 +71,9 @@ class PageController extends Controller
         return view('profile.profile', compact('templates'));
     }
 
-    public function newProject()
+    public function newProject($slug)
     {
-        $project = $this->projectService->findLatestForUser(auth()->user());
+        $project = $this->projectService->findBySlug($slug);
 
         return view('profile.new-project')
             ->with('project', $project);

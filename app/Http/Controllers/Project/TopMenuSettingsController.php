@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Template;
+namespace App\Http\Controllers\Project;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreTemplateTopMenuSettingsRequest;
+use App\Http\Requests\StoreProjectTopMenuSettingsRequest;
 use App\Services\TopMenuSettingsService;
 use Illuminate\Http\Request;
 
@@ -19,7 +19,7 @@ class TopMenuSettingsController extends Controller
         $this->topMenuSettingsService = $topMenuSettingsService;
     }
 
-    public function store(StoreTemplateTopMenuSettingsRequest $request)
+    public function store(StoreProjectTopMenuSettingsRequest $request)
     {
         $settings = $this->topMenuSettingsService->store($request);
 

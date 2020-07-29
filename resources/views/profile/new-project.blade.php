@@ -8,7 +8,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
+        @routes
     </head>
     <body>
         <header class="header-main-profile">
@@ -22,7 +22,8 @@
             </div>
         </header>
         <main><!--style="display: flex;" -->
-            <input type="hidden" name="project-id" id="project-id" value="{{$project->id}}">
+            <input type="hidden" class="js-project-id" name="project-id" id="project-id" value="{{$project->id}}">
+            <input type="hidden" class="js-project-template-name" name="template-name" id="template-name" value="{{$project->template->name}}">
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add element</button>
 
             <!-- <aside class="profile-aside">
@@ -81,18 +82,18 @@
             </div>
             <div class="modal-body">
             <span>Select element</span>
-            <select id="select">
+            <select id="select" class="js-get-elements-types-project">
                 <option value="" selected disabled>Choose element</option>
-                <option value="1">Top menu</option>
-                <option value="2">Hero section</option>
-                <option value="3">General content 1</option>
-                <option value="4">General content 2</option>
-                <option value="5">General content 3</option>
-                <option value="6">Pricing</option>
-                <option value="7">Testimonials</option>
-                <option value="8">Gallery</option>
-                <option value="9">Subscribe</option>
-                <option value="10">Footer</option>
+{{--                <option value="1">Top menu</option>--}}
+{{--                <option value="2">Hero section</option>--}}
+{{--                <option value="3">General content 1</option>--}}
+{{--                <option value="4">General content 2</option>--}}
+{{--                <option value="5">General content 3</option>--}}
+{{--                <option value="6">Pricing</option>--}}
+{{--                <option value="7">Testimonials</option>--}}
+{{--                <option value="8">Gallery</option>--}}
+{{--                <option value="9">Subscribe</option>--}}
+{{--                <option value="10">Footer</option>--}}
             </select>
 
             <div class="js-modal-content js-content-1">
@@ -156,13 +157,31 @@
             $('.js-modal-content').hide();
             $('#select').on("change",function () {
                 $('.js-modal-content').hide();
-                $('.js-content-'+$(this).val()).show();
+                $('.js-content-'+$(this).data('value')).show();
             });
             $("#exampleModal").on("hidden.bs.modal", function () {
                 $('.js-modal-content').hide();
                 var select = $("#select");
                 select.val(select[0].options[0].value);
             });
+
+            $(document).ready(function () {
+
+                $.ajax({
+                    type: "GET",
+                    url: route('page-element-types.show'),
+                    success: function (data) {
+                        output = [];
+                        console.log(data.types);
+                        $.each(data.types, function (i, e) {
+                            output += '<option data-value="'+ e.id + '" data-id="'+ e.id +'" value="option'+e.id +'" id="'+ e.id+'" class="btn-success" >'+ e.name + '</option>'
+                        });
+                        $(".js-get-elements-types-project").append(output)
+                    }
+                });
+
+            })
+
         </script>
     </body>
 </html>

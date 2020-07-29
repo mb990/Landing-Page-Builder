@@ -12,10 +12,15 @@ class TopMenuSettingsService
      * @var TopMenuSettingsRepository
      */
     private $topMenuSettings;
+    /**
+     * @var RequestService
+     */
+    private $requestService;
 
-    public function __construct(TopMenuSettingsRepository $topMenuSettings)
+    public function __construct(TopMenuSettingsRepository $topMenuSettings, RequestService $requestService)
     {
         $this->topMenuSettings = $topMenuSettings;
+        $this->requestService = $requestService;
     }
 
     public function find($id)
@@ -25,6 +30,13 @@ class TopMenuSettingsService
 
     public function store($request)
     {
+//        if ($this->checkIfItIsProjectElement($request)) {
+//
+//            $newRequest = $this->requestService->addProjectIdToRequest($request);
+//
+//            return $this->topMenuSettings->store($newRequest);
+//        }
+
         return $this->topMenuSettings->store($request);
     }
 
@@ -36,5 +48,15 @@ class TopMenuSettingsService
     public function delete($id)
     {
         return $this->topMenuSettings->delete($id);
+    }
+
+    public function checkIfItIsProjectElement($request)
+    {
+        if ($request->project_id) {
+
+            return true;
+        }
+
+        return false;
     }
 }

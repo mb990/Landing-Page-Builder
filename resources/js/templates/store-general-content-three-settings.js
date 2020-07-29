@@ -57,7 +57,7 @@ $(document).ready(function () {
               let element_id = data.settings.id;
 
               // saving new general content three section element
-              $.post(route('page-element.store'),
+              $.post(route('template.page-element.store'),
                   {
                       template_id: template_id,
                       page_element_type_id: page_element_type_id,

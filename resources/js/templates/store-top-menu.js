@@ -30,6 +30,8 @@ $(document).ready(function () {
                 }
             ).done(function (data) {
 
+                console.log('done nakon snimanja top menu settingsa')
+
                 // saving top menu image
                 let form_data = new FormData();
                 form_data.append('image', $('#top-menu-image')[0].files[0]);
