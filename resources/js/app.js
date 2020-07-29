@@ -14,3 +14,4 @@ require('./templates/store-gallery-settings-with-items');
 
 require('./projects/store-subscriber');
 require('./projects/store-project');
+require('./projects/store-top-menu');

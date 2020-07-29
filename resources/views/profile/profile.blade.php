@@ -56,6 +56,7 @@
             </aside>
             <div class="profile-main js-profile-main">
                 <input type="hidden" class="template-id-main">
+                <input type="hidden" class="profile-id-main">
                 <input type="hidden" class="route-slug" value="{{Request()->slug}}">
                 <input type="hidden" class="user-id" value="{{auth()->user()->id}}">
                 <div class="tab-content" id="v-pills-tabContent">

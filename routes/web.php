@@ -40,10 +40,10 @@ Route::get('/templates', 'TemplateController@index')->name('templates.show');
 Route::get('/template/{slug}', 'TemplateController@show')->name('template.show');
 
 //Page Elements
-Route::post('/page-element', 'PageElementController@store')->name('page-element.store');
+Route::post('/page-element', 'Template\PageElementController@store')->name('template.page-element.store');
 
 //Top Menu Links
-Route::post('/link', 'TopMenuLinkController@store')->name('top-menu-link.store');
+Route::post('/link', 'Template\TopMenuLinkController@store')->name('top-menu-link.store');
 
 //Template Images
 Route::post('/template-top-menu-image', 'Template\TopMenuImageController@store')->name('template.top-menu-image.store');
@@ -107,3 +107,9 @@ Route::post('/template/gallery-video-item', 'Template\GalleryVideoItemController
 //PROJECT
 
 Route::post('/project/new/{templateId}', 'ProjectController@store')->name('project.store');
+
+//Page Elements
+Route::post('/project/page-element', 'Project\PageElementController@store')->name('project.page-element.store');
+
+//Top Menu Settings
+Route::post('/project/{slug}/top-menu-settings', 'Project\TopMenuSettingsController@store')->name('project.top-menu-settings.store');
