@@ -75,7 +75,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Element name</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -96,11 +96,11 @@
 {{--                <option value="10">Footer</option>--}}
             </select>
 
-            <div class="js-modal-content js-content-1">
+            <div class="js-modal-content js-content-10">
                 @include('profile.modals.top-menu-modal')
             </div>
 
-            <div class="js-modal-content js-content-2">
+            <div class="js-modal-content js-content-6">
                 @include('profile.modals.hero-modal')
             </div>
 
@@ -116,23 +116,23 @@
                 @include('profile.modals.general3-modal')
             </div>
 
-            <div class="js-modal-content js-content-6">
+            <div class="js-modal-content js-content-8">
                 @include('profile.modals.pricing-modal')
             </div>
 
-            <div class="js-modal-content js-content-7">
+            <div class="js-modal-content js-content-9">
                 @include('profile.modals.testimonials-modal')
             </div>
 
-            <div class="js-modal-content js-content-8">
+            <div class="js-modal-content js-content-2">
                 @include('profile.modals.gallery-modal')
             </div>
 
-            <div class="js-modal-content js-content-9">
+            <div class="js-modal-content js-content-7">
                 @include('profile.modals.subscribe-modal')
             </div>
 
-            <div class="js-modal-content js-content-10">
+            <div class="js-modal-content js-content-1">
                 @include('profile.modals.footer-modal')
             </div>
 
@@ -157,7 +157,9 @@
                 });
                 $('.js-modal-content').hide();
                 $('#select').on("change",function () {
+                    var title = $('#select').find(":selected").text();
                     var ide = $('#select').find(":selected").val();
+                    $('#exampleModalLabel').text(title)
                     $('.js-modal-content').hide();
                     $('.js-content-'+ide).show();
                 });
