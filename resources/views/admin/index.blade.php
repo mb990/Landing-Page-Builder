@@ -13,18 +13,19 @@
     <body>
     <header class="header-main-profile">
         <div style="flex-grow: 1;"><img style="width: 100px;transform: translateY(-25%);" src="{{ asset('img/logo.png') }}"></div>
-        <div class="js-link">
-            <a href="{{route('logout')}}"><button class="head-link">Logout</button></a>
+        <div style="flex-grow: 1;"><button class="js-get-sidebar">Menu</button></div>
+        <div style="flex-grow: 1;" class="js-link">
+            <a href="{{route('logout')}}" style="float: right;"><button class="head-link">Logout</button></a>
         </div>
     </header>
-    <main class=""  style="display: flex;">
-        <aside class="profile-aside">
+    <main class="main-container"  >
+        <aside class="profile-aside js-side-content">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="v-pills-template-tab" data-toggle="pill" href="#v-pills-template" role="tab" aria-controls="v-pills-template" aria-selected="true">New template</a>
                 <a class="nav-link" id="v-pills-users-tab" data-toggle="pill" href="#v-pills-users" role="tab" aria-controls="v-pills-users" aria-selected="false">Users</a>
             </div>
         </aside>
-        <div class="profile-main">
+        <div class="profile-main js-main-content">
             <div class="tab-content" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="v-pills-template" role="tabpanel" aria-labelledby="v-pills-template-tab" style="padding: 20px;">
                     @include('admin.add-template')
@@ -36,5 +37,12 @@
             </div>
         </div>
     </main>
+    <script>
+        $('.js-get-sidebar').on("click", function(){
+            $(".js-main-content").slideToggle()
+            $(".js-side-content").slideToggle()
+            console.log("test")
+        })
+    </script>
     </body>
 </html>

@@ -196,6 +196,16 @@ body::-webkit-scrollbar {
   width: 100vw;
 }
 
+.main-container {
+  display: flex;
+}
+
+@media screen and (max-width: 452px) {
+  .main-container {
+    flex-direction: column;
+  }
+}
+
 .profile-main {
   background-color: lightgrey;
   min-height: 70vh;
@@ -206,6 +216,7 @@ body::-webkit-scrollbar {
   .profile-main {
     width: 100vw;
     max-width: 100vw;
+    height: 50vh;
   }
 }
 
