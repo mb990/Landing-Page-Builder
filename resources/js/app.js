@@ -16,3 +16,4 @@ require('./projects/store-subscriber');
 require('./projects/store-project');
 require('./projects/store-top-menu');
 require('./projects/store-footer');
+require('./projects/store-hero-section');

@@ -37257,6 +37257,8 @@ __webpack_require__(/*! ./projects/store-top-menu */ "./resources/js/projects/st
 
 __webpack_require__(/*! ./projects/store-footer */ "./resources/js/projects/store-footer.js");
 
+__webpack_require__(/*! ./projects/store-hero-section */ "./resources/js/projects/store-hero-section.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37338,6 +37340,82 @@ $(document).ready(function () {
         blade_file: 'templates.' + template_name + '.page_elements.footer'
       });
     });
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/store-hero-section.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/projects/store-hero-section.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.storeProjectHeroSectionSettings = function (e) {
+    e.preventDefault();
+
+    function validate() {
+      var bool = true;
+
+      if (!document.getElementById('js-project-hero-section-image').validity.valid) {
+        bool = false;
+      }
+
+      return bool;
+    }
+
+    if (validate()) {
+      var template_name = $('.js-project-template-name').val();
+      var page_element_type_id = $('.js-project-page-element-type-id').val();
+      var project_id = $('.js-project-id').val();
+      var project_slug = $('.js-project-slug').val();
+      var project_name = $('.js-project-name').val();
+      var modelType = 'App\\HeroSectionSettings';
+      var title = $('.js-project-hero-section-title').val();
+      var subtitle = $('.js-project-hero-section-subtitle').val();
+      var button = $('.js-project-hero-section-button').val();
+      $.post(route('project.hero-section-settings.store', project_slug), {
+        title: title,
+        subtitle: subtitle,
+        button_value: button
+      }).done(function (data) {
+        var element_id = data.settings.id; // saving hero section settings image
+
+        var form_data = new FormData();
+        form_data.append('image', $('.js-project-hero-section-image')[0].files[0]);
+        form_data.append('project_name', project_name);
+        form_data.append('storing_path', 'projects/' + project_name);
+        form_data.append('image_name', 'hero-section');
+        form_data.append('imageable_type', modelType);
+        form_data.append('imageable_id', element_id);
+        $.ajax({
+          url: route('project.hero-section-image.store'),
+          type: "post",
+          data: form_data,
+          contentType: false,
+          cache: false,
+          processData: false,
+          success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+
+        }).done(function (data) {
+          console.log(data.image);
+        }); // saving new hero section element
+
+        $.post(route('project.page-element.store', project_slug), {
+          project_id: project_id,
+          page_element_type_id: page_element_type_id,
+          page_elementable_id: element_id,
+          page_elementable_type: modelType,
+          blade_file: 'templates.' + template_name + '.page_elements.hero_section'
+        }).done(function (data) {
+          console.log(data);
+        }).fail(console.log('failed element'));
+      });
+    } else {
+      alert('You need to add image');
+    }
   };
 });
 
@@ -37427,7 +37505,7 @@ $(document).ready(function () {
         form_data.append('imageable_type', modelType);
         form_data.append('imageable_id', data.settings.id);
         $.ajax({
-          url: route('project.top-menu-image.store', project_slug),
+          url: route('project.top-menu-image.store'),
           type: "post",
           data: form_data,
           contentType: false,

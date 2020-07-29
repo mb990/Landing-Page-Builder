@@ -44,7 +44,7 @@ $(document).ready(function () {
 
                 $.ajax({
 
-                    url: route('project.top-menu-image.store', project_slug),
+                    url: route('project.top-menu-image.store'),
                     type: "post",
                     data: form_data,
                     contentType: false,
