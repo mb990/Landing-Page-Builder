@@ -93,29 +93,33 @@
             $(document).ready(function () {
 
                 $('.js-chosen-template').click(storeProject);
+                
             })
             $('.js-menu-media').on("click", function(){
                 $(".js-profile-main").slideToggle();
                 $(".js-aside").slideToggle();
             })
-            $('.js-media-nav-link').on("click", function(){
-                $(".js-profile-main").slideToggle();
-                $(".js-aside").slideToggle();
-            })
+            // $('.js-media-nav-link').on("click", function(){
+            //     $(".js-profile-main").slideToggle();
+            //     console.log("BUG1")
+            //     $(".js-aside").slideToggle();
+            // })
             function checkWidth() {
                 if ($(window).width() < 525) {
-                    console.log($(window).width())
+                    console.log("width: "+$(window).width())
                     $(".js-aside").hide();
 
                     $('.nav-link').addClass('js-media-nav-link');
                     $(".js-profile-main").css("width", "100vw");
                     $(".js-aside").css("width", "100vw");
-                    $('.js-media-nav-link').on("click", function(){
-                        $(".js-profile-main").toggle();
-                        $(".js-aside").toggle();
-                    })
+                    // $('.js-media-nav-link').on("click", function(){
+                    //     $(".js-profile-main").toggle();
+                    //     console.log("BUG1")
+                    //     $(".js-aside").toggle();
+                    // })
             
-                } else {
+                } if($(window).width() > 525){
+                    console.log("width: "+$(window).width())
                     console.log("test")
 
                     $('.nav-link').removeClass('js-media-nav-link');
@@ -125,7 +129,7 @@
                     $(".js-aside").show();
                 }
             }
-
+// checkWidth();
             $(window).resize(checkWidth);
         </script>
     </body>
