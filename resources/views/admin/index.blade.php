@@ -13,7 +13,7 @@
     <body>
     <header class="header-main-profile">
         <div style="flex-grow: 1;"><img style="width: 100px;transform: translateY(-25%);" src="{{ asset('img/logo.png') }}"></div>
-        <div style="flex-grow: 1;"><button class="js-get-sidebar">Menu</button></div>
+        <div style="flex-grow: 1;"><button class="menu-btn-mobile js-get-sidebar">Menu</button></div>
         <div style="flex-grow: 1;" class="js-link">
             <a href="{{route('logout')}}" style="float: right;"><button class="head-link">Logout</button></a>
         </div>
@@ -43,6 +43,28 @@
             $(".js-side-content").slideToggle()
             console.log("test")
         })
+        function checkWidth() {
+                if ($(window).width() <= 525) {
+                    $(".js-main-content").css("width", "100vw");
+                    $(".js-side-content").css("display", "none");
+                    $(".js-side-content").css("width", "100vw");
+                    console.log("width: "+$(window).width());
+                    $('.nav-link').addClass('js-mobile-menu')
+                    $('.js-mobile-menu').click(function (e) { 
+                        e.preventDefault();
+                        $(".js-main-content").slideToggle();
+                        $(".js-side-content").slideToggle();
+                    });
+                } else {
+                    $(".js-main-content").show();
+                    $(".js-side-content").show();
+                    $('.nav-link.js-mobile-menu').removeClass('js-mobile-menu');
+
+                }
+        }
+        $(document).ready(function(){
+                $(window).resize(checkWidth);
+            })
     </script>
     </body>
 </html>
