@@ -78,12 +78,12 @@
             </div>
         </main>
         <script>
-            $(".js-mobile").click(function() {
-                $(".js-profile-main").css('width','425px');
-            });
-            $(".js-desktop").click(function() {
-                $(".js-profile-main").css('width','100vw');
-            });
+            // $(".js-mobile").click(function() {
+            //     $(".js-profile-main").css('width','425px');
+            // });
+            // $(".js-desktop").click(function() {
+            //     $(".js-profile-main").css('width','100vw');
+            // });
 
             $('.js-choose-template').click(function () {
                 let template_id = $(this).data('id');

@@ -42,27 +42,29 @@
             $(".js-main-content").slideToggle()
             $(".js-side-content").slideToggle()
             console.log("test")
-        })
+        })            
         function checkWidth() {
                 if ($(window).width() <= 525) {
+                    console.log("width: "+$(window).width())
+                    $(".js-side-content").hide();
+                    $('.nav-link').addClass('js-media-nav-link');
                     $(".js-main-content").css("width", "100vw");
-                    $(".js-side-content").css("display", "none");
                     $(".js-side-content").css("width", "100vw");
-                    console.log("width: "+$(window).width());
-                    $('.nav-link').addClass('js-mobile-menu')
-                    $('.js-mobile-menu').click(function (e) { 
-                        e.preventDefault();
-                        $(".js-main-content").slideToggle();
-                        $(".js-side-content").slideToggle();
-                    });
-                } else {
+                        $('.js-media-nav-link').on("click", function(){
+                            $(".js-main-content").slideToggle();
+                            $(".js-side-content").slideToggle();
+                        })
+                } else{
+                    $('.nav-link').removeClass('js-media-nav-link');
+                    $(".js-main-content").css("width", "80vw");
+                    $(".js-side-content").css("width", "20vw");
                     $(".js-main-content").show();
                     $(".js-side-content").show();
-                    $('.nav-link.js-mobile-menu').removeClass('js-mobile-menu');
-
                 }
-        }
-        $(document).ready(function(){
+            }
+// checkWidth();
+            $(document).ready(function(){
+                checkWidth();
                 $(window).resize(checkWidth);
             })
     </script>
