@@ -47,15 +47,15 @@ $(document).ready(function(){
             $('.js-project-testimonial-1').removeClass('d-none')
         }
         if($(this).val()==2){
-            $('.js-top-menu-link').addClass('d-none')
+            $('.js-project-testimonial').addClass('d-none')
             $('.js-project-testimonial-1, .js-project-testimonial-2').removeClass('d-none')
         }
         if($(this).val()==3){
-            $('.js-top-menu-link').addClass('d-none')
+            $('.js-project-testimonial').addClass('d-none')
             $('.js-project-testimonial-1, .js-project-testimonial-2, .js-project-testimonial-3').removeClass('d-none')
         }
         if($(this).val()==4){
-            $('.js-top-menu-link').addClass('d-none')
+            $('.js-project-testimonial').addClass('d-none')
             $('.js-project-testimonial-1, .js-project-testimonial-2, .js-project-testimonial-3, .js-project-testimonial-4').removeClass('d-none')
         }
         if($(this).val()==0){
