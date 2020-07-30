@@ -1,9 +1,9 @@
 
     @routes
-{{--    <script src="{{asset('js/templates/store-top-menu.js')}}"></script>--}}
-{{--    <script src="{{asset('js/templates/store-testimonials.js')}}"></script>--}}
-{{--    <script src="{{asset('js/templates/store-price-settings.js')}}"></script>--}}
-{{--    <script src="{{asset('js/templates/store-footer-settings.js')}}"></script>--}}
+{{--    <script src="{{asset('js/templates/store.js')}}"></script>--}}
+{{--    <script src="{{asset('js/templates/store.js')}}"></script>--}}
+{{--    <script src="{{asset('js/templates/store.js')}}"></script>--}}
+{{--    <script src="{{asset('js/templates/store.js')}}"></script>--}}
     <script src="{{asset('js/app.js')}}"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script type="text/javascript">

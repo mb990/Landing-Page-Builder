@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    window.storeProjectGeneralContentOneSettings = function (e) {
+    window.storeProjectHeroSectionSettings = function (e) {
 
         e.preventDefault();
 
@@ -8,7 +8,7 @@ $(document).ready(function () {
 
             let bool = true;
 
-            if (!document.getElementById('js-project-general-content-section-one-image').validity.valid) {
+            if (!document.getElementById('js-project-hero-section-image').validity.valid) {
 
                 bool = false;
             }
@@ -24,38 +24,36 @@ $(document).ready(function () {
             let project_slug = $('.js-project-slug').val();
             let project_name = $('.js-project-name').val();
 
-            let modelType = 'App\\GeneralContentOneSettings';
+            let modelType = 'App\\HeroSectionSettings';
 
-            let title = $('.js-project-general-content-section-one-title').val();
-            let text = $('.js-project-general-content-section-one-text').val();
-            let link_url = $('.js-project-general-content-section-one-link-url').val();
-            let button_value = $('.js-project-general-content-section-one-button-value').val();
+            let title = $('.js-project-hero-section-title').val();
+            let subtitle = $('.js-project-hero-section-subtitle').val();
+            let button = $('.js-project-hero-section-button').val();
 
-            $.post(route('project.general-content-one-settings.store', project_slug),
+            $.post(route('project.hero-section-settings.store', project_slug),
 
                 {
                     title: title,
-                    text: text,
-                    link_url: link_url,
-                    button_value: button_value
+                    subtitle: subtitle,
+                    button_value: button
                 }
 
             ).done(function (data) {
 
                 let element_id = data.settings.id;
 
-                // saving general content one settings image
+                // saving hero section settings image
                 let form_data = new FormData();
-                form_data.append('image', $('.js-project-general-content-section-one-image')[0].files[0]);
+                form_data.append('image', $('.js-project-hero-section-image')[0].files[0]);
                 form_data.append('project_name', project_name);
-                form_data.append('storing_path', 'projects/' + project_name);
-                form_data.append('image_name', 'general-content-one-section');
+                form_data.append('storing_path', 'projects/' + project_name + '_' + project_id);
+                form_data.append('image_name', 'hero-section');
                 form_data.append('imageable_type', modelType);
                 form_data.append('imageable_id', element_id);
 
                 $.ajax({
 
-                    url: route('project.general-content-one-section-image.store'),
+                    url: route('project.hero-section-image.store'),
                     type: "post",
                     data: form_data,
                     contentType: false,
@@ -68,14 +66,14 @@ $(document).ready(function () {
                     console.log(data.image);
                 });
 
-                // saving new general content one section element
+                // saving new hero section element
                 $.post(route('project.page-element.store', project_slug),
                     {
                         project_id: project_id,
                         page_element_type_id: page_element_type_id,
                         page_elementable_id: element_id,
                         page_elementable_type: modelType,
-                        blade_file: 'templates.' + template_name +'.page_elements.general-content1'
+                        blade_file: 'templates.' + template_name +'.page_elements.hero_section'
                     })
                     .done(function (data) {
                         console.log(data);
@@ -84,11 +82,11 @@ $(document).ready(function () {
 
             })
         }
+
         else {
 
             alert('You need to add image');
         }
-
     }
 
 });

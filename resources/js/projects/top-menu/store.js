@@ -37,7 +37,7 @@ $(document).ready(function () {
                 let form_data = new FormData();
                 form_data.append('image', $('#project-top-menu-image')[0].files[0]);
                 form_data.append('project_name', project_name);
-                form_data.append('storing_path', 'projects/' + project_name);
+                form_data.append('storing_path', 'projects/' + project_name + '_' + project_id);
                 form_data.append('image_name', 'top-menu');
                 form_data.append('imageable_type', modelType);
                 form_data.append('imageable_id', data.settings.id);

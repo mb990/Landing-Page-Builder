@@ -1,22 +1,23 @@
 require('./bootstrap');
 
 require('./templates/show-template');
-require('./templates/store-footer-settings');
-require('./templates/store-price-settings');
-require('./templates/store-testimonials');
-require('./templates/store-top-menu');
-require('./templates/store-hero-section-settings');
-require('./templates/store-general-content-one-settings');
-require('./templates/store-general-content-two-settings');
-require('./templates/store-general-content-three-settings');
-require('./templates/store-newsletter-settings');
-require('./templates/store-gallery-settings-with-items');
+require('./templates/footer/store');
+require('./templates/pricing-section/store');
+require('./templates/testimonial/store');
+require('./templates/top-menu/store');
+require('./templates/hero-section/store');
+require('./templates/general-content-section-1/store');
+require('./templates/general-content-section-2/store');
+require('./templates/general-content-section-3/store');
+require('./templates/newsletter/store');
+require('./templates/gallery/store');
 
 require('./projects/store-subscriber');
 require('./projects/store-project');
-require('./projects/store-top-menu');
-require('./projects/store-footer');
-require('./projects/store-hero-section');
-require('./projects/store-general-content-one');
+require('./projects/top-menu/store');
+require('./projects/footer/store');
+require('./projects/hero-section/store');
+require('./projects/general-content-section-1/store');
 require('./projects/general-content-section-2/store');
+require('./projects/general-content-section-3/store');
 require('./projects/testimonial/store');

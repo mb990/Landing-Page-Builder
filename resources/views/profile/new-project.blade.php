@@ -161,6 +161,7 @@
 </div>
         <script>
             $(document).ready(function(){
+
                 $(".js-mobile").click(function() {
                     $(".js-profile-main").css('width','425px');
                 });
