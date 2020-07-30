@@ -7,7 +7,7 @@ use App\Http\Requests\StoreProjectGeneralContentSectionOneImagesRequest;
 use App\Services\ProjectImageService;
 use Illuminate\Http\Request;
 
-class GeneralContentOneImageController extends Controller
+class GeneralContentSectionOneImageController extends Controller
 {
     /**
      * @var ProjectImageService

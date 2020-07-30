@@ -147,13 +147,13 @@ Route::post('/project/{slug}/footer-settings', 'Project\FooterSettingsController
 Route::post('/project/{slug}/hero-section-settings', 'Project\HeroSectionSettingsController@store')->name('project.hero-section-settings.store');
 
 //General Content One Settings
-Route::post('/project/{slug}/general-content-one-settings', 'Project\GeneralContentOneSettingsController@store')->name('project.general-content-one-settings.store');
+Route::post('/project/{slug}/general-content-one-settings', 'Project\GeneralContentSectionOneSettingsController@store')->name('project.general-content-one-settings.store');
 
 //General Content Two Settings
-Route::post('/project/{slug}/general-content-two-settings', 'Project\GeneralContentTwoSettingsController@store')->name('project.general-content-two-settings.store');
+Route::post('/project/{slug}/general-content-two-settings', 'Project\GeneralContentSectionTwoSettingsController@store')->name('project.general-content-two-settings.store');
 
 //General Content Three Settings
-Route::post('/project/{slug}/general-content-three-settings', 'Project\GeneralContentThreeSettingsController@store')->name('project.general-content-three-settings.store');
+Route::post('/project/{slug}/general-content-three-settings', 'Project\GeneralContentSectionThreeSettingsController@store')->name('project.general-content-three-settings.store');
 
 //General Content Three Bullet Point
 Route::post('/project/{slug}/general-content-three-bullet-point', 'Project\GeneralContentThreeBulletPointController@store')->name('project.general-content-three-bullet-point.store');
