@@ -32,6 +32,25 @@
                 <button class="head-link" id="js-info">Log out</button>
             </div>
         </header>
+
+        <section class="newsletter project-element js-added-element">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="content">
+                            <h2>title</h2>
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Enter your email">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="submit">value</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <main><!--style="display: flex;" -->
             <input type="hidden" class="js-project-page-element-type-id">
             <input type="hidden" class="js-project-slug" name="js-project-slug" value="{{$project->slug}}">
@@ -158,7 +177,9 @@
 
         </div>
     </div>
+
 </div>
+
         <script>
             $(document).ready(function(){
 
@@ -204,6 +225,13 @@
 
             })
 
+            $(document).ready(function() {
+                $('.js-added-element').each(function(index, value) {
+                console.log(`div${index}: ${this.id}`);
+                $(this).append('<button class="btn btn-secondary element-delete">Delete element</button>')
+                $(this).append('<button class="btn btn-secondary element-edit">Edit element</button>')
+                });
+            });
         </script>
     </body>
 </html>

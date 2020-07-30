@@ -203,3 +203,28 @@ body{
         width: 80vw;
     }
 }
+
+
+//TESTING EDIT / DELETE ELEMENTS
+.project-element{
+    position: relative;
+    &:hover{
+        outline: 3px solid red;
+    }
+}
+.element-delete{
+    position: absolute;
+    top:10px;
+    right:20px;
+    display: none;
+}
+.element-edit{
+    position: absolute;
+    top:10px;
+    right:150px;
+    display: none;
+}
+
+.project-element:hover .element-delete, .project-element:hover .element-edit {
+    display: block;
+}
