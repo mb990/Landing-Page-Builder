@@ -135,7 +135,7 @@ Route::post('/project/{slug}/testimonial-settings', 'Project\TestimonialSettings
 Route::post('/project/{slug}/pricing-section', 'Project\PricingSectionController@store')->name('project.pricing-section.store');
 
 //Price Settings
-Route::post('/project/{slug}/price-settings', 'Project\PriceSettingsController@store')->name('project.price-settings.store');
+Route::post('/project/{slug}/price-settings', 'Project\PricingSettingsController@store')->name('project.price-settings.store');
 
 //Price Settings Benefit
 Route::post('/project/{slug}/benefit', 'Project\PricingSettingsBenefitController@store')->name('project.price-settings-benefit.store');

@@ -57,7 +57,7 @@ $(document).ready(function () {
 
                             let desc = $('.benefit-' + (e + 1) + '-' + (u + 1)).val();
 
-                            $.post(route('price-settings-benefit.store'),
+                            $.post(route('template.price-settings-benefit.store'),
                                 {
                                     description: desc,
                                     price_settings_id: data.settings.id

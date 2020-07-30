@@ -21,3 +21,4 @@ require('./projects/general-content-section-1/store');
 require('./projects/general-content-section-2/store');
 require('./projects/general-content-section-3/store');
 require('./projects/testimonial/store');
+require('./projects/pricing-section/store');

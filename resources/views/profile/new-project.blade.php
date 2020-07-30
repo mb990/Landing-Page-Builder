@@ -38,7 +38,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="content">
-                            <h2>title</h2>
+                            <h2>{{ucfirst($project->name)}}</h2>
                             <div class="input-group">
                                 <input type="email" class="form-control" placeholder="Enter your email">
                                 <span class="input-group-btn">
@@ -50,7 +50,7 @@
                 </div>
             </div>
         </section>
-        
+
         <main><!--style="display: flex;" -->
             <input type="hidden" class="js-project-page-element-type-id">
             <input type="hidden" class="js-project-slug" name="js-project-slug" value="{{$project->slug}}">

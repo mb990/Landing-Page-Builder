@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class StorePriceSettingsRequest extends FormRequest
+class StoreProjectPricingSettingsBenefitRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class StorePriceSettingsRequest extends FormRequest
      */
     public function authorize()
     {
-        if (Auth::check() && auth()->user()->hasRole('admin')) {
+        if (Auth::check()) {
 
             return true;
         }
@@ -30,9 +30,8 @@ class StorePriceSettingsRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'yearly_price' => 'required',
-            'monthly_price' => 'required'
+            'description' => 'required',
+            'price_settings_id' => 'required'
         ];
     }
 }
