@@ -33,7 +33,7 @@
             </div>
         </header>
 
-        <section class="newsletter project-element js-added-element">
+        <!-- <section class="newsletter project-element js-added-element">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <main><!--style="display: flex;" -->
             <input type="hidden" class="js-project-page-element-type-id">
@@ -228,8 +228,9 @@
             $(document).ready(function() {
                 $('.js-added-element').each(function(index, value) {
                 console.log(`div${index}: ${this.id}`);
-                $(this).append('<button class="btn btn-secondary element-delete">Delete element</button>')
-                $(this).append('<button class="btn btn-secondary element-edit">Edit element</button>')
+                x = `${index}: ${this.id}`;
+                $(this).append('<button id="'+ x +'" class="btn btn-secondary element-delete">Delete element</button>');
+                $(this).append('<button class="btn btn-secondary element-edit">Edit element</button>');
                 });
             });
         </script>

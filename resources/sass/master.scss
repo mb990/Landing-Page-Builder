@@ -209,19 +209,19 @@ body{
 .project-element{
     position: relative;
     &:hover{
-        outline: 3px solid red;
+        outline: 3px solid lightgray;
     }
 }
 .element-delete{
     position: absolute;
     top:10px;
-    right:20px;
+    right:2vw;
     display: none;
 }
 .element-edit{
     position: absolute;
     top:10px;
-    right:150px;
+    right:15vw;
     display: none;
 }
 
