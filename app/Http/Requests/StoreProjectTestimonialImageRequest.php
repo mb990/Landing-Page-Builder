@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class StoreTestimonialSettingsRequest extends FormRequest
+class StoreProjectTestimonialImageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class StoreTestimonialSettingsRequest extends FormRequest
      */
     public function authorize()
     {
-        if (Auth::check() && auth()->user()->hasRole('admin')) {
+        if (Auth::check()) {
 
             return true;
         }
@@ -30,8 +30,12 @@ class StoreTestimonialSettingsRequest extends FormRequest
     public function rules()
     {
         return [
-            'text' => 'required',
-            'customer_name' => 'required'
+            'image' => 'required|mimes:jpeg,jpg,png|max:40',
+            'project_name' => 'required',
+            'storing_path' => 'required',
+            'image_name' => 'required',
+            'imageable_type' => 'required',
+            'imageable_id' => 'required',
         ];
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class StoreTestimonialSettingsRequest extends FormRequest
+class StoreProjectTestimonialSettingsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class StoreTestimonialSettingsRequest extends FormRequest
      */
     public function authorize()
     {
-        if (Auth::check() && auth()->user()->hasRole('admin')) {
+        if (Auth::check()) {
 
             return true;
         }

@@ -37263,6 +37263,8 @@ __webpack_require__(/*! ./projects/store-general-content-one */ "./resources/js/
 
 __webpack_require__(/*! ./projects/general-content-section-2/store */ "./resources/js/projects/general-content-section-2/store.js");
 
+__webpack_require__(/*! ./projects/testimonial/store */ "./resources/js/projects/testimonial/store.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37706,6 +37708,96 @@ $(document).ready(function () {
       }).fail(console.log('failed settings'));
     } else {
       alert('You need to add top menu image');
+    }
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/testimonial/store.js":
+/*!****************************************************!*\
+  !*** ./resources/js/projects/testimonial/store.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.storeProjectTestimonialSection = function (e) {
+    e.preventDefault();
+
+    function validate() {
+      var bool = true; // $('.js-testimonial').each(function (e, i) {
+      //
+      //     if (!document.getElementById('js-project-testimonial-image-' + (e + 1)).validity.valid) {
+      //
+      //         bool = false;
+      //     }
+      //
+      // });
+
+      return bool;
+    }
+
+    if (validate()) {
+      var template_name = $('.js-project-template-name').val();
+      var page_element_type_id = $('.js-project-page-element-type-id').val();
+      var project_id = $('.js-project-id').val();
+      var project_slug = $('.js-project-slug').val();
+      var project_name = $('.js-project-name').val();
+      var modelType = 'App\\TestimonialSection';
+      $.post(route('project.testimonial-section.store', project_slug), {// blade_file: 'page_elements.testimonials'
+      }).done(function (data) {
+        var section_id = data.section.id; // saving new testimonial section element
+
+        $.post(route('project.page-element.store', project_slug), {
+          project_id: project_id,
+          page_element_type_id: page_element_type_id,
+          page_elementable_id: section_id,
+          page_elementable_type: modelType,
+          blade_file: 'templates.' + template_name + '.page_elements.testimonials'
+        }).done(function (data) {
+          console.log(data);
+        }).fail(console.log('failed element'));
+        $('.js-project-testimonial').each(function (e, i) {
+          var customer = $('#project-testimonial-customer_name-' + (e + 1)).val();
+          var testimonial_text = $('#project-testimonial_text-' + (e + 1)).val();
+          var title = $('#project-testimonial_title-' + (e + 1)).val();
+
+          if (customer !== '' && testimonial_text !== '' && title !== '') {
+            if (document.getElementById('js-project-testimonial-image-' + (e + 1)).validity.valid) {
+              $.post(route('project.testimonial-settings.store', project_slug), {
+                title: title,
+                customer_name: customer,
+                text: testimonial_text,
+                testimonial_section_id: section_id,
+                blade_file: 'templates.' + template_name + '.page_elements.testimonial-single'
+              }).done(function (data) {
+                var form_data = new FormData();
+                form_data.append('image', $('#js-project-testimonial-image-' + (e + 1))[0].files[0]);
+                form_data.append('project_name', project_name);
+                form_data.append('storing_path', 'projects/' + project_name + '_' + project_id + '/testimonials');
+                form_data.append('image_name', 'testimonial-' + data.settings.id);
+                form_data.append('imageable_type', 'App\\TestimonialSettings');
+                form_data.append('imageable_id', data.settings.id);
+                $.ajax({
+                  url: route('project.testimonial-image.store'),
+                  type: "post",
+                  data: form_data,
+                  contentType: false,
+                  cache: false,
+                  processData: false,
+                  success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+
+                }).done(function (data) {
+                  console.log(data.image);
+                });
+              });
+            } else {
+              alert('Please add testimonial image');
+            }
+          }
+        });
+      });
     }
   };
 });
@@ -38510,12 +38602,12 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
 
 
 /***/ })

@@ -108,10 +108,10 @@ Route::post('/template/gallery-video-item', 'Template\GalleryVideoItemController
 
 Route::post('/project/new/{templateId}', 'ProjectController@store')->name('project.store');
 
-//Page Elements
+//Page Element
 Route::post('/project/{slug}/page-element', 'Project\PageElementController@store')->name('project.page-element.store');
 
-//Project Images
+//Project Image
 Route::post('/project-top-menu-image', 'Project\TopMenuImageController@store')->name('project.top-menu-image.store');
 Route::post('/project-testimonial-image', 'Project\TestimonialImageController@store')->name('project.testimonial-image.store');
 Route::post('/project-hero-section-image', 'Project\HeroSectionImageController@store')->name('project.hero-section-image.store');
@@ -122,22 +122,22 @@ Route::post('/project-gallery-image-item-image', 'Project\GalleryImageItemImageC
 //Top Menu Settings
 Route::post('/project/{slug}/top-menu-settings', 'Project\TopMenuSettingsController@store')->name('project.top-menu-settings.store');
 
-//Top Menu Links
+//Top Menu Link
 Route::post('/project/{slug}/link', 'Template\TopMenuLinkController@store')->name('project.top-menu-link.store');
 
-//Testimonial Sections
+//Testimonial Section
 Route::post('/project/{slug}/testimonial-section', 'Project\TestimonialSectionController@store')->name('project.testimonial-section.store');
 
-//Testimonials
+//Testimonial
 Route::post('/project/{slug}/testimonial-settings', 'Project\TestimonialSettingsController@store')->name('project.testimonial-settings.store');
 
-//Pricing Sections
+//Pricing Section
 Route::post('/project/{slug}/pricing-section', 'Project\PricingSectionController@store')->name('project.pricing-section.store');
 
 //Price Settings
 Route::post('/project/{slug}/price-settings', 'Project\PriceSettingsController@store')->name('project.price-settings.store');
 
-//Price Settings Benefits
+//Price Settings Benefit
 Route::post('/project/{slug}/benefit', 'Project\PricingSettingsBenefitController@store')->name('project.price-settings-benefit.store');
 
 //Footer Settings
