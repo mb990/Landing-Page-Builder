@@ -93,7 +93,7 @@
             $(document).ready(function () {
 
                 $('.js-chosen-template').click(storeProject);
-                
+
             })
             $('.js-menu-media').on("click", function(){
                 $(".js-profile-main").toggle();

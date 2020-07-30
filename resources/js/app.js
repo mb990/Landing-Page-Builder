@@ -18,3 +18,4 @@ require('./projects/store-top-menu');
 require('./projects/store-footer');
 require('./projects/store-hero-section');
 require('./projects/store-general-content-one');
+require('./projects/general-content-section-2/store');
