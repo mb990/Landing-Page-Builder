@@ -37269,6 +37269,8 @@ __webpack_require__(/*! ./projects/testimonial/store */ "./resources/js/projects
 
 __webpack_require__(/*! ./projects/pricing-section/store */ "./resources/js/projects/pricing-section/store.js");
 
+__webpack_require__(/*! ./projects/newsletter/store */ "./resources/js/projects/newsletter/store.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37697,6 +37699,41 @@ $(document).ready(function () {
     } else {
       alert('You need to add image');
     }
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/newsletter/store.js":
+/*!***************************************************!*\
+  !*** ./resources/js/projects/newsletter/store.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.storeProjectNewsletter = function (e) {
+    e.preventDefault();
+    var template_name = $('.js-project-template-name').val();
+    var page_element_type_id = $('.js-project-page-element-type-id').val();
+    var project_id = $('.js-project-id').val();
+    var project_slug = $('.js-project-slug').val();
+    var modelType = 'App\\NewsletterSettings';
+    var title = $('.js-project-newsletter-title').val();
+    var button_value = $('.js-project-newsletter-button-value').val();
+    $.post(route('project.newsletter.store', project_slug), {
+      title: title,
+      button_value: button_value
+    }).done(function (data) {
+      // saving new newsletter element
+      $.post(route('project.page-element.store', project_slug), {
+        project_id: project_id,
+        page_element_type_id: page_element_type_id,
+        page_elementable_id: data.settings.id,
+        page_elementable_type: modelType,
+        blade_file: 'templates.' + template_name + '.page_elements.newsletter'
+      });
+    });
   };
 });
 
@@ -38457,7 +38494,7 @@ $(document).ready(function () {
     var modelType = 'App\\NewsletterSettings';
     var title = $('.js-newsletter-title').val();
     var button_value = $('.js-newsletter-button-value').val();
-    $.post(route('newsletter.store'), {
+    $.post(route('template.newsletter.store'), {
       title: title,
       button_value: button_value
     }).done(function (data) {

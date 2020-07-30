@@ -13,7 +13,7 @@ $(document).ready(function () {
         let title = $('.js-newsletter-title').val();
         let button_value = $('.js-newsletter-button-value').val();
 
-        $.post(route('newsletter.store'),
+        $.post(route('template.newsletter.store'),
 
             {
                 title: title,
