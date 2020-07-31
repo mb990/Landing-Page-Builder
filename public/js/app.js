@@ -37423,22 +37423,22 @@ $(document).ready(function () {
           });
         } else {
           // saving gallery image item
-          $.post(route('project.gallery-image-item-image.store', project_slug), {
+          $.post(route('project.gallery-image-item.store', project_slug), {
             gallery_settings_id: settings_id,
             blade_file: 'templates.' + template_name + '.page_elements.gallery-content'
           }).done(function (data) {
             // saving gallery image item image
-            var form_data2 = new FormData();
-            form_data2.append('image', file);
-            form_data2.append('project_name', project_name);
-            form_data2.append('storing_path', 'projects/' + project_name + '_' + project_id + '/gallery/images');
-            form_data2.append('image_name', 'image-' + data.item.id);
-            form_data2.append('imageable_type', 'App\\GalleryImageItem');
-            form_data2.append('imageable_id', data.item.id);
+            var form_data = new FormData();
+            form_data.append('image', file);
+            form_data.append('project_name', project_name);
+            form_data.append('storing_path', 'projects/' + project_name + '_' + project_id + '/gallery/images');
+            form_data.append('image_name', 'image-' + data.item.id);
+            form_data.append('imageable_type', 'App\\GalleryImageItem');
+            form_data.append('imageable_id', data.item.id);
             $.ajax({
               url: route('project.gallery-image-item-image.store'),
               type: "post",
-              data: form_data2,
+              data: form_data,
               contentType: false,
               cache: false,
               processData: false,
