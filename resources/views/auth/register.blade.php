@@ -78,10 +78,14 @@
                             </div>
 
                             <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
+                                <div class="col-md-6 offset-md-4" style="text-align:center;margin: auto;">
                                     <button type="submit" class="btn btn-success">
                                         {{ __('Register') }}
                                     </button>
+                                    <div style="text-align: center;">
+                                        <span><a href="/">go back</a> / <a href="login">already have account?</a>
+                                        <br>
+                                    </div>
                                 </div>
                             </div>
                         </form>

@@ -36,6 +36,10 @@ body{
     background-image: url('/img/background.png');
     background-repeat: no-repeat;
     background-size: cover;
+    @media screen and (max-width:425px) {
+        flex-direction: column;
+        font-size: 18px;
+    }
 }
 .main-content2{
     display: flex;
@@ -45,6 +49,11 @@ body{
     width: 80vw;
     margin: auto;
     font-size: 24px;
+    @media screen and (max-width:425px) {
+        flex-direction: column;
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
 }
 .text{
     width: 50vw;

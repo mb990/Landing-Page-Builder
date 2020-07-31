@@ -46,6 +46,13 @@ body::-webkit-scrollbar {
   background-size: cover;
 }
 
+@media screen and (max-width: 425px) {
+  .main-content {
+    flex-direction: column;
+    font-size: 18px;
+  }
+}
+
 .main-content2 {
   display: flex;
   justify-content: center;
@@ -54,6 +61,14 @@ body::-webkit-scrollbar {
   width: 80vw;
   margin: auto;
   font-size: 24px;
+}
+
+@media screen and (max-width: 425px) {
+  .main-content2 {
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
 }
 
 .text {
