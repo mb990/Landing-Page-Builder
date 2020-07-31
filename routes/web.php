@@ -172,3 +172,6 @@ Route::post('/project/{slug}/gallery-image-item', 'Project\GalleryImageItemContr
 
 //Gallery Settings Video Item
 Route::post('/project/{slug}/gallery-video-item', 'Project\GalleryVideoItemController@store')->name('project.gallery-video-item.store');
+
+//Subscriber
+Route::post('/project/{slug}/subscriber', 'SubscriberController@store')->name('project.subscriber.store');

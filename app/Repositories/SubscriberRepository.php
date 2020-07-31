@@ -30,7 +30,7 @@ class SubscriberRepository
 
     public function store($request)
     {
-        return $this->subscriber->create($request->all());
+        return $this->subscriber->create($request->except(['project_slug']));
     }
 
     public function update($request, $id)

@@ -1,11 +1,23 @@
 $(document).ready(function () {
 
-    window.storeSubscriber = function(e) {
+    window.storeProjectSubscriber = function(e) {
 
         e.preventDefault();
 
-        console.log('za uraditi');
+        let project_slug = $('.js-subscriber-project-slug').val();
+        let email = $('.js-subscriber-email').val();
+        let project_name = '';
 
+        $.ajax({
+            url: route('project.subscriber.store', project_slug),
+            type: 'post',
+            data: {
+                email: email,
+                project_slug: 'adad' // srediti kad bude bilo ispisa projekta
+            }
+        }).done(function (data) {
+            console.log(data.subscriber);
+        })
     }
 
 });

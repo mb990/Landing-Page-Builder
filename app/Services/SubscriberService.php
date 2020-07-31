@@ -12,10 +12,15 @@ class SubscriberService
      * @var SubscriberRepository
      */
     private $subscriber;
+    /**
+     * @var ProjectService
+     */
+    private $projectService;
 
-    public function __construct(SubscriberRepository $subscriber)
+    public function __construct(SubscriberRepository $subscriber, ProjectService $projectService)
     {
         $this->subscriber = $subscriber;
+        $this->projectService = $projectService;
     }
 
     public function all()
@@ -30,7 +35,9 @@ class SubscriberService
 
     public function store($request)
     {
-        return $this->subscriber->store($request);
+        $data = $this->addProjectIdToRequest($request);
+
+        return $this->subscriber->store($data);
     }
 
     public function update($request, $id)
@@ -41,5 +48,14 @@ class SubscriberService
     public function delete($id)
     {
         return $this->subscriber->delete($id);
+    }
+
+    public function addProjectIdToRequest($request)
+    {
+        $project_id = $this->projectService->findBySlug($request->project_slug)->id;
+
+        $request->request->add(['project_id' => $project_id]);
+
+        return $request;
     }
 }
