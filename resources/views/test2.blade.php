@@ -194,6 +194,7 @@
         </div>
     </div>
 </section>
+
 <!-- NEWSLETTERS -->
 <section class="newsletter width-limit">
     <div class="container">
@@ -216,6 +217,7 @@
         </div>
     </div>
 </section>
+
 <!-- GALLERY -->
 <div class="row-container width-limit" id="gallery">
     <div class="col-md-12" style="padding: 0px;">
