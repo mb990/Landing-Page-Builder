@@ -64,7 +64,7 @@
                     </div>
                     <!-- TAB2 -->
                     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-
+                        @include('profile.profile-tabs.profile-tab')
                     </div>
                     <!-- TAB3 -->
                     <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
