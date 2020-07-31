@@ -3,12 +3,18 @@
 
 namespace App\Services;
 
-use App\Jobs\ConvertStoredVideoToMp4;
+use App\Jobs\ConvertStoredProjectVideoToMp4;
+use App\Jobs\ConvertStoredTemplateVideoToMp4;
 
 class VideoConvertService
 {
-    public function convertVideoToMp4($videoPath, $videoName, $directoryName)
+    public function convertTemplateVideoToMp4($videoPath, $videoName, $directoryName)
     {
-        ConvertStoredVideoToMp4::dispatch($videoPath, $videoName, $directoryName);
+        ConvertStoredTemplateVideoToMp4::dispatch($videoPath, $videoName, $directoryName);
+    }
+
+    public function convertProjectVideoToMp4($videoPath, $videoName, $directoryName)
+    {
+        ConvertStoredProjectVideoToMp4::dispatch($videoPath, $videoName, $directoryName);
     }
 }

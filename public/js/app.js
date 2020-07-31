@@ -37271,6 +37271,8 @@ __webpack_require__(/*! ./projects/pricing-section/store */ "./resources/js/proj
 
 __webpack_require__(/*! ./projects/newsletter/store */ "./resources/js/projects/newsletter/store.js");
 
+__webpack_require__(/*! ./projects/gallery/store */ "./resources/js/projects/gallery/store.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37351,6 +37353,109 @@ $(document).ready(function () {
         page_elementable_type: 'App\\FooterSettings',
         blade_file: 'templates.' + template_name + '.page_elements.footer'
       });
+    });
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/gallery/store.js":
+/*!************************************************!*\
+  !*** ./resources/js/projects/gallery/store.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.storeProjectGallery = function (e) {
+    e.preventDefault();
+    var template_name = $('.js-project-template-name').val();
+    var page_element_type_id = $('.js-project-page-element-type-id').val();
+    var project_id = $('.js-project-id').val();
+    var project_slug = $('.js-project-slug').val();
+    var project_name = $('.js-project-name').val();
+    var modelType = 'App\\GallerySettings';
+    var files = $('.js-project-gallery-image')[0].files; // check if exactly 12 files are added
+
+    if (files.length < 1 || files.length > 12) {
+      alert('You must add no less then 1 and no more then 12 gallery elements');
+      return;
+    }
+
+    $.post(route('project.gallery-settings.store', project_slug), {// blade_file: 'page_elements.testimonials'
+    }).done(function (data) {
+      var settings_id = data.settings.id; // saving new gallery settings element
+
+      $.post(route('project.page-element.store', project_slug), {
+        project_id: project_id,
+        page_element_type_id: page_element_type_id,
+        page_elementable_id: settings_id,
+        page_elementable_type: modelType,
+        blade_file: 'templates.' + template_name + '.page_elements.gallery'
+      }).done(function (data) {
+        console.log(data);
+      }).fail(console.log('failed element'));
+      var number = 0;
+
+      var _loop = function _loop() {
+        var file = files[number];
+
+        if (file.type.includes('video')) {
+          // saving gallery video item
+          var form_data = new FormData();
+          form_data.append('video', file);
+          form_data.append('project_name', project_name);
+          form_data.append('storing_path', 'projects/' + project_name + '_' + project_id + '/gallery/videos');
+          form_data.append('video_name', 'video-' + file.name);
+          form_data.append('gallery_settings_id', settings_id);
+          form_data.append('blade_file', 'templates.' + template_name + '.page_elements.gallery-content-video');
+          $.ajax({
+            url: route('project.gallery-video-item.store', project_slug),
+            type: "post",
+            data: form_data,
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+
+          }).done(function (data) {
+            console.log(data.video);
+          });
+        } else {
+          // saving gallery image item
+          $.post(route('project.gallery-image-item-image.store', project_slug), {
+            gallery_settings_id: settings_id,
+            blade_file: 'templates.' + template_name + '.page_elements.gallery-content'
+          }).done(function (data) {
+            // saving gallery image item image
+            var form_data2 = new FormData();
+            form_data2.append('image', file);
+            form_data2.append('project_name', project_name);
+            form_data2.append('storing_path', 'projects/' + project_name + '_' + project_id + '/gallery/images');
+            form_data2.append('image_name', 'image-' + data.item.id);
+            form_data2.append('imageable_type', 'App\\GalleryImageItem');
+            form_data2.append('imageable_id', data.item.id);
+            $.ajax({
+              url: route('project.gallery-image-item-image.store'),
+              type: "post",
+              data: form_data2,
+              contentType: false,
+              cache: false,
+              processData: false,
+              success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+
+            }).done(function (data) {
+              console.log(data.image);
+            });
+          });
+        }
+
+        number++;
+      };
+
+      for (var i = 0; i < files.length; i++) {
+        _loop();
+      }
     });
   };
 });
@@ -37839,12 +37944,14 @@ $(document).ready(function () {
     e.preventDefault();
     var project_slug = $('.js-subscriber-project-slug').val();
     var email = $('.js-subscriber-email').val();
+    var project_name = '';
     $.ajax({
       url: route('project.subscriber.store', project_slug),
       type: 'post',
       data: {
         email: email,
-        project_slug: 'adad'
+        project_slug: 'adad' // srediti kad bude bilo ispisa projekta
+
       }
     }).done(function (data) {
       console.log(data.subscriber);

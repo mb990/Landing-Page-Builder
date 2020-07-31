@@ -11,7 +11,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Storage;
 use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 
-class ConvertStoredVideoToMp4 implements ShouldQueue
+class ConvertStoredProjectVideoToMp4 implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -26,7 +26,6 @@ class ConvertStoredVideoToMp4 implements ShouldQueue
      */
     public function __construct($videoPath, $videoName, $directoryName)
     {
-        //
         $this->videoPath = $videoPath;
         $this->videoName = $videoName;
         $this->directoryName = $directoryName;
@@ -44,7 +43,7 @@ class ConvertStoredVideoToMp4 implements ShouldQueue
             ->export()
             ->toDisk('s3')
             ->inFormat(new X264('libmp3lame', 'libx264'))
-            ->save('templates/' . $this->directoryName . '/gallery/videos/' . $this->videoName . '.mp4');
+            ->save($this->directoryName . '/' . $this->videoName . '.mp4');
 
         Storage::disk('local')->delete($this->videoPath);
     }

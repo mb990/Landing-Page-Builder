@@ -6,7 +6,7 @@ namespace App\Services;
 
 use App\Repositories\GalleryVideoItemRepository;
 
-class GalleryVideoItemService
+class ProjectGalleryVideoItemService
 {
     /**
      * @var GalleryVideoItemRepository
@@ -40,7 +40,7 @@ class GalleryVideoItemService
 
     public function store($request)
     {
-        $data = $this->storageService->storeTemplateVideo($request);
+        $data = $this->storageService->storeProjectVideo($request);
 
         $videoName = $this->getVideoFileName($request);
 
@@ -97,7 +97,7 @@ class GalleryVideoItemService
     {
 //        if (!$this->checkIfVideoIsMp4($videoPath)) {
 
-            $this->videoConvertService->convertTemplateVideoToMp4($videoPath, $videoName, $request->template_name);
+        $this->videoConvertService->convertProjectVideoToMp4($videoPath, $videoName, $request->storing_path);
 //        }
     }
 }
