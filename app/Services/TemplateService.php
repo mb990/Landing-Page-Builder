@@ -78,23 +78,23 @@ class TemplateService
     {
         $views = [];
 
-//        $views['topMenuSection'] = $this->getTopMenuSectionViewWithData($template);
+        $views['topMenuSection'] = $this->getTopMenuSectionViewWithData($template);
 
-//        $views['heroSection'] = $this->getHeroSectionViewWithData($template);
+        $views['heroSection'] = $this->getHeroSectionViewWithData($template);
 
-//        $views['generalContentOneSection'] = $this->getGeneralContentOneSectionViewWithData($template);
+        $views['generalContentOneSection'] = $this->getGeneralContentOneSectionViewWithData($template);
 
-//        $views['generalContentTwoSection'] = $this->getGeneralContentTwoSectionViewWithData($template);
+        $views['generalContentTwoSection'] = $this->getGeneralContentTwoSectionViewWithData($template);
 
-//        $views['generalContentThreeSection'] = $this->getGeneralContentThreeSectionViewWithData($template);
+        $views['generalContentThreeSection'] = $this->getGeneralContentThreeSectionViewWithData($template);
 
-//        $views['testimonialsSection'] = $this->getTestimonialsSectionViewWithData($template);
+        $views['testimonialsSection'] = $this->getTestimonialsSectionViewWithData($template);
 
-//        $views['pricingSection'] = $this->getPricingSectionWithData($template);
+        $views['pricingSection'] = $this->getPricingSectionWithData($template);
 
         $views['newsletterSection'] = $this->getNewslatterSectionViewWithData($template);
 
-//        $views['gallerySection'] = $this->getGallerySectionViewWithData($template);
+        $views['gallerySection'] = $this->getGallerySectionViewWithData($template);
 
         $views['footerSection'] = $this->getFooterSectionWithData($template);
 
