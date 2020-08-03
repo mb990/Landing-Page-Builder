@@ -22,36 +22,93 @@
         @routes
     </head>
     <body>
-        <header class="header-main-profile">
+        <header class="header-main-profile" style="background-color: white;">
             <div style="flex-grow: 1;"><img style="width: 100px;transform: translateY(-25%);" src="{{ asset('img/logo.png') }}"></div>
-            <!-- <div style="flex-grow: 1;">
-                <button class="js-mobile">Mobile</button>
-                <button class="js-desktop">Desktop</button>
-            </div> -->
+            <div style="flex-grow: 1;">
+                <button class="btn btn-secondary js-mobile">Mobile</button>
+                <button class="btn btn-secondary js-desktop">Desktop</button>
+            </div>
             <div class="js-link">
                 <button class="head-link" id="js-info">Log out</button>
             </div>
         </header>
 
-        <!-- <section class="newsletter project-element js-added-element">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="content">
-                            <h2>{{ucfirst($project->name)}}</h2>
-                            <div class="input-group">
-                                <input type="email" class="form-control" placeholder="Enter your email">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="submit">value</button>
-                                </span>
+
+<!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit element</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <main style="background-color: white;"><!--style="display: flex;" -->
+
+
+
+            <section class="newsletter project-element js-added-element">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="content">
+                                <h2>{{ucfirst($project->name)}}</h2>
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Enter your email">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="submit">value</button>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section> -->
+            </section>
+            <section class="newsletter project-element js-added-element">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="content">
+                                <h2>{{ucfirst($project->name)}}</h2>
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Enter your email">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="submit">value</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <main><!--style="display: flex;" -->
+
+
             <input type="hidden" class="js-project-page-element-type-id">
             <input type="hidden" class="js-project-slug" name="js-project-slug" value="{{$project->slug}}">
             <input type="hidden" class="js-project-id" name="project-id" id="project-id" value="{{$project->id}}">
@@ -68,7 +125,7 @@
                     <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">All project</a>
                 </div>
             </aside> -->
-            <div class="profile-main js-profile-main">
+            <div class="js-profile-main">
                 <div class="tab-content" id="v-pills-tabContent">
                     <!-- TAB1 -->
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -184,10 +241,14 @@
             $(document).ready(function(){
 
                 $(".js-mobile").click(function() {
-                    $(".js-profile-main").css('width','425px');
+                    $("main").css('width','425px');
+                    $("main").css('margin','auto');
+                    $("body").css('background-color','lightgray');
                 });
                 $(".js-desktop").click(function() {
-                    $(".js-profile-main").css('width','100vw');
+                    $("main").css('width','100vw');
+                    $("body").css('background-color','white');
+                    $("main").css('margin','0px');
                 });
                 $('.js-modal-content').hide();
                 $('#select').on("change",function () {
@@ -226,12 +287,15 @@
             })
 
             $(document).ready(function() {
-                $('.js-added-element').each(function(index, value) {
+                $('.js-added-element').each(function (index, value) {
                 console.log(`div${index}: ${this.id}`);
-                x = `${index}: ${this.id}`;
-                $(this).append('<button id="'+ x +'" class="btn btn-secondary element-delete">Delete element</button>');
-                $(this).append('<button class="btn btn-secondary element-edit">Edit element</button>');
+                // x = `${index}: ${this.id}`;
+                $(this).append('<button id="'+ index +'" class="btn btn-secondary element-delete">Delete element</button>');
+                $(this).append('<button id="'+ index +'" class="btn btn-secondary element-edit" data-toggle="modal" data-target="#editModal">Edit element</button>');
+                
                 });
+
+
             });
         </script>
     </body>
