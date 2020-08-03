@@ -25,4 +25,9 @@ class PricingSectionController extends Controller
 
         return response()->json(['section' => $section]);
     }
+
+    public function delete($id)
+    {
+        $this->pricingSectionService->delete($id);
+    }
 }

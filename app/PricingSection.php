@@ -2,10 +2,14 @@
 
 namespace App;
 
+use Cesargb\Database\Support\CascadeDelete;
 use Illuminate\Database\Eloquent\Model;
 
 class PricingSection extends Model
 {
+    use CascadeDelete;
+
+    protected $cascadeDeleteMorph = ['pageElement'];
 
     protected $with = ['singleItems'];
 

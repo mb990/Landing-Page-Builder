@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Cesargb\Database\Support\CascadeDelete;
 use Illuminate\Database\Eloquent\Model;
 
 class GalleryImageItem extends Model
@@ -10,7 +11,11 @@ class GalleryImageItem extends Model
         'gallery_settings_id', 'blade_file'
     ];
 
+    use CascadeDelete;
+
     protected $with = ['image'];
+
+    protected $cascadeDeleteMorph = ['image'];
 
     public function image()
     {

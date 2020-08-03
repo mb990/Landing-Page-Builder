@@ -2,15 +2,20 @@
 
 namespace App;
 
+use Cesargb\Database\Support\CascadeDelete;
 use Illuminate\Database\Eloquent\Model;
 
 class TestimonialSettings extends Model
 {
+    use CascadeDelete;
+
     protected $fillable = [
         'title', 'text', 'customer_name', 'testimonial_section_id', 'blade_file'
     ];
 
     protected $with = ['image'];
+
+    protected $cascadeDeleteMorph = ['pageElement'];
 
     public function testimonialSection()
     {

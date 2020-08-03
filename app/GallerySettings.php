@@ -2,12 +2,16 @@
 
 namespace App;
 
+use Cesargb\Database\Support\CascadeDelete;
 use Illuminate\Database\Eloquent\Model;
 
 class GallerySettings extends Model
 {
+    use CascadeDelete;
 
     protected $with = ['imageItems', 'videoItems'];
+
+    protected $cascadeDeleteMorph = ['pageElement'];
 
     public function pageElement()
     {

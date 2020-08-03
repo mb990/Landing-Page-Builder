@@ -133,6 +133,7 @@ Route::post('/project/{slug}/testimonial-settings', 'Project\TestimonialSettings
 
 //Pricing Section
 Route::post('/project/{slug}/pricing-section', 'Project\PricingSectionController@store')->name('project.pricing-section.store');
+Route::delete('/project/{slug}/pricing-section', 'Project\PricingSectionController@delete')->name('project.pricing-section.delete');
 
 //Price Settings
 Route::post('/project/{slug}/price-settings', 'Project\PricingSettingsController@store')->name('project.price-settings.store');

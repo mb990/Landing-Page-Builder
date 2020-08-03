@@ -2,15 +2,20 @@
 
 namespace App;
 
+use Cesargb\Database\Support\CascadeDelete;
 use Illuminate\Database\Eloquent\Model;
 
 class NewsletterSettings extends Model
 {
+    use CascadeDelete;
+
     protected $fillable = [
         'title', 'button_value'
     ];
 
     protected $with = ['image'];
+
+    protected $cascadeDeleteMorph = ['pageElement', 'image'];
 
     public function pageElement()
     {

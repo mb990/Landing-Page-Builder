@@ -2,11 +2,16 @@
 
 namespace App;
 
+use Cesargb\Database\Support\CascadeDelete;
 use Illuminate\Database\Eloquent\Model;
 
 class TopMenuSettings extends Model
 {
+    use CascadeDelete;
+
     protected $with = ['links', 'image'];
+
+    protected $cascadeDeleteMorph = ['pageElement', 'image'];
 
     public function pageElement()
     {

@@ -2,15 +2,20 @@
 
 namespace App;
 
+use Cesargb\Database\Support\CascadeDelete;
 use Illuminate\Database\Eloquent\Model;
 
 class GeneralContentOneSettings extends Model
 {
+    use CascadeDelete;
+
     protected $fillable = [
         'title', 'text', 'link_url', 'button_value'
     ];
 
     protected $with = ['image'];
+
+    protected $cascadeDeleteMorph = ['pageElement', 'image'];
 
     public function pageElement()
     {
