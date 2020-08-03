@@ -33,6 +33,14 @@ class Project extends Model
         return $this->hasMany(Subscriber::class);
     }
 
+    public function getSections()
+    {
+        return $this->pageElements()
+            ->with('pageElementable')
+            ->oldest()
+            ->get();
+    }
+
     public function sluggable()
     {
         return [

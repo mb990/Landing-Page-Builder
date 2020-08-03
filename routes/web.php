@@ -25,6 +25,7 @@ Route::get('/test2', 'PageController@test2');
 //User
 Route::get('/profile/{slug}', 'PageController@profile')->name('user.profile');
 Route::get('/new-project/{slug}', 'PageController@newProject')->name('project.new');
+Route::get('/profile/{userSlug}/project/{projectSlug}', 'ProjectController@show')->name('project.show');
 Route::get('/profile/template/{slug}', 'PageController@userShowTemplate')->name('user.template.show');
 
 //Awesome Icons
@@ -107,6 +108,7 @@ Route::post('/template/gallery-video-item', 'Template\GalleryVideoItemController
 //PROJECT
 
 Route::post('/project/new/{templateId}', 'ProjectController@store')->name('project.store');
+Route::delete('/project/{slug}', 'ProjectController@delete')->name('project.delete');
 
 //Page Element
 Route::post('/project/{slug}/page-element', 'Project\PageElementController@store')->name('project.page-element.store');

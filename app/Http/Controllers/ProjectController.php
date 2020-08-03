@@ -24,4 +24,25 @@ class ProjectController extends Controller
 
         return response()->json(['project' => $project]);
     }
+
+    public function show($userSlug, $projectSlug)
+    {
+        $project = $this->projectService->findBySlug($projectSlug);
+
+        $sections = [];
+
+        foreach ($project->getSections() as $section) {
+
+            $sections[$section->id] = $section;
+
+//            view($section->blade_file)->render();
+        }
+
+        return response()->json(['project' => $sections]);
+    }
+
+    public function delete($slug)
+    {
+        $this->projectService->delete($slug);
+    }
 }

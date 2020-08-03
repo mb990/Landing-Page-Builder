@@ -325,9 +325,9 @@
                 // $('.js-move-up').on("click", function(e){
                 //     e.preventDefault();
                 //     $(".move-up-2").insertBefore(".move-up-1");
-                    
+
                 // });
-                
+
 
             });
         </script>

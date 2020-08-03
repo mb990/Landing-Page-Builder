@@ -2,13 +2,20 @@
 
 namespace App;
 
+use Cesargb\Database\Support\CascadeDelete;
 use Illuminate\Database\Eloquent\Model;
 
 class PageElement extends Model
 {
+    use CascadeDelete;
+
     protected $fillable = [
         'page_element_type_id', 'page_elementable_id', 'page_elementable_type', 'project_id', 'template_id', 'blade_file'
     ];
+
+    protected $cascadeDeleteMorph = ['pageElementable'];
+
+    protected $with = ['pageElementable'];
 
     public function pageElementable()
     {

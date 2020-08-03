@@ -45,8 +45,8 @@ class ProjectRepository
         return $this->find($id)->update($request->all());
     }
 
-    public function delete($id)
+    public function delete($project)
     {
-        $this->find($id)->delete();
+        $project->delete();
     }
 }

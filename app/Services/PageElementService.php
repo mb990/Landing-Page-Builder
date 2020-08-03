@@ -37,4 +37,9 @@ class PageElementService
     {
         return $this->pageElement->delete($id);
     }
+
+    public function deletePageElementableForProjectSection($projectSection)
+    {
+        return $this->pageElement->deletePageElementableForProjectSection($projectSection);
+    }
 }

@@ -37,4 +37,9 @@ class PageElementRepository
     {
         $this->find($id)->delete();
     }
+
+    public function deletePageElementableForProjectSection($projectSection)
+    {
+        $projectSection->pageElementable->delete();
+    }
 }
