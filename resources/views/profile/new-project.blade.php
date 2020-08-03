@@ -8,8 +8,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
         <script src="{{asset('js/app.js')}}"></script>
+
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <script type="text/javascript">
             $.ajaxSetup({
@@ -18,7 +21,13 @@
                 }
             });
         </script>
-
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+        $( function() {
+        $( "#sortable" ).sortable();
+        $( "#sortable" ).disableSelection();
+        } );
+        </script>
         @routes
     </head>
     <body>
@@ -68,20 +77,20 @@
 
 
 
-        <main style="background-color: white;"><!--style="display: flex;" -->
+        <main id="sortable" style="background-color: white;"><!--style="display: flex;" -->
 
 
 
-            <section class="newsletter project-element js-added-element">
+            <!-- <section class="newsletter project-element js-added-element">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="content">
-                                <h2>{{ucfirst($project->name)}}</h2>
+                                <h2>test11</h2>
                                 <div class="input-group">
                                     <input type="email" class="form-control" placeholder="Enter your email">
                                     <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="submit">value</button>
+                                        <button class="btn btn-primary" type="submit">test1</button>
                                     </span>
                                 </div>
                             </div>
@@ -94,18 +103,36 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="content">
-                                <h2>{{ucfirst($project->name)}}</h2>
+                                <h2>test22</h2>
                                 <div class="input-group">
                                     <input type="email" class="form-control" placeholder="Enter your email">
                                     <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="submit">value</button>
+                                        <button class="btn btn-primary" type="submit">test2</button>
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </section><section class="newsletter project-element js-added-element">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="content">
+                                <h2>test33</h2>
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Enter your email">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="submit">test3</button>
+                                    </span>
+                                    <!-- <button class="btn btn-primary js-move-up">move up</button> -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
 
 
 
@@ -288,13 +315,20 @@
 
             $(document).ready(function() {
                 $('.js-added-element').each(function (index, value) {
-                console.log(`div${index}: ${this.id}`);
-                // x = `${index}: ${this.id}`;
-                $(this).append('<button id="'+ index +'" class="btn btn-secondary element-delete">Delete element</button>');
-                $(this).append('<button id="'+ index +'" class="btn btn-secondary element-edit" data-toggle="modal" data-target="#editModal">Edit element</button>');
-                
+                    console.log(`div${index}: ${this.id}`);
+                    // x = `${index}: ${this.id}`;
+                    $(this).append('<button id="'+ index +'" class="btn btn-secondary element-delete">Delete element</button>');
+                    $(this).append('<button id="'+ index +'" class="btn btn-secondary element-edit" data-toggle="modal" data-target="#editModal">Edit element</button>');
+                    $(this).append('<span class="ui-icon ui-icon-arrowthick-2-n-s" title="move element">');
+                    $(this).addClass('ui-state-default')
                 });
 
+                // $('.js-move-up').on("click", function(e){
+                //     e.preventDefault();
+                //     $(".move-up-2").insertBefore(".move-up-1");
+                    
+                // });
+                
 
             });
         </script>
