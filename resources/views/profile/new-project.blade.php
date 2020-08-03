@@ -125,7 +125,6 @@
                                     <span class="input-group-btn">
                                         <button class="btn btn-primary" type="submit">test3</button>
                                     </span>
-                                    <!-- <button class="btn btn-primary js-move-up">move up</button> -->
 
                                 </div>
                             </div>
