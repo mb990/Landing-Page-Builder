@@ -18,6 +18,11 @@ class ProjectController extends Controller
         $this->projectService = $projectService;
     }
 
+    public function index()
+    {
+        return view('profile.base-project-html');
+    }
+
     public function store(StoreProjectRequest $request)
     {
         $project = $this->projectService->store($request);
@@ -25,20 +30,22 @@ class ProjectController extends Controller
         return response()->json(['project' => $project]);
     }
 
-    public function show($userSlug, $projectSlug)
+    public function show($projectSlug)
     {
         $project = $this->projectService->findBySlug($projectSlug);
 
         $sections = [];
 
+        $views = [];
+
         foreach ($project->getSections() as $section) {
 
-            $sections[$section->id] = $section;
+            $sections[$section->id . '-' . $section->pageElementType->name] = $section;
 
-//            view($section->blade_file)->render();
+            $views[$section->id . '-' . $section->pageElementType->name] = view($section->blade_file, ['data' => $section->pageElementable])->render();
         }
 
-        return response()->json(['project' => $sections]);
+        return response()->json(['sections' => $sections, 'views' => $views]);
     }
 
     public function delete($slug)

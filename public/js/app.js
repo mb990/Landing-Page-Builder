@@ -37273,6 +37273,8 @@ __webpack_require__(/*! ./projects/newsletter/store */ "./resources/js/projects/
 
 __webpack_require__(/*! ./projects/gallery/store */ "./resources/js/projects/gallery/store.js");
 
+__webpack_require__(/*! ./projects/show-project */ "./resources/js/projects/show-project.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37897,6 +37899,32 @@ $(document).ready(function () {
             });
           }).fail(console.log('neuspelo'));
         }
+      });
+    });
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/show-project.js":
+/*!***********************************************!*\
+  !*** ./resources/js/projects/show-project.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.showProject = function () {
+    // e.preventDefault();
+    var slug = $('.js-show-project-project-slug').val();
+    console.log(slug);
+    $.get(route('project.show', 'projekat'), function (data) {
+      console.log(data);
+    }).done(function (data) {
+      // console.log(data.views);
+      // $('.main-div').append(data.views[2]);
+      jQuery.each(data.views, function (e, i) {
+        $('.main-project-div').append(i); // console.log(i);
       });
     });
   };

@@ -25,7 +25,8 @@ Route::get('/test2', 'PageController@test2');
 //User
 Route::get('/profile/{slug}', 'PageController@profile')->name('user.profile');
 Route::get('/new-project/{slug}', 'PageController@newProject')->name('project.new');
-Route::get('/profile/{userSlug}/project/{projectSlug}', 'ProjectController@show')->name('project.show');
+Route::get('/profile/{userSlug}/project/{projectSlug}', 'ProjectController@index')->name('user.project.show');
+Route::get('/project/{slug}', 'ProjectController@show')->name('project.show');
 Route::get('/profile/template/{slug}', 'PageController@userShowTemplate')->name('user.template.show');
 
 //Awesome Icons

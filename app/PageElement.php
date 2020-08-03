@@ -24,7 +24,7 @@ class PageElement extends Model
 
     public function pageElementType()
     {
-        return $this->belongsTo(PageElement::class);
+        return $this->belongsTo(PageElementType::class);
     }
 
     public function project()
