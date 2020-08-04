@@ -1,4 +1,4 @@
-<section class="hero">
+<section class="hero js-added-element" style="position: relative;">
     <div class="hero-image">
         <img style="position: inherit; width: 100vw;" src="{{$image_url}}">
         <div class="hero-text">

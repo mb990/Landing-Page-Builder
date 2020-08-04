@@ -1,4 +1,4 @@
-<div class="general-content">
+<div class="general-content js-added-element">
     <section style="padding: 64px 0px;">
         <div class="container">
             <div class="row row-col">

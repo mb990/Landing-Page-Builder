@@ -11,7 +11,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 </head>
-<div class="card col-md-6 mt-5 mb-5 my-0 mx-auto" style="background-color: lightgrey;">
+<div class="card col-md-6 mt-5 mb-5 my-0 mx-auto js-added-element" style="background-color: lightgrey;">
     <div style="text-align: center;"><h3>Testimonials</h3></div>
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="100000">
             <div class="w-100 carousel-inner js-reviews" role="listbox">

@@ -11,7 +11,7 @@
 
 </head>
 
-<section class="newsletter">
+<section class="newsletter js-added-element">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">

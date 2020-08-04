@@ -1,4 +1,4 @@
-<section class="pricing py-5" style="background-color: lightgrey;font-size: 1.4rem;">
+<section class="pricing py-5 js-added-element" style="background-color: lightgrey;font-size: 1.4rem;">
     <div class="container">
         <!-- switcher -->
         <div style="text-align: center;" class="custom-control custom-switch">

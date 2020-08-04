@@ -1,4 +1,4 @@
-<div class="page-content page-container" id="page-content" style="background-color: lightgrey;">
+<div class="page-content page-container js-added-element" id="page-content" style="background-color: lightgrey;">
     <div class="padding">
         <div class="row container d-flex justify-content-center">
                 <div class="card-body">{{$data->creator}} {{$data->year_made}}</div>
