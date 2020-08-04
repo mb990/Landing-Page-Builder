@@ -1,16 +1,3 @@
-<head>
-
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script type="text/javascript">
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-    </script>
-
-</head>
-
 <section class="newsletter js-added-element">
     <div class="container">
         <div class="row">
