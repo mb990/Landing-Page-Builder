@@ -37915,10 +37915,8 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   window.showProject = function () {
-    // e.preventDefault();
     var slug = $('.js-show-project-project-slug').val();
-    console.log(slug);
-    $.get(route('project.show', 'projekat'), function (data) {
+    $.get(route('project.show', slug), function (data) {
       console.log(data);
     }).done(function (data) {
       // console.log(data.views);
