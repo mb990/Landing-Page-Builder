@@ -316,9 +316,9 @@
                 $('.js-added-element').each(function (index, value) {
                     console.log(`div${index}: ${this.id}`);
                     // x = `${index}: ${this.id}`;
-                    $(this).append('<button id="'+ index +'" class="btn btn-secondary element-delete">Delete element</button>');
-                    $(this).append('<button id="'+ index +'" class="btn btn-secondary element-edit" data-toggle="modal" data-target="#editModal">Edit element</button>');
-                    $(this).append('<span class="ui-icon ui-icon-arrowthick-2-n-s" title="move element">');
+                    $(this).append('<button id="'+ index +'" class="btn btn-secondary element-delete" style="z-index:+2;">Delete element</button>');
+                    $(this).append('<button id="'+ index +'" class="btn btn-secondary element-edit" data-toggle="modal" data-target="#editModal" style="z-index:+2;">Edit element</button>');
+                    $(this).append('<span class="ui-icon ui-icon-arrowthick-2-n-s" title="move element" style="position:absolute; top:10px;">');
                     $(this).addClass('ui-state-default')
                 });
 
@@ -331,8 +331,23 @@
                 //     $('ui-state-default').css('background-color', 'red') 
                 // })
 
-                $(".ui-state-default").mousedown(function(){
-                    $(".ui-state-default").css('height', '10vh');
+                // $(".ui-state-default").mousedown(function(){
+                //     $(".ui-state-default").css('height', '10vh');
+                // });
+
+                $(".ui-state-default").mousedown(function(e){
+                    if($(e.target).is('.btn')){
+                        return;
+                    }
+                    $(".js-added-element").addClass("moving-element");
+                    $(".js-added-element").children().addClass("d-none");
+                    $(".ui-state-default").prepend("<p class='js-moving'>Test</p>");
+                });
+                $(".ui-state-default").mouseup(function(){
+                    $(".js-added-element").removeClass("moving-element");
+                    $(".js-added-element").children().removeClass("d-none");
+                    $(".js-moving").remove();
+
                 });
 
             });

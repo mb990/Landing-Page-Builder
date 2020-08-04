@@ -334,3 +334,7 @@ body::-webkit-scrollbar {
   display: block;
 }
 
+.moving-element {
+  height: 5vh;
+}
+
