@@ -130,9 +130,12 @@ class ProjectService
 
                 $image = $imageItem->image;
 
-                $path = 'projects/' . $component->project->name . '_' . $component->project->id . '/gallery/images/' . $image->filename;
+                if ($image) {
 
-                $images[$imageItem->id] = $this->s3Service->showProjectImage($path, 60);
+                    $path = 'projects/' . $component->project->name . '_' . $component->project->id . '/gallery/images/' . $image->filename;
+
+                    $images[$imageItem->id] = $this->s3Service->showProjectImage($path, 60);
+                }
             }
         }
 
@@ -143,9 +146,12 @@ class ProjectService
 
                 $image = $singleItem->image;
 
-                $path = 'projects/' . $component->project->name . '_' . $component->project->id . '/testimonials/' . $image->filename;
+                if ($image) {
 
-                $images[$singleItem->id] = $this->s3Service->showProjectImage($path, 60);
+                    $path = 'projects/' . $component->project->name . '_' . $component->project->id . '/testimonials/' . $image->filename;
+
+                    $images[$singleItem->id] = $this->s3Service->showProjectImage($path, 60);
+                }
             }
         }
 
