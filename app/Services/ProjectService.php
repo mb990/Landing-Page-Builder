@@ -83,7 +83,7 @@ class ProjectService
     {
         $data = [];
 
-        $data['data'] = $gallery;
+        $data['data'] = $gallery->pageElementable;
 
         $data['images'] = $this->getComponentImages($gallery);
 
@@ -160,7 +160,9 @@ class ProjectService
 
             foreach ($gallery->pageElementable->videoItems as $videoItem) {
 
-                $videos[$videoItem->id] = ''; //ovde ide s3 kreiranje linka za video
+                $path = 'projects/' . $gallery->project->name . '_' . $gallery->project->id . '/gallery/videos/';
+
+                $videos[$videoItem->id] = $this->s3Service->showProjectGalleryVideo($path, $videoItem, 60);
             }
 
             return  $videos;

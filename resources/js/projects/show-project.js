@@ -8,7 +8,7 @@ $(document).ready(function () {
             console.log(data);
         })
         .done(function (data) {
-            // console.log(data.views);
+            console.log(data.elements);
             // $('.main-div').append(data.views[2]);
 
             jQuery.each(data.views, function (e, i) {

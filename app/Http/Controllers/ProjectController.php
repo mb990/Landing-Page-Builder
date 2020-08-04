@@ -34,7 +34,11 @@ class ProjectController extends Controller
     {
         $views = $this->projectService->showRenderedProjectComponentsWithData($projectSlug);
 
-        return response()->json(['views' => $views]);
+        $project = $this->projectService->findBySlug($projectSlug);
+
+        $elements = $project->getSections();
+
+        return response()->json(['views' => $views, 'elements' => $elements]);
     }
 
     public function delete($slug)

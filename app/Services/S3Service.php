@@ -82,4 +82,13 @@ class S3Service
 
         return $url;
     }
+
+    public function showProjectGalleryVideo($path, $video, $minutes)
+    {
+        $videoName = $this->getVideoFileName($video);
+
+        $url = Storage::disk('s3')->temporaryUrl($path . $videoName . '.mp4', Carbon::now()->addMinutes($minutes));
+
+        return $url;
+    }
 }
