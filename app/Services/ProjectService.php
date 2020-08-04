@@ -6,6 +6,7 @@ namespace App\Services;
 
 use App\GallerySettings;
 use App\Repositories\ProjectRepository;
+use App\TestimonialSection;
 
 class ProjectService
 {
@@ -91,6 +92,17 @@ class ProjectService
         return $data;
     }
 
+    public function getTestimonialData($testimonialSection)
+    {
+        $data = [];
+
+        $data['data'] = $this->getComponentData($testimonialSection);
+
+        $data['images'] = $this->getComponentImages($testimonialSection);
+
+        return $data;
+    }
+
     public function getComponentImageData($component)
     {
         if ($component->pageElementable->image) {
@@ -111,11 +123,29 @@ class ProjectService
     {
         $images = [];
 
+        // gallery
         if ($component->pageElementable->imageItems) {
 
             foreach ($component->pageElementable->imageItems as $imageItem) {
 
-                $images[$imageItem->id] = ''; //ovde ide s3 kreiranje linka za sliku
+                $image = $imageItem->image;
+
+                $path = 'projects/' . $component->project->name . '_' . $component->project->id . '/gallery/images/' . $image->filename;
+
+                $images[$imageItem->id] = $this->s3Service->showProjectImage($path, 60);
+            }
+        }
+
+        // testimonial
+        if ($component->pageElementable->singleItems) {
+
+            foreach ($component->pageElementable->singleItems as $singleItem) {
+
+                $image = $singleItem->image;
+
+                $path = 'projects/' . $component->project->name . '_' . $component->project->id . '/testimonials/' . $image->filename;
+
+                $images[$singleItem->id] = $this->s3Service->showProjectImage($path, 60);
             }
         }
 
@@ -151,7 +181,17 @@ class ProjectService
 
     public function componentIsAGallery($component)
     {
-        if ($component->pageElementable->page_elementable_type === GallerySettings::class) {
+        if ($component->page_elementable_type === GallerySettings::class) {
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function componentIsATestimonial($component)
+    {
+        if ($component->page_elementable_type === TestimonialSection::class) {
 
             return true;
         }
@@ -169,6 +209,11 @@ class ProjectService
         if ($this->componentIsAGallery($component)) {
 
             return $this->renderComponentViewWithBasicDataOnly($component, $this->getGalleryData($component));
+        }
+
+        if ($this->componentIsATestimonial($component)) {
+
+            return $this->renderComponentViewWithBasicDataOnly($component, $this->getTestimonialData($component));
         }
 
         $view = $this->renderComponentViewWithBasicDataOnly($component, $data);

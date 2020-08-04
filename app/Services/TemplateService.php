@@ -145,17 +145,17 @@ class TemplateService
 
             $testimonialSection = $this->getTemplateSection($template, TestimonialSection::class);
 
-            $images = [];
+            $data = ['data' => $testimonialSection->pageElementable, 'images' => []];
 
             if ($testimonialSection->pageElementable->singleItems) {
 
                 foreach ($testimonialSection->pageElementable->singleItems as $singleItem) {
 
-                    $images[$singleItem->id] = $this->s3Service->showTemplateTestimonialImage($template, $singleItem->image, 60);
+                    $data['images'][$singleItem->id] = $this->s3Service->showTemplateTestimonialImage($template, $singleItem->image, 60);
                 }
             }
 
-            $heroSectionData = view($testimonialSection->blade_file, ['images' => $images, 'data' => $testimonialSection])->render();
+            $heroSectionData = view($testimonialSection->blade_file, ['data' => $data])->render();
 
             return $heroSectionData;
 
@@ -172,7 +172,7 @@ class TemplateService
 
             $imageUrl = $this->s3Service->showTemplateTopMenuImage($template, $topMenuSection->pageElementable->image, 60);
 
-            $viewWithData = view($topMenuSection->blade_file, ['image_url' => $imageUrl, 'data' => $topMenuSection])->render();
+            $viewWithData = view($topMenuSection->blade_file, ['image_url' => $imageUrl, 'data' => $topMenuSection->pageElementable])->render();
 
             return $viewWithData;
 

@@ -16,9 +16,9 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="100000">
             <div class="w-100 carousel-inner js-reviews" role="listbox">
 
-                @forelse($data->pageElementable->singleItems as $item)
+                @forelse($data['data']->singleItems as $item)
 
-                    @include($item->blade_file, ['testimonial' => $item, 'images' => $images])
+                    @include($item->blade_file, ['testimonial' => $item, 'images' => $data['images']])
 
                 @empty
 
