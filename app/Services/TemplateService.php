@@ -155,7 +155,7 @@ class TemplateService
                 }
             }
 
-            $heroSectionData = view($testimonialSection->blade_file, ['images' => $images, 'items' => $testimonialSection->pageElementable->singleItems])->render();
+            $heroSectionData = view($testimonialSection->blade_file, ['images' => $images, 'data' => $testimonialSection])->render();
 
             return $heroSectionData;
 
@@ -172,7 +172,7 @@ class TemplateService
 
             $imageUrl = $this->s3Service->showTemplateTopMenuImage($template, $topMenuSection->pageElementable->image, 60);
 
-            $viewWithData = view($topMenuSection->blade_file, ['image_url' => $imageUrl, 'items' => $topMenuSection->pageElementable->links])->render();
+            $viewWithData = view($topMenuSection->blade_file, ['image_url' => $imageUrl, 'data' => $topMenuSection])->render();
 
             return $viewWithData;
 
@@ -202,7 +202,7 @@ class TemplateService
 
             $pricingSection = $this->getTemplateSection($template, PricingSection::class);
 
-            $viewWithData = view($pricingSection->blade_file, ['items' => $pricingSection->pageElementable->singleItems])->render();
+            $viewWithData = view($pricingSection->blade_file, ['data' => $pricingSection->pageElementable])->render();
 
             return $viewWithData;
 
@@ -281,15 +281,17 @@ class TemplateService
 
             $gallerySettings = $this->getTemplateSection($template, GallerySettings::class);
 
-            $images = [];
+//            $images = [];
+//
+//            $videos = [];
 
-            $videos = [];
+            $data = ['videos' => [], 'images' => [], 'data' => $gallerySettings->pageElementable];
 
             if ($gallerySettings->pageElementable->videoItems) {
 
                 foreach ($gallerySettings->pageElementable->videoItems as $videoItem) {
 
-                    $videos[$videoItem->id] = $this->s3Service->showGalleryVideo($template, $videoItem, 60);
+                    $data['videos'][$videoItem->id] = $this->s3Service->showGalleryVideo($template, $videoItem, 60);
                 }
             }
 
@@ -297,11 +299,11 @@ class TemplateService
 
                 foreach ($gallerySettings->pageElementable->imageItems as $imageItem) {
 
-                    $images[$imageItem->id] = $this->s3Service->showTemplateGalleryImageItemImage($template, $imageItem->image, 60);
+                    $data['images'][$imageItem->id] = $this->s3Service->showTemplateGalleryImageItemImage($template, $imageItem->image, 60);
                 }
             }
 
-            $heroSectionData = view($gallerySettings->blade_file, ['images' => $images, 'videos' => $videos, 'video_items' => $gallerySettings->pageElementable->videoItems , 'image_items' => $gallerySettings->pageElementable->imageItems])->render();
+            $heroSectionData = view($gallerySettings->blade_file, ['data' => $data])->render();
 
             return $heroSectionData;
 

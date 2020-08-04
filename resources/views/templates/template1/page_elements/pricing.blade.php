@@ -7,7 +7,7 @@
         </div>
         <div class="row">
 
-            @forelse($items as $item)
+            @forelse($data->singleItems as $item)
 
                 @include($item->blade_file, ['item' => $item])
 

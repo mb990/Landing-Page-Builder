@@ -32,20 +32,24 @@ class ProjectController extends Controller
 
     public function show($projectSlug)
     {
-        $project = $this->projectService->findBySlug($projectSlug);
+        $views = $this->projectService->showRenderedProjectComponentsWithData($projectSlug);
 
-        $sections = [];
+        return response()->json(['views' => $views]);
 
-        $views = [];
-
-        foreach ($project->getSections() as $section) {
-
-            $sections[$section->id . '-' . $section->pageElementType->name] = $section;
-
-            $views[$section->id . '-' . $section->pageElementType->name] = view($section->blade_file, ['data' => $section->pageElementable])->render();
-        }
-
-        return response()->json(['sections' => $sections, 'views' => $views]);
+//        $project = $this->projectService->findBySlug($projectSlug);
+//
+//        $sections = [];
+//
+//        $views = [];
+//
+//        foreach ($project->getSections() as $section) {
+//
+//            $sections[$section->id . '-' . $section->pageElementType->name] = $section;
+//
+//            $views[$section->id . '-' . $section->pageElementType->name] = view($section->blade_file, ['data' => $section->pageElementable])->render();
+//        }
+//
+//        return response()->json(['sections' => $sections, 'views' => $views]);
     }
 
     public function delete($slug)

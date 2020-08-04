@@ -2,15 +2,15 @@
     <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Gallery</h1>
     <hr class="mt-2 mb-5">
     <div class="row text-center text-lg-left">
-        @foreach($image_items as $imageItem)
+        @foreach($data['data']->imageItems as $imageItem)
 
-            @include($imageItem->blade_file, ['image_url' => $images[$imageItem->id]])
+            @include($imageItem->blade_file, ['image_url' => $data['images'][$imageItem->id]])
 
         @endforeach
 
-            @foreach($video_items as $videoItem)
+            @foreach($data['data']->videoItems as $videoItem)
 
-                @include($videoItem->blade_file, ['video_url' => $videos[$videoItem->id]])
+                @include($videoItem->blade_file, ['video_url' => $data['videos'][$videoItem->id]])
 
             @endforeach
     </div>

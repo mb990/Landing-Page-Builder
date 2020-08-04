@@ -1,7 +1,7 @@
 <div class="page-content page-container" id="page-content" style="background-color: lightgrey;">
     <div class="padding">
         <div class="row container d-flex justify-content-center">
-                <div class="card-body">{{$data->creator}}</div>
+                <div class="card-body">{{$data->creator}} {{$data->year_made}}</div>
                 <div>
                     <div class="card-body">
                         @if($data->facebook_url || $data->twitter_url || $data->instagram_url)
