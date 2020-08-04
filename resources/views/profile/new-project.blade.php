@@ -327,7 +327,13 @@
                 //     $(".move-up-2").insertBefore(".move-up-1");
 
                 // });
+                // $('ui-state-default').mousedown(function(){
+                //     $('ui-state-default').css('background-color', 'red') 
+                // })
 
+                $(".ui-state-default").mousedown(function(){
+                    $(".ui-state-default").css('height', '10vh');
+                });
 
             });
         </script>
