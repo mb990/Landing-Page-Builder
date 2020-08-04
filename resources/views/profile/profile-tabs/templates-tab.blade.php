@@ -8,10 +8,10 @@
             <img class="card-img-top" src="https://source.unsplash.com/2gYsZUmockw/100px160/" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{ucfirst($template->name)}}</h5>
-                <a type="button" data-id="{{$template->id}}" class="btn btn-success js-choose-template" data-toggle="modal" data-target="#exampleModal">
+                <a type="button" data-id="{{$template->id}}" class="btn btn-success text-white js-choose-template" data-toggle="modal" data-target="#exampleModal">
                     Choose
                 </a>
-                <a href="{{route('user.template.show', $template->slug)}}" type="button" class="btn btn-success" target="blank">
+                <a href="{{route('user.template.show', $template->slug)}}" type="button" class="btn btn-secondary" target="blank">
                     Preview
                 </a>
             </div>
