@@ -95,7 +95,11 @@ class ProjectService
     {
         if ($component->pageElementable->image) {
 
-            $imageUrl = ''; //ovde ide s3 kreiranje linka za sliku
+            $image = $component->pageElementable->image;
+
+            $path = 'projects/' . $component->project->name . '_' . $component->project->id . '/' . $image->filename;
+
+            $imageUrl = $this->s3Service->showProjectImage($path, 60);
 
             return  $imageUrl;
         }

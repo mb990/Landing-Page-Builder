@@ -78,7 +78,7 @@ class S3Service
 
     public function showProjectImage($path, $minutes)
     {
-        $url = Storage::disk('s3')->temporaryUrl('projects/' . $path, Carbon::now()->addMinutes($minutes));
+        $url = Storage::disk('s3')->temporaryUrl($path, Carbon::now()->addMinutes($minutes));
 
         return $url;
     }
