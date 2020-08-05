@@ -154,6 +154,7 @@
 
         </main>
         <input type="hidden" class="js-project-page-element-type-id">
+        <input type="hidden" class="js-project-testimonial-page-element-id">
         <input type="hidden" class="js-project-slug" name="js-project-slug" value="{{$project->slug}}">
         <input type="hidden" class="js-project-id" name="project-id" id="project-id" value="{{$project->id}}">
         <input type="hidden" class="js-project-name" name="project-name" id="project-name" value="{{$project->name}}">

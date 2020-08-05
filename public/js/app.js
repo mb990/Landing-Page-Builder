@@ -38070,7 +38070,8 @@ $(document).ready(function () {
           page_elementable_id: section_id,
           page_elementable_type: modelType,
           blade_file: 'templates.' + template_name + '.page_elements.testimonials'
-        }).done(function (elementData) {// let page_element_id = elementData.element.id;
+        }).done(function (elementData) {
+          $('.js-project-testimonial-page-element-id').val(elementData.element.id); // let page_element_id = elementData.element.id;
           // $.get(route('project.page-element.render-single', data.element.id)
           //
           // ).done(function (data) {
@@ -38129,16 +38130,14 @@ $(document).ready(function () {
         //         blade_file: 'templates.' + template_name + '.page_elements.testimonials'
         //     })
         //     .done(function (data) {
-        //         $.get(route('project.page-element.render-single', elementD)
-        //
-        //         ).done(function (data) {
-        //
-        //             setTimeout(function () {
-        //                 console.log(data);
-        //                 $('.js-project-preview-elements').append(data.view);
-        //             }, 3500);
-        //         })
-        //     })
+
+        setTimeout(function () {
+          console.log($('.js-project-testimonial-page-element-id').val());
+          $.get(route('project.page-element.render-single', $('.js-project-testimonial-page-element-id').val())).done(function (data) {
+            console.log(data);
+            $('.js-project-preview-elements').append(data.view);
+          });
+        }, 3500); //     })
         //     .fail(console.log('failed element'));
       });
     }
@@ -39036,12 +39035,12 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
 
 
 /***/ })

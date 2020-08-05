@@ -50,6 +50,8 @@ $(document).ready(function () {
                     })
                     .done(function (elementData) {
 
+                        $('.js-project-testimonial-page-element-id').val(elementData.element.id);
+
                         // let page_element_id = elementData.element.id;
                         // $.get(route('project.page-element.render-single', data.element.id)
                         //
@@ -126,15 +128,18 @@ $(document).ready(function () {
                 //         blade_file: 'templates.' + template_name + '.page_elements.testimonials'
                 //     })
                 //     .done(function (data) {
-                //         $.get(route('project.page-element.render-single', elementD)
-                //
-                //         ).done(function (data) {
-                //
-                //             setTimeout(function () {
-                //                 console.log(data);
-                //                 $('.js-project-preview-elements').append(data.view);
-                //             }, 3500);
-                //         })
+                        setTimeout(function () {
+
+                        console.log($('.js-project-testimonial-page-element-id').val());
+
+                        $.get(route('project.page-element.render-single', $('.js-project-testimonial-page-element-id').val())
+
+                        ).done(function (data) {
+
+                                console.log(data);
+                                $('.js-project-preview-elements').append(data.view);
+                            });
+                        }, 3500);
                 //     })
                 //     .fail(console.log('failed element'));
 
