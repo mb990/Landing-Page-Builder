@@ -113,6 +113,7 @@ Route::delete('/project/{slug}', 'ProjectController@delete')->name('project.dele
 
 //Page Element
 Route::post('/project/{slug}/page-element', 'Project\PageElementController@store')->name('project.page-element.store');
+Route::get('/page-element/{id}', 'Project\PageElementController@renderSingle')->name('project.page-element.render-single');
 
 //Project Image
 Route::post('/project-top-menu-image', 'Project\TopMenuImageController@store')->name('project.top-menu-image.store');

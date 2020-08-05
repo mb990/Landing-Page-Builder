@@ -77,7 +77,7 @@
 
 
 
-        <main id="sortable" style="background-color: white;"><!--style="display: flex;" -->
+        <main class="js-project-preview-elements" id="sortable" style="background-color: white;"><!--style="display: flex;" -->
 
 
 
@@ -328,7 +328,7 @@
 
                 // });
                 // $('ui-state-default').mousedown(function(){
-                //     $('ui-state-default').css('background-color', 'red') 
+                //     $('ui-state-default').css('background-color', 'red')
                 // })
 
                 // $(".ui-state-default").mousedown(function(){

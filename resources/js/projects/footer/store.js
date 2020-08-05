@@ -33,7 +33,15 @@ $(document).ready(function () {
                     page_elementable_id: data.settings.id,
                     page_elementable_type: 'App\\FooterSettings',
                     blade_file: 'templates.' + template_name +'.page_elements.footer'
-                })
+                }).done(function (elementData) {
+
+                    $.get(route('project.page-element.render-single', elementData.element.id)
+
+                    ).done(function (data) {
+
+                        $('.js-project-preview-elements').append(data.view);
+                    })
+            })
         })
 
     }
