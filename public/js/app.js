@@ -37357,6 +37357,13 @@ $(document).ready(function () {
       }).done(function (elementData) {
         $.get(route('project.page-element.render-single', elementData.element.id)).done(function (data) {
           $('.js-project-preview-elements').append(data.view);
+          $('.js-added-element').addClass('ui-state-default');
+          $('.js-added-element').addClass('project-element');
+          $('.js-added-element').append('<button  class="btn btn-secondary element-delete" style="z-index:+2;">Delete element</button>');
+          $('.js-added-element').append('<button  class="btn btn-secondary element-edit" data-toggle="modal" data-target="#editModal" style="z-index:+2;">Edit element</button>');
+          $('.js-added-element').append('<span class="ui-icon ui-icon-arrowthick-2-n-s" title="move element" style="position:absolute; top:10px;">');
+          $(".ui-state-default").mousedown(window.selectElement);
+          $(".ui-state-default").mouseup(window.dropElement);
         });
       });
     });
@@ -39029,12 +39036,12 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
-module.exports = __webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
+__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
+__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
+__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
 
 
 /***/ })

@@ -9,6 +9,7 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <script src="{{asset('js/app.js')}}"></script>
+        <script src="{{asset('js/drag&drop.js')}}"></script>
 
 
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -79,8 +80,6 @@
 
         <main class="js-project-preview-elements" id="sortable" style="background-color: white;"><!--style="display: flex;" -->
 
-
-
             <!-- <section class="newsletter project-element js-added-element">
                 <div class="container">
                     <div class="row">
@@ -131,62 +130,38 @@
                         </div>
                     </div>
                 </div>
-            </section> -->
-
-
-
-            <input type="hidden" class="js-project-page-element-type-id">
-            <input type="hidden" class="js-project-slug" name="js-project-slug" value="{{$project->slug}}">
-            <input type="hidden" class="js-project-id" name="project-id" id="project-id" value="{{$project->id}}">
-            <input type="hidden" class="js-project-name" name="project-name" id="project-name" value="{{$project->name}}">
-            <input type="hidden" class="js-project-template-id" name="project-template-id" id="project-template-id" value="{{$project->template->id}}">
-            <input type="hidden" class="js-project-template-name" name="template-name" id="template-name" value="{{$project->template->name}}">
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add element</button>
-
-            <!-- <aside class="profile-aside">
-                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">New project</a>
-                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">All project</a>
-                </div>
-            </aside> -->
-            <div class="js-profile-main">
-                <div class="tab-content" id="v-pills-tabContent">
-                    <!-- TAB1 -->
-                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                        <!-- <div class="card-columns">
-                            <div class="card">
-                                <img class="card-img-top" src="https://source.unsplash.com/2gYsZUmockw/100px160/" alt="Card image cap">
+            </section>
+            <div class="page-content page-container project-element js-added-element" id="page-content" style="background-color: lightgrey;">
+                <div class="padding">
+                    <div class="row container d-flex justify-content-center">
+                            <div class="card-body">Powered by FutureWeb</div>
+                            <div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Template1</h5>
-                                    <a href="#" class="btn btn-primary">Use this template</a>
-                                </div>
-                            </div>
-                        </div> -->
-                    </div>
-                    <!-- TAB2 -->
-                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
-                    <!-- TAB3 -->
-                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-                    <!-- TAB4 -->
-                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                            <span>YOUR PROJECTS</span>
-                            <div class="card-columns">
-                                <div class="card">
-                                    <img class="card-img-top" src="https://source.unsplash.com/2gYsZUmockw/100px160/" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Template1</h5>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <h4 class="card-title">Visit us on social media</h4>
+                                    <div class="template-demo">
+                                        <a type="button" class="btn btn-social-icon btn-rounded"><i class="fa fa-facebook"></i></a>
+                                        <a type="button" class="btn btn-social-icon btn-rounded"><i class="fa fa-twitter"></i></a>
+                                        <a type="button" class="btn btn-social-icon btn-rounded"><i class="fa fa-linkedin"></i></a>
+                                        <a type="button" class="btn btn-social-icon btn-rounded"><i class="fa fa-instagram"></i></a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
+
+
         </main>
+        <input type="hidden" class="js-project-page-element-type-id">
+        <input type="hidden" class="js-project-slug" name="js-project-slug" value="{{$project->slug}}">
+        <input type="hidden" class="js-project-id" name="project-id" id="project-id" value="{{$project->id}}">
+        <input type="hidden" class="js-project-name" name="project-name" id="project-name" value="{{$project->name}}">
+        <input type="hidden" class="js-project-template-id" name="project-template-id" id="project-template-id" value="{{$project->template->id}}">
+        <input type="hidden" class="js-project-template-name" name="template-name" id="template-name" value="{{$project->template->name}}">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add element</button>
+
+
         <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -269,7 +244,7 @@
                 $(".js-mobile").click(function() {
                     $("main").css('width','425px');
                     $("main").css('margin','auto');
-                    $("body").css('background-color','lightgray');
+                    $("body").css('background-color','black');
                 });
                 $(".js-desktop").click(function() {
                     $("main").css('width','100vw');
@@ -322,6 +297,7 @@
                     $(this).addClass('ui-state-default')
                 });
 
+
                 // $('.js-move-up').on("click", function(e){
                 //     e.preventDefault();
                 //     $(".move-up-2").insertBefore(".move-up-1");
@@ -335,22 +311,18 @@
                 //     $(".ui-state-default").css('height', '10vh');
                 // });
 
-                $(".ui-state-default").mousedown(function(e){
-                    if($(e.target).is('.btn')){
-                        return;
-                    }
-                    $(".js-added-element").addClass("moving-element");
-                    $(".js-added-element").children().addClass("d-none");
-                    $(".ui-state-default").prepend("<p class='js-moving'>Test</p>");
-                });
+
+
+            });
+            $(document).ready(function(){
+                $(".ui-state-default").mousedown(selectElement)
                 $(".ui-state-default").mouseup(function(){
                     $(".js-added-element").removeClass("moving-element");
                     $(".js-added-element").children().removeClass("d-none");
                     $(".js-moving").remove();
 
                 });
-
-            });
+            })
         </script>
     </body>
 </html>
