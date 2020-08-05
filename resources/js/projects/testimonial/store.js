@@ -40,7 +40,6 @@ $(document).ready(function () {
 
                 let section_id = data.section.id;
 
-                // saving new testimonial section element
                 $.post(route('project.page-element.store', project_slug),
                     {
                         project_id: project_id,
@@ -49,8 +48,18 @@ $(document).ready(function () {
                         page_elementable_type: modelType,
                         blade_file: 'templates.' + template_name + '.page_elements.testimonials'
                     })
-                    .done(function (data) {
-                        console.log(data);
+                    .done(function (elementData) {
+
+                        // let page_element_id = elementData.element.id;
+                        // $.get(route('project.page-element.render-single', data.element.id)
+                        //
+                        // ).done(function (data) {
+                        //
+                        //     setTimeout(function () {
+                        //         console.log(data);
+                        //         // $('.js-project-preview-elements').append(data.view);
+                        //     }, 3500);
+                        // })
                     })
                     .fail(console.log('failed element'));
 
@@ -106,6 +115,29 @@ $(document).ready(function () {
                         }
                     }
                 })
+
+                // saving new testimonial section element
+                // $.post(route('project.page-element.store', project_slug),
+                //     {
+                //         project_id: project_id,
+                //         page_element_type_id: page_element_type_id,
+                //         page_elementable_id: section_id,
+                //         page_elementable_type: modelType,
+                //         blade_file: 'templates.' + template_name + '.page_elements.testimonials'
+                //     })
+                //     .done(function (data) {
+                //         $.get(route('project.page-element.render-single', elementD)
+                //
+                //         ).done(function (data) {
+                //
+                //             setTimeout(function () {
+                //                 console.log(data);
+                //                 $('.js-project-preview-elements').append(data.view);
+                //             }, 3500);
+                //         })
+                //     })
+                //     .fail(console.log('failed element'));
+
             })
         }
     }

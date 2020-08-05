@@ -78,7 +78,16 @@ $(document).ready(function () {
                         blade_file: 'templates.' + template_name +'.page_elements.general-content2'
                     })
                     .done(function (data) {
-                        console.log(data);
+                        $.get(route('project.page-element.render-single', data.element.id)
+
+                        ).done(function (data) {
+
+                            setTimeout(function () {
+
+                                $('.js-project-preview-elements').append(data.view);
+                            }, 1000);
+
+                        });
                     })
                     .fail(console.log('failed element'));
 

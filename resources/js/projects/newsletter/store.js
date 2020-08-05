@@ -30,7 +30,19 @@ $(document).ready(function () {
                     page_elementable_id: data.settings.id,
                     page_elementable_type: modelType,
                     blade_file: 'templates.' + template_name +'.page_elements.newsletter'
+                }).done(function (data) {
+
+                $.get(route('project.page-element.render-single', data.element.id)
+
+                ).done(function (data) {
+
+                    setTimeout(function () {
+
+                        $('.js-project-preview-elements').append(data.view);
+                    }, 1000);
                 })
+
+            })
         })
 
     }

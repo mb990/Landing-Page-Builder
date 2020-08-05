@@ -37540,7 +37540,11 @@ $(document).ready(function () {
           page_elementable_type: modelType,
           blade_file: 'templates.' + template_name + '.page_elements.general-content1'
         }).done(function (data) {
-          console.log(data);
+          $.get(route('project.page-element.render-single', data.element.id)).done(function (data) {
+            setTimeout(function () {
+              $('.js-project-preview-elements').append(data.view);
+            }, 1000);
+          });
         }).fail(console.log('failed element'));
       });
     } else {
@@ -37618,7 +37622,11 @@ $(document).ready(function () {
           page_elementable_type: modelType,
           blade_file: 'templates.' + template_name + '.page_elements.general-content2'
         }).done(function (data) {
-          console.log(data);
+          $.get(route('project.page-element.render-single', data.element.id)).done(function (data) {
+            setTimeout(function () {
+              $('.js-project-preview-elements').append(data.view);
+            }, 1000);
+          });
         }).fail(console.log('failed element'));
       });
     } else {
@@ -37688,17 +37696,7 @@ $(document).ready(function () {
         link_url: link_url,
         button_value: button_value
       }).done(function (data) {
-        var element_id = data.settings.id; // saving new general content three section element
-
-        $.post(route('project.page-element.store', project_slug), {
-          project_id: project_id,
-          page_element_type_id: page_element_type_id,
-          page_elementable_id: element_id,
-          page_elementable_type: modelType,
-          blade_file: 'templates.' + template_name + '.page_elements.general-content3'
-        }).done(function (data) {
-          console.log(data);
-        }).fail(console.log('failed element')); // saving section's bullet points
+        var element_id = data.settings.id; // saving section's bullet points
 
         $('.js-project-general-content-three-bullets').each(function (e, i) {
           var title = $(".js-project-general-content-three-bullet-point-title-" + (e + 1)).val();
@@ -37734,7 +37732,21 @@ $(document).ready(function () {
               $(".modal").modal('hide');
             });
           }
-        });
+        }); // saving new general content three section element
+
+        $.post(route('project.page-element.store', project_slug), {
+          project_id: project_id,
+          page_element_type_id: page_element_type_id,
+          page_elementable_id: element_id,
+          page_elementable_type: modelType,
+          blade_file: 'templates.' + template_name + '.page_elements.general-content3'
+        }).done(function (data) {
+          $.get(route('project.page-element.render-single', data.element.id)).done(function (data) {
+            setTimeout(function () {
+              $('.js-project-preview-elements').append(data.view);
+            }, 1000);
+          });
+        }).fail(console.log('failed element'));
       });
     } else {
       alert('Bullet points and tiles added need to have title and text/awesome icon.');
@@ -37808,8 +37820,8 @@ $(document).ready(function () {
           page_elementable_id: element_id,
           page_elementable_type: modelType,
           blade_file: 'templates.' + template_name + '.page_elements.hero_section'
-        }).done(function (elementData) {
-          $.get(route('project.page-element.render-single', elementData.element.id)).done(function (data) {
+        }).done(function (data) {
+          $.get(route('project.page-element.render-single', data.element.id)).done(function (data) {
             setTimeout(function () {
               $('.js-project-preview-elements').append(data.view);
             }, 1000);
@@ -37852,6 +37864,12 @@ $(document).ready(function () {
         page_elementable_id: data.settings.id,
         page_elementable_type: modelType,
         blade_file: 'templates.' + template_name + '.page_elements.newsletter'
+      }).done(function (data) {
+        $.get(route('project.page-element.render-single', data.element.id)).done(function (data) {
+          setTimeout(function () {
+            $('.js-project-preview-elements').append(data.view);
+          }, 1000);
+        });
       });
     });
   };
@@ -37875,16 +37893,7 @@ $(document).ready(function () {
     var project_slug = $('.js-project-slug').val();
     $.post(route('project.pricing-section.store', project_slug), {// blade_file: 'page_elements.pricing'
     }).done(function (data) {
-      var section_id = data.section.id; // store pricing section page element ajax
-
-      $.post(route('project.page-element.store', project_slug), {
-        project_id: project_id,
-        page_element_type_id: page_element_type_id,
-        page_elementable_id: section_id,
-        page_elementable_type: 'App\\PricingSection',
-        blade_file: 'templates.' + template_name + '.page_elements.pricing'
-      }).done(function (data_e) {// console.log(data);
-      }).fail(console.log('failed element'));
+      var section_id = data.section.id;
       $('input.js-project-pricing-plan').each(function (e, i) {
         var name = $('.js-project-pricing-name-' + (e + 1)).val();
         var y_price = $('.js-project-pricing-year-' + (e + 1)).val();
@@ -37912,7 +37921,21 @@ $(document).ready(function () {
             });
           }).fail(console.log('neuspelo'));
         }
-      });
+      }); // store pricing section page element ajax
+
+      $.post(route('project.page-element.store', project_slug), {
+        project_id: project_id,
+        page_element_type_id: page_element_type_id,
+        page_elementable_id: section_id,
+        page_elementable_type: 'App\\PricingSection',
+        blade_file: 'templates.' + template_name + '.page_elements.pricing'
+      }).done(function (data) {
+        $.get(route('project.page-element.render-single', data.element.id)).done(function (data) {
+          setTimeout(function () {
+            $('.js-project-preview-elements').append(data.view);
+          }, 1000);
+        });
+      }).fail(console.log('failed element'));
     });
   };
 });
@@ -38033,16 +38056,23 @@ $(document).ready(function () {
       var modelType = 'App\\TestimonialSection';
       $.post(route('project.testimonial-section.store', project_slug), {// blade_file: 'page_elements.testimonials'
       }).done(function (data) {
-        var section_id = data.section.id; // saving new testimonial section element
-
+        var section_id = data.section.id;
         $.post(route('project.page-element.store', project_slug), {
           project_id: project_id,
           page_element_type_id: page_element_type_id,
           page_elementable_id: section_id,
           page_elementable_type: modelType,
           blade_file: 'templates.' + template_name + '.page_elements.testimonials'
-        }).done(function (data) {
-          console.log(data);
+        }).done(function (elementData) {// let page_element_id = elementData.element.id;
+          // $.get(route('project.page-element.render-single', data.element.id)
+          //
+          // ).done(function (data) {
+          //
+          //     setTimeout(function () {
+          //         console.log(data);
+          //         // $('.js-project-preview-elements').append(data.view);
+          //     }, 3500);
+          // })
         }).fail(console.log('failed element'));
         $('.js-project-testimonial').each(function (e, i) {
           var customer = $('#project-testimonial-customer_name-' + (e + 1)).val();
@@ -38082,7 +38112,27 @@ $(document).ready(function () {
               alert('Please add testimonial image');
             }
           }
-        });
+        }); // saving new testimonial section element
+        // $.post(route('project.page-element.store', project_slug),
+        //     {
+        //         project_id: project_id,
+        //         page_element_type_id: page_element_type_id,
+        //         page_elementable_id: section_id,
+        //         page_elementable_type: modelType,
+        //         blade_file: 'templates.' + template_name + '.page_elements.testimonials'
+        //     })
+        //     .done(function (data) {
+        //         $.get(route('project.page-element.render-single', elementD)
+        //
+        //         ).done(function (data) {
+        //
+        //             setTimeout(function () {
+        //                 console.log(data);
+        //                 $('.js-project-preview-elements').append(data.view);
+        //             }, 3500);
+        //         })
+        //     })
+        //     .fail(console.log('failed element'));
       });
     }
   };
@@ -38142,17 +38192,7 @@ $(document).ready(function () {
           console.log('ispod ovoga treba da je ispis slike');
           console.log(data.image);
           console.log('iznad ovoga treba da je ispis slike');
-        }); // saving new top menu element
-
-        $.post(route('project.page-element.store', project_slug), {
-          project_id: project_id,
-          page_element_type_id: page_element_type_id,
-          page_elementable_id: data.settings.id,
-          page_elementable_type: modelType,
-          blade_file: 'templates.' + template_name + '.page_elements.top_menu'
-        }).done(function (data) {
-          console.log(data);
-        }).fail(console.log('failed element')); // saving top menu link
+        }); // saving top menu link
 
         $('.js-project-top-menu-link').each(function (e, i) {
           var url = $("#link-url-" + (e + 1)).val();
@@ -38167,7 +38207,21 @@ $(document).ready(function () {
               console.log('link je dodat'); // $(".modal").modal('hide');
             }).fail(console.log('link nije dodat'));
           }
-        });
+        }); // saving new top menu element
+
+        $.post(route('project.page-element.store', project_slug), {
+          project_id: project_id,
+          page_element_type_id: page_element_type_id,
+          page_elementable_id: data.settings.id,
+          page_elementable_type: modelType,
+          blade_file: 'templates.' + template_name + '.page_elements.top_menu'
+        }).done(function (data) {
+          $.get(route('project.page-element.render-single', data.element.id)).done(function (data) {
+            setTimeout(function () {
+              $('.js-project-preview-elements').append(data.view);
+            }, 1000);
+          });
+        }).fail(console.log('failed element'));
       }).fail(console.log('failed settings'));
     } else {
       alert('You need to add top menu image');

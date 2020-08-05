@@ -82,20 +82,6 @@ $(document).ready(function () {
 
                 let element_id = data.settings.id;
 
-                // saving new general content three section element
-                $.post(route('project.page-element.store', project_slug),
-                    {
-                        project_id: project_id,
-                        page_element_type_id: page_element_type_id,
-                        page_elementable_id: element_id,
-                        page_elementable_type: modelType,
-                        blade_file: 'templates.' + template_name + '.page_elements.general-content3'
-                    })
-                    .done(function (data) {
-                        console.log(data);
-                    })
-                    .fail(console.log('failed element'));
-
                 // saving section's bullet points
                 $('.js-project-general-content-three-bullets').each(function (e, i) {
 
@@ -141,6 +127,29 @@ $(document).ready(function () {
                         })
                     }
                 })
+
+                // saving new general content three section element
+                $.post(route('project.page-element.store', project_slug),
+                    {
+                        project_id: project_id,
+                        page_element_type_id: page_element_type_id,
+                        page_elementable_id: element_id,
+                        page_elementable_type: modelType,
+                        blade_file: 'templates.' + template_name + '.page_elements.general-content3'
+                    })
+                    .done(function (data) {
+                        $.get(route('project.page-element.render-single', data.element.id)
+
+                        ).done(function (data) {
+
+                            setTimeout(function () {
+
+                                $('.js-project-preview-elements').append(data.view);
+                            }, 1000);
+
+                        });
+                    })
+                    .fail(console.log('failed element'));
 
             })
         }

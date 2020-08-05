@@ -75,9 +75,9 @@ $(document).ready(function () {
                         page_elementable_type: modelType,
                         blade_file: 'templates.' + template_name +'.page_elements.hero_section'
                     })
-                    .done(function (elementData) {
+                    .done(function (data) {
 
-                        $.get(route('project.page-element.render-single', elementData.element.id)
+                        $.get(route('project.page-element.render-single', data.element.id)
 
                         ).done(function (data) {
 

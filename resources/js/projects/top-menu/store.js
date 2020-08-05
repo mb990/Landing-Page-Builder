@@ -59,19 +59,6 @@ $(document).ready(function () {
                     console.log('iznad ovoga treba da je ispis slike');
                 });
 
-                // saving new top menu element
-                $.post(route('project.page-element.store', project_slug),
-                    {
-                        project_id: project_id,
-                        page_element_type_id: page_element_type_id,
-                        page_elementable_id: data.settings.id,
-                        page_elementable_type: modelType,
-                        blade_file: 'templates.' + template_name +'.page_elements.top_menu'
-                    })
-                    .done(function (data) {
-                        console.log(data);
-                    })
-                    .fail(console.log('failed element'));
                 // saving top menu link
                 $('.js-project-top-menu-link').each(function (e, i) {
                     let url = $("#link-url-" + (e + 1)).val();
@@ -93,6 +80,28 @@ $(document).ready(function () {
                     }
 
                 })
+
+                // saving new top menu element
+                $.post(route('project.page-element.store', project_slug),
+                    {
+                        project_id: project_id,
+                        page_element_type_id: page_element_type_id,
+                        page_elementable_id: data.settings.id,
+                        page_elementable_type: modelType,
+                        blade_file: 'templates.' + template_name +'.page_elements.top_menu'
+                    })
+                    .done(function (data) {
+                        $.get(route('project.page-element.render-single', data.element.id)
+
+                        ).done(function (data) {
+
+                            setTimeout(function () {
+
+                                $('.js-project-preview-elements').append(data.view);
+                            }, 1000);
+                        })
+                    })
+                    .fail(console.log('failed element'));
 
             })
                 .fail(console.log('failed settings'))

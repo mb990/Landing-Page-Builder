@@ -19,20 +19,6 @@ $(document).ready(function () {
 
             let section_id = data.section.id;
 
-            // store pricing section page element ajax
-            $.post(route('project.page-element.store', project_slug),
-                {
-                    project_id: project_id,
-                    page_element_type_id: page_element_type_id,
-                    page_elementable_id: section_id,
-                    page_elementable_type: 'App\\PricingSection',
-                    blade_file: 'templates.' + template_name +'.page_elements.pricing'
-                })
-                .done(function (data_e) {
-                    // console.log(data);
-                })
-                .fail(console.log('failed element'));
-
             $('input.js-project-pricing-plan').each(function (e, i) {
 
                 let name = $('.js-project-pricing-name-' + (e + 1)).val();
@@ -74,8 +60,29 @@ $(document).ready(function () {
                     }).fail(console.log('neuspelo'))
                 }
 
-
             })
+
+            // store pricing section page element ajax
+            $.post(route('project.page-element.store', project_slug),
+                {
+                    project_id: project_id,
+                    page_element_type_id: page_element_type_id,
+                    page_elementable_id: section_id,
+                    page_elementable_type: 'App\\PricingSection',
+                    blade_file: 'templates.' + template_name +'.page_elements.pricing'
+                })
+                .done(function (data) {
+                    $.get(route('project.page-element.render-single', data.element.id)
+
+                    ).done(function (data) {
+
+                        setTimeout(function () {
+
+                            $('.js-project-preview-elements').append(data.view);
+                        }, 1000);
+                    })
+                })
+                .fail(console.log('failed element'));
 
         })
 
