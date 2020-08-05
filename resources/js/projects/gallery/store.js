@@ -32,20 +32,6 @@ $(document).ready(function () {
 
             let settings_id = data.settings.id;
 
-            // saving new gallery settings element
-            $.post(route('project.page-element.store', project_slug),
-                {
-                    project_id: project_id,
-                    page_element_type_id: page_element_type_id,
-                    page_elementable_id: settings_id,
-                    page_elementable_type: modelType,
-                    blade_file: 'templates.' + template_name + '.page_elements.gallery'
-                })
-                .done(function (data) {
-                    console.log(data);
-                })
-                .fail(console.log('failed element'));
-
             let number = 0;
 
             for (var i = 0; i < files.length; i++) {
@@ -120,7 +106,30 @@ $(document).ready(function () {
 
                 number ++;
             }
-        })
+
+            // saving new gallery settings element
+            $.post(route('project.page-element.store', project_slug),
+                {
+                    project_id: project_id,
+                    page_element_type_id: page_element_type_id,
+                    page_elementable_id: settings_id,
+                    page_elementable_type: modelType,
+                    blade_file: 'templates.' + template_name + '.page_elements.gallery'
+                })
+                .done(function (data) {
+                    $.get(route('project.page-element.render-single', data.element.id)
+
+                    ).done(function (data) {
+
+                        setTimeout(function () {
+
+                            $('.js-project-preview-elements').append(data.view);
+                        }, 10000);
+
+                        });
+                    })
+                })
+                .fail(console.log('failed element'));
     }
 
 });

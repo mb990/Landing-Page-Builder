@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Services\ProjectService;
 use FFMpeg\Format\Video\X264;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;

@@ -34,7 +34,7 @@ class PageElementController extends Controller
 
     public function renderSingle($id)
     {
-        $view = $this->projectService->renderSingleProjectPageElement($id);
+        $view = $this->projectService->showRenderedProjectSingleComponentWithData($id);
 
         return response()->json(['view' => $view]);
     }

@@ -229,6 +229,17 @@ class ProjectService
         return $view;
     }
 
+    public function showRenderedProjectSingleComponentWithData($id)
+    {
+        $component = $this->pageElementService->find($id);
+
+        $data = $this->getComponentData($component);
+
+        $view = $this->renderComponentView($component, $data);
+
+        return $view;
+    }
+
     public function showRenderedProjectComponentsWithData($slug)
     {
         $project = $this->findBySlug($slug);
@@ -271,49 +282,6 @@ class ProjectService
     public function renderComponentViewWithBasicDataOnly($component, $data)
     {
         $view = view($component->blade_file, ['data' => $data])->render();
-
-        return $view;
-    }
-
-    public function renderSingleProjectPageElement($elementId)
-    {
-        $element = $this->pageElementService->find($elementId);
-
-        $view = $this->getSinglePageElementRenderedViewWithData($element);
-
-        return $view;
-    }
-
-    public function getSinglePageElementRenderedViewWithData($element)
-    {
-        if ($this->componentHasAnImage($element)) {
-
-            $view = $this->renderComponentViewWithBasicDataAndImage($element, $data);
-
-            return $view;
-        }
-
-        if ($this->componentIsAGallery($element)) {
-
-            $galleryData = $this->getGalleryData($element);
-
-            $view = $this->renderComponentViewWithBasicDataOnly($element,$galleryData);
-
-            return $view;
-        }
-
-        if ($this->componentIsATestimonial($element)) {
-
-            $testimonialData = $this->getTestimonialData($element);
-
-            $view = $this->renderComponentViewWithBasicDataOnly($element, $testimonialData);
-
-            return $view;
-        }
-
-        $data = $this->getComponentData($element);
-
-        $view = $this->renderComponentViewWithBasicDataOnly($element, $data);
 
         return $view;
     }

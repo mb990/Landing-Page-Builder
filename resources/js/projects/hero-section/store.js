@@ -75,8 +75,17 @@ $(document).ready(function () {
                         page_elementable_type: modelType,
                         blade_file: 'templates.' + template_name +'.page_elements.hero_section'
                     })
-                    .done(function (data) {
-                        console.log(data);
+                    .done(function (elementData) {
+
+                        $.get(route('project.page-element.render-single', elementData.element.id)
+
+                        ).done(function (data) {
+
+                            setTimeout(function () {
+
+                                $('.js-project-preview-elements').append(data.view);
+                            }, 1000);
+                        })
                     })
                     .fail(console.log('failed element'));
 
