@@ -36,7 +36,8 @@
             <div style="flex-grow: 1;">
                 <!-- <button class="js-mobile">Mobile</button>
                 <button class="js-desktop">Desktop</button> -->
-                <i class="fa fa-list js-menu-media menu-icon d-none"></i>
+                <!-- <i class="fa fa-list js-menu-media menu-icon d-none"></i> -->
+                <button class="btn fa fa-list js-menu-media menu-icon d-none"></button>
             </div>
             <div style="flex-grow: 1;" class="js-link">
                 <a style="float: right;" href="{{route('logout')}}"><button class="btn btn-secondary" id="js-info">Log out</button></a>
