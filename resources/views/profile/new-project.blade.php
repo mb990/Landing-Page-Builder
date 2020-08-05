@@ -10,6 +10,8 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <script src="{{asset('js/app.js')}}"></script>
         <script src="{{asset('js/drag&drop.js')}}"></script>
+        <link rel="stylesheet" href="{{ asset('css/page_elements1.css') }}">
+
 
 
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -151,7 +153,6 @@
             </div> -->
 
 
-
         </main>
         <input type="hidden" class="js-project-page-element-type-id">
         <input type="hidden" class="js-project-testimonial-page-element-id">
@@ -265,9 +266,9 @@
                 $("#exampleModal").on("hidden.bs.modal", function () {
                     $('.js-modal-content').hide();
                     $('#exampleModalLabel').text("Element name")
-
                     var select = $("#select");
                     select.val(select[0].options[0].value);
+                    // $(document).find("select").val("0");
                 });
             })
 
@@ -324,6 +325,7 @@
 
                 });
             })
+            $('.js-reviews div:first').addClass('active');
         </script>
     </body>
 </html>
