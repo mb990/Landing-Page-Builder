@@ -1,5 +1,5 @@
 <span>YOUR PROJECTS</span>
-<div class="card-columns">
+<div class="card-columns js-load-projects">
     @forelse(auth()->user()->projects as $project)
 
     <!-- <div class="col-sm-6" style="max-width: 25vw; margin-bottom: 10px;"> -->
@@ -31,6 +31,10 @@
             let project_slug = $(this).data('slug');
             $('.js-project-delete-slug').val(project_slug);
             deleteProject(e);
+            deleteCard();
+            // $(".js-load-projects").load(" .js-load-projects");
+            // $(".js-load-projects").load(location.href + " .js-load-projects");
+            // $(".js-load-projects").load(location.href+" .js-load-projects>*","");
         });
 
     })

@@ -35,8 +35,11 @@
     </head>
     <body>
         <header class="header-main-profile" style="background-color: white;">
-            <div style="flex-grow: 1;"><img style="width: 100px;transform: translateY(-25%);" src="{{ asset('img/logo.png') }}"></div>
+            <div style="flex-grow: 1;"><img style="width: 100px;transform: translateY(-25%);" src="{{ asset('img/logo.png') }}">
+            </div>
             <div style="flex-grow: 1;">
+                <a type="button" class="btn" href="{{route(user.profile, auth()->user()->slug)}}">Profile</a>
+
                 <button class="btn btn-secondary js-mobile">Mobile</button>
                 <button class="btn btn-secondary js-desktop">Desktop</button>
             </div>
