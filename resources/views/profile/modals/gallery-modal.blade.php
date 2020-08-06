@@ -8,7 +8,7 @@
 {{--                </span>--}}
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-success js-add-project-gallery-element-btn">Add element</button>
+    <button type="button" class="btn btn-success js-add-project-gallery-element-btn js-add-buttons">Add element</button>
 </div>
 
 <script>

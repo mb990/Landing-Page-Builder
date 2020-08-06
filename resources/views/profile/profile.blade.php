@@ -72,7 +72,7 @@
                         @include('profile.profile-tabs.message-tab')
                     </div>
                     <!-- TAB4 -->
-                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" style="padding: 20px; text-align: center;">
+                    <div class="tab-pane fade js-load-projects" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" style="padding: 20px; text-align: center;">
                         @include('profile.profile-tabs.projects-tab')
                     </div>
                 </div>

@@ -152,6 +152,7 @@ $(document).ready(function () {
 
                                 console.log(data);
                                 $('.js-project-preview-elements').append(data.view);
+                                createButtons();
                             });
                         }, delay_time);
                 //     })

@@ -85,7 +85,7 @@
 
         <main class="js-project-preview-elements" id="sortable" style="background-color: white;"><!--style="display: flex;" -->
 
-            <!-- <section class="newsletter project-element js-added-element">
+            <!-- <section class="newsletter project-element js-added-element ui-state-default">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
@@ -293,14 +293,54 @@
             })
 
             $(document).ready(function() {
-                $('.js-added-element').each(function (index, value) {
-                    console.log(`div${index}: ${this.id}`);
-                    // x = `${index}: ${this.id}`;
-                    $(this).append('<button id="'+ index +'" class="btn btn-secondary element-delete" style="z-index:+2;">Delete element</button>');
-                    $(this).append('<button id="'+ index +'" class="btn btn-secondary element-edit" data-toggle="modal" data-target="#editModal" style="z-index:+2;">Edit element</button>');
-                    $(this).append('<span class="ui-icon ui-icon-arrowthick-2-n-s" title="move element" style="position:absolute; top:10px;">');
-                    $(this).addClass('ui-state-default')
-                });
+                // $(".ui-state-default").mousedown(selectElement())
+                // $(".ui-state-default").mouseup(dropElement())
+
+                $(document).ready(function(){
+                    $(".ui-state-default").mouseup(function(){
+                        console.log("mouseup");
+                    });
+                    $(".ui-state-default").mousedown(function(){
+                        console.log("mousedown");
+                    });
+                    });
+
+                // $('.js-add-buttons').on("click", function(){
+                    
+                //     $('.js-added-element').each(function () {
+                //         // console.log(`div${index}: ${this.id}`);
+                //         // x = `${index}: ${this.id}`;
+                //         console.log($('button.element-delete'))
+                //         console.log('delay done')
+                //         $('.js-added-element').addClass('ui-state-default')
+                //         $('.js-added-element').addClass('project-element')
+                //         $('button.element-delete').remove();
+                //         $('button.element-edit').remove();
+                //         $('span.ui-icon-arrowthick-2-n-s').remove();
+                //         $('.js-added-element').append('<button class="btn btn-secondary element-delete" style="z-index:+2;">Delete element</button>');
+                //         $('.js-added-element').append('<button class="btn btn-secondary element-edit" data-toggle="modal" data-target="#editModal" style="z-index:+2;">Edit element</button>');
+                //         $('.js-added-element').append('<span class="ui-icon ui-icon-arrowthick-2-n-s" title="move element" style="position:absolute; top:10px;">');
+                        
+                //     });
+                // })
+                
+                window.createButtons = function(){
+                    $('.js-added-element').each(function () {
+                        // console.log(`div${index}: ${this.id}`);
+                        // x = `${index}: ${this.id}`;
+                        // console.log($('button.element-delete'))
+                        // console.log('delay done')
+                        $('.js-added-element').addClass('ui-state-default')
+                        $('.js-added-element').addClass('project-element')
+                        $('button.element-delete').remove();
+                        $('button.element-edit').remove();
+                        $('span.ui-icon-arrowthick-2-n-s').remove();
+                        $('.js-added-element').append('<button class="btn btn-secondary element-delete" style="z-index:+2;">Delete element</button>');
+                        $('.js-added-element').append('<button class="btn btn-secondary element-edit" data-toggle="modal" data-target="#editModal" style="z-index:+2;">Edit element</button>');
+                        $('.js-added-element').append('<span class="ui-icon ui-icon-arrowthick-2-n-s" title="move element" style="position:absolute; top:10px;">');
+                        
+                    });
+                }
 
 
                 // $('.js-move-up').on("click", function(e){
@@ -316,18 +356,35 @@
                 //     $(".ui-state-default").css('height', '10vh');
                 // });
 
+                // $(".ui-state-default").mousedown(function(){
+                //     if($(this).is('.btn')){
+                //         return;
+                //     }
+                //     $(".js-added-element").addClass("moving-element");
+                //     $(".js-added-element").children().addClass("d-none");
+                //     $(".ui-state-default").prepend("<p class='js-moving'>Test</p>");
+                //     console.log("mouse down")
+                // });
+                // $(".ui-state-default").mousedown(function(){
 
+                //     $(".js-added-element").removeClass("moving-element");
+                //     $(".js-added-element").children().removeClass("d-none");
+                //     $(".js-moving").remove();
+                //     console.log("mouse up")
+
+                // });
 
             });
-            $(document).ready(function(){
-                $(".ui-state-default").mousedown(selectElement)
-                $(".ui-state-default").mouseup(function(){
-                    $(".js-added-element").removeClass("moving-element");
-                    $(".js-added-element").children().removeClass("d-none");
-                    $(".js-moving").remove();
+            // $(document).ready(function(){
+            //     $(".ui-state-default").mousedown(selectElement())
+            //     $(".ui-state-default").mouseup(dropElement())
+            //     // $(".ui-state-default").mouseup(function(){
+            //     //     $(".js-added-element").removeClass("moving-element");
+            //     //     $(".js-added-element").children().removeClass("d-none");
+            //     //     $(".js-moving").remove();
 
-                });
-            })
+            //     // });
+            // })
             $('.js-reviews div:first').addClass('active');
         </script>
     </body>

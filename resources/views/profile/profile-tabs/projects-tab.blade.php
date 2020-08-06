@@ -1,10 +1,10 @@
 <span>YOUR PROJECTS</span>
-<div class="card-columns js-load-projects">
+<div class="card-columns">
     @forelse(auth()->user()->projects as $project)
 
     <!-- <div class="col-sm-6" style="max-width: 25vw; margin-bottom: 10px;"> -->
 
-            <div class="card">
+            <div class="card js-project-delete-test{{$project->slug}}">
                 <img class="card-img-top" src="https://source.unsplash.com/2gYsZUmockw/100px160/" alt="Card image cap">
                 <div class="card-body">
                     <input type="hidden" class="js-project-delete-slug" value="{{$project->slug}}">
@@ -31,10 +31,8 @@
             let project_slug = $(this).data('slug');
             $('.js-project-delete-slug').val(project_slug);
             deleteProject(e);
-            deleteCard();
-            // $(".js-load-projects").load(" .js-load-projects");
-            // $(".js-load-projects").load(location.href + " .js-load-projects");
-            // $(".js-load-projects").load(location.href+" .js-load-projects>*","");
+            $('.js-project-delete-test'+project_slug).remove();
+
         });
 
     })

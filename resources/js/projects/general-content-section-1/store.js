@@ -85,6 +85,7 @@ $(document).ready(function () {
                             setTimeout(function () {
 
                                 $('.js-project-preview-elements').append(data.view);
+                                createButtons();
                             }, 1000);
 
                         });
