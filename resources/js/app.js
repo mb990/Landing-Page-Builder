@@ -25,3 +25,4 @@ require('./projects/pricing-section/store');
 require('./projects/newsletter/store');
 require('./projects/gallery/store');
 require('./projects/show-project');
+require('./projects/delete-project');

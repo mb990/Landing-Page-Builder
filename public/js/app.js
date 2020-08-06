@@ -37275,6 +37275,8 @@ __webpack_require__(/*! ./projects/gallery/store */ "./resources/js/projects/gal
 
 __webpack_require__(/*! ./projects/show-project */ "./resources/js/projects/show-project.js");
 
+__webpack_require__(/*! ./projects/delete-project */ "./resources/js/projects/delete-project.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37319,6 +37321,26 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/projects/delete-project.js":
+/*!*************************************************!*\
+  !*** ./resources/js/projects/delete-project.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.deleteProject = function (e) {
+    e.preventDefault();
+    var project_slug = $('.js-project-delete-slug').val();
+    $.ajax({
+      url: route('project.delete', project_slug),
+      type: 'delete'
+    });
+  };
+});
 
 /***/ }),
 
