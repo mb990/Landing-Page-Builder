@@ -23,11 +23,11 @@
     $(document).ready(function () {
 
         $("#customSwitches").on("click", function(){
-        $(".js-month").toggleClass("d-none");
-        $(".js-year").toggleClass("d-none");
-        $(".js-month-text").toggleClass("text-primary");
-        $(".js-year-text").toggleClass("text-primary");
-
-    })})
+            $(".js-month").toggleClass("d-none");
+            $(".js-year").toggleClass("d-none");
+            $(".js-month-text").toggleClass("text-primary");
+            $(".js-year-text").toggleClass("text-primary");
+        })
+    })
 
 </script>
