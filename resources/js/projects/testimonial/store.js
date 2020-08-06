@@ -22,6 +22,21 @@ $(document).ready(function () {
 
         if (validate()) {
 
+            let delay_time = 0;
+
+            // delay time calculator
+            $('.js-project-testimonial').each(function (e, i) {
+
+                let customer = $('#project-testimonial-customer_name-' + (e + 1)).val();
+                let testimonial_text = $('#project-testimonial_text-' + (e + 1)).val();
+                let title = $('#project-testimonial_title-' + (e + 1)).val();
+
+                if (customer !== '' && testimonial_text !== '' && title !== '') {
+
+                    delay_time += 1500;
+                }
+            });
+
             let template_name = $('.js-project-template-name').val();
             let page_element_type_id = $('.js-project-page-element-type-id').val();
             let project_id = $('.js-project-id').val();
@@ -66,6 +81,7 @@ $(document).ready(function () {
                     .fail(console.log('failed element'));
 
                 $('.js-project-testimonial').each(function (e, i) {
+
 
                     let customer = $('#project-testimonial-customer_name-' + (e + 1)).val();
                     let testimonial_text = $('#project-testimonial_text-' + (e + 1)).val();
@@ -130,8 +146,6 @@ $(document).ready(function () {
                 //     .done(function (data) {
                         setTimeout(function () {
 
-                        console.log($('.js-project-testimonial-page-element-id').val());
-
                         $.get(route('project.page-element.render-single', $('.js-project-testimonial-page-element-id').val())
 
                         ).done(function (data) {
@@ -139,9 +153,11 @@ $(document).ready(function () {
                                 console.log(data);
                                 $('.js-project-preview-elements').append(data.view);
                             });
-                        }, 3500);
+                        }, delay_time);
                 //     })
                 //     .fail(console.log('failed element'));
+
+                console.log(delay_time);
 
             })
         }

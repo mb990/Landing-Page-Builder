@@ -37382,13 +37382,28 @@ $(document).ready(function () {
 $(document).ready(function () {
   window.storeProjectGallery = function (e) {
     e.preventDefault();
+    var delayTime = 0;
     var template_name = $('.js-project-template-name').val();
     var page_element_type_id = $('.js-project-page-element-type-id').val();
     var project_id = $('.js-project-id').val();
     var project_slug = $('.js-project-slug').val();
     var project_name = $('.js-project-name').val();
     var modelType = 'App\\GallerySettings';
-    var files = $('.js-project-gallery-image')[0].files; // check if exactly 12 files are added
+    var files = $('.js-project-gallery-image')[0].files; // calculate delay time
+
+    for (var i = 0; i < files.length; i++) {
+      var number = 0;
+      var file = files[number];
+
+      if (file.type.includes('video')) {
+        delayTime += 10000;
+      } else {
+        delayTime += 1500;
+      }
+
+      number++;
+    } // check if exactly 12 files are added
+
 
     if (files.length < 1 || files.length > 12) {
       alert('You must add no less then 1 and no more then 12 gallery elements');
@@ -37469,12 +37484,14 @@ $(document).ready(function () {
         blade_file: 'templates.' + template_name + '.page_elements.gallery'
       }).done(function (data) {
         $.get(route('project.page-element.render-single', data.element.id)).done(function (data) {
+          console.log($('.js-gallery-delay-time').val());
           setTimeout(function () {
             $('.js-project-preview-elements').append(data.view);
-          }, 10000);
+          }, delayTime);
         });
       });
     }).fail(console.log('failed element'));
+    console.log('delay time je: ' + delayTime);
   };
 });
 
@@ -38070,6 +38087,17 @@ $(document).ready(function () {
     }
 
     if (validate()) {
+      var delay_time = 0; // delay time calculator
+
+      $('.js-project-testimonial').each(function (e, i) {
+        var customer = $('#project-testimonial-customer_name-' + (e + 1)).val();
+        var testimonial_text = $('#project-testimonial_text-' + (e + 1)).val();
+        var title = $('#project-testimonial_title-' + (e + 1)).val();
+
+        if (customer !== '' && testimonial_text !== '' && title !== '') {
+          delay_time += 1500;
+        }
+      });
       var template_name = $('.js-project-template-name').val();
       var page_element_type_id = $('.js-project-page-element-type-id').val();
       var project_id = $('.js-project-id').val();
@@ -38147,13 +38175,14 @@ $(document).ready(function () {
         //     .done(function (data) {
 
         setTimeout(function () {
-          console.log($('.js-project-testimonial-page-element-id').val());
           $.get(route('project.page-element.render-single', $('.js-project-testimonial-page-element-id').val())).done(function (data) {
             console.log(data);
             $('.js-project-preview-elements').append(data.view);
           });
-        }, 3500); //     })
+        }, delay_time); //     })
         //     .fail(console.log('failed element'));
+
+        console.log(delay_time);
       });
     }
   };

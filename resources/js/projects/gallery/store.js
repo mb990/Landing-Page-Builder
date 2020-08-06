@@ -4,6 +4,8 @@ $(document).ready(function () {
 
         e.preventDefault();
 
+        let delayTime = 0;
+
         let template_name = $('.js-project-template-name').val();
         let page_element_type_id = $('.js-project-page-element-type-id').val();
         let project_id = $('.js-project-id').val();
@@ -13,6 +15,26 @@ $(document).ready(function () {
         let modelType = 'App\\GallerySettings';
 
         let files = $('.js-project-gallery-image')[0].files;
+
+        // calculate delay time
+        for (var i = 0; i < files.length; i++) {
+
+            let number = 0;
+
+            let file = files[number];
+
+            if (file.type.includes('video')) {
+
+                delayTime += 10000;
+            }
+
+            else {
+
+                delayTime += 1500;
+            }
+
+            number ++;
+        }
 
         // check if exactly 12 files are added
         if (files.length < 1 || files.length > 12) {
@@ -121,15 +143,19 @@ $(document).ready(function () {
 
                     ).done(function (data) {
 
+                        console.log($('.js-gallery-delay-time').val());
+
                         setTimeout(function () {
 
                             $('.js-project-preview-elements').append(data.view);
-                        }, 10000);
+                        }, delayTime);
 
                         });
                     })
                 })
                 .fail(console.log('failed element'));
+
+                console.log('delay time je: ' + delayTime);
     }
 
 });
