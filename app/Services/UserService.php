@@ -22,4 +22,9 @@ class UserService
     {
         return $this->user->findBySlug($slug);
     }
+
+    public function usersWithoutAdmin()
+    {
+        return $this->user->usersWithoutAdmin();
+    }
 }

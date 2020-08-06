@@ -37277,6 +37277,8 @@ __webpack_require__(/*! ./projects/show-project */ "./resources/js/projects/show
 
 __webpack_require__(/*! ./projects/delete-project */ "./resources/js/projects/delete-project.js");
 
+__webpack_require__(/*! ./send-email-to-application-users */ "./resources/js/send-email-to-application-users.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -38298,6 +38300,44 @@ $(document).ready(function () {
     } else {
       alert('You need to add top menu image');
     }
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/send-email-to-application-users.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/send-email-to-application-users.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.sendEmailToUsers = function (e) {
+    e.preventDefault();
+    var message = $('.js-admin-notification-message').val();
+    var form_data = new FormData();
+    form_data.append('message', message); // form_data.append('message');
+    // form_data.append('image');
+
+    $.ajax({
+      url: route('users.notify.all'),
+      type: "post",
+      data: form_data,
+      contentType: false,
+      cache: false,
+      processData: false,
+      success: function success(data) {
+        console.log(data.success);
+      } // error: console.log('greska pri uploadu slike')
+
+    }); // $.post(route('users.notify.all'),
+    //     {
+    //         message: message
+    //     }).done(function (data) {
+    //
+    //         console.log(data.success);
+    //     })
   };
 });
 

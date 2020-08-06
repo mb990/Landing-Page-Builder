@@ -23,4 +23,9 @@ class UserRepository
         return $this->user->where('slug', $slug)
             ->firstOrFail();
     }
+
+    public function usersWithoutAdmin()
+    {
+        return $this->user->doesntHave('roles')->get();
+    }
 }

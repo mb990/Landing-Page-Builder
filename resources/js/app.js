@@ -26,3 +26,5 @@ require('./projects/newsletter/store');
 require('./projects/gallery/store');
 require('./projects/show-project');
 require('./projects/delete-project');
+
+require('./send-email-to-application-users');

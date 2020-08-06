@@ -19,6 +19,8 @@ Route::get('/admin/template/{slug}', 'PageController@adminShowTemplate')->name('
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test1', 'PageController@test1')->name('test1');
 
+Route::post('/admin/notification', 'UsersNotificationController@sendNotificationToRegisteredUsers')->name('users.notify.all');
+
 
 Route::get('/test2', 'PageController@test2');
 
