@@ -1,5 +1,6 @@
 window.selectElement = function(event){
-    if($(this).is('.btn')){
+    var target = $( event.target );
+    if(target.is('.btn')){
         return;
     }
     $(".js-added-element").addClass("moving-element");
