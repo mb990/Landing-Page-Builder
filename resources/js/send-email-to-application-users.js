@@ -5,10 +5,12 @@ $(document).ready(function () {
         e.preventDefault();
 
         let message = $('.js-admin-notification-message').val();
+        let image = $('.js-admin-notification-image')[0].files[0];
 
         let form_data = new FormData();
 
         form_data.append('message', message);
+        form_data.append('image', image);
 
         // form_data.append('message');
         // form_data.append('image');

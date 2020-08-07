@@ -12,16 +12,18 @@ class ApplicationUsersNotification extends Notification implements ShouldQueue
     use Queueable;
 
     private $message;
+    private $imagePath;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($message)
+    public function __construct($message, $imagePath)
     {
         //
         $this->message = $message;
+        $this->imagePath = $imagePath;
     }
 
     /**
@@ -46,6 +48,7 @@ class ApplicationUsersNotification extends Notification implements ShouldQueue
         return (new MailMessage)
             ->greeting('Hello!')
             ->subject('A message from company admin')
+            ->markdown()
             ->line($this->message)
             ->from(env('MAIL_FROM_ADDRESS'))
             ->line('Thank you for using our application!');

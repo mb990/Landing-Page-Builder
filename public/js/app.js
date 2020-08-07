@@ -38316,8 +38316,10 @@ $(document).ready(function () {
   window.sendEmailToUsers = function (e) {
     e.preventDefault();
     var message = $('.js-admin-notification-message').val();
+    var image = $('.js-admin-notification-image')[0].files[0];
     var form_data = new FormData();
-    form_data.append('message', message); // form_data.append('message');
+    form_data.append('message', message);
+    form_data.append('image', image); // form_data.append('message');
     // form_data.append('image');
 
     $.ajax({

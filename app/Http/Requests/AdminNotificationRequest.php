@@ -31,7 +31,7 @@ class AdminNotificationRequest extends FormRequest
     {
         return [
             'message' => 'required',
-//            'image' => 'required|mimes:jpeg,jpg,png|max:100',
+            'image' => 'required|mimes:jpeg,jpg,png|max:100',
         ];
     }
 }
