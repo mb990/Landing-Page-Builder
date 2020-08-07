@@ -19,8 +19,8 @@ class UsersNotificationController extends Controller
 
     public function sendNotificationToRegisteredUsers(AdminNotificationRequest $request)
     {
-        $this->adminNotificationService->sendMessageToAllUsers($request);
+        $path = $this->adminNotificationService->sendMessageToAllUsers($request);
 
-        return response()->json(['success' => $request->input('message')]);
+        return response()->json(['success' => $path]);
     }
 }

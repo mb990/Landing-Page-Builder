@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProjectRequest;
 use App\Services\ProjectService;
-use Illuminate\Http\Request;
 
+/**
+ * Class ProjectController
+ * @package App\Http\Controllers
+ */
 class ProjectController extends Controller
 {
     /**
@@ -13,16 +16,27 @@ class ProjectController extends Controller
      */
     private $projectService;
 
+    /**
+     * ProjectController constructor.
+     * @param ProjectService $projectService
+     */
     public function __construct(ProjectService $projectService)
     {
         $this->projectService = $projectService;
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         return view('profile.base-project-html');
     }
 
+    /**
+     * @param StoreProjectRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(StoreProjectRequest $request)
     {
         $project = $this->projectService->store($request);
@@ -30,6 +44,10 @@ class ProjectController extends Controller
         return response()->json(['project' => $project]);
     }
 
+    /**
+     * @param $projectSlug
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function show($projectSlug)
     {
         $views = $this->projectService->showRenderedProjectComponentsWithData($projectSlug);
@@ -41,6 +59,9 @@ class ProjectController extends Controller
         return response()->json(['views' => $views, 'elements' => $elements]);
     }
 
+    /**
+     * @param $slug
+     */
     public function delete($slug)
     {
         $this->projectService->delete($slug);

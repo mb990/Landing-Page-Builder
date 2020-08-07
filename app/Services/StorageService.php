@@ -76,4 +76,21 @@ class StorageService
 
         return $data;
     }
+
+    public function storeAdminNotificationImage($request)
+    {
+        $data = [];
+
+        $image = $request->file('image');
+
+        $name = $request->image_name . '_' . time() . '.' . $image->getClientOriginalExtension();
+
+        $path = Storage::disk('local')->putFileAs('admin/notifications/' . uniqid(), $image, $name);
+
+        $data['path'] = $path;
+
+        $data['extension'] = $image->getClientOriginalExtension();
+
+        return $data;
+    }
 }

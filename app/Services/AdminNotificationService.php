@@ -4,7 +4,6 @@
 namespace App\Services;
 
 use App\Notifications\ApplicationUsersNotification;
-use Illuminate\Support\Facades\Notification;
 
 class AdminNotificationService
 {
@@ -12,17 +11,26 @@ class AdminNotificationService
      * @var UserService
      */
     private $userService;
+    /**
+     * @var StorageService
+     */
+    private $storageService;
 
-    public function __construct(UserService $userService)
+    public function __construct(UserService $userService, StorageService $storageService)
     {
         $this->userService = $userService;
+        $this->storageService = $storageService;
     }
 
     public function sendMessageToAllUsers($request)
     {
-        foreach ($this->userService->usersWithoutAdmin() as $user) {
+        $image = $this->storageService->storeAdminNotificationImage($request);
 
-            $user->notify(new ApplicationUsersNotification($request->input('message')));
-        }
+//        foreach ($this->userService->usersWithoutAdmin() as $user) {
+//
+//            $user->notify(new ApplicationUsersNotification($request->input('message')));
+//        }
+
+        return asset($image['path']);
     }
 }
