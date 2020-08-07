@@ -296,14 +296,7 @@
                 // $(".ui-state-default").mousedown(selectElement())
                 // $(".ui-state-default").mouseup(dropElement())
 
-                $(document).ready(function(){
-                    $(".ui-state-default").mouseup(function(){
-                        console.log("mouseup");
-                    });
-                    $(".ui-state-default").mousedown(function(){
-                        console.log("mousedown");
-                    });
-                    });
+
 
                 // $('.js-add-buttons').on("click", function(){
                     
@@ -386,6 +379,8 @@
             //     // });
             // })
             $('.js-reviews div:first').addClass('active');
+            $(document).on("mouseup", ".ui-state-default", dropElement);
+            $(document).on("mousedown", ".ui-state-default", selectElement);
         </script>
     </body>
 </html>
