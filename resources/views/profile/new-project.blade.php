@@ -61,8 +61,35 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="">
+                <div class="js-edit js-edit1">
                     @include('profile.edit-modals.edit-footer')
+                </div>
+                <div class="js-edit js-edit2">
+                    @include('profile.edit-modals.edit-gallery')
+                </div>
+                <div class="js-edit js-edit3">
+                    @include('profile.edit-modals.edit-general1')
+                </div>
+                <div class="js-edit js-edit4">
+                    @include('profile.edit-modals.edit-general2')
+                </div>
+                <div class="js-edit js-edit5">
+                    @include('profile.edit-modals.edit-general3')
+                </div>
+                <div class="js-edit js-edit6">
+                    @include('profile.edit-modals.edit-hero')
+                </div>
+                <div class="js-edit js-edit7">
+                    @include('profile.edit-modals.edit-pricing')
+                </div>
+                <div class="js-edit js-edit8">
+                    @include('profile.edit-modals.edit-subscribe')
+                </div>
+                <div class="js-edit js-edit9">
+                    @include('profile.edit-modals.edit-testimonials')
+                </div>
+                <div class="js-edit js-edit10">
+                    @include('profile.edit-modals.edit-top-menu')
                 </div>
             </div>
         </div>
@@ -380,6 +407,10 @@
             $('.js-reviews div:first').addClass('active');
             $(document).on("mousedown", ".ui-state-default", selectElement);
             $(document).on("mouseup", ".ui-state-default", dropElement);
+            $(document).ready(function(){
+                $('.js-edit').hide();
+
+            })
         </script>
     </body>
 </html>
