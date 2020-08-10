@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <input type="hidden" class="js-project-delete-slug" value="{{$project->slug}}">
                     <h5 class="card-title">{{ucfirst($project->name)}}</h5>
-                    <a href="{{route('user.project.show', [auth()->user()->slug, $project->slug])}}" class="btn btn-success">Open project</a>
+                    <a href="{{route('user.project.show', [auth()->user()->slug, $project->slug])}}" class="btn btn-success" target="blank">Open project</a>
                     <a type="btn" data-slug="{{$project->slug}}" class="btn btn-secondary text-white js-delete-project">Delete</a>
                 </div>
             </div>

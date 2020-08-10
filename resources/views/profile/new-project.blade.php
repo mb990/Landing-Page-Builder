@@ -12,8 +12,6 @@
         <script src="{{asset('js/drag&drop.js')}}"></script>
         <link rel="stylesheet" href="{{ asset('css/page_elements1.css') }}">
 
-
-
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -55,7 +53,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit element</h5>
+                <h5 class="modal-title" id="editModal">Edit element</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -346,10 +344,10 @@
 
                 window.createButtons = function(elementId){
                     $('.js-added-element').each(function () {
-                        // console.log(`div${index}: ${this.id}`);
-                        // x = `${index}: ${this.id}`;
-                        // console.log($('button.element-delete'))
-                        // console.log('delay done')
+                        if($(".ui-icon-arrowthick-2-n-s").is(":last-child")){
+                            console.log('tester')
+                            return;
+                        }
                         $('.js-added-element').addClass('ui-state-default')
                         $('.js-added-element').addClass('project-element')
                         $('button.element-delete').remove();
@@ -371,50 +369,7 @@
                         $('.js-selected-project-page-element-id').val($(this).attr('data-id'));
                     })
                 }
-
-
-                // $('.js-move-up').on("click", function(e){
-                //     e.preventDefault();
-                //     $(".move-up-2").insertBefore(".move-up-1");
-
-                // });
-                // $('ui-state-default').mousedown(function(){
-                //     $('ui-state-default').css('background-color', 'red')
-                // })
-
-                // $(".ui-state-default").mousedown(function(){
-                //     $(".ui-state-default").css('height', '10vh');
-                // });
-
-                // $(".ui-state-default").mousedown(function(){
-                //     if($(this).is('.btn')){
-                //         return;
-                //     }
-                //     $(".js-added-element").addClass("moving-element");
-                //     $(".js-added-element").children().addClass("d-none");
-                //     $(".ui-state-default").prepend("<p class='js-moving'>Test</p>");
-                //     console.log("mouse down")
-                // });
-                // $(".ui-state-default").mousedown(function(){
-
-                //     $(".js-added-element").removeClass("moving-element");
-                //     $(".js-added-element").children().removeClass("d-none");
-                //     $(".js-moving").remove();
-                //     console.log("mouse up")
-
-                // });
-
             });
-            // $(document).ready(function(){
-            //     $(".ui-state-default").mousedown(selectElement())
-            //     $(".ui-state-default").mouseup(dropElement())
-            //     // $(".ui-state-default").mouseup(function(){
-            //     //     $(".js-added-element").removeClass("moving-element");
-            //     //     $(".js-added-element").children().removeClass("d-none");
-            //     //     $(".js-moving").remove();
-
-            //     // });
-            // })
             $('.js-reviews div:first').addClass('active');
             $(document).on("mousedown", ".ui-state-default", selectElement);
             $(document).on("mouseup", ".ui-state-default", dropElement);

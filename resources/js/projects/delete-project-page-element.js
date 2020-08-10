@@ -11,9 +11,12 @@ $(document).ready(function () {
             type: 'delete',
             success: alert('Element is deleted')
         }).done(function () {
-            $(this).remove();
+            // e.target.parent().remove();
+            
         })
 
     }
-
+    $(document).on("click", ".element-delete", function() {
+        $(this).parent().remove(); 
+    });
 })
