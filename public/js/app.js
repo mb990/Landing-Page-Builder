@@ -37539,7 +37539,7 @@ $(document).ready(function () {
           console.log($('.js-gallery-delay-time').val());
           setTimeout(function () {
             $('.js-project-preview-elements').append(data.view);
-            createButtons();
+            createButtons(data.element.id);
           }, delayTime);
         });
       });
@@ -37620,7 +37620,7 @@ $(document).ready(function () {
           $.get(route('project.page-element.render-single', data.element.id)).done(function (data) {
             setTimeout(function () {
               $('.js-project-preview-elements').append(data.view);
-              createButtons();
+              createButtons(data.element.id);
             }, 1000);
           });
         }).fail(console.log('failed element'));
@@ -37703,7 +37703,7 @@ $(document).ready(function () {
           $.get(route('project.page-element.render-single', data.element.id)).done(function (data) {
             setTimeout(function () {
               $('.js-project-preview-elements').append(data.view);
-              createButtons();
+              createButtons(data.element.id);
             }, 1000);
           });
         }).fail(console.log('failed element'));
@@ -37823,7 +37823,7 @@ $(document).ready(function () {
           $.get(route('project.page-element.render-single', data.element.id)).done(function (data) {
             setTimeout(function () {
               $('.js-project-preview-elements').append(data.view);
-              createButtons();
+              createButtons(data.element.id);
             }, 1000);
           });
         }).fail(console.log('failed element'));
@@ -37904,7 +37904,7 @@ $(document).ready(function () {
           $.get(route('project.page-element.render-single', data.element.id)).done(function (data) {
             setTimeout(function () {
               $('.js-project-preview-elements').append(data.view);
-              createButtons();
+              createButtons(data.element.id);
             }, 1000);
           });
         }).fail(console.log('failed element'));
@@ -37949,7 +37949,7 @@ $(document).ready(function () {
         $.get(route('project.page-element.render-single', data.element.id)).done(function (data) {
           setTimeout(function () {
             $('.js-project-preview-elements').append(data.view);
-            createButtons();
+            createButtons(data.element.id);
           }, 1000);
         });
       });
@@ -38015,7 +38015,7 @@ $(document).ready(function () {
         $.get(route('project.page-element.render-single', data.element.id)).done(function (data) {
           setTimeout(function () {
             $('.js-project-preview-elements').append(data.view);
-            createButtons();
+            createButtons(data.element.id);
           }, 1000);
         });
       }).fail(console.log('failed element'));
@@ -38270,7 +38270,7 @@ $(document).ready(function () {
           $.get(route('project.page-element.render-single', $('.js-project-testimonial-page-element-id').val())).done(function (data) {
             console.log(data);
             $('.js-project-preview-elements').append(data.view);
-            createButtons();
+            createButtons(data.element.id);
           });
         }, delay_time); //     })
         //     .fail(console.log('failed element'));
@@ -38362,7 +38362,7 @@ $(document).ready(function () {
           $.get(route('project.page-element.render-single', data.element.id)).done(function (data) {
             setTimeout(function () {
               $('.js-project-preview-elements').append(data.view);
-              createButtons();
+              createButtons(data.element.id);
             }, 1000);
           });
         }).fail(console.log('failed element'));

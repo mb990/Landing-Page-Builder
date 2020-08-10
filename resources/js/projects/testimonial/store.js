@@ -152,7 +152,7 @@ $(document).ready(function () {
 
                                 console.log(data);
                                 $('.js-project-preview-elements').append(data.view);
-                                createButtons();
+                            createButtons(data.element.id);
                             });
                         }, delay_time);
                 //     })

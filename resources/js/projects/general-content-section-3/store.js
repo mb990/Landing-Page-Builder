@@ -145,7 +145,7 @@ $(document).ready(function () {
                             setTimeout(function () {
 
                                 $('.js-project-preview-elements').append(data.view);
-                                createButtons();
+                                createButtons(data.element.id);
                             }, 1000);
 
                         });
