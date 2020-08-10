@@ -7,20 +7,23 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class ApplicationUsersNotification extends Notification implements ShouldQueue
+class ProjectSubscribersNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
     private $message;
+    private $sender;
 
     /**
      * Create a new notification instance.
      *
-     * @return void
+     * @param $message
+     * @param $sender
      */
-    public function __construct($message)
+    public function __construct($message, $sender)
     {
         $this->message = $message;
+        $this->sender = $sender;
     }
 
     /**
@@ -46,7 +49,7 @@ class ApplicationUsersNotification extends Notification implements ShouldQueue
             ->greeting('Hello!')
             ->subject('A message from application admin')
             ->line($this->message)
-            ->from(env('MAIL_FROM_ADDRESS'))
+            ->from($this->sender)
             ->line('Thank you for using our application!');
     }
 

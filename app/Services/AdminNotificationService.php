@@ -24,13 +24,13 @@ class AdminNotificationService
 
     public function sendMessageToAllUsers($request)
     {
-        $image = $this->storageService->storeAdminNotificationImage($request);
+//        $image = $this->storageService->storeAdminNotificationImage($request);
 
-//        foreach ($this->userService->usersWithoutAdmin() as $user) {
-//
-//            $user->notify(new ApplicationUsersNotification($request->input('message')));
-//        }
+        foreach ($this->userService->usersWithoutAdmin() as $user) {
 
-        return asset($image['path']);
+            $user->notify(new ApplicationUsersNotification($request->input('message')));
+        }
+
+//        return asset($image['path']);
     }
 }

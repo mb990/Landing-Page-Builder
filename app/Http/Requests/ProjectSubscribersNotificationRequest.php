@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class AdminNotificationRequest extends FormRequest
+class ProjectSubscribersNotificationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class AdminNotificationRequest extends FormRequest
      */
     public function authorize()
     {
-        if (Auth::check() && auth()->user()->hasRole('admin')) {
+        if (Auth::check()) {
 
             return true;
         }
@@ -31,7 +31,7 @@ class AdminNotificationRequest extends FormRequest
     {
         return [
             'message' => 'required',
-//            'image' => 'required|mimes:jpeg,jpg,png|max:100',
+            'project_id' => 'required'
         ];
     }
 }

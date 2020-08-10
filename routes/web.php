@@ -31,6 +31,8 @@ Route::get('/profile/{userSlug}/project/{projectSlug}', 'ProjectController@index
 Route::get('/project/{slug}', 'ProjectController@show')->name('project.show');
 Route::get('/profile/template/{slug}', 'PageController@userShowTemplate')->name('user.template.show');
 
+Route::post('/subscribers/notification', 'SubscriberNotificationController@sendMessageToProjectSubscribers')->name('subscribers.notify.all');
+
 //Awesome Icons
 Route::get('/awesome-icons', 'AwesomeIconController@index')->name('awesome-icons.show');
 

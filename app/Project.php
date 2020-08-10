@@ -13,6 +13,8 @@ class Project extends Model
         'user_id', 'template_id', 'name', 'slug'
     ];
 
+    protected $with = ['subscribers'];
+
     public function template()
     {
         return $this->belongsTo(Template::class);
