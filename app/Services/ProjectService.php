@@ -231,13 +231,15 @@ class ProjectService
 
     public function showRenderedProjectSingleComponentWithData($id)
     {
-        $component = $this->pageElementService->find($id);
+        $pageData = [];
 
-        $data = $this->getComponentData($component);
+        $pageData['element'] = $this->pageElementService->find($id);
 
-        $view = $this->renderComponentView($component, $data);
+        $data = $this->getComponentData($pageData['element']);
 
-        return $view;
+        $pageData['view'] = $this->renderComponentView($pageData['element'], $data);
+
+        return $pageData;
     }
 
     public function showRenderedProjectComponentsWithData($slug)

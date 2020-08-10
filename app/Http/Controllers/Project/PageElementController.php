@@ -32,10 +32,17 @@ class PageElementController extends Controller
         return response()->json(['element' => $element, 'success' => 'Page element is created']);
     }
 
+    public function destroy(AuthRequest $request, $id)
+    {
+        $this->pageElementService->delete($id);
+
+        return response()->json(['success' => 'Element is deleted']);
+    }
+
     public function renderSingle($id)
     {
-        $view = $this->projectService->showRenderedProjectSingleComponentWithData($id);
+        $data = $this->projectService->showRenderedProjectSingleComponentWithData($id);
 
-        return response()->json(['view' => $view]);
+        return response()->json(['view' => $data['view'], 'element' => $data['element']]);
     }
 }

@@ -32,7 +32,7 @@
         } );
         </script>
         @routes
-        
+
     </head>
     <body>
         <header class="header-main-profile" style="background-color: white;">
@@ -184,6 +184,7 @@
 
         </main>
         <input type="hidden" class="js-project-page-element-type-id">
+        <input type="hidden" class="js-selected-project-page-element-id">
         <input type="hidden" class="js-project-testimonial-page-element-id">
         <input type="hidden" class="js-project-slug" name="js-project-slug" value="{{$project->slug}}">
         <input type="hidden" class="js-project-id" name="project-id" id="project-id" value="{{$project->id}}">
@@ -325,7 +326,7 @@
 
 
                 // $('.js-add-buttons').on("click", function(){
-                    
+
                 //     $('.js-added-element').each(function () {
                 //         // console.log(`div${index}: ${this.id}`);
                 //         // x = `${index}: ${this.id}`;
@@ -339,11 +340,11 @@
                 //         $('.js-added-element').append('<button class="btn btn-secondary element-delete" style="z-index:+2;">Delete element</button>');
                 //         $('.js-added-element').append('<button class="btn btn-secondary element-edit" data-toggle="modal" data-target="#editModal" style="z-index:+2;">Edit element</button>');
                 //         $('.js-added-element').append('<span class="ui-icon ui-icon-arrowthick-2-n-s" title="move element" style="position:absolute; top:10px;">');
-                        
+
                 //     });
                 // })
-                
-                window.createButtons = function(){
+
+                window.createButtons = function(elementId){
                     $('.js-added-element').each(function () {
                         // console.log(`div${index}: ${this.id}`);
                         // x = `${index}: ${this.id}`;
@@ -354,11 +355,21 @@
                         $('button.element-delete').remove();
                         $('button.element-edit').remove();
                         $('span.ui-icon-arrowthick-2-n-s').remove();
-                        $('.js-added-element').append('<button class="btn btn-secondary element-delete" style="z-index:+2;">Delete element</button>');
-                        $('.js-added-element').append('<button class="btn btn-secondary element-edit" data-toggle="modal" data-target="#editModal" style="z-index:+2;">Edit element</button>');
+                        $('.js-added-element').append('<button class="btn btn-secondary element-delete" data-id="'+ elementId +'" style="z-index:+2;">Delete element</button>');
+                        $('.js-added-element').append('<button class="btn btn-secondary element-edit" data-id="'+ elementId +'" data-toggle="modal" data-target="#editModal" style="z-index:+2;">Edit element</button>');
                         $('.js-added-element').append('<span class="ui-icon ui-icon-arrowthick-2-n-s" title="move element" style="position:absolute; top:10px;">');
-                        
+
+                        console.log('element-id: ' + elementId);
                     });
+
+                    $(document).on("click", ".element-delete", function(e){
+                        $('.js-selected-project-page-element-id').val($(this).attr('data-id'));
+                        deleteProjectElement(e);
+                    })
+
+                    $(document).on("click", ".element-edit", function(e){
+                        $('.js-selected-project-page-element-id').val($(this).attr('data-id'));
+                    })
                 }
 
 

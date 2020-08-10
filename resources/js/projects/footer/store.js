@@ -46,7 +46,7 @@ $(document).ready(function () {
                         // $('.js-added-element').append('<span class="ui-icon ui-icon-arrowthick-2-n-s" title="move element" style="position:absolute; top:10px;">');
                         // $(".ui-state-default").mousedown(window.selectElement);
                         // $(".ui-state-default").mouseup(window.dropElement);
-                        createButtons();
+                        createButtons(data.element.id);
                     })
             })
         })

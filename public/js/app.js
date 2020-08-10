@@ -37257,6 +37257,8 @@ __webpack_require__(/*! ./projects/top-menu/store */ "./resources/js/projects/to
 
 __webpack_require__(/*! ./projects/footer/store */ "./resources/js/projects/footer/store.js");
 
+__webpack_require__(/*! ./projects/delete-project-page-element */ "./resources/js/projects/delete-project-page-element.js");
+
 __webpack_require__(/*! ./projects/hero-section/store */ "./resources/js/projects/hero-section/store.js");
 
 __webpack_require__(/*! ./projects/general-content-section-1/store */ "./resources/js/projects/general-content-section-1/store.js");
@@ -37328,6 +37330,29 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/projects/delete-project-page-element.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/projects/delete-project-page-element.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.deleteProjectElement = function (e) {
+    var page_element_id = $('.js-selected-project-page-element-id').val();
+    e.preventDefault();
+    $.ajax({
+      url: route('project.page-element.delete', page_element_id),
+      type: 'delete',
+      success: alert('Element is deleted')
+    }).done(function () {
+      $(this).remove();
+    });
+  };
+});
+
+/***/ }),
+
 /***/ "./resources/js/projects/delete-project.js":
 /*!*************************************************!*\
   !*** ./resources/js/projects/delete-project.js ***!
@@ -37390,7 +37415,7 @@ $(document).ready(function () {
           // $(".ui-state-default").mousedown(window.selectElement);
           // $(".ui-state-default").mouseup(window.dropElement);
 
-          createButtons();
+          createButtons(data.element.id);
         });
       });
     });

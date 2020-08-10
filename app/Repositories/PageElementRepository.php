@@ -35,11 +35,21 @@ class PageElementRepository
 
     public function delete($id)
     {
-        $this->find($id)->delete();
+        try {
+            $element = $this->find($id);
+
+            $this->deletePageElementableForProjectSection($element);
+
+            $element->delete();
+        } catch (\Exception $e) {
+        }
     }
 
     public function deletePageElementableForProjectSection($projectSection)
     {
-        $projectSection->pageElementable->delete();
+        try {
+            $projectSection->pageElementable->delete();
+        } catch (\Exception $e) {
+        }
     }
 }
