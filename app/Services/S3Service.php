@@ -92,4 +92,20 @@ class S3Service
 
         return $url;
     }
+
+    /**
+     * @param $path
+     */
+    public function deleteImageItem($path)
+    {
+        try {
+            Storage::disk('s3')->delete($path);
+        } catch (\Exception $e) {
+        }
+    }
+
+    public function deleteVideoItem($path)
+    {
+        //
+    }
 }

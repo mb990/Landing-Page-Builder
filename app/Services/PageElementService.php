@@ -12,10 +12,20 @@ class PageElementService
      * @var PageElementRepository
      */
     private $pageElement;
+    /**
+     * @var S3Service
+     */
+    private $s3Service;
 
-    public function __construct(PageElementRepository $pageElement)
+    /**
+     * PageElementService constructor.
+     * @param PageElementRepository $pageElement
+     * @param S3Service $s3Service
+     */
+    public function __construct(PageElementRepository $pageElement, S3Service $s3Service)
     {
         $this->pageElement = $pageElement;
+        $this->s3Service = $s3Service;
     }
 
     public function find($id)
@@ -40,6 +50,40 @@ class PageElementService
 
     public function deletePageElementableForProjectSection($projectSection)
     {
+        if ($this->elementHasImages($projectSection)) {
+
+            $image = $projectSection->pageElementable->image;
+
+            $path = 'projects/' . $projectSection->project->name . '_' . $projectSection->project->id . '/' . $image->filename;;
+
+            $this->s3Service->deleteImageItem($path);
+        }
+
         return $this->pageElement->deletePageElementableForProjectSection($projectSection);
+    }
+
+    public function elementHasImages($element)
+    {
+        if (!$element->pageElementable->image) {
+
+            return false;
+        }
+
+        return true;
+    }
+
+    public function elementSubElementHasImages($element)
+    {
+        if (!$element->pageElementable->imageItem->image) {
+
+            return false;
+        }
+
+        else if (!$element->pageElementable->singleItem->image) {
+
+            return false;
+        }
+
+        return true;
     }
 }

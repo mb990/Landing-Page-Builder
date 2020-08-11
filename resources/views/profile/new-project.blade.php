@@ -347,7 +347,7 @@
                     $('.js-added-element').addClass('project-element')
                         if($(".project-element").is(":last-child")){
 
-                        
+
 
                         // $('button.element-delete').remove();
                         // $('button.element-edit').remove();
@@ -358,7 +358,7 @@
 
                         console.log('element-id: ' + elementId);
                         };
-                    
+
                     // $(document).on("click", ".element-delete", function(e){
                     //     $('.js-selected-project-page-element-id').val($(this).attr('data-id'));
                     //     deleteProjectElement(e);
