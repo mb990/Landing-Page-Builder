@@ -1,4 +1,4 @@
-<div class="card col-md-6 mt-5 mb-5 my-0 mx-auto js-added-element" style="background-color: lightgrey;">
+<div class="card col-md-6 mt-5 mb-5 my-0 mx-auto js-added-element js-testimonial-var" style="background-color: lightgrey;">
     <div style="text-align: center;"><h3>Testimonials</h3></div>
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="100000">
             <div class="w-100 carousel-inner js-reviews" role="listbox">

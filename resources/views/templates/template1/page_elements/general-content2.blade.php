@@ -1,4 +1,4 @@
-<div class="general-content js-added-element" style="background-color: lightgrey;">
+<div class="general-content js-added-element js-content2-var" style="background-color: lightgrey;">
     <section style="padding: 64px 0px;">
         <div class="container">
             <div class="row row-col">

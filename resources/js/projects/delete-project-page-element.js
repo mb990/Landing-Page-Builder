@@ -9,7 +9,7 @@ $(document).ready(function () {
         $.ajax({
             url: route('project.page-element.delete', page_element_id),
             type: 'delete',
-            success: alert('Element is deleted')
+            // success: alert('Element is deleted')
         }).done(function () {
             // e.target.parent().remove();
             

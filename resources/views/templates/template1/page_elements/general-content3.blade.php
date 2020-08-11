@@ -1,4 +1,4 @@
-<div class="general-content js-added-element">
+<div class="general-content js-added-element js-content3-var">
 
     <div class="row row-pad-all" style="margin: 0px;">
         @foreach($data->tiles as $tile)

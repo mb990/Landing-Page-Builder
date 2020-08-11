@@ -1,4 +1,4 @@
-<header class="header-addon js-added-element">
+<header class="header-addon js-added-element js-top-menu-var">
     <div style="flex-grow: 1;"><img class="header-logo" src="{{$image_url}}" ></div>
     <div class="header-links">
 
