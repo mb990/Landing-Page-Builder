@@ -24,7 +24,6 @@ $(document).ready(function () {
                 twitter_url: twitter
             }
         ).done(function (data) {
-
             // saving new footer element
             $.post(route('project.page-element.store', project_slug),
                 {
@@ -39,13 +38,6 @@ $(document).ready(function () {
 
                     ).done(function (data) {
                         $('.js-project-preview-elements').append(data.view);
-                        // $('.js-added-element').addClass('ui-state-default');
-                        // $('.js-added-element').addClass('project-element');
-                        // $('.js-added-element').append('<button  class="btn btn-secondary element-delete" style="z-index:+2;">Delete element</button>');
-                        // $('.js-added-element').append('<button  class="btn btn-secondary element-edit" data-toggle="modal" data-target="#editModal" style="z-index:+2;">Edit element</button>');
-                        // $('.js-added-element').append('<span class="ui-icon ui-icon-arrowthick-2-n-s" title="move element" style="position:absolute; top:10px;">');
-                        // $(".ui-state-default").mousedown(window.selectElement);
-                        // $(".ui-state-default").mouseup(window.dropElement);
                         createButtons(data.element.id);
                     })
             })
