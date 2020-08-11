@@ -26,38 +26,39 @@
             </div>
         </div>
     </div>
+    <script>
+        $('.js-reviews div:first').addClass('active');
+        $(document).ready(function(){
+            $("#customSwitches").on("click", function(){
+                $(".js-month").toggleClass("d-none");
+                $(".js-year").toggleClass("d-none");
+                $(".js-month-text").toggleClass("text-primary");
+                $(".js-year-text").toggleClass("text-primary");
+            })
+            $(function() {
+                $('.pop').on('click', function() {
+                    if($(this).find('img').attr('src') == "/img/video-logo.png"){
+                        $('.videopreview').attr('src', $(this).find('source').attr('src'));
+                        $('.imagepreview').hide();
+                        $('.videopreview').show();
+
+
+                    } else if($(this).find('img').attr('src') != "/img/video-logo.png"){
+                        $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+                        $('.imagepreview').show();
+                        $('.videopreview').hide()
+
+
+                    }
+                    $('#imagemodal').modal('show');
+                });
+            });
+
+            $("#imagemodal").on("hidden.bs.modal", function () {
+                $('.videopreview').attr('src', "/");
+            });
+        })
+    </script>
 </div>
 
-<script>
-    $('.js-reviews div:first').addClass('active');
-    $(document).ready(function(){
-        $("#customSwitches").on("click", function(){
-            $(".js-month").toggleClass("d-none");
-            $(".js-year").toggleClass("d-none");
-            $(".js-month-text").toggleClass("text-primary");
-            $(".js-year-text").toggleClass("text-primary");
-        })
-        $(function() {
-            $('.pop').on('click', function() {
-                if($(this).find('img').attr('src') == "/img/video-logo.png"){
-                    $('.videopreview').attr('src', $(this).find('source').attr('src'));
-                    $('.imagepreview').hide();
-                    $('.videopreview').show();
 
-
-                } else if($(this).find('img').attr('src') != "/img/video-logo.png"){
-                    $('.imagepreview').attr('src', $(this).find('img').attr('src'));
-                    $('.imagepreview').show();
-                    $('.videopreview').hide()
-
-
-                }
-                $('#imagemodal').modal('show');
-            });
-        });
-
-        $("#imagemodal").on("hidden.bs.modal", function () {
-            $('.videopreview').attr('src', "/");
-        });
-    })
-</script>

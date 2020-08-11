@@ -358,15 +358,15 @@
 
                         console.log('element-id: ' + elementId);
                         };
+                    
+                    $(document).on("click", ".element-delete", function(e){
+                        $('.js-selected-project-page-element-id').val($(this).attr('data-id'));
+                        deleteProjectElement(e);
+                    })
 
-                    // $(document).on("click", ".element-delete", function(e){
-                    //     $('.js-selected-project-page-element-id').val($(this).attr('data-id'));
-                    //     deleteProjectElement(e);
-                    // })
-
-                    // $(document).on("click", ".element-edit", function(e){
-                    //     $('.js-selected-project-page-element-id').val($(this).attr('data-id'));
-                    // })
+                    $(document).on("click", ".element-edit", function(e){
+                        $('.js-selected-project-page-element-id').val($(this).attr('data-id'));
+                    })
                 }
             });
             $('.js-reviews div:first').addClass('active');

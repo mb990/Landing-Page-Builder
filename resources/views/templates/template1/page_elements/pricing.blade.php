@@ -17,17 +17,18 @@
 
         </div>
     </div>
-</section>
-<script>
+    <script>
 
-    $(document).ready(function () {
+        $(document).ready(function () {
 
-        $("#customSwitches").on("click", function(){
-            $(".js-month").toggleClass("d-none");
-            $(".js-year").toggleClass("d-none");
-            $(".js-month-text").toggleClass("text-primary");
-            $(".js-year-text").toggleClass("text-primary");
+            $("#customSwitches").on("click", function(){
+                $(".js-month").toggleClass("d-none");
+                $(".js-year").toggleClass("d-none");
+                $(".js-month-text").toggleClass("text-primary");
+                $(".js-year-text").toggleClass("text-primary");
+            })
         })
-    })
 
-</script>
+    </script>
+</section>
+
