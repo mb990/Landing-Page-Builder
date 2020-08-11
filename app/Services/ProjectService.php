@@ -177,49 +177,19 @@ class ProjectService
         return false;
     }
 
-    public function componentHasAnImage($component)
-    {
-        if ($component->pageElementable->image) {
-
-            return true;
-        }
-
-        return false;
-    }
-
-    public function componentIsAGallery($component)
-    {
-        if ($component->page_elementable_type === GallerySettings::class) {
-
-            return true;
-        }
-
-        return false;
-    }
-
-    public function componentIsATestimonial($component)
-    {
-        if ($component->page_elementable_type === TestimonialSection::class) {
-
-            return true;
-        }
-
-        return false;
-    }
-
     public function renderComponentView($component, $data)
     {
-        if ($this->componentHasAnImage($component)) {
+        if ($this->pageElementService->elementHasImage($component)) {
 
             return $this->renderComponentViewWithBasicDataAndImage($component, $data);
         }
 
-        if ($this->componentIsAGallery($component)) {
+        if ($this->pageElementService->componentIsAGallery($component)) {
 
             return $this->renderComponentViewWithBasicDataOnly($component, $this->getGalleryData($component));
         }
 
-        if ($this->componentIsATestimonial($component)) {
+        if ($this->pageElementService->componentIsATestimonial($component)) {
 
             return $this->renderComponentViewWithBasicDataOnly($component, $this->getTestimonialData($component));
         }
