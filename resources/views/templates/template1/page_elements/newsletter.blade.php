@@ -1,4 +1,4 @@
-<section class="newsletter js-added-element js-testimonial-var">
+<section class="newsletter js-added-element js-newsletter-var">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
