@@ -357,6 +357,7 @@
                     $('.js-added-element').addClass('project-element')
                     $('.js-added-element').attr("data-order")
                         if($(".project-element").is(":last-child")){
+                        $('.js-added-element').last().attr("data-elementId", elementId);
                         $('.project-element').last().append('<button class="btn btn-secondary element-delete" data-id="'+ elementId +'" style="z-index:+2;">Delete element</button>');
                         $('.project-element').last().append('<button class="btn btn-secondary element-edit" data-id="'+ elementId +'" data-toggle="modal" data-target="#editModal" style="z-index:+2;">Edit element</button>');
                         $('.project-element').last().append('<span class="ui-icon ui-icon-arrowthick-2-n-s" title="move element" style="position:absolute; top:10px;">');
