@@ -103,7 +103,10 @@
 
 
 
-
+        <div style="text-align:center;">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add element</button>
+            <button type="button" class="btn btn-success d-none js-save-new-order">Save new order</button>
+        </div>
 
 
 
@@ -189,10 +192,6 @@
         <input type="hidden" class="js-project-name" name="project-name" id="project-name" value="{{$project->name}}">
         <input type="hidden" class="js-project-template-id" name="project-template-id" id="project-template-id" value="{{$project->template->id}}">
         <input type="hidden" class="js-project-template-name" name="template-name" id="template-name" value="{{$project->template->name}}">
-        <div style="text-align:center;">
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add element</button>
-            <button type="button" class="btn btn-success d-none js-save-new-order">Save new order</button>
-        </div>
 
 
         <!-- Modal -->
