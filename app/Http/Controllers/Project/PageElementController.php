@@ -19,19 +19,34 @@ class PageElementController extends Controller
      */
     private $projectService;
 
+    /**
+     * PageElementController constructor.
+     * @param PageElementService $pageElementService
+     * @param ProjectService $projectService
+     */
     public function __construct(PageElementService $pageElementService, ProjectService $projectService)
     {
         $this->pageElementService = $pageElementService;
         $this->projectService = $projectService;
     }
 
+    /**
+     * @param AuthRequest $request
+     * @param $slug
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(AuthRequest $request, $slug)
     {
-        $element = $this->pageElementService->store($request);
+        $element = $this->pageElementService->store($request, $this->projectService->find($request->input('project_id')));
 
         return response()->json(['element' => $element, 'success' => 'Page element is created']);
     }
 
+    /**
+     * @param AuthRequest $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function destroy(AuthRequest $request, $id)
     {
         $this->pageElementService->delete($id);
@@ -39,6 +54,10 @@ class PageElementController extends Controller
         return response()->json(['success' => 'Element is deleted']);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function renderSingle($id)
     {
         $data = $this->projectService->showRenderedProjectSingleComponentWithData($id);

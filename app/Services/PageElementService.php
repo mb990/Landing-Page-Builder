@@ -32,27 +32,46 @@ class PageElementService
         $this->s3Service = $s3Service;
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function find($id)
     {
         return $this->pageElement->find($id);
     }
 
-    public function store($request)
+    /**
+     * @param $request
+     * @return mixed
+     */
+    public function store($request, $project)
     {
-        $project = Project::find($request->input('project_id'));
+        if ($project->getElementWithHighestOrder()) {
 
-        $num = $project->getElementWithHighestOrder()->render_order;
+            $requestWithRenderOrder = $this->setRequestRenderOrderValueIfNotFirstElement($project, $request);
 
-        $request->merge(['render_order' => $num + 1]);
+            return $this->pageElement->store($requestWithRenderOrder);
+        }
+
+        $request->merge(['render_order' => 1]);
 
         return $this->pageElement->store($request);
     }
 
+    /**
+     * @param $request
+     * @param $id
+     * @return mixed
+     */
     public function update($request, $id)
     {
         return $this->pageElement->update($request, $id);
     }
 
+    /**
+     * @param $id
+     */
     public function delete($id)
     {
         $this->deleteElementS3Images($this->find($id));
@@ -60,6 +79,9 @@ class PageElementService
         return $this->pageElement->delete($id);
     }
 
+    /**
+     * @param $projectSection
+     */
     public function deletePageElementableForProjectSection($projectSection)
     {
         $this->deleteElementS3Images($projectSection);
@@ -67,6 +89,10 @@ class PageElementService
         return $this->pageElement->deletePageElementableForProjectSection($projectSection);
     }
 
+    /**
+     * @param $element
+     * @return bool
+     */
     public function elementHasImage($element)
     {
         if (!$element->pageElementable->image) {
@@ -77,6 +103,10 @@ class PageElementService
         return true;
     }
 
+    /**
+     * @param $component
+     * @return bool
+     */
     public function componentIsAGallery($component)
     {
         if ($component->page_elementable_type === GallerySettings::class) {
@@ -87,6 +117,10 @@ class PageElementService
         return false;
     }
 
+    /**
+     * @param $component
+     * @return bool
+     */
     public function componentIsATestimonial($component)
     {
         if ($component->page_elementable_type === TestimonialSection::class) {
@@ -156,5 +190,19 @@ class PageElementService
         }
 
         return $imagePaths;
+    }
+
+    /**
+     * @param $project
+     * @param $request
+     * @return mixed
+     */
+    public function setRequestRenderOrderValueIfNotFirstElement($project, $request)
+    {
+        $num = $project->getElementWithHighestOrder()->render_order;
+
+        $request->merge(['render_order' => $num + 1]);
+
+        return $request;
     }
 }

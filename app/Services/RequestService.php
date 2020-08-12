@@ -11,11 +11,19 @@ class RequestService
      */
     private $projectService;
 
+    /**
+     * RequestService constructor.
+     * @param ProjectService $projectService
+     */
     public function __construct(ProjectService $projectService)
     {
         $this->projectService = $projectService;
     }
 
+    /**
+     * @param $request
+     * @return mixed
+     */
     public function addProjectIdToRequest($request)
     {
         $project = $this->projectService->findBySlug($request->get('slug'));
