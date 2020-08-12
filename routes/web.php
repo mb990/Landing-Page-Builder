@@ -113,7 +113,7 @@ Route::post('/template/gallery-video-item', 'Template\GalleryVideoItemController
 //PROJECT
 
 Route::post('/project/new/{templateId}', 'ProjectController@store')->name('project.store');
-Route::delete('/project/{slug}', 'ProjectController@delete')->name('project.delete');
+Route::delete('/project/{slug}', 'ProjectController@destroy')->name('project.delete');
 
 //Page Element
 Route::post('/project/{slug}/page-element', 'Project\PageElementController@store')->name('project.page-element.store');

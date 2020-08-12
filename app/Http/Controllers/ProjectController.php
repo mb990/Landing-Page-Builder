@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProjectRequest;
+use App\Project;
 use App\Services\ProjectService;
 
 /**
@@ -62,7 +63,7 @@ class ProjectController extends Controller
     /**
      * @param $slug
      */
-    public function delete($slug)
+    public function destroy($slug)
     {
         $this->projectService->delete($slug);
     }

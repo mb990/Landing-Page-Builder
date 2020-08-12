@@ -14,7 +14,7 @@ class AddRenderOrderToPageElementsTable extends Migration
     public function up()
     {
         Schema::table('page_elements', function (Blueprint $table) {
-            $table->integer('render_order')->unique()->nullable()->after('blade_file');
+            $table->integer('render_order')->nullable()->after('blade_file');
         });
     }
 
