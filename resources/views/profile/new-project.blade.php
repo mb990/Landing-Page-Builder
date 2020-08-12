@@ -189,7 +189,10 @@
         <input type="hidden" class="js-project-name" name="project-name" id="project-name" value="{{$project->name}}">
         <input type="hidden" class="js-project-template-id" name="project-template-id" id="project-template-id" value="{{$project->template->id}}">
         <input type="hidden" class="js-project-template-name" name="template-name" id="template-name" value="{{$project->template->name}}">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add element</button>
+        <div style="text-align:center;">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add element</button>
+            <button type="button" class="btn btn-success d-none js-save-new-order">Save new order</button>
+        </div>
 
 
         <!-- Modal -->
@@ -354,12 +357,6 @@
                     $('.js-added-element').addClass('project-element')
                     $('.js-added-element').attr("data-order")
                         if($(".project-element").is(":last-child")){
-
-
-
-                        // $('button.element-delete').remove();
-                        // $('button.element-edit').remove();
-                        // $('span.ui-icon-arrowthick-2-n-s').remove();
                         $('.project-element').last().append('<button class="btn btn-secondary element-delete" data-id="'+ elementId +'" style="z-index:+2;">Delete element</button>');
                         $('.project-element').last().append('<button class="btn btn-secondary element-edit" data-id="'+ elementId +'" data-toggle="modal" data-target="#editModal" style="z-index:+2;">Edit element</button>');
                         $('.project-element').last().append('<span class="ui-icon ui-icon-arrowthick-2-n-s" title="move element" style="position:absolute; top:10px;">');
@@ -375,6 +372,7 @@
                     $(document).on("click", ".element-edit", function(e){
                         $('.js-selected-project-page-element-id').val($(this).attr('data-id'));
                     })
+
                     $('.js-added-element').each(function(index, value) {
                         console.log(`div${index}: ${this.id}`);
                         let x = index

@@ -38,6 +38,7 @@ window.selectElement = function(event){
         $(".js-top-menu-var").prepend("<p class='js-moving'>Top menu</p>");
     }
 
+    $(".js-save-new-order").removeClass('d-none')
 
 };
 
