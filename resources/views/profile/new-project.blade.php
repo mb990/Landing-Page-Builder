@@ -320,10 +320,10 @@
 
             })
 
-            $(document).ready(function() {
+            $(document).ready(function(e) {
                 $(document).on("click", '.element-edit', function(){
                     if($(this).has('.js-footer-var')){
-                        
+
                     }
                     x = $(this).attr("data-id")
                     alert(x)
@@ -363,7 +363,7 @@
                         $('.project-element').last().append('<span class="ui-icon ui-icon-arrowthick-2-n-s" title="move element" style="position:absolute; top:10px;">');
 
                         console.log('element-id: ' + elementId);
-                        };
+                        }
 
                     $(document).on("click", ".element-delete", function(e){
                         $('.js-selected-project-page-element-id').val($(this).attr('data-id'));
@@ -376,10 +376,23 @@
 
                     $('.js-added-element').each(function(index, value) {
                         console.log(`div${index}: ${this.id}`);
-                        let x = index
+                        let x = index + 1;
                         $(this).attr("data-order", x);
                     });
                 }
+
+                $('.js-save-new-order').click(function (e) {
+
+                    $('.js-added-element').each(function() {
+
+                        let elementId = $(this).attr("data-elementId");
+                        let render_order = $(this).attr("data-order");
+
+                        updateProjectElementRenderOrderValue(e, render_order, elementId);
+                    })
+
+                });
+
             });
             $('.js-reviews div:first').addClass('active');
             $(document).on("mousedown", ".ui-state-default", selectElement);

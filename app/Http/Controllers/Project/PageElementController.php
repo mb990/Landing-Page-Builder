@@ -47,6 +47,18 @@ class PageElementController extends Controller
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
+    public function update(AuthRequest $request, $id)
+    {
+        $element = $this->pageElementService->update($request, $id);
+
+        return response()->json(['element' => $element, 'success' => 'Page element is updated']);
+    }
+
+    /**
+     * @param AuthRequest $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function destroy(AuthRequest $request, $id)
     {
         $this->pageElementService->delete($id);

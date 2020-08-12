@@ -37259,6 +37259,8 @@ __webpack_require__(/*! ./projects/footer/store */ "./resources/js/projects/foot
 
 __webpack_require__(/*! ./projects/delete-project-page-element */ "./resources/js/projects/delete-project-page-element.js");
 
+__webpack_require__(/*! ./projects/update-element-render-order */ "./resources/js/projects/update-element-render-order.js");
+
 __webpack_require__(/*! ./projects/hero-section/store */ "./resources/js/projects/hero-section/store.js");
 
 __webpack_require__(/*! ./projects/general-content-section-1/store */ "./resources/js/projects/general-content-section-1/store.js");
@@ -38368,6 +38370,30 @@ $(document).ready(function () {
     } else {
       alert('You need to add top menu image');
     }
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/update-element-render-order.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/projects/update-element-render-order.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.updateProjectElementRenderOrderValue = function (e, orderValue, elementId) {
+    e.preventDefault();
+    $.ajax({
+      url: route('project.page-element.update', elementId),
+      data: {
+        render_order: orderValue
+      },
+      type: 'put'
+    }).done(function (data) {
+      console.log(data);
+    });
   };
 });
 

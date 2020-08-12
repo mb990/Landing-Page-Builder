@@ -117,6 +117,7 @@ Route::delete('/project/{slug}', 'ProjectController@destroy')->name('project.del
 
 //Page Element
 Route::post('/project/{slug}/page-element', 'Project\PageElementController@store')->name('project.page-element.store');
+Route::put('/project/{id}/page-element', 'Project\PageElementController@update')->name('project.page-element.update');
 Route::get('/page-element/{id}', 'Project\PageElementController@renderSingle')->name('project.page-element.render-single');
 Route::delete('/page-element/{id}', 'Project\PageElementController@destroy')->name('project.page-element.delete');
 

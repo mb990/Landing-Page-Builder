@@ -48,7 +48,7 @@ window.dropElement = function(){
     $(".js-moving").remove();
     $('.js-added-element').each(function(index, value) {
         console.log(`div${index}: ${this.id}`);
-        let x = index
+        let x = index + 1;
         $(this).attr("data-order", x);
     });
 };
