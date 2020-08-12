@@ -10,6 +10,8 @@ class GalleryVideoItem extends Model
         'gallery_settings_id', 'blade_file', 'url', 'filename'
     ];
 
+    protected $with = ['gallery'];
+
     public function gallery()
     {
         return $this->belongsTo(GallerySettings::class);

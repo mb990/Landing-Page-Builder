@@ -27,4 +27,16 @@ class GallerySettings extends Model
     {
         return $this->hasMany(GalleryVideoItem::class);
     }
+
+    public function hasImage()
+    {
+        return $this->imageItems()
+            ->get();
+    }
+
+    public function hasVideo()
+    {
+        return $this->videoItems()
+            ->get();
+    }
 }

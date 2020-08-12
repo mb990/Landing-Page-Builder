@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Storage;
 class S3Service
 {
 
+    /**
+     * @param $imageName
+     * @param $extension
+     * @param $imagePath
+     * @param $storingPath
+     */
     public function storeImage($imageName, $extension, $imagePath, $storingPath)
     {
         UploadImageToS3Disk::dispatch($imageName, $extension, $imagePath, $storingPath)
@@ -61,6 +67,12 @@ class S3Service
         return $url;
     }
 
+    /**
+     * @param $template
+     * @param $video
+     * @param $minutes
+     * @return mixed
+     */
     public function showGalleryVideo($template, $video, $minutes)
     {
         $videoName = $this->getVideoFileName($video);
@@ -70,6 +82,10 @@ class S3Service
         return $url;
     }
 
+    /**
+     * @param $video
+     * @return string|string[]
+     */
     public function getVideoFileName($video)
     {
         $videoName = pathinfo($video->filename, PATHINFO_FILENAME);
@@ -77,6 +93,11 @@ class S3Service
         return $videoName;
     }
 
+    /**
+     * @param $path
+     * @param $minutes
+     * @return mixed
+     */
     public function showProjectImage($path, $minutes)
     {
         $url = Storage::disk('s3')->temporaryUrl($path, Carbon::now()->addMinutes($minutes));
@@ -84,6 +105,12 @@ class S3Service
         return $url;
     }
 
+    /**
+     * @param $path
+     * @param $video
+     * @param $minutes
+     * @return mixed
+     */
     public function showProjectGalleryVideo($path, $video, $minutes)
     {
         $videoName = $this->getVideoFileName($video);
@@ -104,8 +131,14 @@ class S3Service
         }
     }
 
+    /**
+     * @param $path
+     */
     public function deleteVideoItem($path)
     {
-        //
+        try {
+            Storage::disk('s3')->delete($path);
+        } catch (\Exception $e) {
+        }
     }
 }

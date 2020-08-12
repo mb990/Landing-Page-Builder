@@ -74,7 +74,7 @@ class PageElementService
      */
     public function delete($id)
     {
-        $this->deleteElementS3Images($this->find($id));
+        $this->deleteElementS3Items($this->find($id));
 
         return $this->pageElement->delete($id);
     }
@@ -84,7 +84,7 @@ class PageElementService
      */
     public function deletePageElementableForProjectSection($projectSection)
     {
-        $this->deleteElementS3Images($projectSection);
+        $this->deleteElementS3Items($projectSection);
 
         return $this->pageElement->deletePageElementableForProjectSection($projectSection);
     }
@@ -134,7 +134,7 @@ class PageElementService
     /**
      * @param PageElement $projectSection
      */
-    public function deleteElementS3Images(PageElement $projectSection): void
+    public function deleteElementS3Items(PageElement $projectSection): void
     {
         if ($this->elementHasImage($projectSection)) {
 
@@ -143,10 +143,19 @@ class PageElementService
 
         if ($this->componentIsAGallery($projectSection)) {
 
-            foreach ($this->getProjectElementImagePath($projectSection) as $imagePath) {
+            if ($projectSection->pageElementable->hasImage()) {
 
-                $this->s3Service->deleteImageItem($imagePath);
+                foreach ($this->getProjectElementImagePath($projectSection) as $imagePath) {
+
+                    $this->s3Service->deleteImageItem($imagePath);
+                }
             }
+
+            if ($projectSection->pageElementable->hasVideo()) {
+
+                $this->deleteElementS3Videos($projectSection);
+            }
+
         }
 
         if ($this->componentIsATestimonial($projectSection)) {
@@ -158,6 +167,27 @@ class PageElementService
         }
     }
 
+    /**
+     * @param PageElement $element
+     */
+    public function deleteElementS3Videos(PageElement $element)
+    {
+        foreach ($element->pageElementable->videoItems as $videoItem) {
+
+//            $path = $this->getProjectElementVideoPath($element);
+
+            $videoName = $this->s3Service->getVideoFileName($videoItem);
+
+            $videoPath = 'projects/' . $element->project->name . '_' . $element->project->id . '/gallery/videos/' . $videoName . '.mp4';
+
+            $this->s3Service->deleteVideoItem($videoPath);
+        }
+    }
+
+    /**
+     * @param $element
+     * @return array|string
+     */
     public function getProjectElementImagePath($element)
     {
         if ($this->elementHasImage($element)) {
@@ -190,6 +220,21 @@ class PageElementService
         }
 
         return $imagePaths;
+    }
+
+    /**
+     * @param $videoItem
+     * @return string
+     */
+    public function getProjectElementVideoPath($videoItem)
+    {
+        $element = $videoItem->gallery->pageElement;
+
+        $videoName = $this->s3Service->getVideoFileName($videoItem);
+
+        $videoPath = 'projects/' . $element->project->name . '_' . $element->project->id . '/gallery/videos/' . $videoName . '.mp4';
+
+        return $videoPath;
     }
 
     /**
