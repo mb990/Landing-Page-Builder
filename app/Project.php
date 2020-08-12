@@ -13,7 +13,7 @@ class Project extends Model
         'user_id', 'template_id', 'name', 'slug'
     ];
 
-    protected $with = ['subscribers'];
+    protected $with = ['pageElements', 'subscribers'];
 
     public function template()
     {
@@ -41,6 +41,13 @@ class Project extends Model
             ->with('pageElementable')
             ->oldest()
             ->get();
+    }
+
+    public function getElementWithHighestOrder()
+    {
+        return $this->pageElements()
+            ->orderBy('render_order', 'desc')
+            ->first();
     }
 
     public function sluggable()

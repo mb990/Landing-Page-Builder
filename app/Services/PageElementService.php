@@ -6,6 +6,7 @@ namespace App\Services;
 
 use App\GallerySettings;
 use App\PageElement;
+use App\Project;
 use App\Repositories\PageElementRepository;
 use App\TestimonialSection;
 
@@ -38,6 +39,12 @@ class PageElementService
 
     public function store($request)
     {
+        $project = Project::find($request->input('project_id'));
+
+        $num = $project->getElementWithHighestOrder()->render_order;
+
+        $request->merge(['render_order' => $num + 1]);
+
         return $this->pageElement->store($request);
     }
 
