@@ -45,4 +45,7 @@ window.dropElement = function(){
     $(".js-added-element").removeClass("moving-element");
     $(".js-added-element").children().removeClass("d-none");
     $(".js-moving").remove();
+    $('.js-added-element').each(function(index, value) {
+        console.log(`div${index}: ${this.id}`);
+    });
 };

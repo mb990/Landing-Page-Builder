@@ -374,7 +374,6 @@
             $(document).on("mouseup", dropElement);
             $(document).ready(function(){
                 $('.js-edit').hide();
-
             })
         </script>
     </body>
