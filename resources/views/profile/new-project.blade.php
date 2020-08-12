@@ -371,7 +371,7 @@
             });
             $('.js-reviews div:first').addClass('active');
             $(document).on("mousedown", ".ui-state-default", selectElement);
-            $(document).on("mouseup", ".ui-state-default", dropElement);
+            $(document).on("mouseup", dropElement);
             $(document).ready(function(){
                 $('.js-edit').hide();
 
