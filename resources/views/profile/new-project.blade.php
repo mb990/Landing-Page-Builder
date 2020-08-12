@@ -345,6 +345,7 @@
                 window.createButtons = function(elementId){
                     $('.js-added-element').addClass('ui-state-default')
                     $('.js-added-element').addClass('project-element')
+                    $('.js-added-element').attr("data-order")
                         if($(".project-element").is(":last-child")){
 
 
@@ -367,6 +368,11 @@
                     $(document).on("click", ".element-edit", function(e){
                         $('.js-selected-project-page-element-id').val($(this).attr('data-id'));
                     })
+                    $('.js-added-element').each(function(index, value) {
+                        console.log(`div${index}: ${this.id}`);
+                        let x = index
+                        $(this).attr("data-order", x);
+                    });
                 }
             });
             $('.js-reviews div:first').addClass('active');

@@ -10,7 +10,7 @@ class PageElement extends Model
     use CascadeDelete;
 
     protected $fillable = [
-        'page_element_type_id', 'page_elementable_id', 'page_elementable_type', 'project_id', 'template_id', 'blade_file, render_order'
+        'page_element_type_id', 'page_elementable_id', 'page_elementable_type', 'project_id', 'template_id', 'blade_file', 'render_order'
     ];
 
     protected $cascadeDeleteMorph = ['pageElementable'];
