@@ -318,6 +318,13 @@
             })
 
             $(document).ready(function() {
+                $(document).on("click", '.element-edit', function(){
+                    if($(this).has('.js-footer-var')){
+                        
+                    }
+                    x = $(this).attr("data-id")
+                    alert(x)
+                })
                 // $(".ui-state-default").mousedown(selectElement())
                 // $(".ui-state-default").mouseup(dropElement())
 
