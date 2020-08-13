@@ -10,14 +10,14 @@ $(document).ready(function () {
             $('.js-project-edit-general-content-three-button-value').val(data.settings.page_elementable.button_value);
 
 
-            data.settings.page_elementable.bulletPoints.each(function (e, i) {
+            $.each(data.settings.page_elementable.bulletPoints, function (e, i) {
 
                 $(".js-project-edit-general-content-three-bullet-point-title-" + (e + 1)).val(i.title);
                 $(".js-project-edit-general-content-three-bullet-point-text-" + (e + 1)).val(i.text);
 
             })
 
-            data.settings.page_elementable.titles.each(function (e, i) {
+            $.each(data.settings.page_elementable.titles, function (e, i) {
 
                 $(".js-project-general-content-three-tile-title-" + (e + 1)).val(i.title);
                 $(".js-project-general-content-three-tile-text-" + (e + 1)).val(i.text);

@@ -37279,6 +37279,8 @@ __webpack_require__(/*! ./projects/testimonial/store */ "./resources/js/projects
 
 __webpack_require__(/*! ./projects/pricing-section/store */ "./resources/js/projects/pricing-section/store.js");
 
+__webpack_require__(/*! ./projects/pricing-section/set-settings-values */ "./resources/js/projects/pricing-section/set-settings-values.js");
+
 __webpack_require__(/*! ./projects/newsletter/store */ "./resources/js/projects/newsletter/store.js");
 
 __webpack_require__(/*! ./projects/newsletter/set-settings-values */ "./resources/js/projects/newsletter/set-settings-values.js");
@@ -37910,6 +37912,7 @@ $(document).ready(function () {
         setFooterSettingsValues(data);
         setNewsletterSettingsValues(data);
         setGeneralContentThreeSettingsValues(data);
+        setPricingSettingsValues(data);
       }
     });
   };
@@ -38053,6 +38056,34 @@ $(document).ready(function () {
         });
       });
     });
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/pricing-section/set-settings-values.js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/projects/pricing-section/set-settings-values.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.setPricingSettingsValues = function (data) {
+    if (data.settings.page_elementable_type === 'App\\PricingSection') {
+      console.log('unutar pricing section if-a');
+      $.each(data.settings.page_elementable.single_items, function (e, i) {
+        console.log(i + ' ovo je price settings neki');
+        $('.js-project-edit-pricing-name-' + (e + 1)).val(i.name);
+        $('.js-project-edit-pricing-year-' + (e + 1)).val(i.yearly_price);
+        $('.js-project-edit-pricing-month-' + (e + 1)).val(i.monthly_price);
+        $('.js-project-edit-pricing-discount-' + (e + 1)).val(i.discount_amount);
+        $.each(i.benefits, function (u, j) {
+          console.log(j + ' ovo je benefit');
+          $('.project-edit-benefit-' + (e + 1) + '-' + (u + 1)).val(j.description);
+        });
+      });
+    }
   };
 });
 

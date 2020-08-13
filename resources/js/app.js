@@ -27,6 +27,7 @@ require('./projects/general-content-section-3/store');
 require('./projects/general-content-section-3/set-settings-values');
 require('./projects/testimonial/store');
 require('./projects/pricing-section/store');
+require('./projects/pricing-section/set-settings-values');
 require('./projects/newsletter/store');
 require('./projects/newsletter/set-settings-values');
 require('./projects/gallery/store');

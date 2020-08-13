@@ -15,6 +15,7 @@ $(document).ready(function () {
                 setFooterSettingsValues(data);
                 setNewsletterSettingsValues(data);
                 setGeneralContentThreeSettingsValues(data);
+                setPricingSettingsValues(data);
             }
 
         })
