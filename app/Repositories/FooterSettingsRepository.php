@@ -25,7 +25,7 @@ class FooterSettingsRepository
 
     public function find($id)
     {
-        return $this->footerSettings->find($id);
+        return $this->footerSettings->findOrFail($id);
     }
 
     public function store($request)
