@@ -9,6 +9,9 @@ window.selectElement = function(event){
     if(target.is('.ico')){
         return;
     }
+    if(target.is('.pop')){
+        return;
+    }
 
     $(".js-added-element").addClass("moving-element");
     $(".js-added-element").children().addClass("d-none");
