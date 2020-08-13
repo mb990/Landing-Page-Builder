@@ -81,9 +81,9 @@
 {{--                <div class="js-edit js-edit7" style="display:none;">--}}
 {{--                    @include('profile.edit-modals.edit-pricing')--}}
 {{--                </div>--}}
-{{--                <div class="js-edit js-edit8" style="display:none;">--}}
-{{--                    @include('profile.edit-modals.edit-subscribe')--}}
-{{--                </div>--}}
+                <div class="js-edit js-edit8" style="display:none;">
+                    @include('profile.edit-modals.edit-subscribe')
+                </div>
 {{--                <div class="js-edit js-edit9" style="display:none;">--}}
 {{--                    @include('profile.edit-modals.edit-testimonials')--}}
 {{--                </div>--}}
