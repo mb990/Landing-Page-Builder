@@ -18,6 +18,8 @@ $(document).ready(function () {
                 setPricingSettingsValues(data);
                 setHeroSectionSettingsValues(data);
                 setGeneralContentOneSettingsValues(data);
+                setGeneralContentTwoSettingsValues(data);
+                setTopMenuSettingsValues(data);
             }
 
         })

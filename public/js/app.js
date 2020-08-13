@@ -37255,6 +37255,8 @@ __webpack_require__(/*! ./projects/store-project */ "./resources/js/projects/sto
 
 __webpack_require__(/*! ./projects/top-menu/store */ "./resources/js/projects/top-menu/store.js");
 
+__webpack_require__(/*! ./projects/top-menu/set-settings-values */ "./resources/js/projects/top-menu/set-settings-values.js");
+
 __webpack_require__(/*! ./projects/footer/store */ "./resources/js/projects/footer/store.js");
 
 __webpack_require__(/*! ./projects/footer/set-settings-values */ "./resources/js/projects/footer/set-settings-values.js");
@@ -37274,6 +37276,8 @@ __webpack_require__(/*! ./projects/general-content-section-1/store */ "./resourc
 __webpack_require__(/*! ./projects/general-content-section-1/set-settings-values */ "./resources/js/projects/general-content-section-1/set-settings-values.js");
 
 __webpack_require__(/*! ./projects/general-content-section-2/store */ "./resources/js/projects/general-content-section-2/store.js");
+
+__webpack_require__(/*! ./projects/general-content-section-2/set-settings-values */ "./resources/js/projects/general-content-section-2/set-settings-values.js");
 
 __webpack_require__(/*! ./projects/general-content-section-3/store */ "./resources/js/projects/general-content-section-3/store.js");
 
@@ -37688,6 +37692,27 @@ $(document).ready(function () {
 
 /***/ }),
 
+/***/ "./resources/js/projects/general-content-section-2/set-settings-values.js":
+/*!********************************************************************************!*\
+  !*** ./resources/js/projects/general-content-section-2/set-settings-values.js ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.setGeneralContentTwoSettingsValues = function (data) {
+    if (data.settings.page_elementable_type === 'App\\GeneralContentTwoSettings') {
+      $('.js-project-edit-general-content-two-title').val(data.settings.page_elementable.title);
+      $('.js-project-edit-general-content-two-text').val(data.settings.page_elementable.text);
+      $('.js-project-edit-general-content-two-link').val(data.settings.page_elementable.link_url);
+      $('.js-project-edit-general-content-two-button').val(data.settings.page_elementable.button_value);
+      $('.js-project-edit-general-content-two-image-filename').val(data.settings.page_elementable.image.filename);
+    }
+  };
+});
+
+/***/ }),
+
 /***/ "./resources/js/projects/general-content-section-2/store.js":
 /*!******************************************************************!*\
   !*** ./resources/js/projects/general-content-section-2/store.js ***!
@@ -37940,6 +37965,8 @@ $(document).ready(function () {
         setPricingSettingsValues(data);
         setHeroSectionSettingsValues(data);
         setGeneralContentOneSettingsValues(data);
+        setGeneralContentTwoSettingsValues(data);
+        setTopMenuSettingsValues(data);
       }
     });
   };
@@ -38118,15 +38145,12 @@ $(document).ready(function () {
 $(document).ready(function () {
   window.setPricingSettingsValues = function (data) {
     if (data.settings.page_elementable_type === 'App\\PricingSection') {
-      console.log('unutar pricing section if-a');
       $.each(data.settings.page_elementable.single_items, function (e, i) {
-        console.log(i + ' ovo je price settings neki');
         $('.js-project-edit-pricing-name-' + (e + 1)).val(i.name);
         $('.js-project-edit-pricing-year-' + (e + 1)).val(i.yearly_price);
         $('.js-project-edit-pricing-month-' + (e + 1)).val(i.monthly_price);
         $('.js-project-edit-pricing-discount-' + (e + 1)).val(i.discount_amount);
         $.each(i.benefits, function (u, j) {
-          console.log(j + ' ovo je benefit');
           $('.project-edit-benefit-' + (e + 1) + '-' + (u + 1)).val(j.description);
         });
       });
@@ -38453,6 +38477,27 @@ $(document).ready(function () {
         //     .fail(console.log('failed element'));
 
         console.log(delay_time);
+      });
+    }
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/top-menu/set-settings-values.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/projects/top-menu/set-settings-values.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.setTopMenuSettingsValues = function (data) {
+    if (data.settings.page_elementable_type === 'App\\TopMenuSettings') {
+      $('.js-project-edit-top-menu-image-filename').val(data.settings.page_elementable.image.filename);
+      $.each(data.settings.page_elementable.links, function (e, i) {
+        $(".top-menu-edit-link-" + (e + 1)).val(i.url);
+        $(".top-menu-edit-title-" + (e + 1)).val(i.title);
       });
     }
   };
