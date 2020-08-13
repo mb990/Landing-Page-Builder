@@ -63,31 +63,31 @@
                 <div class="js-edit js-edit1" style="display:none;">
                     @include('profile.edit-modals.edit-footer')
                 </div>
-{{--                <div class="js-edit js-edit2">--}}
-{{--                    @include('profile.edit-modals.edit-gallery')--}}
-{{--                </div>--}}
-{{--                <div class="js-edit js-edit3">--}}
+                <div class="js-edit js-edit2" style="display:none;">
+                    @include('profile.edit-modals.edit-gallery')
+                </div>
+{{--                <div class="js-edit js-edit3" style="display:none;">--}}
 {{--                    @include('profile.edit-modals.edit-general1')--}}
 {{--                </div>--}}
-{{--                <div class="js-edit js-edit4">--}}
+{{--                <div class="js-edit js-edit4" style="display:none;">--}}
 {{--                    @include('profile.edit-modals.edit-general2')--}}
 {{--                </div>--}}
-{{--                <div class="js-edit js-edit5">--}}
+{{--                <div class="js-edit js-edit5" style="display:none;">--}}
 {{--                    @include('profile.edit-modals.edit-general3')--}}
 {{--                </div>--}}
-{{--                <div class="js-edit js-edit6">--}}
+{{--                <div class="js-edit js-edit6" style="display:none;">--}}
 {{--                    @include('profile.edit-modals.edit-hero')--}}
 {{--                </div>--}}
-{{--                <div class="js-edit js-edit7">--}}
+{{--                <div class="js-edit js-edit7" style="display:none;">--}}
 {{--                    @include('profile.edit-modals.edit-pricing')--}}
 {{--                </div>--}}
-{{--                <div class="js-edit js-edit8">--}}
+{{--                <div class="js-edit js-edit8" style="display:none;">--}}
 {{--                    @include('profile.edit-modals.edit-subscribe')--}}
 {{--                </div>--}}
-{{--                <div class="js-edit js-edit9">--}}
+{{--                <div class="js-edit js-edit9" style="display:none;">--}}
 {{--                    @include('profile.edit-modals.edit-testimonials')--}}
 {{--                </div>--}}
-{{--                <div class="js-edit js-edit10">--}}
+{{--                <div class="js-edit js-edit10" style="display:none;">--}}
 {{--                    @include('profile.edit-modals.edit-top-menu')--}}
 {{--                </div>--}}
             </div>
@@ -96,7 +96,12 @@
 </div>
 
 
-
+<!-- <div id="footer-edit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="edit-footer" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      </div>
+    </div>
+  </div> -->
 
 
 
@@ -105,6 +110,7 @@
 
 
         <div style="text-align:center;">
+            <!-- <a href="edit-footer.blade.php" data-toggle="modal" data-target="#footer-edit">Lab 6</a> -->
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add element</button>
             <button type="button" class="btn btn-success d-none js-save-new-order">Save new order</button>
         </div>
@@ -209,16 +215,6 @@
             <span>Select element</span>
             <select id="select" class="js-get-elements-types-project">
                 <option value="" selected disabled>Choose element</option>
-{{--                <option value="1">Top menu</option>--}}
-{{--                <option value="2">Hero section</option>--}}
-{{--                <option value="3">General content 1</option>--}}
-{{--                <option value="4">General content 2</option>--}}
-{{--                <option value="5">General content 3</option>--}}
-{{--                <option value="6">Pricing</option>--}}
-{{--                <option value="7">Testimonials</option>--}}
-{{--                <option value="8">Gallery</option>--}}
-{{--                <option value="9">Subscribe</option>--}}
-{{--                <option value="10">Footer</option>--}}
             </select>
 
             <div class="js-modal-content js-content-10">
@@ -260,9 +256,6 @@
             <div class="js-modal-content js-content-1">
                 @include('profile.modals.footer-modal')
             </div>
-
-
-
 
             </div>
 
@@ -409,6 +402,33 @@
                     $(".js-edit").hide();
                     if($(this).parent().hasClass("js-footer-var")){
                         $(".js-edit1").show();
+                    }
+                    if($(this).parent().hasClass("js-gallery-var")){
+                        $(".js-edit2").show();
+                    }
+                    if($(this).parent().hasClass("js-content1-var")){
+                        $(".js-edit3").show();
+                    }
+                    if($(this).parent().hasClass("js-content2-var")){
+                        $(".js-edit4").show();
+                    }
+                    if($(this).parent().hasClass("js-content3-var")){
+                        $(".js-edit5").show();
+                    }
+                    if($(this).parent().hasClass("js-hero-var")){
+                        $(".js-edit6").show();
+                    }
+                    if($(this).parent().hasClass("js-pricing-var")){
+                        $(".js-edit7").show();
+                    }
+                    if($(this).parent().hasClass("js-newsletter-var")){
+                        $(".js-edit8").show();
+                    }
+                    if($(this).parent().hasClass("js-testimonial-var")){
+                        $(".js-edit9").show();
+                    }
+                    if($(this).parent().hasClass("js-top-menu-var")){
+                        $(".js-edit10").show();
                     }
                 })
             })
