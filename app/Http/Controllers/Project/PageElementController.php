@@ -76,4 +76,16 @@ class PageElementController extends Controller
 
         return response()->json(['view' => $data['view'], 'element' => $data['element']]);
     }
+
+    /**
+     * @param AuthRequest $request
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function show(AuthRequest $request, int $id)
+    {
+        $settings = $this->pageElementService->find($id);
+
+        return response()->json(['settings' => $settings]);
+    }
 }

@@ -119,6 +119,7 @@ Route::delete('/project/{slug}', 'ProjectController@destroy')->name('project.del
 Route::post('/project/{slug}/page-element', 'Project\PageElementController@store')->name('project.page-element.store');
 Route::put('/project/{id}/page-element', 'Project\PageElementController@update')->name('project.page-element.update');
 Route::get('/page-element/{id}', 'Project\PageElementController@renderSingle')->name('project.page-element.render-single');
+Route::get('/page-element/{id}/show', 'Project\PageElementController@show')->name('project.page-element.show');
 Route::delete('/page-element/{id}', 'Project\PageElementController@destroy')->name('project.page-element.delete');
 
 //Project Image
@@ -152,7 +153,7 @@ Route::post('/project/{slug}/price-settings', 'Project\PricingSettingsController
 Route::post('/project/{slug}/benefit', 'Project\PricingSettingsBenefitController@store')->name('project.price-settings-benefit.store');
 
 //Footer Settings
-Route::get('/project/{slug}/footer-settings/{id}', 'Project\FooterSettingsController@show')->name('project.footer-settings.show');
+//Route::get('/project/{slug}/footer-settings/{id}', 'Project\FooterSettingsController@show')->name('project.footer-settings.show');
 Route::post('/project/{slug}/footer-settings', 'Project\FooterSettingsController@store')->name('project.footer-settings.store');
 
 //Hero Section Settings

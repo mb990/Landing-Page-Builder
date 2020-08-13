@@ -16,6 +16,7 @@ require('./projects/store-subscriber');
 require('./projects/store-project');
 require('./projects/top-menu/store');
 require('./projects/footer/store');
+require('./projects/footer/get');
 require('./projects/delete-project-page-element');
 require('./projects/update-element-render-order');
 require('./projects/hero-section/store');

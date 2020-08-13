@@ -22,15 +22,16 @@ class FooterSettingsController extends Controller
 
     /**
      * @param AuthRequest $request
+     * @param string $projectSlug
      * @param int $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show(AuthRequest $request, int $id)
-    {
-        $settings = $this->footerSettingsService->find($id);
-
-        return response()->json(['settings' => $settings]);
-    }
+//    public function show(AuthRequest $request, string $projectSlug, int $id)
+//    {
+//        $settings = $this->footerSettingsService->find($id);
+//
+//        return response()->json(['settings' => $settings]);
+//    }
 
     /**
      * @param StoreProjectFooterSettingsRequest $request
