@@ -3,6 +3,12 @@ window.selectElement = function(event){
     if(target.is('.btn')){
         return;
     }
+    if(target.is('.custom-control-label')){
+        return;
+    }
+    if(target.is('.ico')){
+        return;
+    }
 
     $(".js-added-element").addClass("moving-element");
     $(".js-added-element").children().addClass("d-none");
