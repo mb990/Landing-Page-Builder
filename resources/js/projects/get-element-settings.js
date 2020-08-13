@@ -17,6 +17,7 @@ $(document).ready(function () {
                 setGeneralContentThreeSettingsValues(data);
                 setPricingSettingsValues(data);
                 setHeroSectionSettingsValues(data);
+                setGeneralContentOneSettingsValues(data);
             }
 
         })

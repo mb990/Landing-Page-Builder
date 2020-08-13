@@ -66,15 +66,15 @@
                 <div class="js-edit js-edit2" style="display:none;">
                     @include('profile.edit-modals.edit-gallery')
                 </div>
-{{--                <div class="js-edit js-edit3" style="display:none;">--}}
-{{--                    @include('profile.edit-modals.edit-general1')--}}
-{{--                </div>--}}
-{{--                <div class="js-edit js-edit4" style="display:none;">--}}
-{{--                    @include('profile.edit-modals.edit-general2')--}}
-{{--                </div>--}}
-{{--                <div class="js-edit js-edit5" style="display:none;">--}}
-{{--                    @include('profile.edit-modals.edit-general3')--}}
-{{--                </div>--}}
+                <div class="js-edit js-edit3" style="display:none;">
+                    @include('profile.edit-modals.edit-general1')
+                </div>
+                <div class="js-edit js-edit4" style="display:none;">
+                    @include('profile.edit-modals.edit-general2')
+                </div>
+                <div class="js-edit js-edit5" style="display:none;">
+                    @include('profile.edit-modals.edit-general3')
+                </div>
                 <div class="js-edit js-edit6" style="display:none;">
                     @include('profile.edit-modals.edit-hero')
                 </div>
@@ -87,9 +87,9 @@
 {{--                <div class="js-edit js-edit9" style="display:none;">--}}
 {{--                    @include('profile.edit-modals.edit-testimonials')--}}
 {{--                </div>--}}
-{{--                <div class="js-edit js-edit10" style="display:none;">--}}
-{{--                    @include('profile.edit-modals.edit-top-menu')--}}
-{{--                </div>--}}
+                <div class="js-edit js-edit10" style="display:none;">
+                    @include('profile.edit-modals.edit-top-menu')
+                </div>
             </div>
         </div>
     </div>

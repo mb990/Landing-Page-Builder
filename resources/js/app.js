@@ -23,6 +23,7 @@ require('./projects/update-element-render-order');
 require('./projects/hero-section/store');
 require('./projects/hero-section/set-settings-values');
 require('./projects/general-content-section-1/store');
+require('./projects/general-content-section-1/set-settings-values');
 require('./projects/general-content-section-2/store');
 require('./projects/general-content-section-3/store');
 require('./projects/general-content-section-3/set-settings-values');

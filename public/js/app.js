@@ -37271,6 +37271,8 @@ __webpack_require__(/*! ./projects/hero-section/set-settings-values */ "./resour
 
 __webpack_require__(/*! ./projects/general-content-section-1/store */ "./resources/js/projects/general-content-section-1/store.js");
 
+__webpack_require__(/*! ./projects/general-content-section-1/set-settings-values */ "./resources/js/projects/general-content-section-1/set-settings-values.js");
+
 __webpack_require__(/*! ./projects/general-content-section-2/store */ "./resources/js/projects/general-content-section-2/store.js");
 
 __webpack_require__(/*! ./projects/general-content-section-3/store */ "./resources/js/projects/general-content-section-3/store.js");
@@ -37577,6 +37579,27 @@ $(document).ready(function () {
       });
     }).fail(console.log('failed element'));
     console.log('delay time je: ' + delayTime);
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/general-content-section-1/set-settings-values.js":
+/*!********************************************************************************!*\
+  !*** ./resources/js/projects/general-content-section-1/set-settings-values.js ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.setGeneralContentOneSettingsValues = function (data) {
+    if (data.settings.page_elementable_type === 'App\\GeneralContentOneSettings') {
+      $('.js-project-edit-general-content-one-title').val(data.settings.page_elementable.title);
+      $('.js-project-edit-general-content-one-text').val(data.settings.page_elementable.text);
+      $('.js-project-edit-general-content-one-link').val(data.settings.page_elementable.link_url);
+      $('.js-project-edit-general-content-one-button').val(data.settings.page_elementable.button_value);
+      $('.js-project-edit-general-content-one-image-filename').val(data.settings.page_elementable.image.filename);
+    }
   };
 });
 
@@ -37916,6 +37939,7 @@ $(document).ready(function () {
         setGeneralContentThreeSettingsValues(data);
         setPricingSettingsValues(data);
         setHeroSectionSettingsValues(data);
+        setGeneralContentOneSettingsValues(data);
       }
     });
   };
