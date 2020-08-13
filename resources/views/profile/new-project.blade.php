@@ -60,9 +60,9 @@
                 </button>
             </div>
             <div class="modal-body">
-{{--                <div class="js-edit js-edit1">--}}
-{{--                    @include('profile.edit-modals.edit-footer')--}}
-{{--                </div>--}}
+                <div class="js-edit js-edit1" style="display:none;">
+                    @include('profile.edit-modals.edit-footer')
+                </div>
 {{--                <div class="js-edit js-edit2">--}}
 {{--                    @include('profile.edit-modals.edit-gallery')--}}
 {{--                </div>--}}
@@ -275,14 +275,19 @@
             $(document).ready(function(){
 
                 $(".js-mobile").click(function() {
-                    $("main").css('width','425px');
-                    $("main").css('margin','auto');
-                    $("body").css('background-color','black');
+                    $("body").css('width','425px');
+                    $("body").css('margin','auto');
+                    // $("body").css('background-color','black');
+                    // if($("main").width() < 426){
+                    //     $(".js-pricing-preview").removeClass("col-lg-4")
+                    //     console.log('test')
+                    // }
                 });
                 $(".js-desktop").click(function() {
-                    $("main").css('width','100vw');
-                    $("body").css('background-color','white');
-                    $("main").css('margin','0px');
+                    $("body").css('width','100vw');
+                    // $("body").css('background-color','white');
+                    $("body").css('margin','0px');
+                    // $(".js-pricing-preview").addClass("col-lg-4")
                 });
                 $('.js-modal-content').hide();
                 $('#select').on("change",function () {
@@ -399,6 +404,12 @@
             $(document).on("mouseup", dropElement);
             $(document).ready(function(){
                 $('.js-edit').hide();
+                $(document).on("click", ".element-edit", function(){
+                    $(".js-edit").hide();
+                    if($(this).parent().hasClass("js-footer-var")){
+                        $(".js-edit1").show();
+                    }
+                })
             })
         </script>
     </body>

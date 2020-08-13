@@ -1,4 +1,4 @@
-<div class="col-lg-4">
+<div class="col-lg-4 js-pricing-preview">
     <div class="card mb-5 mb-lg-0">
         <div class="card-body">
             <h5 class="card-title text-muted text-uppercase text-center">{{$item->name}}</h5>
