@@ -30,7 +30,7 @@ $(document).ready(function () {
 
             });
 
-            //check if any bullet point has missing inputs
+            //check if any tile has missing inputs
             $('.js-project-general-content-three-tiles').each(function (e, i) {
 
                 let input_tile_title = $('.js-project-general-content-three-tile-title-' + (e + 1)).val();

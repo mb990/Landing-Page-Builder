@@ -37273,6 +37273,8 @@ __webpack_require__(/*! ./projects/general-content-section-2/store */ "./resourc
 
 __webpack_require__(/*! ./projects/general-content-section-3/store */ "./resources/js/projects/general-content-section-3/store.js");
 
+__webpack_require__(/*! ./projects/general-content-section-3/set-settings-values */ "./resources/js/projects/general-content-section-3/set-settings-values.js");
+
 __webpack_require__(/*! ./projects/testimonial/store */ "./resources/js/projects/testimonial/store.js");
 
 __webpack_require__(/*! ./projects/pricing-section/store */ "./resources/js/projects/pricing-section/store.js");
@@ -37742,6 +37744,34 @@ $(document).ready(function () {
 
 /***/ }),
 
+/***/ "./resources/js/projects/general-content-section-3/set-settings-values.js":
+/*!********************************************************************************!*\
+  !*** ./resources/js/projects/general-content-section-3/set-settings-values.js ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.setGeneralContentThreeSettingsValues = function (data) {
+    if (data.settings.page_elementable_type === 'App\\GeneralContentThreeSettings') {
+      $('.js-project-edit-general-content-three-title').val(data.settings.page_elementable.title);
+      $('.js-project-edit-general-content-three-text').val(data.settings.page_elementable.text);
+      $('.js-project-edit-general-content-three-link-url').val(data.settings.page_elementable.link_url);
+      $('.js-project-edit-general-content-three-button-value').val(data.settings.page_elementable.button_value);
+      data.settings.page_elementable.bulletPoints.each(function (e, i) {
+        $(".js-project-edit-general-content-three-bullet-point-title-" + (e + 1)).val(i.title);
+        $(".js-project-edit-general-content-three-bullet-point-text-" + (e + 1)).val(i.text);
+      });
+      data.settings.page_elementable.titles.each(function (e, i) {
+        $(".js-project-general-content-three-tile-title-" + (e + 1)).val(i.title);
+        $(".js-project-general-content-three-tile-text-" + (e + 1)).val(i.text); // $(".js-project-awesome-icons-tile-" + (e + 1)).val();
+      });
+    }
+  };
+});
+
+/***/ }),
+
 /***/ "./resources/js/projects/general-content-section-3/store.js":
 /*!******************************************************************!*\
   !*** ./resources/js/projects/general-content-section-3/store.js ***!
@@ -37767,7 +37797,7 @@ $(document).ready(function () {
             bool = false;
           }
         }
-      }); //check if any bullet point has missing inputs
+      }); //check if any tile has missing inputs
 
       $('.js-project-general-content-three-tiles').each(function (e, i) {
         var input_tile_title = $('.js-project-general-content-three-tile-title-' + (e + 1)).val();
@@ -37879,6 +37909,7 @@ $(document).ready(function () {
         console.log(data);
         setFooterSettingsValues(data);
         setNewsletterSettingsValues(data);
+        setGeneralContentThreeSettingsValues(data);
       }
     });
   };
