@@ -75,9 +75,9 @@
 {{--                <div class="js-edit js-edit5" style="display:none;">--}}
 {{--                    @include('profile.edit-modals.edit-general3')--}}
 {{--                </div>--}}
-{{--                <div class="js-edit js-edit6" style="display:none;">--}}
-{{--                    @include('profile.edit-modals.edit-hero')--}}
-{{--                </div>--}}
+                <div class="js-edit js-edit6" style="display:none;">
+                    @include('profile.edit-modals.edit-hero')
+                </div>
                 <div class="js-edit js-edit7" style="display:none;">
                     @include('profile.edit-modals.edit-pricing')
                 </div>

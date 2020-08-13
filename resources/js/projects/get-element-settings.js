@@ -16,6 +16,7 @@ $(document).ready(function () {
                 setNewsletterSettingsValues(data);
                 setGeneralContentThreeSettingsValues(data);
                 setPricingSettingsValues(data);
+                setHeroSectionSettingsValues(data);
             }
 
         })

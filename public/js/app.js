@@ -37267,6 +37267,8 @@ __webpack_require__(/*! ./projects/update-element-render-order */ "./resources/j
 
 __webpack_require__(/*! ./projects/hero-section/store */ "./resources/js/projects/hero-section/store.js");
 
+__webpack_require__(/*! ./projects/hero-section/set-settings-values */ "./resources/js/projects/hero-section/set-settings-values.js");
+
 __webpack_require__(/*! ./projects/general-content-section-1/store */ "./resources/js/projects/general-content-section-1/store.js");
 
 __webpack_require__(/*! ./projects/general-content-section-2/store */ "./resources/js/projects/general-content-section-2/store.js");
@@ -37760,11 +37762,11 @@ $(document).ready(function () {
       $('.js-project-edit-general-content-three-text').val(data.settings.page_elementable.text);
       $('.js-project-edit-general-content-three-link-url').val(data.settings.page_elementable.link_url);
       $('.js-project-edit-general-content-three-button-value').val(data.settings.page_elementable.button_value);
-      data.settings.page_elementable.bulletPoints.each(function (e, i) {
+      $.each(data.settings.page_elementable.bulletPoints, function (e, i) {
         $(".js-project-edit-general-content-three-bullet-point-title-" + (e + 1)).val(i.title);
         $(".js-project-edit-general-content-three-bullet-point-text-" + (e + 1)).val(i.text);
       });
-      data.settings.page_elementable.titles.each(function (e, i) {
+      $.each(data.settings.page_elementable.titles, function (e, i) {
         $(".js-project-general-content-three-tile-title-" + (e + 1)).val(i.title);
         $(".js-project-general-content-three-tile-text-" + (e + 1)).val(i.text); // $(".js-project-awesome-icons-tile-" + (e + 1)).val();
       });
@@ -37913,8 +37915,29 @@ $(document).ready(function () {
         setNewsletterSettingsValues(data);
         setGeneralContentThreeSettingsValues(data);
         setPricingSettingsValues(data);
+        setHeroSectionSettingsValues(data);
       }
     });
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/hero-section/set-settings-values.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/projects/hero-section/set-settings-values.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.setHeroSectionSettingsValues = function (data) {
+    if (data.settings.page_elementable_type === 'App\\HeroSectionSettings') {
+      $('.js-project-edit-hero-section-title').val(data.settings.page_elementable.title);
+      $('.js-project-edit-hero-section-subtitle').val(data.settings.page_elementable.subtitle);
+      $('.js-project-edit-hero-section-button').val(data.settings.page_elementable.button_value);
+      $('.js-project-edit-hero-section-current-image').val(data.settings.page_elementable.image.filename);
+    }
   };
 });
 
