@@ -9,7 +9,7 @@ window.selectElement = function(event){
     if(target.is('.ico')){
         return;
     }
-    if(target.is('.pop')){
+    if(target.is('.img-fluid')){
         return;
     }
 
