@@ -37257,7 +37257,9 @@ __webpack_require__(/*! ./projects/top-menu/store */ "./resources/js/projects/to
 
 __webpack_require__(/*! ./projects/footer/store */ "./resources/js/projects/footer/store.js");
 
-__webpack_require__(/*! ./projects/footer/get */ "./resources/js/projects/footer/get.js");
+__webpack_require__(/*! ./projects/footer/set-settings-values */ "./resources/js/projects/footer/set-settings-values.js");
+
+__webpack_require__(/*! ./projects/get-element-settings */ "./resources/js/projects/get-element-settings.js");
 
 __webpack_require__(/*! ./projects/delete-project-page-element */ "./resources/js/projects/delete-project-page-element.js");
 
@@ -37276,6 +37278,8 @@ __webpack_require__(/*! ./projects/testimonial/store */ "./resources/js/projects
 __webpack_require__(/*! ./projects/pricing-section/store */ "./resources/js/projects/pricing-section/store.js");
 
 __webpack_require__(/*! ./projects/newsletter/store */ "./resources/js/projects/newsletter/store.js");
+
+__webpack_require__(/*! ./projects/newsletter/set-settings-values */ "./resources/js/projects/newsletter/set-settings-values.js");
 
 __webpack_require__(/*! ./projects/gallery/store */ "./resources/js/projects/gallery/store.js");
 
@@ -37380,27 +37384,21 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ "./resources/js/projects/footer/get.js":
-/*!*********************************************!*\
-  !*** ./resources/js/projects/footer/get.js ***!
-  \*********************************************/
+/***/ "./resources/js/projects/footer/set-settings-values.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/projects/footer/set-settings-values.js ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-  window.getFooterData = function (e, elementId) {
-    e.preventDefault();
-    $.ajax({
-      url: route('project.page-element.show', elementId),
-      type: 'get',
-      success: function success(data) {
-        console.log(data);
-        $('.js-edit-footer-creator').val(data.settings.page_elementable.creator);
-        $('.js-edit-footer-facebook').val(data.settings.page_elementable.facebook_url);
-        $('.js-edit-footer-twitter').val(data.settings.page_elementable.twitter_url);
-        $('.js-edit-footer-instagram').val(data.settings.page_elementable.instagram_url);
-      }
-    });
+  window.setFooterSettingsValues = function (data) {
+    if (data.settings.page_elementable_type === 'App\\FooterSettings') {
+      $('.js-edit-footer-creator').val(data.settings.page_elementable.creator);
+      $('.js-edit-footer-facebook').val(data.settings.page_elementable.facebook_url);
+      $('.js-edit-footer-twitter').val(data.settings.page_elementable.twitter_url);
+      $('.js-edit-footer-instagram').val(data.settings.page_elementable.instagram_url);
+    }
   };
 });
 
@@ -37864,6 +37862,30 @@ $(document).ready(function () {
 
 /***/ }),
 
+/***/ "./resources/js/projects/get-element-settings.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/projects/get-element-settings.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.getElementSettingsData = function (e, elementId) {
+    e.preventDefault();
+    $.ajax({
+      url: route('project.page-element.show', elementId),
+      type: 'get',
+      success: function success(data) {
+        console.log(data);
+        setFooterSettingsValues(data);
+        setNewsletterSettingsValues(data);
+      }
+    });
+  };
+});
+
+/***/ }),
+
 /***/ "./resources/js/projects/hero-section/store.js":
 /*!*****************************************************!*\
   !*** ./resources/js/projects/hero-section/store.js ***!
@@ -37939,6 +37961,24 @@ $(document).ready(function () {
       });
     } else {
       alert('You need to add image');
+    }
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/newsletter/set-settings-values.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/projects/newsletter/set-settings-values.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.setNewsletterSettingsValues = function (data) {
+    if (data.settings.page_elementable_type === 'App\\NewsletterSettings') {
+      $('.js-edit-newsletter-title').val(data.settings.page_elementable.title);
+      $('.js-edit-newsletter-name').val(data.settings.page_elementable.name);
     }
   };
 });

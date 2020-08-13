@@ -332,7 +332,7 @@
                     }
                     x = $(this).attr("data-id")
                     // alert(x)
-                    getFooterData(e, x);
+                    getElementSettingsData(e, x);
                 })
                 // $(".ui-state-default").mousedown(selectElement())
                 // $(".ui-state-default").mouseup(dropElement())
