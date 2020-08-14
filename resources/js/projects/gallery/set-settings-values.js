@@ -8,9 +8,11 @@ $(document).ready(function () {
 
             $.each(data.settings.page_elementable.image_items, function (e, i) {
 
-                let input = '<input type="text" disabled data-id="'+ i.image.id +'" class="js-media-hover js-project-edit-gallery-image-filename-'+ (e + 1) +'" value="'+ i.image.filename +'">';
+                let input = '<input type="text" disabled data-id="'+ i.image.id +'" class="js-image-hover js-project-edit-gallery-image-filename-'+ (e + 1) +'" value="'+ i.image.filename +'">';
 
                 $('.js-project-edit-gallery-span').append(input);
+
+                $(input).append('<button data-id="'+ i.image.id +'" class="img-edit-delete">Delete</button>')
 
                 numberOfEntries ++;
 
@@ -18,9 +20,11 @@ $(document).ready(function () {
 
             $.each(data.settings.page_elementable.video_items, function (e, i) {
 
-                let input = '<input type="text" disabled data-id="'+ i.id +'" class="js-media-hover js-project-edit-gallery-video-filename-'+ (e + 1) +'" value="'+ i.filename +'">';
+                let input = '<input type="text" disabled data-id="'+ i.id +'" class="js-video-hover js-project-edit-gallery-video-filename-'+ (e + 1) +'" value="'+ i.filename +'">';
 
                 $('.js-project-edit-gallery-span').append(input);
+
+                $(input).append('<button data-id="'+ i.id +'" class="img-edit-delete">Delete</button>');
 
                 numberOfEntries ++;
 

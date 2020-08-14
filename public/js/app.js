@@ -37478,13 +37478,15 @@ $(document).ready(function () {
     if (data.settings.page_elementable_type === 'App\\GallerySettings') {
       var numberOfEntries = 0;
       $.each(data.settings.page_elementable.image_items, function (e, i) {
-        var input = '<input type="text" disabled data-id="' + i.image.id + '" class="js-media-hover js-project-edit-gallery-image-filename-' + (e + 1) + '" value="' + i.image.filename + '">';
+        var input = '<input type="text" disabled data-id="' + i.image.id + '" class="js-image-hover js-project-edit-gallery-image-filename-' + (e + 1) + '" value="' + i.image.filename + '">';
         $('.js-project-edit-gallery-span').append(input);
+        $(input).append('<button data-id="' + i.image.id + '" class="img-edit-delete">Delete</button>');
         numberOfEntries++;
       });
       $.each(data.settings.page_elementable.video_items, function (e, i) {
-        var input = '<input type="text" disabled data-id="' + i.id + '" class="js-media-hover js-project-edit-gallery-video-filename-' + (e + 1) + '" value="' + i.filename + '">';
+        var input = '<input type="text" disabled data-id="' + i.id + '" class="js-video-hover js-project-edit-gallery-video-filename-' + (e + 1) + '" value="' + i.filename + '">';
         $('.js-project-edit-gallery-span').append(input);
+        $(input).append('<button data-id="' + i.id + '" class="img-edit-delete">Delete</button>');
         numberOfEntries++;
       });
       var multipleFilesInput = '<input type="file" class="js-project-edit-gallery-item-add" multiple>';
@@ -39564,13 +39566,13 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\drag&drop.scss */"./resources/sass/drag&drop.scss");
-module.exports = __webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
+__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
+__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
+__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
+__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\drag&drop.scss */"./resources/sass/drag&drop.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
 
 
 /***/ })
