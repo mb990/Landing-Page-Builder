@@ -12,6 +12,9 @@ window.selectElement = function(event){
     if(target.is('.img-fluid')){
         return;
     }
+    if(target.is('.js-close-preview')){
+        return;
+    }
 
     $(".js-added-element").addClass("moving-element");
     $(".js-added-element").children().addClass("d-none");
