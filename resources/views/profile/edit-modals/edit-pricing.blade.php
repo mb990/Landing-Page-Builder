@@ -1,4 +1,4 @@
-<hr>
+<h4>Pricing plans</h4>
 <select class="js-project-edit-pricing-number">
     <option value="0" selected>0</option>
     <option value="1">1</option>
