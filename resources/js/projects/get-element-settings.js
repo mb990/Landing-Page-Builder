@@ -20,6 +20,7 @@ $(document).ready(function () {
                 setGeneralContentOneSettingsValues(data);
                 setGeneralContentTwoSettingsValues(data);
                 setTopMenuSettingsValues(data);
+                setTestimonialSettingsValues(data);
             }
 
         })

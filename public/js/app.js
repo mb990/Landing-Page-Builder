@@ -37285,6 +37285,8 @@ __webpack_require__(/*! ./projects/general-content-section-3/set-settings-values
 
 __webpack_require__(/*! ./projects/testimonial/store */ "./resources/js/projects/testimonial/store.js");
 
+__webpack_require__(/*! ./projects/testimonial/set-settings-values */ "./resources/js/projects/testimonial/set-settings-values.js");
+
 __webpack_require__(/*! ./projects/pricing-section/store */ "./resources/js/projects/pricing-section/store.js");
 
 __webpack_require__(/*! ./projects/pricing-section/set-settings-values */ "./resources/js/projects/pricing-section/set-settings-values.js");
@@ -37967,6 +37969,7 @@ $(document).ready(function () {
         setGeneralContentOneSettingsValues(data);
         setGeneralContentTwoSettingsValues(data);
         setTopMenuSettingsValues(data);
+        setTestimonialSettingsValues(data);
       }
     });
   };
@@ -38349,6 +38352,28 @@ $(document).ready(function () {
       });
     } else {
       alert('Please enter your email');
+    }
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/testimonial/set-settings-values.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/projects/testimonial/set-settings-values.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.setTestimonialSettingsValues = function (data) {
+    if (data.settings.page_elementable_type === 'App\\TestimonialSection') {
+      $.each(data.settings.page_elementable.single_items, function (e, i) {
+        $('#project-edit-testimonial-customer_name-' + (e + 1)).val(i.customer_name);
+        $('#project-edit-testimonial_text-' + (e + 1)).val(i.text);
+        $('#project-edit-testimonial_title-' + (e + 1)).val(i.title);
+        $('#js-project-edit-testimonial-image-filename-' + (e + 1)).val(i.image.filename);
+      });
     }
   };
 });

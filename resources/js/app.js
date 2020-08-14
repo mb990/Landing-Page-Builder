@@ -30,6 +30,7 @@ require('./projects/general-content-section-2/set-settings-values');
 require('./projects/general-content-section-3/store');
 require('./projects/general-content-section-3/set-settings-values');
 require('./projects/testimonial/store');
+require('./projects/testimonial/set-settings-values');
 require('./projects/pricing-section/store');
 require('./projects/pricing-section/set-settings-values');
 require('./projects/newsletter/store');

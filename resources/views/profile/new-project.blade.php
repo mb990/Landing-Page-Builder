@@ -84,9 +84,9 @@
                 <div class="js-edit js-edit8" style="display:none;">
                     @include('profile.edit-modals.edit-subscribe')
                 </div>
-{{--                <div class="js-edit js-edit9" style="display:none;">--}}
-{{--                    @include('profile.edit-modals.edit-testimonials')--}}
-{{--                </div>--}}
+                <div class="js-edit js-edit9" style="display:none;">
+                    @include('profile.edit-modals.edit-testimonials')
+                </div>
                 <div class="js-edit js-edit10" style="display:none;">
                     @include('profile.edit-modals.edit-top-menu')
                 </div>
