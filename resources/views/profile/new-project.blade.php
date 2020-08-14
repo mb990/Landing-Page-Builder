@@ -413,6 +413,24 @@
                         $(".js-edit4").show();
                     }
                     if($(this).parent().hasClass("js-content3-var")){
+
+
+                        // add dropdown to every tile with unique class
+                        $('.js-project-edit-general-content-three-tiles').each(function (e, i) {
+
+                            // $(this).on('click', function () {
+
+                            let iconId = $('.js-project-edit-general-content-three-tile-object-' + (e + 1)).val();
+
+                            console.log(iconId);
+
+                            setAwesomeIconValue($(this), e, iconId);
+
+                            // });
+
+                        });
+
+
                         $(".js-edit5").show();
                     }
                     if($(this).parent().hasClass("js-hero-var")){
@@ -448,6 +466,10 @@
                     if($(this).parent().hasClass("js-top-menu-var")){
                         $(".js-edit10").show();
                     }
+
+
+
+
                 })
             })
         </script>

@@ -37283,6 +37283,8 @@ __webpack_require__(/*! ./projects/general-content-section-3/store */ "./resourc
 
 __webpack_require__(/*! ./projects/general-content-section-3/set-settings-values */ "./resources/js/projects/general-content-section-3/set-settings-values.js");
 
+__webpack_require__(/*! ./projects/general-content-section-3/set-awesome-icon-values */ "./resources/js/projects/general-content-section-3/set-awesome-icon-values.js");
+
 __webpack_require__(/*! ./projects/testimonial/store */ "./resources/js/projects/testimonial/store.js");
 
 __webpack_require__(/*! ./projects/testimonial/set-settings-values */ "./resources/js/projects/testimonial/set-settings-values.js");
@@ -37830,6 +37832,41 @@ $(document).ready(function () {
 
 /***/ }),
 
+/***/ "./resources/js/projects/general-content-section-3/set-awesome-icon-values.js":
+/*!************************************************************************************!*\
+  !*** ./resources/js/projects/general-content-section-3/set-awesome-icon-values.js ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.setAwesomeIconValue = function (htmlElement, e, i) {
+    var select = "<select class='js-project-edit-awesome-icons-tile-" + (e + 1) + "'></select><br>";
+    htmlElement.append(select); // get awesome icons
+
+    $.ajax({
+      type: "GET",
+      url: route('awesome-icons.show'),
+      success: function success(iconData) {
+        // console.log('ovo su icon data podaci: ' + iconData.awesomeIcons);
+        output = [];
+        $.each(iconData.awesomeIcons, function (u, j) {
+          // console.log('ovo je i:' + i);
+          // console.log('ovo je j:' + j);
+          if (j.id === i.awesome_icon_id) {
+            output += '<option selected value="' + j.id + '" data-id="' + j.id + '">' + j.name + '</option>';
+          } else {
+            output += '<option value="' + j.id + '" data-id="' + j.id + '">' + j.name + '</option>';
+          }
+        });
+        $(".js-project-edit-awesome-icons-tile-" + (e + 1)).append(output);
+      }
+    });
+  };
+});
+
+/***/ }),
+
 /***/ "./resources/js/projects/general-content-section-3/set-settings-values.js":
 /*!********************************************************************************!*\
   !*** ./resources/js/projects/general-content-section-3/set-settings-values.js ***!
@@ -37850,7 +37887,8 @@ $(document).ready(function () {
       });
       $.each(data.settings.page_elementable.tiles, function (e, i) {
         $(".js-project-edit-general-content-three-tile-title-" + (e + 1)).val(i.title);
-        $(".js-project-edit-general-content-three-tile-text-" + (e + 1)).val(i.text); // $(".js-project-awesome-icons-tile-" + (e + 1)).val();
+        $(".js-project-edit-general-content-three-tile-text-" + (e + 1)).val(i.text);
+        $(".js-project-edit-general-content-three-tile-object-" + (e + 1)).val(i.id);
       });
     }
   };
