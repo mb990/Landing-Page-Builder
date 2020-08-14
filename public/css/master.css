@@ -68,6 +68,32 @@ body::-webkit-scrollbar {
     flex-direction: column;
     margin-bottom: 20px;
     font-size: 18px;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 426px) and (max-width: 888px) {
+  .main-content2 {
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-size: 18px;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 426px) and (max-width: 888px) {
+  .media-revers {
+    flex-direction: column-reverse;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .media-revers {
+    flex-direction: column-reverse;
+    margin-bottom: 20px;
+    font-size: 18px;
   }
 }
 
@@ -109,6 +135,18 @@ body::-webkit-scrollbar {
   margin: 0 auto;
   -webkit-animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
           animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@media screen and (max-width: 451px) {
+  .main-word1 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .main-word1 {
+    font-size: 1.7rem;
+  }
 }
 
 @-webkit-keyframes typing {
@@ -304,6 +342,24 @@ body::-webkit-scrollbar {
 @media screen and (max-width: 452px) {
   .mail-area {
     width: 80vw;
+  }
+}
+
+@media screen and (max-width: 756px) {
+  .visible-none {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 756px) {
+  .media-centre {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 451px) {
+  .media-centre {
+    font-size: 1rem;
   }
 }
 

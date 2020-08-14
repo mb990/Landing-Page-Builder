@@ -99,7 +99,7 @@ $(document).ready(function () {
                             }
                         ).done(function (data) {
                             console.log('bullet point added');
-                            $(".modal").modal('hide');
+                            // $(".modal").modal('hide');
                         })
                     }
                 });
@@ -123,7 +123,7 @@ $(document).ready(function () {
                             }
                         ).done(function (data) {
                             console.log('tile added');
-                            $(".modal").modal('hide');
+                            // $(".modal").modal('hide');
                         })
                     }
                 })

@@ -40,8 +40,8 @@
             <div style="flex-grow: 1;">
                 <a type="button" class="btn" href="{{route('user.profile', auth()->user()->slug)}}">Profile</a>
 
-                <button class="btn btn-secondary js-mobile">Mobile</button>
-                <button class="btn btn-secondary js-desktop">Desktop</button>
+                <button class="btn btn-secondary visible-none js-mobile">Mobile</button>
+                <button class="btn btn-secondary visible-none js-desktop">Desktop</button>
             </div>
             <div class="js-link">
                 <button class="head-link" id="js-info">Log out</button>

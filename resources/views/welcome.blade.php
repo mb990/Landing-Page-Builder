@@ -18,7 +18,7 @@
             </div>
         </header>
         <main class="main-content">
-            <div>
+            <div class="media-centre">
                 <h1>Your future
                     <span class="main-word1">landing page is here</span>
                 </h1>
@@ -40,7 +40,7 @@
                 <img style="width:90%; height:90%;" class="star" src="{{ asset('img/code.jpg') }}">
             </div>
         </main>
-        <main class="main-content2 link-js-info">
+        <main class="main-content2 link-js-info media-revers">
             <div style="width: fill-available;">
                 <img style="width:90%; height:90%;" class="star" src="{{ asset('img/people.jpg') }}">
             </div>

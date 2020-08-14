@@ -36,35 +36,36 @@
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     <button type="button" class="btn btn-success js-add-project-general-content-section-three-element-btn js-add-buttons">Add element</button>
+    <script>
+
+        $(document).ready(function () {
+
+            // add dropdown to every tile with unique class
+            $('.js-project-general-content-three-tiles').each(function (e, i) {
+
+                let select = "<select class='js-project-awesome-icons-tile-"+ (e + 1) +"'></select><br>";
+
+                $(this).append(select);
+
+                // get awesome icons
+                $.ajax({
+                    type: "GET",
+                    url: route('awesome-icons.show'),
+                    success: function (data) {
+                        output = [];
+                        $.each(data.awesomeIcons, function (e, i) {
+                            output += '<option value="'+ i.id +'" data-id="'+ i.id +'">'+ i.name + '</option>'
+                        });
+                        $(".js-project-awesome-icons-tile-" + (e + 1)).append(output)
+                    }
+                });
+            });
+
+            $('.js-add-project-general-content-section-three-element-btn').click(storeProjectGeneralContentThreeSettings);
+
+        })
+
+    </script>
 </div>
 
-<script>
 
-    $(document).ready(function () {
-
-        // add dropdown to every tile with unique class
-        $('.js-project-general-content-three-tiles').each(function (e, i) {
-
-            let select = "<select class='js-project-awesome-icons-tile-"+ (e + 1) +"'></select><br>";
-
-            $(this).append(select);
-
-            // get awesome icons
-            $.ajax({
-                type: "GET",
-                url: route('awesome-icons.show'),
-                success: function (data) {
-                    output = [];
-                    $.each(data.awesomeIcons, function (e, i) {
-                        output += '<option value="'+ i.id +'" data-id="'+ i.id +'">'+ i.name + '</option>'
-                    });
-                    $(".js-project-awesome-icons-tile-" + (e + 1)).append(output)
-                }
-            });
-        });
-
-        $('.js-add-project-general-content-section-three-element-btn').click(storeProjectGeneralContentThreeSettings);
-
-    })
-
-</script>

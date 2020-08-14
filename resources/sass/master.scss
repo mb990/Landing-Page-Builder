@@ -53,6 +53,25 @@ body{
         flex-direction: column;
         margin-bottom: 20px;
         font-size: 18px;
+        height: auto;
+    }
+    @media screen and (min-width:426px) and (max-width:888px) {
+        flex-direction: column;
+        margin-bottom: 20px;
+        font-size: 18px;
+        height: auto;
+    }
+}
+.media-revers{
+    @media screen and (min-width:426px) and (max-width:888px) {
+        flex-direction: column-reverse;
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+    @media screen and (max-width:426px) {
+        flex-direction: column-reverse;
+        margin-bottom: 20px;
+        font-size: 18px;
     }
 }
 .text{
@@ -82,6 +101,12 @@ body{
     animation: 
         typing 3.5s steps(40, end),
         blink-caret .75s step-end infinite;
+    @media screen and (max-width:451px){
+        font-size: 2rem;
+    }
+    @media screen and (max-width:330px){
+        font-size: 1.7rem;
+    }
 }
 @keyframes typing {
     from { width: 0 }
@@ -212,5 +237,16 @@ body{
         width: 80vw;
     }
 }
-
-
+.visible-none{
+    @media screen and (max-width:756px){
+        display: none;
+    }
+}
+.media-centre{
+    @media screen and (max-width:756px){
+        text-align: center;
+    }
+    @media screen and (max-width:451px){
+        font-size: 1rem;
+    }
+}
