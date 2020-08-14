@@ -37848,9 +37848,9 @@ $(document).ready(function () {
         $(".js-project-edit-general-content-three-bullet-point-title-" + (e + 1)).val(i.title);
         $(".js-project-edit-general-content-three-bullet-point-text-" + (e + 1)).val(i.text);
       });
-      $.each(data.settings.page_elementable.titles, function (e, i) {
-        $(".js-project-general-content-three-tile-title-" + (e + 1)).val(i.title);
-        $(".js-project-general-content-three-tile-text-" + (e + 1)).val(i.text); // $(".js-project-awesome-icons-tile-" + (e + 1)).val();
+      $.each(data.settings.page_elementable.tiles, function (e, i) {
+        $(".js-project-edit-general-content-three-tile-title-" + (e + 1)).val(i.title);
+        $(".js-project-edit-general-content-three-tile-text-" + (e + 1)).val(i.text); // $(".js-project-awesome-icons-tile-" + (e + 1)).val();
       });
     }
   };
@@ -39526,13 +39526,13 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
-__webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\drag&drop.scss */"./resources/sass/drag&drop.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\registration.scss */"./resources/sass/registration.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\drag&drop.scss */"./resources/sass/drag&drop.scss");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\landing-page-builder\resources\sass\master.scss */"./resources/sass/master.scss");
 
 
 /***/ })
