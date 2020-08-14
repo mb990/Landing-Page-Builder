@@ -1,5 +1,7 @@
-<span>
-    <input type="file" class="" multiple>
+<span class="js-project-edit-gallery-span">
+</span>
+<span class="js-project-edit-gallery-span-2">
+    <input type="hidden" class="js-project-edit-gallery-current-number-of-items">
     <label>Add images and/or videos</label>
 </span>
 <div class="modal-footer">

@@ -21,6 +21,7 @@ $(document).ready(function () {
                 setGeneralContentTwoSettingsValues(data);
                 setTopMenuSettingsValues(data);
                 setTestimonialSettingsValues(data);
+                setGallerySettingsValues(data);
             }
 
         })

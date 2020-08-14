@@ -36,6 +36,7 @@ require('./projects/pricing-section/set-settings-values');
 require('./projects/newsletter/store');
 require('./projects/newsletter/set-settings-values');
 require('./projects/gallery/store');
+require('./projects/gallery/set-settings-values');
 require('./projects/show-project');
 require('./projects/delete-project');
 require('./projects/send-email-to-project-subscribers');

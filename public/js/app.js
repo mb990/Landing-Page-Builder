@@ -37297,6 +37297,8 @@ __webpack_require__(/*! ./projects/newsletter/set-settings-values */ "./resource
 
 __webpack_require__(/*! ./projects/gallery/store */ "./resources/js/projects/gallery/store.js");
 
+__webpack_require__(/*! ./projects/gallery/set-settings-values */ "./resources/js/projects/gallery/set-settings-values.js");
+
 __webpack_require__(/*! ./projects/show-project */ "./resources/js/projects/show-project.js");
 
 __webpack_require__(/*! ./projects/delete-project */ "./resources/js/projects/delete-project.js");
@@ -37457,6 +37459,36 @@ $(document).ready(function () {
         });
       });
     });
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/gallery/set-settings-values.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/projects/gallery/set-settings-values.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.setGallerySettingsValues = function (data) {
+    if (data.settings.page_elementable_type === 'App\\GallerySettings') {
+      var numberOfEntries = 0;
+      $.each(data.settings.page_elementable.image_items, function (e, i) {
+        var input = '<input type="text" disabled data-id="' + i.image.id + '" class="js-media-hover js-project-edit-gallery-image-filename-' + (e + 1) + '" value="' + i.image.filename + '">';
+        $('.js-project-edit-gallery-span').append(input);
+        numberOfEntries++;
+      });
+      $.each(data.settings.page_elementable.video_items, function (e, i) {
+        var input = '<input type="text" disabled data-id="' + i.id + '" class="js-media-hover js-project-edit-gallery-video-filename-' + (e + 1) + '" value="' + i.filename + '">';
+        $('.js-project-edit-gallery-span').append(input);
+        numberOfEntries++;
+      });
+      var multipleFilesInput = '<input type="file" class="js-project-edit-gallery-item-add" multiple>';
+      $('.js-project-edit-gallery-span-2').append(multipleFilesInput);
+      $('.js-project-edit-gallery-current-number-of-items').val(numberOfEntries);
+    }
   };
 });
 
@@ -37970,6 +38002,7 @@ $(document).ready(function () {
         setGeneralContentTwoSettingsValues(data);
         setTopMenuSettingsValues(data);
         setTestimonialSettingsValues(data);
+        setGallerySettingsValues(data);
       }
     });
   };
