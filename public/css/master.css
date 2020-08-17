@@ -363,3 +363,13 @@ body::-webkit-scrollbar {
   }
 }
 
+.mobile-preview {
+  max-width: 100%;
+  flex: 0px;
+}
+
+.tiles-preview {
+  width: 100% !important;
+  display: block;
+}
+

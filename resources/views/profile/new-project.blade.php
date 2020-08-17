@@ -267,20 +267,23 @@
         <script>
             $(document).ready(function(){
 
-                $(".js-mobile").click(function() {
+                $(document).on("click", ".js-mobile", function() {
                     $("body").css('width','425px');
                     $("body").css('margin','auto');
-                    // $("body").css('background-color','black');
-                    // if($("main").width() < 426){
-                    //     $(".js-pricing-preview").removeClass("col-lg-4")
-                    //     console.log('test')
-                    // }
+                    $(".js-pricing-preview").addClass("mobile-preview");
+                    $(".col-mar-bot").addClass("tiles-preview");
+                    $(".bullets").addClass("d-block");
+                    $(".bullets").parent().removeClass("bullets-div");
+
                 });
                 $(".js-desktop").click(function() {
+                    $(".js-pricing-preview").removeClass("mobile-preview");
+                    $(".col-mar-bot").removeClass("tiles-preview");
+                    $(".bullets").removeClass("d-block");
+                    $(".bullets").parent().addClass("bullets-div");
+
                     $("body").css('width','100vw');
-                    // $("body").css('background-color','white');
                     $("body").css('margin','0px');
-                    // $(".js-pricing-preview").addClass("col-lg-4")
                 });
                 $('.js-modal-content').hide();
                 $('#select').on("change",function () {
@@ -381,6 +384,11 @@
                 }
 
                 $('.js-save-new-order').click(function (e) {
+
+                    $(".js-pricing-preview").removeClass("mobile-preview");
+                    $(".col-mar-bot").removeClass("tiles-preview");
+                    $(".bullets").removeClass("d-block");
+                    $(".bullets").parent().addClass("bullets-div");
 
                     $('.js-added-element').each(function() {
 

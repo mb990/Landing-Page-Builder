@@ -23,8 +23,8 @@
             </div>
         </div>
     </section>
-    <div style=" padding: 20vh;">
-        <div class="content center" style="display: flex;">
+    <div class="bullets-div">
+        <div class="content center bullets">
 
             @foreach($data->bulletPoints as $bulletPoint)
 
