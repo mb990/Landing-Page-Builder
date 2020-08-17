@@ -14,7 +14,7 @@
             <div style="flex-grow: 1;"><img style="width: 100px;transform: translateY(-25%);" src="{{ asset('img/logo.png') }}"></div>
             <div class="js-link">
                 <button class="head-link" id="js-about">About</button>
-                <button class="head-link" id="js-info">Info</button>
+                <button class="head-link" id="js-info">Info ++</button>
             </div>
         </header>
         <main class="main-content">
@@ -30,10 +30,10 @@
         <main class="main-content2 link-js-about">
             <div class="text2">
                 <h3>What is this about?</h3>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis ipsum erat, 
-                et porta ipsum auctor eget. Cras euismod tortor eget commodo sagittis. 
-                Pellentesque ut tor egestas est. Praesent urna 
-                risus, dictum eget euismod et, fere cursus aliquam 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis ipsum erat,
+                et porta ipsum auctor eget. Cras euismod tortor eget commodo sagittis.
+                Pellentesque ut tor egestas est. Praesent urna
+                risus, dictum eget euismod et, fere cursus aliquam
                 sodales. Quisque dignissim est ut diam euismod, ornare tempus risus vulputate
             </div>
             <div style="width: fill-available;">
@@ -46,9 +46,9 @@
             </div>
             <div class="text2">
                 <h3>More about us?</h3>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed pretium diam. Quisque feugiat ac nisi a molestie. 
-                Praesent sed urna suscipit, volutpat magna vel, condimentum arcu. Maecenas euismod eu metus sed sollicitudin. Nunc sit 
-                amet bibendum orci. In magna nunc, faucibus quis interdum rutrum, pretiuma in volutpat. 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed pretium diam. Quisque feugiat ac nisi a molestie.
+                Praesent sed urna suscipit, volutpat magna vel, condimentum arcu. Maecenas euismod eu metus sed sollicitudin. Nunc sit
+                amet bibendum orci. In magna nunc, faucibus quis interdum rutrum, pretiuma in volutpat.
                 Etiam congue id urna id suscipit. Proin pellentesque risus a neque facilisis placerat. Aliquam at finibus eros.
             </div>
         </main>
