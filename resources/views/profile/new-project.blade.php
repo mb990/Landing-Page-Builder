@@ -268,8 +268,8 @@
             $(document).ready(function(){
 
                 $(document).on("click", ".js-mobile", function() {
-                    $("body").css('width','425px');
-                    $("body").css('margin','auto');
+                    $("main").css('width','425px');
+                    $("main").css('margin','auto');
                     $(".js-pricing-preview").addClass("mobile-preview");
                     $(".col-mar-bot").addClass("tiles-preview");
                     $(".bullets").addClass("d-block");
@@ -282,8 +282,8 @@
                     $(".bullets").removeClass("d-block");
                     $(".bullets").parent().addClass("bullets-div");
 
-                    $("body").css('width','100vw');
-                    $("body").css('margin','0px');
+                    $("main").css('width','100vw');
+                    $("main").css('margin','0px');
                 });
                 $('.js-modal-content').hide();
                 $('#select').on("change",function () {
