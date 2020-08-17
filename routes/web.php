@@ -148,9 +148,11 @@ Route::delete('/project/{slug}/pricing-section', 'Project\PricingSectionControll
 
 //Price Settings
 Route::post('/project/{slug}/price-settings', 'Project\PricingSettingsController@store')->name('project.price-settings.store');
+Route::put('/project/{slug}/price-settings', 'Project\PricingSettingsController@update')->name('project.price-settings.update');
 
 //Price Settings Benefit
 Route::post('/project/{slug}/benefit', 'Project\PricingSettingsBenefitController@store')->name('project.price-settings-benefit.store');
+Route::put('/project/benefit/{id}', 'Project\PricingSettingsBenefitController@update')->name('project.price-settings-benefit.update');
 
 //Footer Settings
 Route::post('/project/{slug}/footer-settings', 'Project\FooterSettingsController@store')->name('project.footer-settings.store');

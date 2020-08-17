@@ -14,6 +14,7 @@ $(document).ready(function () {
                 $.each(i.benefits, function (u, j) {
 
                     $('.project-edit-benefit-' + (e + 1) + '-' + (u + 1)).val(j.description);
+                    $('.project-edit-id-benefit-' + (e + 1) + '-' + (u + 1)).val(j.id);
 
                 })
 

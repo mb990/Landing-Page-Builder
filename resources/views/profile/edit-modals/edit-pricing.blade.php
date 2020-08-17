@@ -158,7 +158,7 @@
 </span>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-success">Edit element</button>
+    <button type="button" class="btn btn-success js-edit-project-pricing-button">Edit element</button>
 </div>
 <script>
     $(document).ready(function(){
@@ -224,5 +224,8 @@
                 $('.js-project-edit-plan-benefit-3').addClass('d-none')
             }
         })
+
+        $('.js-edit-project-pricing-button').click(updateProjectPricingSection);
+
     })
     </script>

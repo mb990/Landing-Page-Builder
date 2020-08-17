@@ -25,7 +25,6 @@ $(document).ready(function () {
                 let y_price = $('.js-project-pricing-year-' + (e + 1)).val();
                 let m_price = $('.js-project-pricing-month-' + (e + 1)).val();
                 let discount = $('.js-project-pricing-discount-' + (e + 1)).val();
-
                 if (name !== '' && y_price !== '' && m_price !== '') {
 
                     $.post(route('project.price-settings.store', project_slug),
@@ -61,6 +60,7 @@ $(document).ready(function () {
                 }
 
             })
+
 
             // store pricing section page element ajax
             $.post(route('project.page-element.store', project_slug),

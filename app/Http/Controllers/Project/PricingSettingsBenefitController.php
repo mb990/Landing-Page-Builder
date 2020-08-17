@@ -15,14 +15,29 @@ class PricingSettingsBenefitController extends Controller
      */
     private $pricingSettingsBenefitService;
 
+    /**
+     * PricingSettingsBenefitController constructor.
+     * @param PricingSettingsBenefitService $pricingSettingsBenefitService
+     */
     public function __construct(PricingSettingsBenefitService $pricingSettingsBenefitService)
     {
         $this->pricingSettingsBenefitService = $pricingSettingsBenefitService;
     }
 
+    /**
+     * @param StoreProjectPricingSettingsBenefitRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(StoreProjectPricingSettingsBenefitRequest $request)
     {
         $benefit = $this->pricingSettingsBenefitService->store($request);
+
+        return response()->json(['benefit' => $benefit]);
+    }
+
+    public function update(StoreProjectPricingSettingsBenefitRequest $request, $id)
+    {
+        $benefit = $this->pricingSettingsBenefitService->update($request, $id);
 
         return response()->json(['benefit' => $benefit]);
     }

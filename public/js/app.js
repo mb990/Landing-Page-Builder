@@ -37293,6 +37293,8 @@ __webpack_require__(/*! ./projects/testimonial/set-settings-values */ "./resourc
 
 __webpack_require__(/*! ./projects/pricing-section/store */ "./resources/js/projects/pricing-section/store.js");
 
+__webpack_require__(/*! ./projects/pricing-section/update */ "./resources/js/projects/pricing-section/update.js");
+
 __webpack_require__(/*! ./projects/pricing-section/set-settings-values */ "./resources/js/projects/pricing-section/set-settings-values.js");
 
 __webpack_require__(/*! ./projects/newsletter/store */ "./resources/js/projects/newsletter/store.js");
@@ -38283,6 +38285,7 @@ $(document).ready(function () {
         $('.js-project-edit-pricing-discount-' + (e + 1)).val(i.discount_amount);
         $.each(i.benefits, function (u, j) {
           $('.project-edit-benefit-' + (e + 1) + '-' + (u + 1)).val(j.description);
+          $('.project-edit-id-benefit-' + (e + 1) + '-' + (u + 1)).val(j.id);
         });
       });
     }
@@ -38351,6 +38354,53 @@ $(document).ready(function () {
           }, 1000);
         });
       }).fail(console.log('failed element'));
+    });
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/pricing-section/update.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/projects/pricing-section/update.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.updateProjectPricingSection = function (e) {
+    e.preventDefault();
+    var element_id = $('.js-selected-project-page-element-id').val();
+    var template_name = $('.js-project-template-name').val();
+    $('input.js-project-pricing-plan').each(function (e, i) {
+      var name = $('.js-project-edit-pricing-name-' + (e + 1)).val();
+      var y_price = $('.js-project-edit-pricing-year-' + (e + 1)).val();
+      var m_price = $('.js-project-edit-pricing-month-' + (e + 1)).val();
+      var discount = $('.js-project-edit-pricing-discount-' + (e + 1)).val();
+
+      if (name !== '' && y_price !== '' && m_price !== '') {
+        $.post(route('project.price-settings.update', element_id), {
+          name: name,
+          yearly_price: y_price,
+          monthly_price: m_price,
+          discount_amount: discount,
+          blade_file: 'templates.' + template_name + '.page_elements.pricing-single'
+        }).done(function (data) {
+          // update benefits for settings
+          $('.js-project-edit-plan-benefit-' + (e + 1)).each(function (u, j) {
+            var desc = $('.project-edit-benefit-' + (e + 1) + '-' + (u + 1)).val();
+
+            if (desc) {
+              var _desc = _desc;
+              var benefit_id = $('.project-edit-id-benefit-' + (e + 1) + '-' + (u + 1)).val();
+              $.post(route('project.price-settings-benefit.update', benefit_id), {
+                description: _desc,
+                price_settings_id: data.settings.id
+              }).done(console.log('updateovan-benefit'));
+            }
+          });
+        });
+      }
     });
   };
 });
