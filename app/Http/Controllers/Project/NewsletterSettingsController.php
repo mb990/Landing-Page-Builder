@@ -15,14 +15,29 @@ class NewsletterSettingsController extends Controller
      */
     private $newsletterService;
 
+    /**
+     * NewsletterSettingsController constructor.
+     * @param NewsletterService $newsletterService
+     */
     public function __construct(NewsletterService $newsletterService)
     {
         $this->newsletterService = $newsletterService;
     }
 
+    /**
+     * @param StoreProjectNewsletterSettingsRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(StoreProjectNewsletterSettingsRequest $request)
     {
         $settings = $this->newsletterService->store($request);
+
+        return response()->json(['settings' => $settings]);
+    }
+
+    public function update(StoreProjectNewsletterSettingsRequest $request, $id)
+    {
+        $settings = $this->newsletterService->update($request, $id);
 
         return response()->json(['settings' => $settings]);
     }

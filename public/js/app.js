@@ -37259,7 +37259,7 @@ __webpack_require__(/*! ./projects/top-menu/set-settings-values */ "./resources/
 
 __webpack_require__(/*! ./projects/footer/store */ "./resources/js/projects/footer/store.js");
 
-__webpack_require__(/*! ./projects/footer/edit */ "./resources/js/projects/footer/edit.js");
+__webpack_require__(/*! ./projects/footer/update */ "./resources/js/projects/footer/update.js");
 
 __webpack_require__(/*! ./projects/footer/set-settings-values */ "./resources/js/projects/footer/set-settings-values.js");
 
@@ -37296,6 +37296,8 @@ __webpack_require__(/*! ./projects/pricing-section/store */ "./resources/js/proj
 __webpack_require__(/*! ./projects/pricing-section/set-settings-values */ "./resources/js/projects/pricing-section/set-settings-values.js");
 
 __webpack_require__(/*! ./projects/newsletter/store */ "./resources/js/projects/newsletter/store.js");
+
+__webpack_require__(/*! ./projects/newsletter/update */ "./resources/js/projects/newsletter/update.js");
 
 __webpack_require__(/*! ./projects/newsletter/set-settings-values */ "./resources/js/projects/newsletter/set-settings-values.js");
 
@@ -37404,36 +37406,6 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ "./resources/js/projects/footer/edit.js":
-/*!**********************************************!*\
-  !*** ./resources/js/projects/footer/edit.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-$(document).ready(function () {
-  window.updateProjectFooter = function (e) {
-    e.preventDefault();
-    var element_id = $('.js-selected-project-page-element-id').val();
-    var creator = $('.js-edit-footer-creator').val();
-    var facebook = $('.js-edit-footer-facebook').val();
-    var instagram = $('.js-edit-footer-instagram').val();
-    var twitter = $('.js-edit-footer-twitter').val();
-    $.ajax({
-      url: route('project.footer-settings.update', element_id),
-      type: 'put',
-      data: {
-        creator: creator,
-        facebook_url: facebook,
-        instagram_url: instagram,
-        twitter_url: twitter
-      }
-    });
-  };
-});
-
-/***/ }),
-
 /***/ "./resources/js/projects/footer/set-settings-values.js":
 /*!*************************************************************!*\
   !*** ./resources/js/projects/footer/set-settings-values.js ***!
@@ -37492,6 +37464,36 @@ $(document).ready(function () {
           createButtons(data.element.id);
         });
       });
+    });
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/footer/update.js":
+/*!************************************************!*\
+  !*** ./resources/js/projects/footer/update.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.updateProjectFooter = function (e) {
+    e.preventDefault();
+    var element_id = $('.js-selected-project-page-element-id').val();
+    var creator = $('.js-edit-footer-creator').val();
+    var facebook = $('.js-edit-footer-facebook').val();
+    var instagram = $('.js-edit-footer-instagram').val();
+    var twitter = $('.js-edit-footer-twitter').val();
+    $.ajax({
+      url: route('project.footer-settings.update', element_id),
+      type: 'put',
+      data: {
+        creator: creator,
+        facebook_url: facebook,
+        instagram_url: instagram,
+        twitter_url: twitter
+      }
     });
   };
 });
@@ -38232,6 +38234,32 @@ $(document).ready(function () {
           }, 1000);
         });
       });
+    });
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/newsletter/update.js":
+/*!****************************************************!*\
+  !*** ./resources/js/projects/newsletter/update.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.updateProjectNewsletter = function (e) {
+    e.preventDefault();
+    var element_id = $('.js-selected-project-page-element-id').val();
+    var title = $('.js-edit-newsletter-title').val();
+    var button_value = $('.js-edit-newsletter-button-value').val();
+    $.ajax({
+      url: route('project.newsletter.update', element_id),
+      type: 'put',
+      data: {
+        title: title,
+        button_value: button_value
+      }
     });
   };
 });

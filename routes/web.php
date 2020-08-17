@@ -176,6 +176,7 @@ Route::post('/project/{slug}/general-content-three-tile', 'Project\GeneralConten
 
 //NewsletterSettings Section
 Route::post('/project/{slug}/newsletter', 'Project\NewsletterSettingsController@store')->name('project.newsletter.store');
+Route::put('/project/newsletter/{id}', 'Project\NewsletterSettingsController@update')->name('project.newsletter.update');
 
 //Gallery Settings
 Route::post('/project/{slug}/gallery-settings', 'Project\GallerySettingsController@store')->name('project.gallery-settings.store');
