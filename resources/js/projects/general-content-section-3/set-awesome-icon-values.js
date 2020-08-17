@@ -12,22 +12,17 @@ $(document).ready(function () {
             url: route('awesome-icons.show'),
             success: function (iconData) {
 
-                // console.log('ovo su icon data podaci: ' + iconData.awesomeIcons);
-
                 output = [];
                 $.each(iconData.awesomeIcons, function (u, j) {
 
-                    // console.log('ovo je i:' + i);
-                    // console.log('ovo je j:' + j);
+                    if (j.id == i) {
 
-                    if (j.id === i.awesome_icon_id) {
-
-                        output += '<option selected value="'+ j.id +'" data-id="'+ j.id +'">'+ j.name + '</option>'
+                        output += '<option selected value="'+ j.id +'" data-id="'+ j.id +'">'+ j.name + '</option>';
 
                     }
                     else {
 
-                        output += '<option value="'+ j.id +'" data-id="'+ j.id +'">'+ j.name + '</option>'
+                        output += '<option value="'+ j.id +'" data-id="'+ j.id +'">'+ j.name + '</option>';
                     }
 
 

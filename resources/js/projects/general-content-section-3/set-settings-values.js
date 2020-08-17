@@ -21,7 +21,7 @@ $(document).ready(function () {
 
                 $(".js-project-edit-general-content-three-tile-title-" + (e + 1)).val(i.title);
                 $(".js-project-edit-general-content-three-tile-text-" + (e + 1)).val(i.text);
-                $(".js-project-edit-general-content-three-tile-object-" + (e + 1)).val(i.id);
+                $(".js-project-edit-general-content-three-tile-object-" + (e + 1)).val(i.awesome_icon_id);
 
             })
 
