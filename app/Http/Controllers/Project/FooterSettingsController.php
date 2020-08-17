@@ -43,4 +43,11 @@ class FooterSettingsController extends Controller
 
         return response()->json(['settings' => $settings]);
     }
+
+    public function update(StoreProjectFooterSettingsRequest $request, $id)
+    {
+        $settings = $this->footerSettingsService->update($request, $id);
+
+        return response()->json(['settings' => $settings]);
+    }
 }

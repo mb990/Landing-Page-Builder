@@ -17,6 +17,7 @@ require('./projects/store-project');
 require('./projects/top-menu/store');
 require('./projects/top-menu/set-settings-values');
 require('./projects/footer/store');
+require('./projects/footer/edit');
 require('./projects/footer/set-settings-values');
 require('./projects/get-element-settings');
 require('./projects/delete-project-page-element');

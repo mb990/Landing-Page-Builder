@@ -153,8 +153,8 @@ Route::post('/project/{slug}/price-settings', 'Project\PricingSettingsController
 Route::post('/project/{slug}/benefit', 'Project\PricingSettingsBenefitController@store')->name('project.price-settings-benefit.store');
 
 //Footer Settings
-//Route::get('/project/{slug}/footer-settings/{id}', 'Project\FooterSettingsController@show')->name('project.footer-settings.show');
 Route::post('/project/{slug}/footer-settings', 'Project\FooterSettingsController@store')->name('project.footer-settings.store');
+Route::put('/project/footer-settings/{id}', 'Project\FooterSettingsController@update')->name('project.footer-settings.update');
 
 //Hero Section Settings
 Route::post('/project/{slug}/hero-section-settings', 'Project\HeroSectionSettingsController@store')->name('project.hero-section-settings.store');
