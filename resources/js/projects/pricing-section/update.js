@@ -57,7 +57,7 @@ $(document).ready(function () {
                                 data:
                                     {
                                         description: desc,
-                                        price_settings_id: data.settings.id
+                                        price_settings_id: settings_id
                                     },
 
                         }).done(console.log('updateovan-benefit')

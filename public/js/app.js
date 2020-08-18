@@ -38542,7 +38542,7 @@ $(document).ready(function () {
                 type: 'put',
                 data: {
                   description: desc,
-                  price_settings_id: data.settings.id
+                  price_settings_id: settings_id
                 }
               }).done(console.log('updateovan-benefit'));
             } else {
