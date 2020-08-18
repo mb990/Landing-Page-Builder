@@ -449,24 +449,24 @@
                     }
                     if($(this).parent().hasClass("js-pricing-var")){
                         $(".js-edit7").show();
-                        if($(".js-project-edit-pricing-name-1").text()!= null){
-                            $(".js-project-edit-pricing-number").val("1");
-                            if($(".js-project-edit-pricing-number").val()==1){
-                                $('.js-project-edit-pricing-1').removeClass('d-none')
-                            }
-                        }
-                        if($(".js-project-edit-pricing-name-2").text()!= null){
-                            $(".js-project-edit-pricing-number").val("2");
-                            if($(".js-project-edit-pricing-number").val()==2){
-                                $('.js-project-edit-pricing-2').removeClass('d-none')
-                            }
-                        }
-                        if($(".js-project-edit-pricing-name-3").text()!= null){
-                        $(".js-project-edit-pricing-number").val("3");
-                            if($(".js-project-edit-pricing-number").val()==3){
-                                $('.js-project-edit-pricing-3').removeClass('d-none')
-                            }
-                        }
+                        // if($(".js-project-edit-pricing-name-1").text()!= null){
+                        //     $(".js-project-edit-pricing-number").val("1");
+                        //     if($(".js-project-edit-pricing-number").val()==1){
+                        //         $('.js-project-edit-pricing-1').removeClass('d-none')
+                        //     }
+                        // }
+                        // if($(".js-project-edit-pricing-name-2").text()!= null){
+                        //     $(".js-project-edit-pricing-number").val("2");
+                        //     if($(".js-project-edit-pricing-number").val()==2){
+                        //         $('.js-project-edit-pricing-2').removeClass('d-none')
+                        //     }
+                        // }
+                        // if($(".js-project-edit-pricing-name-3").text()!= null){
+                        // $(".js-project-edit-pricing-number").val("3");
+                        //     if($(".js-project-edit-pricing-number").val()==3){
+                        //         $('.js-project-edit-pricing-3').removeClass('d-none')
+                        //     }
+                        // }
                     }
                     if($(this).parent().hasClass("js-newsletter-var")){
                         $(".js-edit8").show();
