@@ -22,6 +22,19 @@ $(document).ready(function () {
                 twitter_url: twitter
             }
 
+        }).done(function () {
+            $.get(route('project.page-element.render-single', element_id)
+
+            ).done(function (data) {
+                setTimeout(function () {
+                    // x = $(".js-added-element")
+                    // $("main").find()
+                    $('*[data-elementid="'+element_id+'"]').replaceWith(data.view)
+
+                    createButtons(element_id);
+
+                }, 1000);
+            })
         })
 
     }
