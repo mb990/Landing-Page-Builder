@@ -38063,7 +38063,6 @@ $(document).ready(function () {
       url: route('project.page-element.show', elementId),
       type: 'get',
       success: function success(data) {
-        console.log(data);
         setFooterSettingsValues(data);
         setNewsletterSettingsValues(data);
         setGeneralContentThreeSettingsValues(data);
@@ -38311,6 +38310,7 @@ $(document).ready(function () {
     $.post(route('project.pricing-section.store', project_slug), {// blade_file: 'page_elements.pricing'
     }).done(function (data) {
       var section_id = data.section.id;
+      $('.js-project-edit-pricing-section-id').val(section_id);
       $('input.js-project-pricing-plan').each(function (e, i) {
         var name = $('.js-project-pricing-name-' + (e + 1)).val();
         var y_price = $('.js-project-pricing-year-' + (e + 1)).val();
@@ -38326,14 +38326,19 @@ $(document).ready(function () {
             pricing_section_id: section_id,
             blade_file: 'templates.' + template_name + '.page_elements.pricing-single'
           }).done(function (data) {
-            // store benefits for settings
+            // set hidden settings id for edit modal
+            $('.js-project-edit-pricing-settings-id-' + (e + 1)).val(data.settings.id); // store benefits for settings
+
             $('.js-project-plan-benefit-' + (e + 1)).each(function (u, j) {
               if ($('.project-benefit-' + (e + 1) + '-' + (u + 1)).val()) {
                 var desc = $('.project-benefit-' + (e + 1) + '-' + (u + 1)).val();
                 $.post(route('project.price-settings-benefit.store', project_slug), {
                   description: desc,
                   price_settings_id: data.settings.id
-                }).done(console.log('dodat-benefit')).fail(console.log('nije dodat benefit'));
+                }).done(function (data) {
+                  // set benefit id for edit
+                  $('.project-edit-benefit-' + (e + 1) + '-' + (u + 1)).data('id', data.benefit.id);
+                }).fail(console.log('nije dodat benefit'));
               }
             });
           }).fail(console.log('neuspelo'));
@@ -38377,26 +38382,39 @@ $(document).ready(function () {
       var y_price = $('.js-project-edit-pricing-year-' + (e + 1)).val();
       var m_price = $('.js-project-edit-pricing-month-' + (e + 1)).val();
       var discount = $('.js-project-edit-pricing-discount-' + (e + 1)).val();
+      var settings_id = $('.js-project-edit-pricing-settings-id-' + (e + 1)).val();
+      var section_id = $('.js-project-edit-pricing-section-id').val();
 
       if (name !== '' && y_price !== '' && m_price !== '') {
-        $.post(route('project.price-settings.update', element_id), {
+        $.post(route('project.price-settings.update', settings_id), {
           name: name,
           yearly_price: y_price,
           monthly_price: m_price,
           discount_amount: discount,
-          blade_file: 'templates.' + template_name + '.page_elements.pricing-single'
+          blade_file: 'templates.' + template_name + '.page_elements.pricing-single',
+          pricing_section_id: section_id
         }).done(function (data) {
-          // update benefits for settings
+          // set hidden settings id for edit modal
+          $('.js-project-edit-pricing-settings-id-' + (e + 1)).val(data.settings.id); // update benefits for settings
+
           $('.js-project-edit-plan-benefit-' + (e + 1)).each(function (u, j) {
             var desc = $('.project-edit-benefit-' + (e + 1) + '-' + (u + 1)).val();
+            console.log($('.project-edit-benefit-' + (e + 1) + '-' + (u + 1)));
+            console.log('.project-edit-benefit-' + (e + 1) + '-' + (u + 1));
 
-            if (desc) {
-              var _desc = _desc;
-              var benefit_id = $('.project-edit-id-benefit-' + (e + 1) + '-' + (u + 1)).val();
-              $.post(route('project.price-settings-benefit.update', benefit_id), {
-                description: _desc,
-                price_settings_id: data.settings.id
+            if (desc !== '') {
+              var benefit_id = $('.project-edit-benefit-' + (e + 1) + '-' + (u + 1)).data('id');
+              console.log('ovo je desc ali unutar if-a: ' + desc);
+              $.ajax({
+                url: route('project.price-settings-benefit.update', benefit_id),
+                type: 'put',
+                data: {
+                  description: desc,
+                  price_settings_id: data.settings.id
+                }
               }).done(console.log('updateovan-benefit'));
+            } else {
+              console.log('desca nema');
             }
           });
         });

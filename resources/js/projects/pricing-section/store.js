@@ -19,6 +19,8 @@ $(document).ready(function () {
 
             let section_id = data.section.id;
 
+            $('.js-project-edit-pricing-section-id').val(section_id);
+
             $('input.js-project-pricing-plan').each(function (e, i) {
 
                 let name = $('.js-project-pricing-name-' + (e + 1)).val();
@@ -38,6 +40,9 @@ $(document).ready(function () {
                         }
                     ).done(function (data) {
 
+                        // set hidden settings id for edit modal
+                        $('.js-project-edit-pricing-settings-id-' + (e + 1)).val(data.settings.id);
+
                         // store benefits for settings
                         $('.js-project-plan-benefit-' + (e + 1)).each(function (u, j) {
 
@@ -51,7 +56,12 @@ $(document).ready(function () {
                                         price_settings_id: data.settings.id
                                     },
 
-                                ).done(console.log('dodat-benefit')
+                                ).done(function (data) {
+
+                                    // set benefit id for edit
+                                    $('.project-edit-benefit-' + (e + 1) + '-' + (u + 1)).data('id', data.benefit.id);
+
+                                    }
                                 ).fail(console.log('nije dodat benefit'))
                             }
 

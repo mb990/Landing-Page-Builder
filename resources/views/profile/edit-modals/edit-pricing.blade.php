@@ -8,7 +8,9 @@
 <span>Select number of pricing plans</span>
 <br>
 <hr>
+<input type="hidden" class="js-project-edit-pricing-section-id">
 <span class="js-project-edit-pricing js-project-edit-pricing-1 d-none">
+    <input type="hidden" class="js-project-edit-pricing-settings-id-1">
     <div class="input-group mb-3">
         <div class="input-group-append">
             <span class="input-group-text text-success" id="basic-addon2">Plan name</span>
@@ -58,6 +60,7 @@
 </span>
 <hr>
 <span class="js-project-edit-pricing js-project-edit-pricing-2 d-none">
+    <input type="hidden" class="js-project-edit-pricing-settings-id-2">
     <div class="input-group mb-3">
         <div class="input-group-append">
             <span class="input-group-text text-success" id="basic-addon2">Second plan name</span>
@@ -108,6 +111,7 @@
 </span>
 <hr>
 <span class="js-project-edit-pricing js-project-edit-pricing-3 d-none">
+    <input type="hidden" class="js-project-edit-pricing-settings-id-3">
     <div class="input-group mb-3">
         <div class="input-group-append">
             <span class="input-group-text text-success" id="basic-addon2">Third plan name</span>

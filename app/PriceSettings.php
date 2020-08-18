@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class PriceSettings extends Model
 {
     protected $fillable = [
-        'name', 'yearly_price', 'monthly_price', 'discount_amount', 'pricing_section_id', 'blade_file'
+        'name', 'yearly_price', 'monthly_price', 'discount_amount', 'blade_file', 'pricing_section_id'
     ];
 
     protected $with = ['benefits'];

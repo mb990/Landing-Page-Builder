@@ -10,8 +10,6 @@ $(document).ready(function () {
             type:'get',
             success: function (data) {
 
-                console.log(data);
-
                 setFooterSettingsValues(data);
                 setNewsletterSettingsValues(data);
                 setGeneralContentThreeSettingsValues(data);
