@@ -28,14 +28,19 @@ class PricingSettingsController extends Controller
      * @param StoreProjectPricingSettingsRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(StoreProjectPricingSettingsRequest $request)
+    public function store(StoreProjectPricingSettingsRequest $request): \Illuminate\Http\JsonResponse
     {
         $settings = $this->priceSettingsService->store($request);
 
         return response()->json(['settings' => $settings]);
     }
 
-    public function update(StoreProjectPricingSettingsRequest $request, $id)
+    /**
+     * @param StoreProjectPricingSettingsRequest $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(StoreProjectPricingSettingsRequest $request, $id): \Illuminate\Http\JsonResponse
     {
         $settings = $this->priceSettingsService->update($request, $id);
 

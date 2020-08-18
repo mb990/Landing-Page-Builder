@@ -61,8 +61,6 @@ class PriceSettingsService
      */
     public function update($request, $id)
     {
-//        $settingsId = $this->pageElementService->find($id)->pageElementable->id;
-
         return $this->priceSettings->update($request, $id);
     }
 
