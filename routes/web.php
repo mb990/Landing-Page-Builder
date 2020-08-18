@@ -169,12 +169,15 @@ Route::post('/project/{slug}/general-content-two-settings', 'Project\GeneralCont
 
 //General Content Three Settings
 Route::post('/project/{slug}/general-content-three-settings', 'Project\GeneralContentSectionThreeSettingsController@store')->name('project.general-content-three-settings.store');
+Route::put('/project/general-content-three-settings/{id}', 'Project\GeneralContentSectionThreeSettingsController@update')->name('project.general-content-three-settings.update');
 
 //General Content Three Bullet Point
 Route::post('/project/{slug}/general-content-three-bullet-point', 'Project\GeneralContentThreeBulletPointController@store')->name('project.general-content-three-bullet-point.store');
+Route::put('/project/general-content-three-bullet-point/{id}', 'Project\GeneralContentThreeBulletPointController@update')->name('project.general-content-three-bullet-point.update');
 
 //General Content Three Tile
 Route::post('/project/{slug}/general-content-three-tile', 'Project\GeneralContentThreeTileController@store')->name('project.general-content-three-tile.store');
+Route::put('/project/general-content-three-tile/{id}', 'Project\GeneralContentThreeTileController@update')->name('project.general-content-three-tile.update');
 
 //NewsletterSettings Section
 Route::post('/project/{slug}/newsletter', 'Project\NewsletterSettingsController@store')->name('project.newsletter.store');

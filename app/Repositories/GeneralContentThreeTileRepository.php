@@ -25,7 +25,7 @@ class GeneralContentThreeTileRepository
 
     public function find($id)
     {
-        return $this->generalContentThreeTile->find($id);
+        return $this->generalContentThreeTile->findorFail($id);
     }
 
     public function store($request)

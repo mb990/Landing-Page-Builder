@@ -80,7 +80,10 @@ $(document).ready(function () {
                 }
             ).done(function (data) {
 
-                let element_id = data.settings.id;
+                let settings_id = data.settings.id;
+
+                //set settings id for edit
+                $('.js-project-edit-general-content-three-settings-id').val(settings_id);
 
                 // saving section's bullet points
                 $('.js-project-general-content-three-bullets').each(function (e, i) {
@@ -94,12 +97,12 @@ $(document).ready(function () {
                             {
                                 title: title,
                                 text: text,
-                                general_content_three_settings_id: element_id,
+                                general_content_three_settings_id: settings_id,
                                 blade_file: 'templates.' + template_name +'.page_elements.general-content3-bullet'
                             }
                         ).done(function (data) {
-                            console.log('bullet point added');
-                            // $(".modal").modal('hide');
+                            //setting data-id for edit
+                            $(".js-project-general-content-three-bullet-point-title-" + (e + 1)).data('id', data.bulletPoint.id);
                         })
                     }
                 });
@@ -117,13 +120,13 @@ $(document).ready(function () {
                             {
                                 title: title,
                                 text: text,
-                                general_content_three_settings_id: element_id,
+                                general_content_three_settings_id: settings_id,
                                 awesome_icon_id: awesome_icon_id,
                                 blade_file: 'templates.' + template_name +'.page_elements.general-content3-tile'
                             }
                         ).done(function (data) {
-                            console.log('tile added');
-                            // $(".modal").modal('hide');
+                            // setting tile id for edit
+                            $(".js-project-general-content-three-tile-title-" + (e + 1)).data('id', data.tile.id);
                         })
                     }
                 })
@@ -133,7 +136,7 @@ $(document).ready(function () {
                     {
                         project_id: project_id,
                         page_element_type_id: page_element_type_id,
-                        page_elementable_id: element_id,
+                        page_elementable_id: settings_id,
                         page_elementable_type: modelType,
                         blade_file: 'templates.' + template_name + '.page_elements.general-content3'
                     })

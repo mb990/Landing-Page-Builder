@@ -29,6 +29,7 @@ require('./projects/general-content-section-1/set-settings-values');
 require('./projects/general-content-section-2/store');
 require('./projects/general-content-section-2/set-settings-values');
 require('./projects/general-content-section-3/store');
+require('./projects/general-content-section-3/update');
 require('./projects/general-content-section-3/set-settings-values');
 require('./projects/general-content-section-3/set-awesome-icon-values');
 require('./projects/testimonial/store');

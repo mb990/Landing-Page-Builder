@@ -13,14 +13,34 @@ class GeneralContentThreeTileController extends Controller
      */
     private $generalContentThreeTileService;
 
+    /**
+     * GeneralContentThreeTileController constructor.
+     * @param GeneralContentThreeTileService $generalContentThreeTileService
+     */
     public function __construct(GeneralContentThreeTileService $generalContentThreeTileService)
     {
         $this->generalContentThreeTileService = $generalContentThreeTileService;
     }
 
+    /**
+     * @param StoreProjectGeneralContentThreeTileRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(StoreProjectGeneralContentThreeTileRequest $request)
     {
         $tile = $this->generalContentThreeTileService->store($request);
+
+        return response()->json(['tile' => $tile]);
+    }
+
+    /**
+     * @param StoreProjectGeneralContentThreeTileRequest $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(StoreProjectGeneralContentThreeTileRequest $request, $id)
+    {
+        $tile = $this->generalContentThreeTileService->update($request, $id);
 
         return response()->json(['tile' => $tile]);
     }

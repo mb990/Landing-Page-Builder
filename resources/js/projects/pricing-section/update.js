@@ -19,16 +19,19 @@ $(document).ready(function () {
 
             if (name !== '' && y_price !== '' && m_price !== '') {
 
-                $.post(route('project.price-settings.update', settings_id),
-                    {
-                        name: name,
-                        yearly_price: y_price,
-                        monthly_price: m_price,
-                        discount_amount: discount,
-                        blade_file: 'templates.' + template_name + '.page_elements.pricing-single',
-                        pricing_section_id: section_id
-                    }
-                ).done(function (data) {
+                $.ajax({
+                    url: route('project.price-settings.update', settings_id),
+                    type: 'put',
+                    data:
+                        {
+                            name: name,
+                            yearly_price: y_price,
+                            monthly_price: m_price,
+                            discount_amount: discount,
+                            blade_file: 'templates.' + template_name + '.page_elements.pricing-single',
+                            pricing_section_id: section_id
+                        }
+                }).done(function (data) {
 
                     // set hidden settings id for edit modal
                     $('.js-project-edit-pricing-settings-id-' + (e + 1)).val(data.settings.id);

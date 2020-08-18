@@ -37283,6 +37283,8 @@ __webpack_require__(/*! ./projects/general-content-section-2/set-settings-values
 
 __webpack_require__(/*! ./projects/general-content-section-3/store */ "./resources/js/projects/general-content-section-3/store.js");
 
+__webpack_require__(/*! ./projects/general-content-section-3/update */ "./resources/js/projects/general-content-section-3/update.js");
+
 __webpack_require__(/*! ./projects/general-content-section-3/set-settings-values */ "./resources/js/projects/general-content-section-3/set-settings-values.js");
 
 __webpack_require__(/*! ./projects/general-content-section-3/set-awesome-icon-values */ "./resources/js/projects/general-content-section-3/set-awesome-icon-values.js");
@@ -37499,8 +37501,6 @@ $(document).ready(function () {
     }).done(function () {
       $.get(route('project.page-element.render-single', element_id)).done(function (data) {
         setTimeout(function () {
-          // x = $(".js-added-element")
-          // $("main").find()
           $('*[data-elementid="' + element_id + '"]').replaceWith(data.view);
           createButtons(element_id);
         }, 1000);
@@ -37925,7 +37925,7 @@ $(document).ready(function () {
       $('.js-project-edit-general-content-three-text').val(data.settings.page_elementable.text);
       $('.js-project-edit-general-content-three-link-url').val(data.settings.page_elementable.link_url);
       $('.js-project-edit-general-content-three-button-value').val(data.settings.page_elementable.button_value);
-      $.each(data.settings.page_elementable.bulletPoints, function (e, i) {
+      $.each(data.settings.page_elementable.bullet_points, function (e, i) {
         $(".js-project-edit-general-content-three-bullet-point-title-" + (e + 1)).val(i.title);
         $(".js-project-edit-general-content-three-bullet-point-text-" + (e + 1)).val(i.text);
       });
@@ -37999,7 +37999,9 @@ $(document).ready(function () {
         link_url: link_url,
         button_value: button_value
       }).done(function (data) {
-        var element_id = data.settings.id; // saving section's bullet points
+        var settings_id = data.settings.id; //set settings id for edit
+
+        $('.js-project-edit-general-content-three-settings-id').val(settings_id); // saving section's bullet points
 
         $('.js-project-general-content-three-bullets').each(function (e, i) {
           var title = $(".js-project-general-content-three-bullet-point-title-" + (e + 1)).val();
@@ -38009,10 +38011,11 @@ $(document).ready(function () {
             $.post(route('project.general-content-three-bullet-point.store', project_slug), {
               title: title,
               text: text,
-              general_content_three_settings_id: element_id,
+              general_content_three_settings_id: settings_id,
               blade_file: 'templates.' + template_name + '.page_elements.general-content3-bullet'
             }).done(function (data) {
-              console.log('bullet point added'); // $(".modal").modal('hide');
+              //setting data-id for edit
+              $(".js-project-general-content-three-bullet-point-title-" + (e + 1)).data('id', data.bulletPoint.id);
             });
           }
         }); // saving section's tiles
@@ -38026,11 +38029,12 @@ $(document).ready(function () {
             $.post(route('project.general-content-three-tile.store', project_slug), {
               title: title,
               text: text,
-              general_content_three_settings_id: element_id,
+              general_content_three_settings_id: settings_id,
               awesome_icon_id: awesome_icon_id,
               blade_file: 'templates.' + template_name + '.page_elements.general-content3-tile'
             }).done(function (data) {
-              console.log('tile added'); // $(".modal").modal('hide');
+              // setting tile id for edit
+              $(".js-project-general-content-three-tile-title-" + (e + 1)).data('id', data.tile.id);
             });
           }
         }); // saving new general content three section element
@@ -38038,7 +38042,7 @@ $(document).ready(function () {
         $.post(route('project.page-element.store', project_slug), {
           project_id: project_id,
           page_element_type_id: page_element_type_id,
-          page_elementable_id: element_id,
+          page_elementable_id: settings_id,
           page_elementable_type: modelType,
           blade_file: 'templates.' + template_name + '.page_elements.general-content3'
         }).done(function (data) {
@@ -38049,6 +38053,114 @@ $(document).ready(function () {
             }, 1000);
           });
         }).fail(console.log('failed element'));
+      });
+    } else {
+      alert('Bullet points and tiles added need to have title and text/awesome icon.');
+    }
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/general-content-section-3/update.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/projects/general-content-section-3/update.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.updateProjectGeneralContentThreeSettings = function (e) {
+    e.preventDefault();
+
+    function validate() {
+      var bool = true; //check if any bullet point has missing inputs
+
+      $('.js-project-edit-general-content-three-bullets').each(function (e, i) {
+        var input_bullet_title = $('.js-project-edit-general-content-three-bullet-point-title-' + (e + 1)).val();
+        var input_bullet_text = $('.js-project-edit-general-content-three-bullet-point-text-' + (e + 1)).val();
+
+        if (input_bullet_title !== '' || input_bullet_text !== '') {
+          if (input_bullet_title === '') {
+            bool = false;
+          } else if (input_bullet_text === '') {
+            bool = false;
+          }
+        }
+      }); //check if any tile has missing inputs
+
+      $('.js-project-edit-general-content-three-tiles').each(function (e, i) {
+        var input_tile_title = $('.js-project-edit-general-content-three-tile-title-' + (e + 1)).val();
+        var input_tile_text = $('.js-project-edit-general-content-three-tile-text-' + (e + 1)).val();
+
+        if (input_tile_title !== '' || input_tile_text !== '') {
+          if (input_tile_title === '') {
+            bool = false;
+          } else if (input_tile_text === '') {
+            bool = false;
+          }
+        }
+      });
+      return bool;
+    }
+
+    if (validate()) {
+      var title = $('.js-project-edit-general-content-three-title').val();
+      var text = $('.js-project-edit-general-content-three-text').val();
+      var link_url = $('.js-project-edit-general-content-three-link-url').val();
+      var button_value = $('.js-project-edit-general-content-three-button-value').val();
+      var settings_id = $('.js-project-edit-general-content-three-settings-id').val();
+      $.ajax({
+        url: route('project.general-content-three-settings.update', settings_id),
+        type: 'put',
+        data: {
+          title: title,
+          text: text,
+          link_url: link_url,
+          button_value: button_value
+        }
+      }).done(function (data) {
+        // let element_id = data.settings.id;
+        // update section's bullet points
+        $('.js-project-general-content-three-bullets').each(function (e, i) {
+          var title = $(".js-project-edit-general-content-three-bullet-point-title-" + (e + 1)).val();
+          var text = $(".js-project-edit-general-content-three-bullet-point-text-" + (e + 1)).val();
+          var bullet_id = $(".js-project-general-content-three-bullet-point-title-" + (e + 1)).data('id');
+
+          if (title !== '' && text !== '') {
+            $.ajax({
+              url: route('project.general-content-three-bullet-point.update', bullet_id),
+              type: 'put',
+              data: {
+                title: title,
+                text: text // general_content_three_settings_id: element_id,
+                // blade_file: 'templates.' + template_name +'.page_elements.general-content3-bullet'
+
+              }
+            }).done(function (data) {});
+          }
+        }); // update section's tiles
+
+        $('.js-project-general-content-three-tiles').each(function (e, i) {
+          var title = $(".js-project-edit-general-content-three-tile-title-" + (e + 1)).val();
+          var text = $(".js-project-edit-general-content-three-tile-text-" + (e + 1)).val();
+          var awesome_icon_id = $(".js-project-awesome-icons-tile-" + (e + 1)).val();
+          var tile_id = $(".js-project-general-content-three-tile-title-" + (e + 1)).data('id');
+
+          if (title !== '' && text !== '') {
+            $.ajax({
+              url: route('project.general-content-three-tile.update', tile_id),
+              type: "put",
+              data: {
+                title: title,
+                text: text,
+                // general_content_three_settings_id: element_id,
+                awesome_icon_id: awesome_icon_id // blade_file: 'templates.' + template_name +'.page_elements.general-content3-tile'
+
+              }
+            }).done(function (data) {});
+          }
+        });
       });
     } else {
       alert('Bullet points and tiles added need to have title and text/awesome icon.');
@@ -38273,8 +38385,6 @@ $(document).ready(function () {
     }).done(function () {
       $.get(route('project.page-element.render-single', element_id)).done(function (data) {
         setTimeout(function () {
-          // x = $(".js-added-element")
-          // $("main").find()
           $('*[data-elementid="' + element_id + '"]').replaceWith(data.view);
           createButtons(element_id);
         }, 1000);
@@ -38404,13 +38514,17 @@ $(document).ready(function () {
       var section_id = $('.js-project-edit-pricing-section-id').val();
 
       if (name !== '' && y_price !== '' && m_price !== '') {
-        $.post(route('project.price-settings.update', settings_id), {
-          name: name,
-          yearly_price: y_price,
-          monthly_price: m_price,
-          discount_amount: discount,
-          blade_file: 'templates.' + template_name + '.page_elements.pricing-single',
-          pricing_section_id: section_id
+        $.ajax({
+          url: route('project.price-settings.update', settings_id),
+          type: 'put',
+          data: {
+            name: name,
+            yearly_price: y_price,
+            monthly_price: m_price,
+            discount_amount: discount,
+            blade_file: 'templates.' + template_name + '.page_elements.pricing-single',
+            pricing_section_id: section_id
+          }
         }).done(function (data) {
           // set hidden settings id for edit modal
           $('.js-project-edit-pricing-settings-id-' + (e + 1)).val(data.settings.id); // update benefits for settings
@@ -39709,13 +39823,13 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\registration.scss */"./resources/sass/registration.scss");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\drag&drop.scss */"./resources/sass/drag&drop.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\master.scss */"./resources/sass/master.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\registration.scss */"./resources/sass/registration.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\drag&drop.scss */"./resources/sass/drag&drop.scss");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\master.scss */"./resources/sass/master.scss");
 
 
 /***/ })

@@ -32,7 +32,7 @@ class StoreProjectGeneralContentThreeBulletPointRequest extends FormRequest
         return [
             'title' => 'required',
             'text' => 'required',
-            'general_content_three_settings_id' => 'required',
+//            'general_content_three_settings_id' => 'required',
         ];
     }
 }

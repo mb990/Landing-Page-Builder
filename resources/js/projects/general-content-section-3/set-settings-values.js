@@ -10,7 +10,7 @@ $(document).ready(function () {
             $('.js-project-edit-general-content-three-button-value').val(data.settings.page_elementable.button_value);
 
 
-            $.each(data.settings.page_elementable.bulletPoints, function (e, i) {
+            $.each(data.settings.page_elementable.bullet_points, function (e, i) {
 
                 $(".js-project-edit-general-content-three-bullet-point-title-" + (e + 1)).val(i.title);
                 $(".js-project-edit-general-content-three-bullet-point-text-" + (e + 1)).val(i.text);

@@ -1,3 +1,4 @@
+<input type="hidden" class="js-project-edit-general-content-three-settings-id">
 <span>
     <input type="text" class="js-project-edit-general-content-three-title" placeholder="Enter section title">
     <input type="text" class="js-project-edit-general-content-three-text" placeholder="Enter section text">
@@ -39,13 +40,15 @@
 </span>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-success">Edit element</button>
+    <button type="button" class="btn btn-success js-project-edit-general-content-three-button">Edit element</button>
 </div>
 
 <script>
 
     $(document).ready(function () {
-        //
+
+        $('.js-project-edit-general-content-three-button').click(updateProjectGeneralContentThreeSettings);
+
     })
 
 </script>
