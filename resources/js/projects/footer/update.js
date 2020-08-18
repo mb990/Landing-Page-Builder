@@ -27,8 +27,7 @@ $(document).ready(function () {
 
             ).done(function (data) {
                 setTimeout(function () {
-                    // x = $(".js-added-element")
-                    // $("main").find()
+
                     $('*[data-elementid="'+element_id+'"]').replaceWith(data.view)
 
                     createButtons(element_id);
