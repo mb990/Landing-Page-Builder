@@ -39,7 +39,12 @@ class GeneralContentSectionOneImageController extends Controller
        return response()->json(['image' => $image]);
     }
 
-    public function destroy(AuthRequest $request, $id)
+    /**
+     * @param AuthRequest $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy(AuthRequest $request, $id): \Illuminate\Http\JsonResponse
     {
         $this->projectImageService->delete($id);
 

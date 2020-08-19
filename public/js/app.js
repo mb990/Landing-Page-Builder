@@ -37281,6 +37281,8 @@ __webpack_require__(/*! ./projects/general-content-section-1/set-settings-values
 
 __webpack_require__(/*! ./projects/general-content-section-2/store */ "./resources/js/projects/general-content-section-2/store.js");
 
+__webpack_require__(/*! ./projects/general-content-section-2/update */ "./resources/js/projects/general-content-section-2/update.js");
+
 __webpack_require__(/*! ./projects/general-content-section-2/set-settings-values */ "./resources/js/projects/general-content-section-2/set-settings-values.js");
 
 __webpack_require__(/*! ./projects/general-content-section-3/store */ "./resources/js/projects/general-content-section-3/store.js");
@@ -37824,6 +37826,8 @@ $(document).ready(function () {
           button_value: button_value
         },
         success: function success(data) {
+          console.log('data iz success-a: ' + data);
+          var settings_id = data.settings.id;
           var image = $('.js-project-edit-general-content-one-image')[0].files[0];
 
           if (image) {
@@ -37840,7 +37844,7 @@ $(document).ready(function () {
             form_data.append('storing_path', 'projects/' + project_name + '_' + project_id);
             form_data.append('image_name', 'general-content-one-section');
             form_data.append('imageable_type', modelType);
-            form_data.append('imageable_id', element_id);
+            form_data.append('imageable_id', settings_id);
             $.ajax({
               url: route('project.general-content-one-section-image.store'),
               type: "post",
@@ -37879,6 +37883,7 @@ $(document).ready(function () {
       $('.js-project-edit-general-content-two-link').val(data.settings.page_elementable.link_url);
       $('.js-project-edit-general-content-two-button').val(data.settings.page_elementable.button_value);
       $('.js-project-edit-general-content-two-image-filename').val(data.settings.page_elementable.image.filename);
+      $('.js-project-edit-general-content-two-image-filename').data('id', data.settings.page_elementable.image.id);
     }
   };
 });
@@ -37959,6 +37964,94 @@ $(document).ready(function () {
             }, 1000);
           });
         }).fail(console.log('failed element'));
+      });
+    } else {
+      alert('You need to add image');
+    }
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/general-content-section-2/update.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/projects/general-content-section-2/update.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.updateProjectGeneralContentTwoSettings = function (e) {
+    e.preventDefault();
+
+    function validate() {
+      var bool = true; // if (!document.getElementById('js-project-edit-general-content-two-image').validity.valid) {
+      //
+      //     bool = false;
+      // }
+
+      return bool;
+    }
+
+    if (validate()) {
+      // let template_name = $('.js-project-template-name').val();
+      // let page_element_type_id = $('.js-project-page-element-type-id').val();
+      var project_id = $('.js-project-id').val(); // let project_slug = $('.js-project-slug').val();
+
+      var project_name = $('.js-project-name').val(); //
+
+      var modelType = 'App\\GeneralContentTwoSettings';
+      var title = $('.js-project-edit-general-content-two-title').val();
+      var text = $('.js-project-edit-general-content-two-text').val();
+      var link_url = $('.js-project-edit-general-content-two-link').val();
+      var button_value = $('.js-project-edit-general-content-two-button').val(); // let settings_id = $('.js-project-edit-general-content-section-two-title').data('id');
+
+      var element_id = $('.js-selected-project-page-element-id').val();
+      $.ajax({
+        url: route('project.general-content-two-settings.update', element_id),
+        type: 'put',
+        data: {
+          title: title,
+          text: text,
+          link_url: link_url,
+          button_value: button_value
+        },
+        success: function success(data) {
+          console.log('vraceni podaci iz successa nakon update-a settings-a: ' + data.settings);
+          var settings_id = data.settings.id;
+          var image = $('.js-project-edit-general-content-two-image')[0].files[0];
+
+          if (image) {
+            var old_image_id = $('.js-project-edit-general-content-two-image-filename').data('id'); //delete old image
+
+            $.ajax({
+              url: route('project.general-content-two-section-image.delete', old_image_id),
+              type: 'delete'
+            }); // store new general content two settings image
+
+            var form_data = new FormData();
+            form_data.append('image', image);
+            form_data.append('project_name', project_name);
+            form_data.append('storing_path', 'projects/' + project_name + '_' + project_id);
+            form_data.append('image_name', 'general-content-two-section');
+            form_data.append('imageable_type', modelType);
+            form_data.append('imageable_id', settings_id);
+            $.ajax({
+              url: route('project.general-content-two-section-image.store'),
+              type: "post",
+              data: form_data,
+              contentType: false,
+              cache: false,
+              processData: false,
+              success: console.log('gen content 1 slika sacuvana') // error: console.log('greska pri uploadu slike')
+
+            }).done(function (data) {
+              console.log(data.image);
+            });
+          }
+        }
+      }).done(function (data) {
+        console.log('vraceni podaci iz done-a nakon updatea settingsa: ' + data);
       });
     } else {
       alert('You need to add image');

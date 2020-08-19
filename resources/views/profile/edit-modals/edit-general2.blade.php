@@ -8,5 +8,15 @@
 </span>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-success ">Edit element</button>
+    <button type="button" class="btn btn-success js-project-edit-general-content-two-save-button">Edit element</button>
 </div>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('.js-project-edit-general-content-two-save-button').click(updateProjectGeneralContentTwoSettings);
+
+    })
+
+</script>

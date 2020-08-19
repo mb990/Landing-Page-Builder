@@ -16,14 +16,20 @@ class GeneralContentTwoSettingsService
      * @var GeneralContentTwoSettingsRepository
      */
     private $generalContentTwoSettings;
+    /**
+     * @var PageElementService
+     */
+    private $pageElementService;
 
     /**
      * GeneralContentTwoSettingsService constructor.
      * @param GeneralContentTwoSettingsRepository $generalContentTwoSettings
+     * @param PageElementService $pageElementService
      */
-    public function __construct(GeneralContentTwoSettingsRepository $generalContentTwoSettings)
+    public function __construct(GeneralContentTwoSettingsRepository $generalContentTwoSettings, PageElementService $pageElementService)
     {
         $this->generalContentTwoSettings = $generalContentTwoSettings;
+        $this->pageElementService = $pageElementService;
     }
 
     /**
@@ -59,7 +65,9 @@ class GeneralContentTwoSettingsService
      */
     public function update($request, $id)
     {
-        return $this->generalContentTwoSettings->update($request, $id);
+        $settingsId = $this->pageElementService->find($id)->pageElementable->id;
+
+        return $this->generalContentTwoSettings->update($request, $settingsId);
     }
 
     /**

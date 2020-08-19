@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    window.updateaProjectGeneralContentOneSettings = function (e) {
+    window.updateProjectGeneralContentTwoSettings = function (e) {
 
         e.preventDefault();
 
@@ -8,7 +8,7 @@ $(document).ready(function () {
 
             let bool = true;
 
-            // if (!document.getElementById('js-project-edit-general-content-one-image').validity.valid) {
+            // if (!document.getElementById('js-project-edit-general-content-two-image').validity.valid) {
             //
             //     bool = false;
             // }
@@ -24,18 +24,18 @@ $(document).ready(function () {
             // let project_slug = $('.js-project-slug').val();
             let project_name = $('.js-project-name').val();
             //
-            let modelType = 'App\\GeneralContentOneSettings';
+            let modelType = 'App\\GeneralContentTwoSettings';
 
-            let title = $('.js-project-edit-general-content-one-title').val();
-            let text = $('.js-project-edit-general-content-one-text').val();
-            let link_url = $('.js-project-edit-general-content-one-link-url').val();
-            let button_value = $('.js-project-edit-general-content-one-button-value').val();
+            let title = $('.js-project-edit-general-content-two-title').val();
+            let text = $('.js-project-edit-general-content-two-text').val();
+            let link_url = $('.js-project-edit-general-content-two-link').val();
+            let button_value = $('.js-project-edit-general-content-two-button').val();
 
-            // let settings_id = $('.js-project-edit-general-content-section-one-title').data('id');
+            // let settings_id = $('.js-project-edit-general-content-section-two-title').data('id');
             let element_id = $('.js-selected-project-page-element-id').val();
 
             $.ajax({
-                url: route('project.general-content-one-settings.update', element_id),
+                url: route('project.general-content-two-settings.update', element_id),
                 type: 'put',
                 data:
                     {
@@ -46,37 +46,37 @@ $(document).ready(function () {
                     },
                 success: function (data) {
 
-                    console.log('data iz success-a: ' + data);
+                    console.log('vraceni podaci iz successa nakon update-a settings-a: ' + data.settings);
 
                     let settings_id = data.settings.id;
 
-                    let image = $('.js-project-edit-general-content-one-image')[0].files[0];
+                    let image = $('.js-project-edit-general-content-two-image')[0].files[0];
 
                     if(image) {
 
-                        let old_image_id = $('.js-project-edit-general-content-one-image-filename').data('id');
+                        let old_image_id = $('.js-project-edit-general-content-two-image-filename').data('id');
 
                         //delete old image
 
                         $.ajax({
 
-                            url: route('project.general-content-one-section-image.delete', old_image_id),
+                            url: route('project.general-content-two-section-image.delete', old_image_id),
                             type: 'delete'
 
                         })
 
-                        // store new general content one settings image
+                        // store new general content two settings image
                         let form_data = new FormData();
                         form_data.append('image', image);
                         form_data.append('project_name', project_name);
                         form_data.append('storing_path', 'projects/' + project_name + '_' + project_id);
-                        form_data.append('image_name', 'general-content-one-section');
+                        form_data.append('image_name', 'general-content-two-section');
                         form_data.append('imageable_type', modelType);
                         form_data.append('imageable_id', settings_id);
 
                         $.ajax({
 
-                            url: route('project.general-content-one-section-image.store'),
+                            url: route('project.general-content-two-section-image.store'),
                             type: "post",
                             data: form_data,
                             contentType: false,
@@ -90,6 +90,8 @@ $(document).ready(function () {
                         });
                     }
                 }
+            }).done(function (data) {
+                console.log('vraceni podaci iz done-a nakon updatea settingsa: ' + data);
             })
         }
         else {

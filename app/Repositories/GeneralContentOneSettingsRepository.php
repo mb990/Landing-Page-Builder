@@ -53,9 +53,11 @@ class GeneralContentOneSettingsRepository extends BaseRepository
      * @param $id
      * @return mixed
      */
-    public function update($request, $id)
+    public function update($request, $id): GeneralContentOneSettings
     {
-        return $this->find($id)->update($request->all());
+        $this->find($id)->update($request->all());
+
+        return $this->find($id);
     }
 
     /**
