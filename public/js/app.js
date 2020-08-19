@@ -37255,6 +37255,8 @@ __webpack_require__(/*! ./projects/store-project */ "./resources/js/projects/sto
 
 __webpack_require__(/*! ./projects/top-menu/store */ "./resources/js/projects/top-menu/store.js");
 
+__webpack_require__(/*! ./projects/top-menu/update */ "./resources/js/projects/top-menu/update.js");
+
 __webpack_require__(/*! ./projects/top-menu/set-settings-values */ "./resources/js/projects/top-menu/set-settings-values.js");
 
 __webpack_require__(/*! ./projects/footer/store */ "./resources/js/projects/footer/store.js");
@@ -39120,9 +39122,11 @@ $(document).ready(function () {
   window.setTopMenuSettingsValues = function (data) {
     if (data.settings.page_elementable_type === 'App\\TopMenuSettings') {
       $('.js-project-edit-top-menu-image-filename').val(data.settings.page_elementable.image.filename);
+      $('.js-project-edit-top-menu-image-filename').data('id', data.settings.page_elementable.image.id);
       $.each(data.settings.page_elementable.links, function (e, i) {
         $(".top-menu-edit-link-" + (e + 1)).val(i.url);
         $(".top-menu-edit-title-" + (e + 1)).val(i.title);
+        $(".top-menu-edit-title-" + (e + 1)).data('id', i.id);
       });
     }
   };
@@ -39188,7 +39192,7 @@ $(document).ready(function () {
           var url = $("#link-url-" + (e + 1)).val();
           var title = $("#title-" + (e + 1)).val();
 
-          if (url !== '' && title !== '') {
+          if (url && title) {
             $.post(route('project.top-menu-link.store', project_slug), {
               url: url,
               title: title,
@@ -39214,6 +39218,102 @@ $(document).ready(function () {
           });
         }).fail(console.log('failed element'));
       }).fail(console.log('failed settings'));
+    } else {
+      alert('You need to add top menu image');
+    }
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/top-menu/update.js":
+/*!**************************************************!*\
+  !*** ./resources/js/projects/top-menu/update.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.updateProjectTopMenuSettings = function (e) {
+    e.preventDefault();
+
+    function validate() {
+      var bool = true; // if (!document.getElementById('project-top-menu-image').validity.valid) {
+      //
+      //     bool = false;
+      // }
+
+      return bool;
+    }
+
+    if (validate()) {
+      // let template_id = $('.js-project-template-id').val();
+      var template_name = $('.js-project-template-name').val();
+      var page_element_type_id = $('.js-project-page-element-type-id').val();
+      var project_id = $('.js-project-id').val();
+      var project_slug = $('.js-project-slug').val();
+      var project_name = $('.js-project-name').val();
+      var modelType = 'App\\TopMenuSettings';
+      var element_id = $('.js-selected-project-page-element-id').val();
+      $.ajax({
+        url: route('project.top-menu-settings.get', element_id),
+        type: 'get',
+        success: function success(data) {
+          var image = $('.js-project-edit-top-menu-image')[0].files[0];
+
+          if (image) {
+            var old_image_id = $('.js-project-edit-top-menu-image-filename').data('id');
+            $.ajax({
+              url: route('project.top-menu-image.delete', old_image_id),
+              type: 'delete',
+              success: function success() {
+                // saving new top menu image
+                var form_data = new FormData();
+                form_data.append('image', image);
+                form_data.append('project_name', project_name);
+                form_data.append('storing_path', 'projects/' + project_name + '_' + project_id);
+                form_data.append('image_name', 'top-menu');
+                form_data.append('imageable_type', modelType);
+                form_data.append('imageable_id', data.settings.id);
+                $.ajax({
+                  url: route('project.top-menu-image.store'),
+                  type: "post",
+                  data: form_data,
+                  contentType: false,
+                  cache: false,
+                  processData: false,
+                  success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+
+                }).done(function (data) {//
+                });
+              }
+            });
+          } // update top menu links
+
+
+          $('.js-project-top-menu-link').each(function (e, i) {
+            var url = $(".top-menu-edit-link-" + (e + 1)).val();
+            var title = $(".top-menu-edit-title-" + (e + 1)).val();
+            var link_id = $(".top-menu-edit-title-" + (e + 1)).data('id');
+
+            if (url && title) {
+              $.ajax({
+                url: route('project.top-menu-link.update', link_id),
+                type: 'put',
+                data: {
+                  url: url,
+                  title: title // top_menu_settings_id: data.settings.id
+
+                },
+                success: function success(data) {
+                  console.log('link je updateovan');
+                }
+              });
+            }
+          });
+        }
+      }).done(function (data) {//
+      });
     } else {
       alert('You need to add top menu image');
     }

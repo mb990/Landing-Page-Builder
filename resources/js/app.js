@@ -15,6 +15,7 @@ require('./templates/gallery/store');
 require('./projects/store-subscriber');
 require('./projects/store-project');
 require('./projects/top-menu/store');
+require('./projects/top-menu/update');
 require('./projects/top-menu/set-settings-values');
 require('./projects/footer/store');
 require('./projects/footer/update');

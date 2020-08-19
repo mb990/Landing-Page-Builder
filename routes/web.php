@@ -124,6 +124,7 @@ Route::delete('/page-element/{id}', 'Project\PageElementController@destroy')->na
 
 //Project Image
 Route::post('/project-top-menu-image', 'Project\TopMenuImageController@store')->name('project.top-menu-image.store');
+Route::delete('/project-top-menu-image/{id}', 'Project\TopMenuImageController@destroy')->name('project.top-menu-image.delete');
 Route::post('/project-testimonial-image', 'Project\TestimonialImageController@store')->name('project.testimonial-image.store');
 Route::post('/project-hero-section-image', 'Project\HeroSectionImageController@store')->name('project.hero-section-image.store');
 Route::delete('/project-hero-section-image/{id}', 'Project\HeroSectionImageController@destroy')->name('project.hero-section-image.delete');
@@ -134,10 +135,13 @@ Route::delete('/project-general-content-two-section-image/{id}', 'Project\Genera
 Route::post('/project-gallery-image-item-image', 'Project\GalleryImageItemImageController@store')->name('project.gallery-image-item-image.store');
 
 //Top Menu Settings
+Route::get('/project/top-menu-settings/{id}', 'Project\TopMenuSettingsController@get')->name('project.top-menu-settings.get');
 Route::post('/project/{slug}/top-menu-settings', 'Project\TopMenuSettingsController@store')->name('project.top-menu-settings.store');
+Route::put('/project/top-menu-settings/{id}', 'Project\TopMenuSettingsController@update')->name('project.top-menu-settings.update');
 
 //Top Menu Link
-Route::post('/project/{slug}/link', 'Template\TopMenuLinkController@store')->name('project.top-menu-link.store');
+Route::post('/project/{slug}/link', 'Project\TopMenuLinkController@store')->name('project.top-menu-link.store');
+Route::put('/project/link/{id}', 'Project\TopMenuLinkController@update')->name('project.top-menu-link.update');
 
 //Testimonial Section
 Route::post('/project/{slug}/testimonial-section', 'Project\TestimonialSectionController@store')->name('project.testimonial-section.store');

@@ -20,16 +20,22 @@ class TopMenuSettingsService
      * @var RequestService
      */
     private $requestService;
+    /**
+     * @var PageElementService
+     */
+    private $pageElementService;
 
     /**
      * TopMenuSettingsService constructor.
      * @param TopMenuSettingsRepository $topMenuSettings
      * @param RequestService $requestService
+     * @param PageElementService $pageElementService
      */
-    public function __construct(TopMenuSettingsRepository $topMenuSettings, RequestService $requestService)
+    public function __construct(TopMenuSettingsRepository $topMenuSettings, RequestService $requestService, PageElementService $pageElementService)
     {
         $this->topMenuSettings = $topMenuSettings;
         $this->requestService = $requestService;
+        $this->pageElementService = $pageElementService;
     }
 
     /**
@@ -39,6 +45,15 @@ class TopMenuSettingsService
     public function find($id)
     {
         return $this->topMenuSettings->find($id);
+    }
+
+    /**
+     * @param int $id
+     * @return mixed
+     */
+    public function findSettingsByElementId(int $id)
+    {
+        return $this->pageElementService->find($id)->pageElementable;
     }
 
     /**

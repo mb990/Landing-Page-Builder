@@ -64,7 +64,7 @@ $(document).ready(function () {
                     let url = $("#link-url-" + (e + 1)).val();
                     let title = $("#title-" + (e + 1)).val();
 
-                    if (url !== '' && title !== '') {
+                    if (url && title) {
 
                         $.post(route('project.top-menu-link.store', project_slug),
                             {

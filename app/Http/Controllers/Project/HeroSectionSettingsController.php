@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Project;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AuthRequest;
 use App\Http\Requests\StoreProjectHeroSectionSettingsRequest;
 use App\Services\HeroSectionSettingsService;
 use Illuminate\Http\Request;
@@ -38,7 +39,12 @@ class HeroSectionSettingsController extends Controller
         return response()->json(['settings' => $settings]);
     }
 
-    public function update(StoreProjectHeroSectionSettingsRequest $request, $id)
+    /**
+     * @param StoreProjectHeroSectionSettingsRequest $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(StoreProjectHeroSectionSettingsRequest $request, $id): \Illuminate\Http\JsonResponse
     {
         $settings = $this->heroSectionSettingsService->update($request, $id);
 

@@ -32,7 +32,7 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-success">Edit element</button>
+    <button type="button" class="btn btn-success js-project-edit-top-menu-save-button">Edit element</button>
 </div>
 <script>
 $(document).ready(function(){
@@ -57,6 +57,8 @@ $(document).ready(function(){
             $('.js-project-top-menu-link').addClass('d-none')
         }
     })
+
+    $('.js-project-edit-top-menu-save-button').click(updateProjectTopMenuSettings);
 
 })
 </script>
