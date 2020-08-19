@@ -5,6 +5,10 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class StoreTemplatePageElementRequest
+ * @package App\Http\Requests
+ */
 class StoreTemplatePageElementRequest extends FormRequest
 {
     /**

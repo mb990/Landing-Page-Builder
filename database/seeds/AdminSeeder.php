@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
+/**
+ * Class AdminSeeder
+ */
 class AdminSeeder extends Seeder
 {
     /**
@@ -13,6 +16,10 @@ class AdminSeeder extends Seeder
      */
     private $faker;
 
+    /**
+     * AdminSeeder constructor.
+     * @param Faker $faker
+     */
     public function __construct(Faker $faker)
     {
         $this->faker = $faker;

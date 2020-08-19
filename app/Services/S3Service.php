@@ -9,6 +9,10 @@ use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * Class S3Service
+ * @package App\Services
+ */
 class S3Service
 {
 
@@ -25,6 +29,12 @@ class S3Service
         ;
     }
 
+    /**
+     * @param $template
+     * @param $image
+     * @param $minutes
+     * @return mixed
+     */
     public function showTemplateTopMenuImage($template, $image, $minutes)
     {
         $url = Storage::disk('s3')->temporaryUrl('templates/' . $template->name . '/' . $image->filename, Carbon::now()->addMinutes($minutes));
@@ -32,6 +42,12 @@ class S3Service
         return $url;
     }
 
+    /**
+     * @param $template
+     * @param $image
+     * @param $minutes
+     * @return mixed
+     */
     public function showTemplateTestimonialImage($template, $image, $minutes)
     {
         $url = Storage::disk('s3')->temporaryUrl('templates/' . $template->name . '/testimonials/' . $image->filename, Carbon::now()->addMinutes($minutes));
@@ -39,6 +55,12 @@ class S3Service
         return $url;
     }
 
+    /**
+     * @param $template
+     * @param $image
+     * @param $minutes
+     * @return mixed
+     */
     public function showTemplateHeroSectionImage($template, $image, $minutes)
     {
         $url = Storage::disk('s3')->temporaryUrl('templates/' . $template->name . '/' . $image->filename, Carbon::now()->addMinutes($minutes));
@@ -46,6 +68,12 @@ class S3Service
         return $url;
     }
 
+    /**
+     * @param $template
+     * @param $image
+     * @param $minutes
+     * @return mixed
+     */
     public function showTemplateGeneralContentOneImage($template, $image, $minutes)
     {
         $url = Storage::disk('s3')->temporaryUrl('templates/' . $template->name . '/' . $image->filename, Carbon::now()->addMinutes($minutes));
@@ -53,6 +81,12 @@ class S3Service
         return $url;
     }
 
+    /**
+     * @param $template
+     * @param $image
+     * @param $minutes
+     * @return mixed
+     */
     public function showTemplateGeneralContentTwoImage($template, $image, $minutes)
     {
         $url = Storage::disk('s3')->temporaryUrl('templates/' . $template->name . '/' . $image->filename, Carbon::now()->addMinutes($minutes));
@@ -60,6 +94,12 @@ class S3Service
         return $url;
     }
 
+    /**
+     * @param $template
+     * @param $image
+     * @param $minutes
+     * @return mixed
+     */
     public function showTemplateGalleryImageItemImage($template, $image, $minutes)
     {
         $url = Storage::disk('s3')->temporaryUrl('templates/' . $template->name . '/gallery/images/' . $image->filename, Carbon::now()->addMinutes($minutes));

@@ -5,6 +5,10 @@ namespace App;
 use Cesargb\Database\Support\CascadeDelete;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class TestimonialSettings
+ * @package App
+ */
 class TestimonialSettings extends Model
 {
     use CascadeDelete;
@@ -17,11 +21,17 @@ class TestimonialSettings extends Model
 
     protected $cascadeDeleteMorph = ['pageElement'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function testimonialSection()
     {
         return $this->belongsTo(TestimonialSection::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
     public function image()
     {
         return $this->morphOne(Image::class, 'imageable');

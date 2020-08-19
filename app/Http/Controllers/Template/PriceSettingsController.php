@@ -7,6 +7,10 @@ use App\Http\Requests\StorePriceSettingsRequest;
 use App\Services\PriceSettingsService;
 use Illuminate\Http\Request;
 
+/**
+ * Class PriceSettingsController
+ * @package App\Http\Controllers\Template
+ */
 class PriceSettingsController extends Controller
 {
     /**
@@ -14,11 +18,19 @@ class PriceSettingsController extends Controller
      */
     private $priceSettingsService;
 
+    /**
+     * PriceSettingsController constructor.
+     * @param PriceSettingsService $priceSettingsService
+     */
     public function __construct(PriceSettingsService $priceSettingsService)
     {
         $this->priceSettingsService = $priceSettingsService;
     }
 
+    /**
+     * @param StorePriceSettingsRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(StorePriceSettingsRequest $request)
     {
         $settings = $this->priceSettingsService->store($request);

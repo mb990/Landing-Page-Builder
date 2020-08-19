@@ -7,6 +7,10 @@ use App\Http\Requests\StoreFooterSettingsRequest;
 use App\Services\FooterSettingsService;
 use Illuminate\Http\Request;
 
+/**
+ * Class FooterSettingsController
+ * @package App\Http\Controllers\Template
+ */
 class FooterSettingsController extends Controller
 {
     /**
@@ -14,11 +18,19 @@ class FooterSettingsController extends Controller
      */
     private $footerSettingsService;
 
+    /**
+     * FooterSettingsController constructor.
+     * @param FooterSettingsService $footerSettingsService
+     */
     public function __construct(FooterSettingsService $footerSettingsService)
     {
         $this->footerSettingsService = $footerSettingsService;
     }
 
+    /**
+     * @param StoreFooterSettingsRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(StoreFooterSettingsRequest $request)
     {
         $settings = $this->footerSettingsService->store($request);

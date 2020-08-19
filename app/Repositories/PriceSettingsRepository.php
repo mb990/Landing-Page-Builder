@@ -6,6 +6,10 @@ namespace App\Repositories;
 
 use App\PriceSettings;
 
+/**
+ * Class PriceSettingsRepository
+ * @package App\Repositories
+ */
 class PriceSettingsRepository
 {
     /**

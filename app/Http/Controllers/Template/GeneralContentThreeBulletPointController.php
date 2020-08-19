@@ -7,6 +7,10 @@ use App\Http\Requests\StoreTemplateGeneralContentThreeBulletPointRequest;
 use App\Services\GeneralContentThreeBulletPointService;
 use Illuminate\Http\Request;
 
+/**
+ * Class GeneralContentThreeBulletPointController
+ * @package App\Http\Controllers\Template
+ */
 class GeneralContentThreeBulletPointController extends Controller
 {
     /**
@@ -14,11 +18,19 @@ class GeneralContentThreeBulletPointController extends Controller
      */
     private $generalContentThreeBulletPointService;
 
+    /**
+     * GeneralContentThreeBulletPointController constructor.
+     * @param GeneralContentThreeBulletPointService $generalContentThreeBulletPointService
+     */
     public function __construct(GeneralContentThreeBulletPointService $generalContentThreeBulletPointService)
     {
         $this->generalContentThreeBulletPointService = $generalContentThreeBulletPointService;
     }
 
+    /**
+     * @param StoreTemplateGeneralContentThreeBulletPointRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(StoreTemplateGeneralContentThreeBulletPointRequest $request)
     {
         $bulletPoint = $this->generalContentThreeBulletPointService->store($request);

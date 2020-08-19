@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectGeneralContentThreeTileRequest;
 use App\Services\GeneralContentThreeTileService;
 
+/**
+ * Class GeneralContentThreeTileController
+ * @package App\Http\Controllers\Project
+ */
 class GeneralContentThreeTileController extends Controller
 {
     /**

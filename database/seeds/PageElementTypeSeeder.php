@@ -3,6 +3,9 @@
 use App\Services\PageElementTypeService;
 use Illuminate\Database\Seeder;
 
+/**
+ * Class PageElementTypeSeeder
+ */
 class PageElementTypeSeeder extends Seeder
 {
     /**
@@ -10,6 +13,10 @@ class PageElementTypeSeeder extends Seeder
      */
     private $pageElementTypeService;
 
+    /**
+     * PageElementTypeSeeder constructor.
+     * @param PageElementTypeService $pageElementTypeService
+     */
     public function __construct(PageElementTypeService $pageElementTypeService)
     {
         $this->pageElementTypeService = $pageElementTypeService;

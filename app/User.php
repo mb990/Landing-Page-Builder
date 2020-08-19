@@ -8,6 +8,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * Class User
+ * @package App
+ */
 class User extends Authenticatable
 {
     use Notifiable, HasRoles, Sluggable;
@@ -41,11 +45,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function projects()
     {
         return $this->hasMany(Project::class);
     }
 
+    /**
+     * @return \string[][][]
+     */
     public function sluggable()
     {
         return [

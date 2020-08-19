@@ -4,6 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class StoreGalleryVideoItemRequest
+ * @package App\Http\Requests
+ */
 class StoreGalleryVideoItemRequest extends FormRequest
 {
     /**

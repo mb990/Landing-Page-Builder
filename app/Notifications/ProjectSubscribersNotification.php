@@ -7,6 +7,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
+/**
+ * Class ProjectSubscribersNotification
+ * @package App\Notifications
+ */
 class ProjectSubscribersNotification extends Notification implements ShouldQueue
 {
     use Queueable;

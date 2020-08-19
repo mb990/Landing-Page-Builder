@@ -7,6 +7,10 @@ use App\Http\Requests\StoreTemplateGeneralContentSectionTwoImageRequest;
 use App\Services\TemplateImageService;
 use Illuminate\Http\Request;
 
+/**
+ * Class GeneralContentSectionTwoImageController
+ * @package App\Http\Controllers\Template
+ */
 class GeneralContentSectionTwoImageController extends Controller
 {
     /**
@@ -14,11 +18,19 @@ class GeneralContentSectionTwoImageController extends Controller
      */
     private $templateImageService;
 
+    /**
+     * GeneralContentSectionTwoImageController constructor.
+     * @param TemplateImageService $templateImageService
+     */
     public function __construct(TemplateImageService $templateImageService)
     {
         $this->templateImageService = $templateImageService;
     }
 
+    /**
+     * @param StoreTemplateGeneralContentSectionTwoImageRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(StoreTemplateGeneralContentSectionTwoImageRequest $request)
     {
         $image = $this->templateImageService->store($request);

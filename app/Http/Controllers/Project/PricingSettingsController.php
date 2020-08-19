@@ -8,6 +8,10 @@ use App\Http\Requests\StoreProjectPricingSettingsRequest;
 use App\Services\PriceSettingsService;
 use Illuminate\Http\Request;
 
+/**
+ * Class PricingSettingsController
+ * @package App\Http\Controllers\Project
+ */
 class PricingSettingsController extends Controller
 {
     /**

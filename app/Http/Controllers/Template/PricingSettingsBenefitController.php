@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTemplatePricingSettingsBenefitRequest;
 use App\Services\PricingSettingsBenefitService;
 
+/**
+ * Class PricingSettingsBenefitController
+ * @package App\Http\Controllers\Template
+ */
 class PricingSettingsBenefitController extends Controller
 {
     /**
@@ -13,11 +17,19 @@ class PricingSettingsBenefitController extends Controller
      */
     private $pricingSettingsBenefitService;
 
+    /**
+     * PricingSettingsBenefitController constructor.
+     * @param PricingSettingsBenefitService $pricingSettingsBenefitService
+     */
     public function __construct(PricingSettingsBenefitService $pricingSettingsBenefitService)
     {
         $this->pricingSettingsBenefitService = $pricingSettingsBenefitService;
     }
 
+    /**
+     * @param StoreTemplatePricingSettingsBenefitRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(StoreTemplatePricingSettingsBenefitRequest $request)
     {
         $benefit = $this->pricingSettingsBenefitService->store($request);

@@ -8,6 +8,10 @@ use App\Http\Requests\StoreTemplateNewsletterSettingsRequest;
 use App\Services\NewsletterService;
 use Illuminate\Http\Request;
 
+/**
+ * Class NewsletterSettingsController
+ * @package App\Http\Controllers\Project
+ */
 class NewsletterSettingsController extends Controller
 {
     /**
@@ -35,6 +39,11 @@ class NewsletterSettingsController extends Controller
         return response()->json(['settings' => $settings]);
     }
 
+    /**
+     * @param StoreProjectNewsletterSettingsRequest $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function update(StoreProjectNewsletterSettingsRequest $request, $id)
     {
         $settings = $this->newsletterService->update($request, $id);

@@ -2,6 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
+/**
+ * Class AwesomeIconsSeeder
+ */
 class AwesomeIconsSeeder extends Seeder
 {
     /**
@@ -9,6 +12,10 @@ class AwesomeIconsSeeder extends Seeder
      */
     private $awesomeIconsService;
 
+    /**
+     * AwesomeIconsSeeder constructor.
+     * @param \App\Services\AwesomeIconsService $awesomeIconsService
+     */
     public function __construct(\App\Services\AwesomeIconsService $awesomeIconsService)
     {
         $this->awesomeIconsService = $awesomeIconsService;

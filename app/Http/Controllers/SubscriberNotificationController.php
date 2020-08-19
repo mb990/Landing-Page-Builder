@@ -6,6 +6,10 @@ use App\Http\Requests\ProjectSubscribersNotificationRequest;
 use App\Services\ProjectSubscriberNotificationService;
 use Illuminate\Http\Request;
 
+/**
+ * Class SubscriberNotificationController
+ * @package App\Http\Controllers
+ */
 class SubscriberNotificationController extends Controller
 {
     /**

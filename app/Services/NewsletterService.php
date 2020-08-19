@@ -6,6 +6,10 @@ namespace App\Services;
 
 use App\Repositories\NewsletterRepository;
 
+/**
+ * Class NewsletterService
+ * @package App\Services
+ */
 class NewsletterService
 {
     /**

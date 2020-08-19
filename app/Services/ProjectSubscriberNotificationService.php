@@ -7,6 +7,10 @@ namespace App\Services;
 use App\Notifications\ProjectSubscribersNotification;
 use App\Project;
 
+/**
+ * Class ProjectSubscriberNotificationService
+ * @package App\Services
+ */
 class ProjectSubscriberNotificationService
 {
     /**

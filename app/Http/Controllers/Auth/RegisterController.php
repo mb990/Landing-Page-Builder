@@ -9,6 +9,10 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * Class RegisterController
+ * @package App\Http\Controllers\Auth
+ */
 class RegisterController extends Controller
 {
     /*
@@ -41,6 +45,9 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    /**
+     * @return string
+     */
     public function redirectTo()
     {
         if (auth()->user()->hasRole('admin')) {

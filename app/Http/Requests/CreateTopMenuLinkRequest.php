@@ -4,6 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class CreateTopMenuLinkRequest
+ * @package App\Http\Requests
+ */
 class CreateTopMenuLinkRequest extends FormRequest
 {
     /**

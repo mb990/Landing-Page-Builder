@@ -5,6 +5,10 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class StoreProjectGalleryImageItemImageRequest
+ * @package App\Http\Requests
+ */
 class StoreProjectGalleryImageItemImageRequest extends FormRequest
 {
     /**

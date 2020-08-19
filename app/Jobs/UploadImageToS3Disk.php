@@ -10,6 +10,10 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * Class UploadImageToS3Disk
+ * @package App\Jobs
+ */
 class UploadImageToS3Disk implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -19,6 +23,13 @@ class UploadImageToS3Disk implements ShouldQueue
     private $imagePath;
     private $storingPath;
 
+    /**
+     * UploadImageToS3Disk constructor.
+     * @param $imageName
+     * @param $extension
+     * @param $imagePath
+     * @param $storingPath
+     */
     public function __construct($imageName, $extension, $imagePath, $storingPath)
     {
         $this->imageName = $imageName;

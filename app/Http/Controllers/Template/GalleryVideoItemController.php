@@ -7,6 +7,10 @@ use App\Http\Requests\StoreGalleryVideoItemRequest;
 use App\Services\GalleryVideoItemService;
 use Illuminate\Http\Request;
 
+/**
+ * Class GalleryVideoItemController
+ * @package App\Http\Controllers\Template
+ */
 class GalleryVideoItemController extends Controller
 {
     /**
@@ -14,11 +18,19 @@ class GalleryVideoItemController extends Controller
      */
     private $galleryVideoItemService;
 
+    /**
+     * GalleryVideoItemController constructor.
+     * @param GalleryVideoItemService $galleryVideoItemService
+     */
     public function __construct(GalleryVideoItemService $galleryVideoItemService)
     {
         $this->galleryVideoItemService = $galleryVideoItemService;
     }
 
+    /**
+     * @param StoreGalleryVideoItemRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(StoreGalleryVideoItemRequest $request)
     {
         $video = $this->galleryVideoItemService->store($request);

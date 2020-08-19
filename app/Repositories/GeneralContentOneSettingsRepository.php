@@ -6,6 +6,10 @@ namespace App\Repositories;
 
 use App\GeneralContentOneSettings;
 
+/**
+ * Class GeneralContentOneSettingsRepository
+ * @package App\Repositories
+ */
 class GeneralContentOneSettingsRepository extends BaseRepository
 {
     /**
@@ -57,7 +61,7 @@ class GeneralContentOneSettingsRepository extends BaseRepository
     /**
      * @param $id
      */
-    public function delete($id)
+    public function delete($id) :void
     {
         $this->find($id)->delete();
     }

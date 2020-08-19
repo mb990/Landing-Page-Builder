@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+/**
+ * Class LoginController
+ * @package App\Http\Controllers\Auth
+ */
 class LoginController extends Controller
 {
     /*
@@ -38,6 +42,9 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    /**
+     * @return string
+     */
     public function redirectTo()
     {
         if (auth()->user()->hasRole('admin')) {

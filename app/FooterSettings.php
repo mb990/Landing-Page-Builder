@@ -5,6 +5,10 @@ namespace App;
 use Cesargb\Database\Support\CascadeDelete;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class FooterSettings
+ * @package App
+ */
 class FooterSettings extends Model
 {
     use CascadeDelete;
@@ -15,6 +19,9 @@ class FooterSettings extends Model
 
     protected $cascadeDeleteMorph = ['pageElement'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
     public function pageElement()
     {
         return $this->morphOne(PageElement::class, 'page_elementable');

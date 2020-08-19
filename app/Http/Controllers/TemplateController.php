@@ -6,6 +6,10 @@ use App\Http\Requests\StoreTemplateRequest;
 use App\Services\TemplateService;
 use Illuminate\Http\Request;
 
+/**
+ * Class TemplateController
+ * @package App\Http\Controllers
+ */
 class TemplateController extends Controller
 {
     /**
@@ -13,11 +17,18 @@ class TemplateController extends Controller
      */
     private $templateService;
 
+    /**
+     * TemplateController constructor.
+     * @param TemplateService $templateService
+     */
     public function __construct(TemplateService $templateService)
     {
         $this->templateService = $templateService;
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index()
     {
         $templates = $this->templateService->all();
@@ -25,6 +36,10 @@ class TemplateController extends Controller
         return response()->json(['templates' => $templates]);
     }
 
+    /**
+     * @param StoreTemplateRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(StoreTemplateRequest $request)
     {
         $template = $this->templateService->store($request);
@@ -32,6 +47,10 @@ class TemplateController extends Controller
         return response()->json(['success' => 'Template created', 'template' => $template]);
     }
 
+    /**
+     * @param $slug
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function show($slug)
     {
         $template = $this->templateService->findBySlug($slug);

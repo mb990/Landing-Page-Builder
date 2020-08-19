@@ -10,6 +10,10 @@ use App\Project;
 use App\Repositories\PageElementRepository;
 use App\TestimonialSection;
 
+/**
+ * Class PageElementService
+ * @package App\Services
+ */
 class PageElementService
 {
     /**

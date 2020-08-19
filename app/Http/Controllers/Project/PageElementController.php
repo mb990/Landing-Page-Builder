@@ -8,6 +8,10 @@ use App\Services\PageElementService;
 use App\Services\ProjectService;
 use Illuminate\Http\Request;
 
+/**
+ * Class PageElementController
+ * @package App\Http\Controllers\Project
+ */
 class PageElementController extends Controller
 {
     /**

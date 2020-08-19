@@ -11,6 +11,10 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Storage;
 use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 
+/**
+ * Class ConvertStoredTemplateVideoToMp4
+ * @package App\Jobs
+ */
 class ConvertStoredTemplateVideoToMp4 implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;

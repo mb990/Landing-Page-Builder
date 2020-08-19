@@ -8,6 +8,10 @@ use App\GallerySettings;
 use App\Repositories\ProjectRepository;
 use App\TestimonialSection;
 
+/**
+ * Class ProjectService
+ * @package App\Services
+ */
 class ProjectService
 {
     /**
@@ -23,6 +27,12 @@ class ProjectService
      */
     private $pageElementService;
 
+    /**
+     * ProjectService constructor.
+     * @param ProjectRepository $project
+     * @param S3Service $s3Service
+     * @param PageElementService $pageElementService
+     */
     public function __construct(ProjectRepository $project, S3Service $s3Service, PageElementService $pageElementService)
     {
         $this->project = $project;
@@ -30,31 +40,55 @@ class ProjectService
         $this->pageElementService = $pageElementService;
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function find($id)
     {
         return $this->project->find($id);
     }
 
+    /**
+     * @param $slug
+     * @return mixed
+     */
     public function findBySlug($slug)
     {
         return $this->project->findBySlug($slug);
     }
 
+    /**
+     * @param $user
+     * @return mixed
+     */
     public function findLatestForUser($user)
     {
         return $this->project->findLatestForUser($user);
     }
 
+    /**
+     * @param $request
+     * @return mixed
+     */
     public function store($request)
     {
         return $this->project->store($request);
     }
 
+    /**
+     * @param $request
+     * @param $id
+     * @return mixed
+     */
     public function update($request, $id)
     {
         return $this->project->update($request, $id);
     }
 
+    /**
+     * @param $slug
+     */
     public function delete($slug)
     {
         $project = $this->findBySlug($slug);
@@ -64,6 +98,9 @@ class ProjectService
         return $this->project->delete($project);
     }
 
+    /**
+     * @param $project
+     */
     public function deleteProjectElements($project)
     {
         foreach ($project->getSections() as $section) {
@@ -72,6 +109,10 @@ class ProjectService
         }
     }
 
+    /**
+     * @param $component
+     * @return mixed
+     */
     public function getComponentData($component)
     {
         $data = $component->pageElementable;
@@ -79,6 +120,10 @@ class ProjectService
         return $data;
     }
 
+    /**
+     * @param $gallery
+     * @return array
+     */
     public function getGalleryData($gallery)
     {
         $data = [];
@@ -92,6 +137,10 @@ class ProjectService
         return $data;
     }
 
+    /**
+     * @param $testimonialSection
+     * @return array
+     */
     public function getTestimonialData($testimonialSection)
     {
         $data = [];
@@ -103,6 +152,10 @@ class ProjectService
         return $data;
     }
 
+    /**
+     * @param $component
+     * @return bool|mixed
+     */
     public function getComponentImageData($component)
     {
         if ($component->pageElementable->image) {
@@ -119,6 +172,10 @@ class ProjectService
         return false;
     }
 
+    /**
+     * @param $component
+     * @return array
+     */
     public function getComponentImages($component)
     {
         $images = [];
@@ -158,6 +215,10 @@ class ProjectService
         return $images;
     }
 
+    /**
+     * @param $gallery
+     * @return array|bool
+     */
     public function getGalleryVideoData($gallery)
     {
         if ($gallery->pageElementable->videoItems) {
@@ -177,6 +238,12 @@ class ProjectService
         return false;
     }
 
+    /**
+     * @param $component
+     * @param $data
+     * @return array|string
+     * @throws \Throwable
+     */
     public function renderComponentView($component, $data)
     {
         if ($this->pageElementService->elementHasImage($component)) {
@@ -199,6 +266,10 @@ class ProjectService
         return $view;
     }
 
+    /**
+     * @param $id
+     * @return array
+     */
     public function showRenderedProjectSingleComponentWithData($id)
     {
         $pageData = [];
@@ -212,6 +283,10 @@ class ProjectService
         return $pageData;
     }
 
+    /**
+     * @param $slug
+     * @return array
+     */
     public function showRenderedProjectComponentsWithData($slug)
     {
         $project = $this->findBySlug($slug);

@@ -5,6 +5,10 @@ namespace App;
 use Cesargb\Database\Support\CascadeDelete;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class PageElement
+ * @package App
+ */
 class PageElement extends Model
 {
     use CascadeDelete;
@@ -17,21 +21,33 @@ class PageElement extends Model
 
     protected $with = ['pageElementable'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
     public function pageElementable()
     {
         return $this->morphTo();
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function pageElementType()
     {
         return $this->belongsTo(PageElementType::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function project()
     {
         return $this->belongsTo(Project::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function template()
     {
         return $this->belongsTo(Template::class);

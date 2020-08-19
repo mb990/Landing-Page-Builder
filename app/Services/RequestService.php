@@ -4,6 +4,10 @@
 namespace App\Services;
 
 
+/**
+ * Class RequestService
+ * @package App\Services
+ */
 class RequestService
 {
     /**

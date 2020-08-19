@@ -3,6 +3,9 @@
 use App\Services\TemplateService;
 use Illuminate\Database\Seeder;
 
+/**
+ * Class TemplateSeeder
+ */
 class TemplateSeeder extends Seeder
 {
 
@@ -11,6 +14,10 @@ class TemplateSeeder extends Seeder
      */
     private $templateService;
 
+    /**
+     * TemplateSeeder constructor.
+     * @param TemplateService $templateService
+     */
     public function __construct(TemplateService $templateService)
     {
         $this->templateService = $templateService;

@@ -8,6 +8,10 @@ use App\Http\Requests\StoreTemplatePricingSettingsBenefitRequest;
 use App\Services\PricingSettingsBenefitService;
 use Illuminate\Http\Request;
 
+/**
+ * Class PricingSettingsBenefitController
+ * @package App\Http\Controllers\Project
+ */
 class PricingSettingsBenefitController extends Controller
 {
     /**
@@ -35,6 +39,11 @@ class PricingSettingsBenefitController extends Controller
         return response()->json(['benefit' => $benefit]);
     }
 
+    /**
+     * @param StoreProjectPricingSettingsBenefitRequest $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function update(StoreProjectPricingSettingsBenefitRequest $request, $id)
     {
         $benefit = $this->pricingSettingsBenefitService->update($request, $id);

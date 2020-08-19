@@ -6,6 +6,10 @@ namespace App\Services;
 
 use App\Repositories\FooterSettingsRepository;
 
+/**
+ * Class FooterSettingsService
+ * @package App\Services
+ */
 class FooterSettingsService
 {
     /**

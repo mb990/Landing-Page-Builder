@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class GalleryVideoItem
+ * @package App
+ */
 class GalleryVideoItem extends Model
 {
     protected $fillable = [
@@ -12,6 +16,9 @@ class GalleryVideoItem extends Model
 
     protected $with = ['gallery'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function gallery()
     {
         return $this->belongsTo(GallerySettings::class);

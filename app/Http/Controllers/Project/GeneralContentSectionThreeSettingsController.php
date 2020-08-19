@@ -7,6 +7,10 @@ use App\Http\Requests\StoreProjectGeneralContentThreeSettingsRequest;
 use App\Services\GeneralContentThreeSettingsService;
 use Illuminate\Http\Request;
 
+/**
+ * Class GeneralContentSectionThreeSettingsController
+ * @package App\Http\Controllers\Project
+ */
 class GeneralContentSectionThreeSettingsController extends Controller
 {
     /**

@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class PriceSettings
+ * @package App
+ */
 class PriceSettings extends Model
 {
     protected $fillable = [
@@ -12,11 +16,17 @@ class PriceSettings extends Model
 
     protected $with = ['benefits'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function pricingSection()
     {
         return $this->belongsTo(PricingSection::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function benefits()
     {
         return $this->hasMany(PricingSettingsBenefit::class);

@@ -2,6 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
+/**
+ * Class PageElementSeeder
+ */
 class PageElementSeeder extends Seeder
 {
     /**

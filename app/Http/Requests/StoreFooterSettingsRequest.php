@@ -5,6 +5,10 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class StoreFooterSettingsRequest
+ * @package App\Http\Requests
+ */
 class StoreFooterSettingsRequest extends FormRequest
 {
     /**

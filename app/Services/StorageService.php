@@ -7,8 +7,16 @@ namespace App\Services;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * Class StorageService
+ * @package App\Services
+ */
 class StorageService
 {
+    /**
+     * @param $request
+     * @return array
+     */
     public function storeTemplateImage($request)
     {
         $data = [];
@@ -26,6 +34,10 @@ class StorageService
         return $data;
     }
 
+    /**
+     * @param $request
+     * @return array
+     */
     public function storeTemplateVideo($request)
     {
         $data = [];
@@ -43,6 +55,10 @@ class StorageService
         return $data;
     }
 
+    /**
+     * @param $request
+     * @return array
+     */
     public function storeProjectImage($request)
     {
         $data = [];
@@ -60,6 +76,10 @@ class StorageService
         return $data;
     }
 
+    /**
+     * @param $request
+     * @return array
+     */
     public function storeProjectVideo($request)
     {
         $data = [];
@@ -77,6 +97,10 @@ class StorageService
         return $data;
     }
 
+    /**
+     * @param $request
+     * @return array
+     */
     public function storeAdminNotificationImage($request)
     {
         $data = [];

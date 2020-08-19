@@ -7,6 +7,10 @@ use App\Http\Requests\StoreProjectGeneralContentThreeBulletPointRequest;
 use App\Services\GeneralContentThreeBulletPointService;
 use Illuminate\Http\Request;
 
+/**
+ * Class GeneralContentThreeBulletPointController
+ * @package App\Http\Controllers\Project
+ */
 class GeneralContentThreeBulletPointController extends Controller
 {
     /**
@@ -34,6 +38,11 @@ class GeneralContentThreeBulletPointController extends Controller
         return response()->json(['bulletPoint' => $bulletPoint]);
     }
 
+    /**
+     * @param StoreProjectGeneralContentThreeBulletPointRequest $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function update(StoreProjectGeneralContentThreeBulletPointRequest $request, $id)
     {
         $bulletPoint = $this->generalContentThreeBulletPointService->update($request, $id);

@@ -17,6 +17,10 @@ use App\Template;
 use App\TestimonialSection;
 use App\TopMenuSettings;
 
+/**
+ * Class TemplateService
+ * @package App\Services
+ */
 class TemplateService
 {
     /**
@@ -28,42 +32,74 @@ class TemplateService
      */
     private $s3Service;
 
+    /**
+     * TemplateService constructor.
+     * @param TemplateRepository $template
+     * @param S3Service $s3Service
+     */
     public function __construct(TemplateRepository $template, S3Service $s3Service)
     {
         $this->template = $template;
         $this->s3Service = $s3Service;
     }
 
+    /**
+     * @return Template[]|\Illuminate\Database\Eloquent\Collection
+     */
     public function all()
     {
         return $this->template->all();
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function find($id)
     {
         return $this->template->find($id);
     }
 
+    /**
+     * @param $slug
+     * @return mixed
+     */
     public function findBySlug($slug)
     {
         return $this->template->findBySlug($slug);
     }
 
+    /**
+     * @param $request
+     * @return mixed
+     */
     public function store($request)
     {
         return $this->template->store($request);
     }
 
+    /**
+     * @param $request
+     * @param $id
+     * @return mixed
+     */
     public function update($request, $id)
     {
         return $this->template->update($request, $id);
     }
 
+    /**
+     * @param $id
+     */
     public function delete($id)
     {
         return $this->template->delete($id);
     }
 
+    /**
+     * @param array $components
+     * @return array
+     */
     public function checkIfAllComponentsExist(array $components)
     {
 //        if (array_search('', $components) !== false) {
@@ -74,6 +110,11 @@ class TemplateService
         return $components;
     }
 
+    /**
+     * @param $template
+     * @return array
+     * @throws \Throwable
+     */
     public function getComponentViews($template)
     {
         $views = [];
@@ -101,6 +142,11 @@ class TemplateService
         return $this->checkIfAllComponentsExist($views);
     }
 
+    /**
+     * @param Template $template
+     * @param $section
+     * @return bool
+     */
     public function checkIfSectionExists(Template $template, $section)
     {
         if ($template->getSection($section)->isEmpty()) {
@@ -111,6 +157,11 @@ class TemplateService
         return true;
     }
 
+    /**
+     * @param Template $template
+     * @param $section
+     * @return bool|mixed
+     */
     public function getTemplateSection(Template $template, $section)
     {
         if ($this->checkIfSectionExists($template, $section)) {
@@ -123,6 +174,11 @@ class TemplateService
         return false;
     }
 
+    /**
+     * @param $template
+     * @return array|bool|string
+     * @throws \Throwable
+     */
     public function getHeroSectionViewWithData($template)
     {
         if ($this->getTemplateSection($template, HeroSectionSettings::class)) {
@@ -139,6 +195,11 @@ class TemplateService
         return false;
     }
 
+    /**
+     * @param $template
+     * @return array|bool|string
+     * @throws \Throwable
+     */
     public function getTestimonialsSectionViewWithData($template)
     {
         if ($this->getTemplateSection($template, TestimonialSection::class)) {
@@ -164,6 +225,11 @@ class TemplateService
         return false;
     }
 
+    /**
+     * @param $template
+     * @return array|bool|string
+     * @throws \Throwable
+     */
     public function getTopMenuSectionViewWithData($template)
     {
         if ($this->getTemplateSection($template, TopMenuSettings::class)) {
@@ -181,6 +247,11 @@ class TemplateService
         return false;
     }
 
+    /**
+     * @param $template
+     * @return array|bool|string
+     * @throws \Throwable
+     */
     public function getFooterSectionWithData($template)
     {
         if ($this->getTemplateSection($template, FooterSettings::class)) {
@@ -196,6 +267,11 @@ class TemplateService
         return false;
     }
 
+    /**
+     * @param $template
+     * @return array|bool|string
+     * @throws \Throwable
+     */
     public function getPricingSectionWithData($template)
     {
         if ($this->getTemplateSection($template, PricingSection::class)) {
@@ -211,6 +287,11 @@ class TemplateService
         return false;
     }
 
+    /**
+     * @param $template
+     * @return array|bool|string
+     * @throws \Throwable
+     */
     public function getGeneralContentOneSectionViewWithData($template)
     {
         if ($this->getTemplateSection($template, GeneralContentOneSettings::class)) {
@@ -228,6 +309,11 @@ class TemplateService
         return false;
     }
 
+    /**
+     * @param $template
+     * @return array|bool|string
+     * @throws \Throwable
+     */
     public function getGeneralContentTwoSectionViewWithData($template)
     {
         if ($this->getTemplateSection($template, GeneralContentTwoSettings::class)) {
@@ -245,6 +331,11 @@ class TemplateService
         return false;
     }
 
+    /**
+     * @param $template
+     * @return array|bool|string
+     * @throws \Throwable
+     */
     public function getGeneralContentThreeSectionViewWithData($template)
     {
         if ($this->getTemplateSection($template, GeneralContentThreeSettings::class)) {
@@ -260,6 +351,11 @@ class TemplateService
         return false;
     }
 
+    /**
+     * @param $template
+     * @return array|bool|string
+     * @throws \Throwable
+     */
     public function getNewslatterSectionViewWithData($template)
     {
         if ($this->getTemplateSection($template, NewsletterSettings::class)) {
@@ -275,6 +371,11 @@ class TemplateService
         return false;
     }
 
+    /**
+     * @param $template
+     * @return array|bool|string
+     * @throws \Throwable
+     */
     public function getGallerySectionViewWithData($template)
     {
         if ($this->getTemplateSection($template, GallerySettings::class)) {

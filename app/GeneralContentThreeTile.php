@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class GeneralContentThreeTile
+ * @package App
+ */
 class GeneralContentThreeTile extends Model
 {
     protected $fillable = [
@@ -12,11 +16,17 @@ class GeneralContentThreeTile extends Model
 
     protected $with = ['awesomeIcon'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function generalContentSection()
     {
         return $this->belongsTo(GeneralContentThreeSettings::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function awesomeIcon()
     {
         return $this->belongsTo(AwesomeIcon::class);

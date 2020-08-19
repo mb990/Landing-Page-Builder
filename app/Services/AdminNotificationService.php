@@ -5,6 +5,10 @@ namespace App\Services;
 
 use App\Notifications\ApplicationUsersNotification;
 
+/**
+ * Class AdminNotificationService
+ * @package App\Services
+ */
 class AdminNotificationService
 {
     /**
@@ -16,12 +20,20 @@ class AdminNotificationService
      */
     private $storageService;
 
+    /**
+     * AdminNotificationService constructor.
+     * @param UserService $userService
+     * @param StorageService $storageService
+     */
     public function __construct(UserService $userService, StorageService $storageService)
     {
         $this->userService = $userService;
         $this->storageService = $storageService;
     }
 
+    /**
+     * @param $request
+     */
     public function sendMessageToAllUsers($request)
     {
 //        $image = $this->storageService->storeAdminNotificationImage($request);

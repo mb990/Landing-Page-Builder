@@ -6,6 +6,10 @@ namespace App\Services;
 
 use App\Repositories\PricingSettingsBenefitRepository;
 
+/**
+ * Class PricingSettingsBenefitService
+ * @package App\Services
+ */
 class PricingSettingsBenefitService
 {
     /**

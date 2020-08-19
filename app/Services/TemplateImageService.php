@@ -6,6 +6,10 @@ namespace App\Services;
 
 use App\Repositories\ImageRepository;
 
+/**
+ * Class TemplateImageService
+ * @package App\Services
+ */
 class TemplateImageService
 {
     /**
@@ -21,6 +25,12 @@ class TemplateImageService
      */
     private $storageService;
 
+    /**
+     * TemplateImageService constructor.
+     * @param ImageRepository $image
+     * @param S3Service $s3Service
+     * @param StorageService $storageService
+     */
     public function __construct(ImageRepository $image, S3Service $s3Service, StorageService $storageService)
     {
         $this->image = $image;
@@ -28,11 +38,19 @@ class TemplateImageService
         $this->storageService = $storageService;
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function find($id)
     {
         return $this->image->find($id);
     }
 
+    /**
+     * @param $request
+     * @return mixed
+     */
     public function store($request)
     {
         $data = $this->storageService->storeTemplateImage($request);
@@ -44,16 +62,28 @@ class TemplateImageService
         return $this->image->store($savingData);
     }
 
+    /**
+     * @param $request
+     * @param $id
+     * @return mixed
+     */
     public function update($request, $id)
     {
         return $this->image->update($request, $id);
     }
 
+    /**
+     * @param $id
+     */
     public function delete($id)
     {
         return $this->image->delete($id);
     }
 
+    /**
+     * @param $request
+     * @return array
+     */
     public function prepareStoringData($request)
     {
         $data = [];
