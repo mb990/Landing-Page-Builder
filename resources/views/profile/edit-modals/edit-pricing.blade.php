@@ -161,8 +161,8 @@
     </span>
 </span>
 <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-success js-edit-project-pricing-button">Edit element</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" value="btn">Close</button>
+    <button type="button" class="btn btn-success js-edit-project-pricing-button" value="btn">Edit element</button>
 </div>
 <script>
     $(document).ready(function(){
