@@ -62,6 +62,8 @@ $(document).ready(function () {
             let link_url = $('.js-project-edit-general-content-three-link-url').val();
             let button_value = $('.js-project-edit-general-content-three-button-value').val();
 
+            let element_id = $('.js-selected-project-page-element-id').val();
+
             let settings_id = $('.js-project-edit-general-content-three-settings-id').val();
 
             $.ajax({
@@ -74,18 +76,7 @@ $(document).ready(function () {
                         button_value: button_value,
                     }
             }).done(function (data) {
-                let element_id = $('.js-selected-project-page-element-id').val();
-                $.get(route('project.page-element.render-single', element_id)
-                        
-                ).done(function (data) {
-                    setTimeout(function () {
-    
-                        $('*[data-elementid="'+element_id+'"]').replaceWith(data.view)
-    
-                        createButtons(element_id);
-    
-                    }, 1000);
-                })
+
                 // let element_id = data.settings.id;
 
                 // update section's bullet points
@@ -137,22 +128,26 @@ $(document).ready(function () {
                                     // blade_file: 'templates.' + template_name +'.page_elements.general-content3-tile'
                                 }
                         }).done(function (data) {
-                            
-                                $.get(route('project.page-element.render-single', element_id)
-                    
-                                ).done(function (data) {
-                                    setTimeout(function () {
-                    
-                                        $('*[data-elementid="'+element_id+'"]').replaceWith(data.view)
-                    
-                                        createButtons(element_id);
-                    
-                                    }, 1000);
-                                })
-                            
+
+
+
                         })
                     }
                 })
+
+                $.get(route('project.page-element.render-single', element_id)
+
+                ).done(function (data) {
+
+                    setTimeout(function () {
+
+                        $('*[data-elementid="'+element_id+'"]').replaceWith(data.view)
+
+                        createButtons(element_id);
+
+                    }, 1000);
+                })
+
             })
         }
 
