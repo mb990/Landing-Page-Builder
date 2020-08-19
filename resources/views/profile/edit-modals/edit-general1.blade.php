@@ -15,7 +15,7 @@
 
     $(document).ready(function () {
 
-        $('.js-project-edit-general-content-one-save-button').click(updateaProjectGeneralContentOneSettings);
+        $('.js-project-edit-general-content-one-save-button').click(updateProjectGeneralContentOneSettings);
 
     })
 

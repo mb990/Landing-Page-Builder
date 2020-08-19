@@ -37,4 +37,11 @@ class HeroSectionSettingsController extends Controller
 
         return response()->json(['settings' => $settings]);
     }
+
+    public function update(StoreProjectHeroSectionSettingsRequest $request, $id)
+    {
+        $settings = $this->heroSectionSettingsService->update($request, $id);
+
+        return response()->json(['settings' => $settings]);
+    }
 }

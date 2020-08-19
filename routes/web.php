@@ -126,6 +126,7 @@ Route::delete('/page-element/{id}', 'Project\PageElementController@destroy')->na
 Route::post('/project-top-menu-image', 'Project\TopMenuImageController@store')->name('project.top-menu-image.store');
 Route::post('/project-testimonial-image', 'Project\TestimonialImageController@store')->name('project.testimonial-image.store');
 Route::post('/project-hero-section-image', 'Project\HeroSectionImageController@store')->name('project.hero-section-image.store');
+Route::delete('/project-hero-section-image/{id}', 'Project\HeroSectionImageController@destroy')->name('project.hero-section-image.delete');
 Route::post('/project-general-content-one-section-image', 'Project\GeneralContentSectionOneImageController@store')->name('project.general-content-one-section-image.store');
 Route::delete('/project-general-content-one-section-image/{id}', 'Project\GeneralContentSectionOneImageController@destroy')->name('project.general-content-one-section-image.delete');
 Route::post('/project-general-content-two-section-image', 'Project\GeneralContentSectionTwoImageController@store')->name('project.general-content-two-section-image.store');
@@ -162,6 +163,7 @@ Route::put('/project/footer-settings/{id}', 'Project\FooterSettingsController@up
 
 //Hero Section Settings
 Route::post('/project/{slug}/hero-section-settings', 'Project\HeroSectionSettingsController@store')->name('project.hero-section-settings.store');
+Route::put('/project/hero-section-settings/{id}', 'Project\HeroSectionSettingsController@update')->name('project.hero-section-settings.update');
 
 //General Content One Settings
 Route::post('/project/{slug}/general-content-one-settings', 'Project\GeneralContentSectionOneSettingsController@store')->name('project.general-content-one-settings.store');

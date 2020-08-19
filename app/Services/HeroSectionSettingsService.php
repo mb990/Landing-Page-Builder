@@ -16,14 +16,20 @@ class HeroSectionSettingsService
      * @var HeroSectionSettingsRepository
      */
     private $heroSectionSettings;
+    /**
+     * @var PageElementService
+     */
+    private $pageElementService;
 
     /**
      * HeroSectionSettingsService constructor.
      * @param HeroSectionSettingsRepository $heroSectionSettings
+     * @param PageElementService $pageElementService
      */
-    public function __construct(HeroSectionSettingsRepository $heroSectionSettings)
+    public function __construct(HeroSectionSettingsRepository $heroSectionSettings, PageElementService $pageElementService)
     {
         $this->heroSectionSettings = $heroSectionSettings;
+        $this->pageElementService = $pageElementService;
     }
 
     /**
@@ -59,7 +65,9 @@ class HeroSectionSettingsService
      */
     public function update($request, $id)
     {
-        return $this->heroSectionSettings->update($request, $id);
+        $settingsId = $this->pageElementService->find($id)->pageElementable->id;
+
+        return $this->heroSectionSettings->update($request, $settingsId);
     }
 
     /**

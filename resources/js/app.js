@@ -23,6 +23,7 @@ require('./projects/get-element-settings');
 require('./projects/delete-project-page-element');
 require('./projects/update-element-render-order');
 require('./projects/hero-section/store');
+require('./projects/hero-section/update');
 require('./projects/hero-section/set-settings-values');
 require('./projects/general-content-section-1/store');
 require('./projects/general-content-section-1/update');
