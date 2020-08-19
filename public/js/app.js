@@ -38320,8 +38320,15 @@ $(document).ready(function () {
           button_value: button_value
         }
       }).done(function (data) {
-        // let element_id = data.settings.id;
+        var element_id = $('.js-selected-project-page-element-id').val();
+        $.get(route('project.page-element.render-single', element_id)).done(function (data) {
+          setTimeout(function () {
+            $('*[data-elementid="' + element_id + '"]').replaceWith(data.view);
+            createButtons(element_id);
+          }, 1000);
+        }); // let element_id = data.settings.id;
         // update section's bullet points
+
         $('.js-project-general-content-three-bullets').each(function (e, i) {
           var title = $(".js-project-edit-general-content-three-bullet-point-title-" + (e + 1)).val();
           var text = $(".js-project-edit-general-content-three-bullet-point-text-" + (e + 1)).val();
