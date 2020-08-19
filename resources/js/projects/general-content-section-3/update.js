@@ -126,7 +126,19 @@ $(document).ready(function () {
                                     // blade_file: 'templates.' + template_name +'.page_elements.general-content3-tile'
                                 }
                         }).done(function (data) {
-
+                            
+                                $.get(route('project.page-element.render-single', element_id)
+                    
+                                ).done(function (data) {
+                                    setTimeout(function () {
+                    
+                                        $('*[data-elementid="'+element_id+'"]').replaceWith(data.view)
+                    
+                                        createButtons(element_id);
+                    
+                                    }, 1000);
+                                })
+                            
                         })
                     }
                 })

@@ -86,7 +86,20 @@ $(document).ready(function () {
                             // error: console.log('greska pri uploadu slike')
 
                         }).done(function (data) {
-                            console.log(data.image);
+                            console.log(data.image),
+                            function () {
+                                $.get(route('project.page-element.render-single', element_id)
+                    
+                                ).done(function (data) {
+                                    setTimeout(function () {
+                    
+                                        $('*[data-elementid="'+element_id+'"]').replaceWith(data.view)
+                    
+                                        createButtons(element_id);
+                    
+                                    }, 1000);
+                                })
+                            }
                         });
                     }
                 }

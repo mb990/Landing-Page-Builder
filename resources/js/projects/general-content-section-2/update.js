@@ -91,7 +91,20 @@ $(document).ready(function () {
                     }
                 }
             }).done(function (data) {
-                console.log('vraceni podaci iz done-a nakon updatea settingsa: ' + data);
+                console.log('vraceni podaci iz done-a nakon updatea settingsa: ' + data),
+                function () {
+                    $.get(route('project.page-element.render-single', element_id)
+        
+                    ).done(function (data) {
+                        setTimeout(function () {
+        
+                            $('*[data-elementid="'+element_id+'"]').replaceWith(data.view)
+        
+                            createButtons(element_id);
+        
+                        }, 1000);
+                    })
+                }
             })
         }
         else {

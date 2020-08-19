@@ -450,8 +450,8 @@
                     if($(this).parent().hasClass("js-pricing-var")){
                         $(".js-edit7").show();
                         if($(".js-project-pricing-number").val() == "1"){
-                            $(".js-project-edit-pricing-number").val("1");
-                            if($(".js-project-edit-pricing-number").val()==1){
+                            $(".js-project-edit-pricing-number").val(1);
+                            if($(".js-project-edit-pricing-number").val()=="1"){
                                 $('.js-project-edit-pricing-1').removeClass('d-none');
                                 setTimeout(function () {
                                     $('.js-edit7 :input').each(function() {
@@ -465,17 +465,31 @@
                             }
                         }
                         else if($(".js-project-pricing-number").val()== "2"){
-                            $(".js-project-edit-pricing-number").val("2");
-                            if($(".js-project-edit-pricing-number").val()==2){
-                                $('.js-project-edit-pricing-2').removeClass('d-none')
+                                $(".js-project-edit-pricing-number").val(2);
+                                $('.js-project-edit-pricing-2, .js-project-edit-pricing-1').removeClass('d-none');
+                                setTimeout(function () {
+                                    $('.js-edit7 :input').each(function() {
+                                        if ($(this).val() != '') {
+                                            $(this).attr('disabled', false);
+                                        }else {
+                                        $(this).attr('disabled', true);
+                                    }
+                                    });
+                                }, 3000);
                             }
-                        }
                         else if($(".js-project-pricing-number").val()== "3"){
-                        $(".js-project-edit-pricing-number").val("3");
-                            if($(".js-project-edit-pricing-number").val()==3){
-                                $('.js-project-edit-pricing-3').removeClass('d-none')
+                                $(".js-project-edit-pricing-number").val(3);
+                                $('.js-project-edit-pricing-3, .js-project-edit-pricing-2, .js-project-edit-pricing-1').removeClass('d-none')
+                                setTimeout(function () {
+                                    $('.js-edit7 :input').each(function() {
+                                        if ($(this).val() != '') {
+                                            $(this).attr('disabled', false);
+                                        }else {
+                                        $(this).attr('disabled', true);
+                                    }
+                                    });
+                                }, 3000);
                             }
-                        }
                     }
                     if($(this).parent().hasClass("js-newsletter-var")){
                         $(".js-edit8").show();
