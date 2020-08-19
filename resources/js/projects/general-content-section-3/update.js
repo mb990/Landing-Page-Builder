@@ -110,7 +110,7 @@ $(document).ready(function () {
 
                     let title = $(".js-project-edit-general-content-three-tile-title-" + (e + 1)).val();
                     let text = $(".js-project-edit-general-content-three-tile-text-" + (e + 1)).val();
-                    let awesome_icon_id = $(".js-project-awesome-icons-tile-" + (e + 1)).val();
+                    let awesome_icon_id = $(".js-project-edit-awesome-icons-tile-" + (e + 1)).val();
 
                     let tile_id = $(".js-project-general-content-three-tile-title-" + (e + 1)).data('id');
 

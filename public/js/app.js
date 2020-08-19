@@ -38345,7 +38345,7 @@ $(document).ready(function () {
         $('.js-project-general-content-three-tiles').each(function (e, i) {
           var title = $(".js-project-edit-general-content-three-tile-title-" + (e + 1)).val();
           var text = $(".js-project-edit-general-content-three-tile-text-" + (e + 1)).val();
-          var awesome_icon_id = $(".js-project-awesome-icons-tile-" + (e + 1)).val();
+          var awesome_icon_id = $(".js-project-edit-awesome-icons-tile-" + (e + 1)).val();
           var tile_id = $(".js-project-general-content-three-tile-title-" + (e + 1)).data('id');
 
           if (title !== '' && text !== '') {
