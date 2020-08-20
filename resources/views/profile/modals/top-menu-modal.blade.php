@@ -31,7 +31,7 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-success js-add-project-top-menu-element-btn js-add-buttons">Add element</button>
+    <button type="button" class="btn btn-success js-add-project-top-menu-element-btn js-add-buttons js-disabled-10">Add element</button>
 </div>
 <script>
 $(document).ready(function(){
@@ -58,6 +58,12 @@ $(document).ready(function(){
     })
 
     $('.js-add-project-top-menu-element-btn').click(storeProjectTopMenuSettings);
+
+    $(document).on("click", ".js-disabled-10", function(){
+        $("#select option[value='10']").attr("disabled","disabled");
+        $("#select option[value='10']").removeClass("btn-success");
+        console.log("clicked")
+    })
 
 })
 </script>

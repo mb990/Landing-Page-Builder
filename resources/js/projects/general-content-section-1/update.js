@@ -96,7 +96,10 @@ $(document).ready(function () {
                                         $('*[data-elementid="'+element_id+'"]').replaceWith(data.view)
                     
                                         createButtons(element_id);
-                    
+
+                                        $("#select option[value='3']").attr("disabled","disabled");
+                                        $("#select option[value='3']").removeClass("btn-success");
+
                                     }, 1000);
                                 })
                             }

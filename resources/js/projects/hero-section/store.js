@@ -85,6 +85,10 @@ $(document).ready(function () {
 
                                 $('.js-project-preview-elements').append(data.view);
                                 createButtons(data.element.id);
+
+                                $("#select option[value='6']").attr("disabled","disabled");
+                                $("#select option[value='6']").removeClass("btn-success");
+
                             }, 1000);
                         })
                     })

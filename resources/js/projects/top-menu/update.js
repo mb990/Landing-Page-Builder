@@ -93,6 +93,8 @@ $(document).ready(function () {
                                     },
                                 success: function (data) {
                                     console.log('link je updateovan');
+                                    $("#select option[value='10']").attr("disabled","disabled");
+                                    $("#select option[value='10']").removeClass("btn-success");
                                 }
                             })
                         }

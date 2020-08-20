@@ -37866,6 +37866,8 @@ $(document).ready(function () {
                   setTimeout(function () {
                     $('*[data-elementid="' + element_id + '"]').replaceWith(data.view);
                     createButtons(element_id);
+                    $("#select option[value='3']").attr("disabled", "disabled");
+                    $("#select option[value='3']").removeClass("btn-success");
                   }, 1000);
                 });
               };
@@ -38069,6 +38071,8 @@ $(document).ready(function () {
             setTimeout(function () {
               $('*[data-elementid="' + element_id + '"]').replaceWith(data.view);
               createButtons(element_id);
+              $("#select option[value='4']").attr("disabled", "disabled");
+              $("#select option[value='4']").removeClass("btn-success");
             }, 1000);
           });
         };
@@ -38500,6 +38504,8 @@ $(document).ready(function () {
             setTimeout(function () {
               $('.js-project-preview-elements').append(data.view);
               createButtons(data.element.id);
+              $("#select option[value='6']").attr("disabled", "disabled");
+              $("#select option[value='6']").removeClass("btn-success");
             }, 1000);
           });
         }).fail(console.log('failed element'));
@@ -38840,6 +38846,8 @@ $(document).ready(function () {
                     setTimeout(function () {
                       $('*[data-elementid="' + element_id + '"]').replaceWith(data.view);
                       createButtons(element_id);
+                      $("#select option[value='8']").attr("disabled", "disabled");
+                      $("#select option[value='8']").removeClass("btn-success");
                     }, 1000);
                   });
                 });
@@ -39441,6 +39449,8 @@ $(document).ready(function () {
                 },
                 success: function success(data) {
                   console.log('link je updateovan');
+                  $("#select option[value='10']").attr("disabled", "disabled");
+                  $("#select option[value='10']").removeClass("btn-success");
                 }
               });
             }
@@ -40329,13 +40339,13 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\registration.scss */"./resources/sass/registration.scss");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\drag&drop.scss */"./resources/sass/drag&drop.scss");
-module.exports = __webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\master.scss */"./resources/sass/master.scss");
+__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
+__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
+__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\registration.scss */"./resources/sass/registration.scss");
+__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\drag&drop.scss */"./resources/sass/drag&drop.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\master.scss */"./resources/sass/master.scss");
 
 
 /***/ })

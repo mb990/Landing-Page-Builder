@@ -7,7 +7,7 @@
 </span>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-success js-add-project-general-content-section-one-element-btn js-add-buttons">Add element</button>
+    <button type="button" class="btn btn-success js-add-project-general-content-section-one-element-btn js-add-buttons js-disabled-3">Add element</button>
 </div>
 
 <script>
@@ -15,6 +15,13 @@
     $(document).ready(function () {
 
         $('.js-add-project-general-content-section-one-element-btn').click(storeProjectGeneralContentOneSettings);
+    
+        $(document).on("click", ".js-disabled-3", function(){
+        $("#select option[value='3']").attr("disabled","disabled");
+        $("#select option[value='3']").removeClass("btn-success");
+        console.log("clicked")
+        })
+    
     })
 
 </script>

@@ -9,7 +9,7 @@
 </span>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-success js-add-project-hero-section-element-btn js-add-buttons">Add element</button>
+    <button type="button" class="btn btn-success js-add-project-hero-section-element-btn js-add-buttons js-disabled-6">Add element</button>
 </div>
 
 <script>
@@ -17,6 +17,13 @@
     $(document).ready(function () {
 
         $('.js-add-project-hero-section-element-btn').click(storeProjectHeroSectionSettings);
+
+        $(document).on("click", ".js-disabled-6", function(){
+        $("#select option[value='6']").attr("disabled","disabled");
+        $("#select option[value='6']").removeClass("btn-success");
+        console.log("clicked")
+        })
+
     })
 
 </script>

@@ -32,9 +32,6 @@
         <header class="header-main-profile">
             <div style="flex-grow: 1;"><img style="width: 100px;transform: translateY(-25%);" src="{{ asset('img/logo.png') }}"></div>
             <div style="flex-grow: 1;">
-                <!-- <button class="js-mobile">Mobile</button>
-                <button class="js-desktop">Desktop</button> -->
-                <!-- <i class="fa fa-list js-menu-media menu-icon d-none"></i> -->
                 <button class="btn fa fa-list js-menu-media menu-icon d-none"></button>
             </div>
             <div style="flex-grow: 1;" class="js-link">
