@@ -20,13 +20,11 @@
         <style>
             .form-control:focus{border-color: #5cb85c;  box-shadow: none; -webkit-box-shadow: none;}
             .has-error .form-control:focus{box-shadow: none; -webkit-box-shadow: none;}
-            select:active, select:hover, select:focus {
-  outline: none
-}
-.form-control:focus {
-        border-color: #5cb85c;
-        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #5cb85c;
-    }
+            select:active, select:hover, select:focus {outline: none}
+            .form-control:focus {
+                    border-color: #5cb85c;
+                    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #5cb85c;
+                }
         </style>
         @routes
     </head>

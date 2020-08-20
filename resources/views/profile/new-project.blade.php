@@ -439,9 +439,6 @@
                             });
                         }, 1000);
 
-
-
-
                         $(".js-edit5").show();
                     }
                     if($(this).parent().hasClass("js-hero-var")){
@@ -459,7 +456,7 @@
                                             $(this).attr('disabled', false);
                                         }else {
                                         $(this).attr('disabled', true);
-                                    }
+                                        }
                                     });
                                 }, 3000);
                             }
@@ -473,7 +470,7 @@
                                             $(this).attr('disabled', false);
                                         }else {
                                         $(this).attr('disabled', true);
-                                    }
+                                        }
                                     });
                                 }, 3000);
                             }
@@ -486,7 +483,7 @@
                                             $(this).attr('disabled', false);
                                         }else {
                                         $(this).attr('disabled', true);
-                                    }
+                                        }
                                     });
                                 }, 3000);
                             }
