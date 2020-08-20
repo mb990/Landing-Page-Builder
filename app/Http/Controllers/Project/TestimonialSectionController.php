@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Project;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AuthRequest;
 use App\Http\Requests\StoreProjectTestimonialSectionRequest;
+use App\Services\PageElementService;
 use App\Services\TestimonialSectionService;
 use Illuminate\Http\Request;
 
@@ -18,14 +19,20 @@ class TestimonialSectionController extends Controller
      * @var TestimonialSectionService
      */
     private $testimonialSectionService;
+    /**
+     * @var PageElementService
+     */
+    private $pageElementService;
 
     /**
      * TestimonialSectionController constructor.
      * @param TestimonialSectionService $testimonialSectionService
+     * @param PageElementService $pageElementService
      */
-    public function __construct(TestimonialSectionService $testimonialSectionService)
+    public function __construct(TestimonialSectionService $testimonialSectionService, PageElementService $pageElementService)
     {
         $this->testimonialSectionService = $testimonialSectionService;
+        $this->pageElementService = $pageElementService;
     }
 
     /**
@@ -35,7 +42,7 @@ class TestimonialSectionController extends Controller
      */
     public function get(AuthRequest $request, int $id): \Illuminate\Http\JsonResponse
     {
-        $section = $this->testimonialSectionService->find($id);
+        $section = $this->pageElementService->find($id)->pageElementable;
 
         return response()->json(['section' => $section]);
     }

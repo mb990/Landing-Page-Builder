@@ -134,6 +134,7 @@ Route::delete('/project-general-content-one-section-image/{id}', 'Project\Genera
 Route::post('/project-general-content-two-section-image', 'Project\GeneralContentSectionTwoImageController@store')->name('project.general-content-two-section-image.store');
 Route::delete('/project-general-content-two-section-image/{id}', 'Project\GeneralContentSectionTwoImageController@destroy')->name('project.general-content-two-section-image.delete');
 Route::post('/project-gallery-image-item-image', 'Project\GalleryImageItemImageController@store')->name('project.gallery-image-item-image.store');
+Route::delete('/project-gallery-image-item-image/{id}', 'Project\GalleryImageItemImageController@destroy')->name('project.gallery-image-item-image.delete');
 
 //Top Menu Settings
 Route::get('/project/top-menu-settings/{id}', 'Project\TopMenuSettingsController@get')->name('project.top-menu-settings.get');
@@ -197,6 +198,7 @@ Route::post('/project/{slug}/newsletter', 'Project\NewsletterSettingsController@
 Route::put('/project/newsletter/{id}', 'Project\NewsletterSettingsController@update')->name('project.newsletter.update');
 
 //Gallery Settings
+Route::get('/project/gallery-settings/{id}', 'Project\GallerySettingsController@get')->name('project.gallery-settings.get');
 Route::post('/project/{slug}/gallery-settings', 'Project\GallerySettingsController@store')->name('project.gallery-settings.store');
 
 //Gallery Settings Image Item
