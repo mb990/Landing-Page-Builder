@@ -37317,6 +37317,8 @@ __webpack_require__(/*! ./projects/newsletter/set-settings-values */ "./resource
 
 __webpack_require__(/*! ./projects/gallery/store */ "./resources/js/projects/gallery/store.js");
 
+__webpack_require__(/*! ./projects/gallery/update */ "./resources/js/projects/gallery/update.js");
+
 __webpack_require__(/*! ./projects/gallery/set-settings-values */ "./resources/js/projects/gallery/set-settings-values.js");
 
 __webpack_require__(/*! ./projects/show-project */ "./resources/js/projects/show-project.js");
@@ -37617,35 +37619,36 @@ $(document).ready(function () {
             processData: false,
             success: console.log('poslato') // error: console.log('greska pri uploadu slike')
 
-          }).done(function (data) {
-            console.log(data.video);
           });
         } else {
           // saving gallery image item
-          $.post(route('project.gallery-image-item.store', project_slug), {
-            gallery_settings_id: settings_id,
-            blade_file: 'templates.' + template_name + '.page_elements.gallery-content'
-          }).done(function (data) {
-            // saving gallery image item image
-            var form_data = new FormData();
-            form_data.append('image', file);
-            form_data.append('project_name', project_name);
-            form_data.append('storing_path', 'projects/' + project_name + '_' + project_id + '/gallery/images');
-            form_data.append('image_name', 'image-' + data.item.id);
-            form_data.append('imageable_type', 'App\\GalleryImageItem');
-            form_data.append('imageable_id', data.item.id);
-            $.ajax({
-              url: route('project.gallery-image-item-image.store'),
-              type: "post",
-              data: form_data,
-              contentType: false,
-              cache: false,
-              processData: false,
-              success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+          $.ajax({
+            url: route('project.gallery-image-item.store', project_slug),
+            type: 'post',
+            data: {
+              gallery_settings_id: settings_id,
+              blade_file: 'templates.' + template_name + '.page_elements.gallery-content'
+            },
+            success: function success(data) {
+              // saving gallery image item image
+              var form_data = new FormData();
+              form_data.append('image', file);
+              form_data.append('project_name', project_name);
+              form_data.append('storing_path', 'projects/' + project_name + '_' + project_id + '/gallery/images');
+              form_data.append('image_name', 'image-' + data.item.id);
+              form_data.append('imageable_type', 'App\\GalleryImageItem');
+              form_data.append('imageable_id', data.item.id);
+              $.ajax({
+                url: route('project.gallery-image-item-image.store'),
+                type: "post",
+                data: form_data,
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: console.log('slika snimljena u bazu') // error: console.log('greska pri uploadu slike')
 
-            }).done(function (data) {
-              console.log(data.image);
-            });
+              });
+            }
           });
         }
 
@@ -37676,6 +37679,120 @@ $(document).ready(function () {
       });
     }).fail(console.log('failed element'));
     console.log('delay time je: ' + delayTime);
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/gallery/update.js":
+/*!*************************************************!*\
+  !*** ./resources/js/projects/gallery/update.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.updateProjectGallery = function (e) {
+    e.preventDefault();
+    var delayTime = 0;
+    var template_name = $('.js-project-template-name').val();
+    var page_element_type_id = $('.js-project-page-element-type-id').val();
+    var project_id = $('.js-project-id').val();
+    var project_slug = $('.js-project-slug').val();
+    var project_name = $('.js-project-name').val();
+    var modelType = 'App\\GallerySettings';
+    var files = $('.js-project-edit-gallery-image')[0].files;
+    var element_id = $('.js-selected-project-page-element-id').val();
+    var current_number_of_items = $('.js-project-edit-gallery-current-number-of-items').val(); // calculate delay time
+
+    for (var i = 0; i < files.length; i++) {
+      var number = 0;
+      var file = files[number];
+
+      if (file.type.includes('video')) {
+        delayTime += 10000;
+      } else {
+        delayTime += 1500;
+      }
+
+      number++;
+    } // check if correct number of inputs are added
+
+
+    if (files.length < 1 || files.length > 12 - current_number_of_items) {
+      alert('You must add no less then 1 and no more then ' + (12 - current_number_of_items) + ' gallery elements');
+      return;
+    }
+
+    $.ajax({
+      url: route('project.gallery-settings.get', element_id),
+      type: 'get',
+      success: function success(data) {
+        var settings_id = data.settings.id;
+        var number = 0;
+
+        var _loop = function _loop() {
+          var file = files[number];
+
+          if (file.type.includes('video')) {
+            // saving gallery video item
+            var form_data = new FormData();
+            form_data.append('video', file);
+            form_data.append('project_name', project_name);
+            form_data.append('storing_path', 'projects/' + project_name + '_' + project_id + '/gallery/videos');
+            form_data.append('video_name', 'video-' + file.name);
+            form_data.append('gallery_settings_id', settings_id);
+            form_data.append('blade_file', 'templates.' + template_name + '.page_elements.gallery-content-video');
+            $.ajax({
+              url: route('project.gallery-video-item.store', project_slug),
+              type: "post",
+              data: form_data,
+              contentType: false,
+              cache: false,
+              processData: false,
+              success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+
+            });
+          } else {
+            // saving gallery image item
+            $.ajax({
+              url: route('project.gallery-image-item.store', project_slug),
+              type: 'post',
+              data: {
+                gallery_settings_id: settings_id,
+                blade_file: 'templates.' + template_name + '.page_elements.gallery-content'
+              },
+              success: function success(data) {
+                // saving gallery image item image
+                var form_data = new FormData();
+                form_data.append('image', file);
+                form_data.append('project_name', project_name);
+                form_data.append('storing_path', 'projects/' + project_name + '_' + project_id + '/gallery/images');
+                form_data.append('image_name', 'image-' + data.item.id);
+                form_data.append('imageable_type', 'App\\GalleryImageItem');
+                form_data.append('imageable_id', data.item.id);
+                $.ajax({
+                  url: route('project.gallery-image-item-image.store'),
+                  type: "post",
+                  data: form_data,
+                  contentType: false,
+                  cache: false,
+                  processData: false,
+                  success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+
+                });
+              }
+            });
+          }
+
+          number++;
+        };
+
+        for (var i = 0; i < files.length; i++) {
+          _loop();
+        }
+      }
+    });
   };
 });
 
@@ -40339,13 +40456,13 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\registration.scss */"./resources/sass/registration.scss");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\drag&drop.scss */"./resources/sass/drag&drop.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\master.scss */"./resources/sass/master.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\registration.scss */"./resources/sass/registration.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\drag&drop.scss */"./resources/sass/drag&drop.scss");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\master.scss */"./resources/sass/master.scss");
 
 
 /***/ })

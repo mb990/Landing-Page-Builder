@@ -46,6 +46,7 @@ require('./projects/newsletter/store');
 require('./projects/newsletter/update');
 require('./projects/newsletter/set-settings-values');
 require('./projects/gallery/store');
+require('./projects/gallery/update');
 require('./projects/gallery/set-settings-values');
 require('./projects/show-project');
 require('./projects/delete-project');
