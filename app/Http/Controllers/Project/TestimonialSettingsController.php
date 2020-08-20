@@ -37,4 +37,16 @@ class TestimonialSettingsController extends Controller
 
         return response()->json(['settings' => $settings]);
     }
+
+    /**
+     * @param StoreProjectTestimonialSettingsRequest $request
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(StoreProjectTestimonialSettingsRequest $request, int $id)
+    {
+        $settings = $this->testimonialSettingsService->update($request, $id);
+
+        return response()->json(['settings' => $settings]);
+    }
 }

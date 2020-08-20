@@ -37,6 +37,7 @@ require('./projects/general-content-section-3/update');
 require('./projects/general-content-section-3/set-settings-values');
 require('./projects/general-content-section-3/set-awesome-icon-values');
 require('./projects/testimonial/store');
+require('./projects/testimonial/update');
 require('./projects/testimonial/set-settings-values');
 require('./projects/pricing-section/store');
 require('./projects/pricing-section/update');

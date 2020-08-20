@@ -126,6 +126,7 @@ Route::delete('/page-element/{id}', 'Project\PageElementController@destroy')->na
 Route::post('/project-top-menu-image', 'Project\TopMenuImageController@store')->name('project.top-menu-image.store');
 Route::delete('/project-top-menu-image/{id}', 'Project\TopMenuImageController@destroy')->name('project.top-menu-image.delete');
 Route::post('/project-testimonial-image', 'Project\TestimonialImageController@store')->name('project.testimonial-image.store');
+Route::delete('/project-testimonial-image/{id}', 'Project\TestimonialImageController@destroy')->name('project.testimonial-image.delete');
 Route::post('/project-hero-section-image', 'Project\HeroSectionImageController@store')->name('project.hero-section-image.store');
 Route::delete('/project-hero-section-image/{id}', 'Project\HeroSectionImageController@destroy')->name('project.hero-section-image.delete');
 Route::post('/project-general-content-one-section-image', 'Project\GeneralContentSectionOneImageController@store')->name('project.general-content-one-section-image.store');
@@ -144,10 +145,12 @@ Route::post('/project/{slug}/link', 'Project\TopMenuLinkController@store')->name
 Route::put('/project/link/{id}', 'Project\TopMenuLinkController@update')->name('project.top-menu-link.update');
 
 //Testimonial Section
+Route::get('/project/testimonial-section/{id}', 'Project\TestimonialSectionController@get')->name('project.testimonial-section.get');
 Route::post('/project/{slug}/testimonial-section', 'Project\TestimonialSectionController@store')->name('project.testimonial-section.store');
 
 //Testimonial
 Route::post('/project/{slug}/testimonial-settings', 'Project\TestimonialSettingsController@store')->name('project.testimonial-settings.store');
+Route::put('/project/testimonial-settings/{id}', 'Project\TestimonialSettingsController@update')->name('project.testimonial-settings.update');
 
 //Pricing Section
 Route::post('/project/{slug}/pricing-section', 'Project\PricingSectionController@store')->name('project.pricing-section.store');

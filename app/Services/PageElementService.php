@@ -4,11 +4,14 @@
 namespace App\Services;
 
 
+use App\GalleryImageItem;
 use App\GallerySettings;
+use App\Image;
 use App\PageElement;
 use App\Project;
 use App\Repositories\PageElementRepository;
 use App\TestimonialSection;
+use App\TestimonialSettings;
 
 /**
  * Class PageElementService
@@ -43,6 +46,25 @@ class PageElementService
     public function find($id)
     {
         return $this->pageElement->find($id);
+    }
+
+    /**
+     * @param Image $image
+     * @return mixed
+     */
+    public function findElementByImage(Image $image)
+    {
+        if ($this->getGalleryByImage($image)) {
+
+            return $this->getGalleryByImage($image);
+        }
+
+        if ($this->getTestimonialSectionByImage($image)) {
+
+            return $this->getTestimonialSectionByImage($image);
+        }
+
+        return $this->getBasicElementByImage($image);
     }
 
     /**
@@ -196,9 +218,7 @@ class PageElementService
     {
         if ($this->elementHasImage($element)) {
 
-            $image = $element->pageElementable->image;
-
-            return 'projects/' . $element->project->name . '_' . $element->project->id . '/' . $image->filename;
+            return $this->getBasicElementImageS3Path($element);
         }
 
         $imagePaths = [];
@@ -207,9 +227,7 @@ class PageElementService
 
             foreach ($element->pageElementable->imageItems as $imageItem) {
 
-                $image = $imageItem->image;
-
-                $imagePaths[] = 'projects/' . $element->project->name . '_' . $element->project->id . '/gallery/images/' . $image->filename;
+                $imagePaths[] = $this->getGalleryImageS3Path($imageItem, $element);
             }
         }
 
@@ -217,13 +235,33 @@ class PageElementService
 
             foreach ($element->pageElementable->singleItems as $singleItem) {
 
-                $image = $singleItem->image;
-
-                $imagePaths[] = 'projects/' . $element->project->name . '_' . $element->project->id . '/testimonials/' . $image->filename;
+                $imagePaths[] = $this->getTestimonialImageS3Path($singleItem, $element);
             }
         }
 
         return $imagePaths;
+    }
+
+    /**
+     * @param $element
+     * @return bool|string
+     */
+    public function getSingleImagePathFromMultipleImagesElement($element)
+    {
+        if (isset($element->gallery)) {
+
+            return $this->getGalleryImageS3Path($element, $element->gallery->pageElement);
+        }
+
+        if (isset($element->testimonialSection)) {
+
+            return $this->getTestimonialImageS3Path($element, $element->testimonialSection->pageElement);
+        }
+
+        if ($this->elementHasImage($element)) {
+
+            return $this->getBasicElementImageS3Path($element);
+        }
     }
 
     /**
@@ -253,5 +291,84 @@ class PageElementService
         $request->merge(['render_order' => $num + 1]);
 
         return $request;
+    }
+
+    /**
+     * @param Image $image
+     * @return mixed
+     */
+    public function getBasicElementByImage(Image $image)
+    {
+        if (isset($image->imageable->pageElement)) {
+
+            return $image->imageable->pageElement;
+        }
+        return false;
+    }
+
+    /**
+     * @param Image $image
+     * @return mixed
+     */
+    public function getTestimonialSectionByImage(Image $image)
+    {
+        if (isset($image->imageable->testimonialSection)) {
+
+            return $image->imageable->testimonialSection->pageElement;
+        }
+        return false;
+    }
+
+    /**
+     * @param Image $image
+     * @return mixed
+     */
+    public function getGalleryByImage(Image $image)
+    {
+        if (isset($image->imageable->gallery)) {
+
+            return $image->imageable->gallery->pageElement;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param TestimonialSettings $singleItem
+     * @param PageElement $element
+     * @return string
+     */
+    public function getTestimonialImageS3Path(TestimonialSettings $singleItem, PageElement $element): string
+    {
+        $image = $singleItem->image;
+
+        $imagePath = 'projects/' . $element->project->name . '_' . $element->project->id . '/testimonials/' . $image->filename;
+
+        return $imagePath;
+    }
+
+    /**
+     * @param GalleryImageItem $imageItem
+     * @param PageElement $element
+     * @return string
+     */
+    public function getGalleryImageS3Path(GalleryImageItem $imageItem, PageElement $element)
+    {
+        $image = $imageItem->image;
+
+        $imagePath = 'projects/' . $element->project->name . '_' . $element->project->id . '/gallery/images/' . $image->filename;
+
+        return $imagePath;
+    }
+
+    /**
+     * @param PageElement $element
+     * @return string
+     */
+    public function getBasicElementImageS3Path(PageElement $element): string
+    {
+        $image = $element->pageElementable->image;
+
+        return 'projects/' . $element->project->name . '_' . $element->project->id . '/' . $image->filename;
     }
 }

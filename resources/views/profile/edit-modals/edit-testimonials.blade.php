@@ -41,7 +41,7 @@
 </span>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-success">Edit element</button>
+    <button type="button" class="btn btn-success js-project-edit-testimonials-save-button">Edit element</button>
 </div>
 <script>
 $(document).ready(function(){
@@ -67,6 +67,6 @@ $(document).ready(function(){
         }
     })
 
-    // $('.js-add-project-edit-testimonial-element-btn').click(storeProjectTestimonialSection);
+    $('.js-project-edit-testimonials-save-button').click(updateProjectTestimonialSection);
 })
 </script>

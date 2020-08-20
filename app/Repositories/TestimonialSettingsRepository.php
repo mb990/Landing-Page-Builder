@@ -58,7 +58,9 @@ class TestimonialSettingsRepository
      */
     public function update($request, $id)
     {
-        return $this->find($id)->update($request->all());
+        $this->find($id)->update($request->all());
+
+        return $this->find($id);
     }
 
     /**

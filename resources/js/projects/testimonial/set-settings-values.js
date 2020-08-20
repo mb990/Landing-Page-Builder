@@ -9,7 +9,9 @@ $(document).ready(function () {
                 $('#project-edit-testimonial-customer_name-' + (e + 1)).val(i.customer_name);
                 $('#project-edit-testimonial_text-' + (e + 1)).val(i.text);
                 $('#project-edit-testimonial_title-' + (e + 1)).val(i.title);
+                $('#project-edit-testimonial_title-' + (e + 1)).data('id', i.id);
                 $('#js-project-edit-testimonial-image-filename-' + (e + 1)).val(i.image.filename);
+                $('#js-project-edit-testimonial-image-filename-' + (e + 1)).data('id', i.image.id);
 
             })
 

@@ -83,9 +83,11 @@ class ProjectImageService
      */
     public function delete($id)
     {
-        $element = $this->find($id)->imageable->pageElement;
+//        $element = $this->pageElementService->findElementByImage($this->find($id));
 
-        $this->pageElementService->deleteElementS3Items($element);
+        $imagePath = $this->pageElementService->getSingleImagePathFromMultipleImagesElement($this->find($id)->imageable);
+
+        $this->s3Service->deleteImageItem($imagePath);
 
         return $this->image->delete($id);
     }
@@ -106,4 +108,6 @@ class ProjectImageService
 
         return $data;
     }
+
+
 }

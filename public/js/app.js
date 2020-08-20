@@ -37299,6 +37299,8 @@ __webpack_require__(/*! ./projects/general-content-section-3/set-awesome-icon-va
 
 __webpack_require__(/*! ./projects/testimonial/store */ "./resources/js/projects/testimonial/store.js");
 
+__webpack_require__(/*! ./projects/testimonial/update */ "./resources/js/projects/testimonial/update.js");
+
 __webpack_require__(/*! ./projects/testimonial/set-settings-values */ "./resources/js/projects/testimonial/set-settings-values.js");
 
 __webpack_require__(/*! ./projects/pricing-section/store */ "./resources/js/projects/pricing-section/store.js");
@@ -38995,7 +38997,9 @@ $(document).ready(function () {
         $('#project-edit-testimonial-customer_name-' + (e + 1)).val(i.customer_name);
         $('#project-edit-testimonial_text-' + (e + 1)).val(i.text);
         $('#project-edit-testimonial_title-' + (e + 1)).val(i.title);
+        $('#project-edit-testimonial_title-' + (e + 1)).data('id', i.id);
         $('#js-project-edit-testimonial-image-filename-' + (e + 1)).val(i.image.filename);
+        $('#js-project-edit-testimonial-image-filename-' + (e + 1)).data('id', i.image.id);
       });
     }
   };
@@ -39125,6 +39129,115 @@ $(document).ready(function () {
         //     .fail(console.log('failed element'));
 
         console.log(delay_time);
+      });
+    }
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/projects/testimonial/update.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/projects/testimonial/update.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.updateProjectTestimonialSection = function (e) {
+    e.preventDefault();
+
+    function validate() {
+      var bool = true; // $('.js-testimonial').each(function (e, i) {
+      //
+      //     if (!document.getElementById('js-project-testimonial-image-' + (e + 1)).validity.valid) {
+      //
+      //         bool = false;
+      //     }
+      //
+      // });
+
+      return bool;
+    }
+
+    if (validate()) {
+      var delay_time = 0; // delay time calculator
+
+      $('.js-project-edit-testimonial').each(function (e, i) {
+        var customer = $('#project-edit-testimonial-customer_name-' + (e + 1)).val();
+        var testimonial_text = $('#project-edit-testimonial_text-' + (e + 1)).val();
+        var title = $('#project-edit-testimonial_title-' + (e + 1)).val();
+
+        if (customer !== '' && testimonial_text !== '' && title !== '') {
+          delay_time += 1500;
+        }
+      });
+      var template_name = $('.js-project-template-name').val();
+      var page_element_type_id = $('.js-project-page-element-type-id').val();
+      var project_id = $('.js-project-id').val();
+      var project_slug = $('.js-project-slug').val();
+      var project_name = $('.js-project-name').val();
+      var element_id = $('.js-selected-project-page-element-id').val();
+      var modelType = 'App\\TestimonialSection';
+      $.ajax({
+        url: route('project.testimonial-section.get', element_id),
+        type: 'get',
+        success: function success(data) {
+          // let section_id = data.section.id;
+          $('.js-project-edit-testimonial').each(function (e, i) {
+            var customer = $('#project-edit-testimonial-customer_name-' + (e + 1)).val();
+            var testimonial_text = $('#project-edit-testimonial_text-' + (e + 1)).val();
+            var title = $('#project-edit-testimonial_title-' + (e + 1)).val();
+
+            if (customer && testimonial_text && title) {
+              // if (document.getElementById('js-project-edit-testimonial-image-' + (e + 1)).validity.valid) {
+              var single_testimonial_id = title = $('#project-edit-testimonial_title-' + (e + 1)).data('id');
+              $.ajax({
+                url: route('project.testimonial-settings.update', single_testimonial_id),
+                type: 'put',
+                data: {
+                  title: title,
+                  customer_name: customer,
+                  text: testimonial_text // testimonial_section_id: section_id,
+                  // blade_file: 'templates.' + template_name + '.page_elements.testimonial-single'
+
+                },
+                success: function success(data) {
+                  var image = $('#js-project-edit-testimonial-image-' + (e + 1))[0].files[0];
+                  var old_image_id = $('#js-project-edit-testimonial-image-filename-' + (e + 1)).data('id');
+
+                  if (image) {
+                    $.ajax({
+                      url: route('project.testimonial-image.delete', old_image_id),
+                      type: 'delete',
+                      success: function success() {
+                        var form_data = new FormData();
+                        form_data.append('image', image);
+                        form_data.append('project_name', project_name);
+                        form_data.append('storing_path', 'projects/' + project_name + '_' + project_id + '/testimonials');
+                        form_data.append('image_name', 'testimonial-' + data.settings.id);
+                        form_data.append('imageable_type', 'App\\TestimonialSettings');
+                        form_data.append('imageable_id', data.settings.id);
+                        $.ajax({
+                          url: route('project.testimonial-image.store'),
+                          type: "post",
+                          data: form_data,
+                          contentType: false,
+                          cache: false,
+                          processData: false,
+                          success: console.log('poslato') // error: console.log('greska pri uploadu slike')
+
+                        }).done(function (data) {
+                          console.log(data.image);
+                        });
+                      }
+                    });
+                  }
+                }
+              }); // }
+            }
+          });
+        }
       });
     }
   };
