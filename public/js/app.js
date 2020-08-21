@@ -37319,6 +37319,8 @@ __webpack_require__(/*! ./projects/gallery/store */ "./resources/js/projects/gal
 
 __webpack_require__(/*! ./projects/gallery/update */ "./resources/js/projects/gallery/update.js");
 
+__webpack_require__(/*! ./projects/gallery/delete-single-item */ "./resources/js/projects/gallery/delete-single-item.js");
+
 __webpack_require__(/*! ./projects/gallery/set-settings-values */ "./resources/js/projects/gallery/set-settings-values.js");
 
 __webpack_require__(/*! ./projects/show-project */ "./resources/js/projects/show-project.js");
@@ -37523,6 +37525,49 @@ $(document).ready(function () {
 
 /***/ }),
 
+/***/ "./resources/js/projects/gallery/delete-single-item.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/projects/gallery/delete-single-item.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  window.deleteProjectGallerySingleItem = function (id, type, element_id) {
+    console.log('delete gallery item funkcija pokrenuta, pre if-ova');
+    console.log('id slike je: ' + id);
+
+    if (type === 'image') {
+      $.ajax({
+        url: route('project.gallery-image-item-image.delete', [id, element_id]),
+        type: 'delete',
+        success: function success(data) {
+          console.log(data.success); // $.ajax({
+          //
+          //     url: route('project.gallery-image-item.delete', id),
+          //     type: 'delete',
+          //     success:function (data) {
+          //
+          //         console.log(data.success);
+          //     }
+          //
+          // })
+        }
+      });
+    } else if (type === 'video') {
+      $.ajax({
+        url: route('project.gallery-video-item.delete', id),
+        type: 'delete',
+        success: function success(data) {
+          console.log(data.success);
+        }
+      });
+    }
+  };
+});
+
+/***/ }),
+
 /***/ "./resources/js/projects/gallery/set-settings-values.js":
 /*!**************************************************************!*\
   !*** ./resources/js/projects/gallery/set-settings-values.js ***!
@@ -37535,15 +37580,15 @@ $(document).ready(function () {
     if (data.settings.page_elementable_type === 'App\\GallerySettings') {
       var numberOfEntries = 0;
       $.each(data.settings.page_elementable.image_items, function (e, i) {
-        var input = '<input type="text" disabled data-id="' + i.image.id + '" class="js-image-hover js-project-edit-gallery-image-filename-' + (e + 1) + '" value="' + i.image.filename + '"><button data-id="' + i.image.id + '" class="img-edit-delete">Delete</button></input>';
+        var input = '<input type="text" disabled data-id="' + i.image.id + '" class="js-image-hover js-project-edit-gallery-image-filename-' + (e + 1) + '" value="' + i.image.filename + '"><button data-element="' + data.settings.id + '" data-type="image" data-id="' + i.image.id + '" class="btn btn-secondary js-delete-gallery-item">Delete</button></input>';
         $('.js-project-edit-gallery-span').append(input); // $(input).append('<button data-id="'+ i.image.id +'" class="img-edit-delete">Delete</button>')
 
         numberOfEntries++;
       });
       $.each(data.settings.page_elementable.video_items, function (e, i) {
-        var input = '<input type="text" disabled data-id="' + i.id + '" class="js-video-hover js-project-edit-gallery-video-filename-' + (e + 1) + '" value="' + i.filename + '">';
-        $('.js-project-edit-gallery-span').append(input);
-        $(input).append('<button data-id="' + i.id + '" class="img-edit-delete">Delete</button>');
+        var input = '<input type="text" disabled data-id="' + i.id + '" class="js-project-edit-gallery-video-filename-' + (e + 1) + '" value="' + i.filename + '"><button data-element="' + data.settings.id + '" data-type="video" data-id="' + i.id + '" class="btn btn-secondary js-delete-gallery-item">Delete</button>>';
+        $('.js-project-edit-gallery-span').append(input); // $(input).append('<button data-id="'+ i.id +'" class="img-edit-delete">Delete</button>');
+
         numberOfEntries++;
       });
       var multipleFilesInput = '<input type="file" class="js-project-edit-gallery-item-add" multiple>';
@@ -37643,6 +37688,7 @@ $(document).ready(function () {
                 type: "post",
                 data: form_data,
                 contentType: false,
+                async: false,
                 cache: false,
                 processData: false,
                 success: console.log('slika snimljena u bazu') // error: console.log('greska pri uploadu slike')
@@ -37669,7 +37715,6 @@ $(document).ready(function () {
       }).done(function (data) {
         setTimeout(function () {
           $.get(route('project.page-element.render-single', data.element.id)).done(function (data) {
-            console.log($('.js-gallery-delay-time').val());
             setTimeout(function () {
               $('.js-project-preview-elements').append(data.view);
               createButtons(data.element.id);
@@ -40456,13 +40501,13 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\registration.scss */"./resources/sass/registration.scss");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\drag&drop.scss */"./resources/sass/drag&drop.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\master.scss */"./resources/sass/master.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\registration.scss */"./resources/sass/registration.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\drag&drop.scss */"./resources/sass/drag&drop.scss");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\master.scss */"./resources/sass/master.scss");
 
 
 /***/ })

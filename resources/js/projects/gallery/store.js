@@ -116,6 +116,7 @@ $(document).ready(function () {
                                 type: "post",
                                 data: form_data,
                                 contentType: false,
+                                async: false,
                                 cache: false,
                                 processData: false,
                                 success: console.log('slika snimljena u bazu'),
@@ -145,8 +146,6 @@ $(document).ready(function () {
                         $.get(route('project.page-element.render-single', data.element.id)
 
                         ).done(function (data) {
-
-                            console.log($('.js-gallery-delay-time').val());
 
                             setTimeout(function () {
 

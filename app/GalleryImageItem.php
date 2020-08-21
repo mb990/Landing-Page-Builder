@@ -17,7 +17,7 @@ class GalleryImageItem extends Model
 
     use CascadeDelete;
 
-    protected $with = ['image'];
+    protected $with = ['image', 'gallery'];
 
     protected $cascadeDeleteMorph = ['image'];
 
@@ -34,6 +34,11 @@ class GalleryImageItem extends Model
      */
     public function gallery()
     {
-        return $this->belongsTo(GallerySettings::class);
+        return $this->belongsTo(GallerySettings::class)->with('pageElement');
+    }
+
+    public function getGallery()
+    {
+        return $this->gallery()->first();
     }
 }

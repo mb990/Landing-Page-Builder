@@ -16,14 +16,20 @@ class GalleryImageItemService
      * @var GalleryImageItemRepository
      */
     private $galleryImageItem;
+    /**
+     * @var ProjectImageService
+     */
+    private $projectImageService;
 
     /**
      * GalleryImageItemService constructor.
      * @param GalleryImageItemRepository $galleryImageItem
+     * @param ProjectImageService $projectImageService
      */
-    public function __construct(GalleryImageItemRepository $galleryImageItem)
+    public function __construct(GalleryImageItemRepository $galleryImageItem, ProjectImageService $projectImageService)
     {
         $this->galleryImageItem = $galleryImageItem;
+        $this->projectImageService = $projectImageService;
     }
 
     /**
@@ -68,5 +74,16 @@ class GalleryImageItemService
     public function delete($id)
     {
         return $this->galleryImageItem->delete($id);
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getItemIdByImage($id)
+    {
+        $imageItemId = $this->projectImageService->find($id)->imageable->id;
+
+        return $imageItemId;
     }
 }

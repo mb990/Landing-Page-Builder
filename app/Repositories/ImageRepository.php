@@ -35,6 +35,13 @@ class ImageRepository
         return $this->image->find($id);
     }
 
+    public function findWithImageable($id)
+    {
+        return $this->image->where('id', $id)
+            ->with('imageable.gallery')
+            ->first();
+    }
+
     /**
      * @param $data
      * @return mixed

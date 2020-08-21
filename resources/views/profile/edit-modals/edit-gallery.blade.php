@@ -16,6 +16,19 @@
 
         $('.js-project-edit-gallery-save-button').click(updateProjectGallery);
 
+        $(document).on("click", ".js-delete-gallery-item", function(){
+
+            let item_id = $(this).data('id');
+            let type = $(this).data('type');
+            let element_id = $(this).data('element');
+
+            deleteProjectGallerySingleItem(item_id, type, element_id);
+
+            $('.js-project-edit-gallery-current-number-of-items').get(0).value -= 1;
+
+            //obrisi item + ako moze smanji broj current itema u galeriji za 1
+        });
+
     })
 
 </script>

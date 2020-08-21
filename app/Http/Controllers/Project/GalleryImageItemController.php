@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Project;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AuthRequest;
 use App\Http\Requests\StoreProjectGalleryImageItemRequest;
 use App\Services\GalleryImageItemService;
 
@@ -35,5 +36,17 @@ class GalleryImageItemController extends Controller
         $item = $this->galleryImageItemService->store($request);
 
         return response()->json(['item' => $item]);
+    }
+
+    /**
+     * @param AuthRequest $request
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy(AuthRequest $request, int $id): \Illuminate\Http\JsonResponse
+    {
+        $this->galleryImageItemService->delete($this->galleryImageItemService->getItemIdByImage($id));
+
+        return response()->json(['success' => 'image item deleted']);
     }
 }

@@ -121,7 +121,7 @@ class PageElementService
      */
     public function elementHasImage($element)
     {
-        if (!$element->pageElementable->image) {
+        if (!isset($element->pageElementable->image)) {
 
             return false;
         }
@@ -248,11 +248,6 @@ class PageElementService
      */
     public function getSingleImagePathFromMultipleImagesElement($element)
     {
-        if (isset($element->gallery)) {
-
-            return $this->getGalleryImageS3Path($element, $element->gallery->pageElement);
-        }
-
         if (isset($element->testimonialSection)) {
 
             return $this->getTestimonialImageS3Path($element, $element->testimonialSection->pageElement);
@@ -261,6 +256,11 @@ class PageElementService
         if ($this->elementHasImage($element)) {
 
             return $this->getBasicElementImageS3Path($element);
+        }
+
+        if (isset($element->gallery)) {
+
+            return $this->getGalleryImageS3Path($element, $element->gallery->pageElement);
         }
     }
 

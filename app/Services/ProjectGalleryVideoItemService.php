@@ -24,18 +24,24 @@ class ProjectGalleryVideoItemService
      * @var VideoConvertService
      */
     private $videoConvertService;
+    /**
+     * @var PageElementService
+     */
+    private $pageElementService;
 
     /**
      * ProjectGalleryVideoItemService constructor.
      * @param GalleryVideoItemRepository $galleryVideoItem
      * @param StorageService $storageService
      * @param VideoConvertService $videoConvertService
+     * @param PageElementService $pageElementService
      */
-    public function __construct(GalleryVideoItemRepository $galleryVideoItem, StorageService $storageService, VideoConvertService $videoConvertService)
+    public function __construct(GalleryVideoItemRepository $galleryVideoItem, StorageService $storageService, VideoConvertService $videoConvertService, PageElementService $pageElementService)
     {
         $this->galleryVideoItem = $galleryVideoItem;
         $this->storageService = $storageService;
         $this->videoConvertService = $videoConvertService;
+        $this->pageElementService = $pageElementService;
     }
 
     /**
@@ -145,5 +151,17 @@ class ProjectGalleryVideoItemService
 
         $this->videoConvertService->convertProjectVideoToMp4($videoPath, $videoName, $request->storing_path);
 //        }
+    }
+
+    /**
+     * @param int $videoItemId
+     */
+    public function deleteItemWithS3Data(int $videoItemId)
+    {
+        $pageElement = $this->find($videoItemId)->gallery->pageElement;
+
+        $this->pageElementService->deleteElementS3Videos($pageElement);
+
+        $this->delete($videoItemId);
     }
 }

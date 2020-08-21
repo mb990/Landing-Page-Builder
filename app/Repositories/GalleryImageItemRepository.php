@@ -65,7 +65,7 @@ class GalleryImageItemRepository
     /**
      * @param $id
      */
-    public function delete($id)
+    public function delete($id) : void
     {
         $this->find($id)->delete();
     }

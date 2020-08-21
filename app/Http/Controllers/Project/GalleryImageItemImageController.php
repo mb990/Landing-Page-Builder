@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Project;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AuthRequest;
 use App\Http\Requests\StoreProjectGalleryImageItemImageRequest;
 use App\Services\ProjectImageService;
 use Illuminate\Http\Request;
@@ -36,5 +37,19 @@ class GalleryImageItemImageController extends Controller
         $image = $this->projectImageService->store($request);
 
         return response()->json(['image' => $image]);
+    }
+
+    /**
+     * @param AuthRequest $request
+     * @param int $id
+     * @param int $elementId
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy(AuthRequest $request, int $id, int $elementId): \Illuminate\Http\JsonResponse
+    {
+        $data = $this->projectImageService->deleteOnlyS3ItemImage($id, $elementId);
+
+//        return response()->json(['success' => 'image is deleted']);
+        return response()->json(['success' => $data]);
     }
 }

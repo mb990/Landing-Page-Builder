@@ -134,7 +134,7 @@ Route::delete('/project-general-content-one-section-image/{id}', 'Project\Genera
 Route::post('/project-general-content-two-section-image', 'Project\GeneralContentSectionTwoImageController@store')->name('project.general-content-two-section-image.store');
 Route::delete('/project-general-content-two-section-image/{id}', 'Project\GeneralContentSectionTwoImageController@destroy')->name('project.general-content-two-section-image.delete');
 Route::post('/project-gallery-image-item-image', 'Project\GalleryImageItemImageController@store')->name('project.gallery-image-item-image.store');
-Route::delete('/project-gallery-image-item-image/{id}', 'Project\GalleryImageItemImageController@destroy')->name('project.gallery-image-item-image.delete');
+Route::delete('/project-gallery-image-item-image/{id}/{elementId}', 'Project\GalleryImageItemImageController@destroy')->name('project.gallery-image-item-image.delete');
 
 //Top Menu Settings
 Route::get('/project/top-menu-settings/{id}', 'Project\TopMenuSettingsController@get')->name('project.top-menu-settings.get');
@@ -203,9 +203,11 @@ Route::post('/project/{slug}/gallery-settings', 'Project\GallerySettingsControll
 
 //Gallery Settings Image Item
 Route::post('/project/{slug}/gallery-image-item', 'Project\GalleryImageItemController@store')->name('project.gallery-image-item.store');
+Route::delete('/project/gallery-image-item/{id}', 'Project\GalleryImageItemController@destroy')->name('project.gallery-image-item.delete');
 
 //Gallery Settings Video Item
 Route::post('/project/{slug}/gallery-video-item', 'Project\GalleryVideoItemController@store')->name('project.gallery-video-item.store');
+Route::delete('/project/gallery-video-item/{id}', 'Project\GalleryVideoItemController@destroy')->name('project.gallery-video-item.delete');
 
 //Subscriber
 Route::post('/project/{slug}/subscriber', 'SubscriberController@store')->name('project.subscriber.store');

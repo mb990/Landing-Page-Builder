@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Project;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AuthRequest;
 use App\Http\Requests\StoreProjectGalleryVideoItemRequest;
 use App\Services\ProjectGalleryVideoItemService;
 use Illuminate\Http\Request;
@@ -36,5 +37,17 @@ class GalleryVideoItemController extends Controller
         $video = $this->projectGalleryVideoItemService->store($request);
 
         return response()->json(['video' => $video]);
+    }
+
+    /**
+     * @param AuthRequest $request
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy(AuthRequest $request, int $id): \Illuminate\Http\JsonResponse
+    {
+        $this->projectGalleryVideoItemService->deleteItemWithS3Data($id);
+
+        return response()->json(['success' => 'video is deleted']);
     }
 }

@@ -54,6 +54,15 @@ class ProjectImageService
     }
 
     /**
+     * @param $id
+     * @return mixed
+     */
+    public function findWithImageable($id)
+    {
+        return $this->image->findWithImageable($id);
+    }
+
+    /**
      * @param $request
      * @return mixed
      */
@@ -85,11 +94,22 @@ class ProjectImageService
     {
 //        $element = $this->pageElementService->findElementByImage($this->find($id));
 
-        $imagePath = $this->pageElementService->getSingleImagePathFromMultipleImagesElement($this->find($id)->imageable);
+        $imagePath = $this->pageElementService->getSingleImagePathFromMultipleImagesElement($this->findWithImageable($id)->imageable);
 
         $this->s3Service->deleteImageItem($imagePath);
 
         return $this->image->delete($id);
+    }
+
+    public function deleteOnlyS3ItemImage($id, $elementId)
+    {
+        return $this->findWithImageable($id);
+
+        $element = $this->pageElementService->find($elementId);
+
+        $imagePath = $this->pageElementService->getSingleImagePathFromMultipleImagesElement($this->findWithImageable($id)->imageable);
+
+        $this->s3Service->deleteImageItem($imagePath);
     }
 
     /**
