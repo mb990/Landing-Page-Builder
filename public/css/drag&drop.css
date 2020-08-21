@@ -38,8 +38,7 @@
   display: block;
 }
 
-.js-project-edit-gallery-span.input:hover,
-.img-edit-delete {
+.js-image-hover:hover .img-edit-delete {
   display: block;
 }
 
