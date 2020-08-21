@@ -2,8 +2,6 @@
 <div class="card-columns">
     @forelse(auth()->user()->projects as $project)
 
-    <!-- <div class="col-sm-6" style="max-width: 25vw; margin-bottom: 10px;"> -->
-
             <div class="card js-project-delete-test{{$project->slug}}">
                 <img class="card-img-top" src="https://source.unsplash.com/2gYsZUmockw/100px160/" alt="Card image cap">
                 <div class="card-body">
@@ -13,7 +11,6 @@
                     <a type="btn" data-slug="{{$project->slug}}" class="btn btn-secondary text-white js-delete-project">Delete</a>
                 </div>
             </div>
-    <!-- </div> -->
 
     @empty
 

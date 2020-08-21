@@ -10,8 +10,6 @@
 
                 @empty
 
-
-
                 @endforelse
             </select>
         </div>

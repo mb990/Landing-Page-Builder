@@ -14,7 +14,7 @@
             <div style="flex-grow: 1;"><img style="width: 100px;transform: translateY(-25%);" src="{{ asset('img/logo.png') }}"></div>
             <div class="js-link">
                 <button class="head-link" id="js-about">About</button>
-                <button class="head-link" id="js-info">Info ++</button>
+                <button class="head-link" id="js-info">Info</button>
             </div>
         </header>
         <main class="main-content">
@@ -23,7 +23,7 @@
                     <span class="main-word1">landing page is here</span>
                 </h1>
                 <div style="text-align: center;">
-                    <a class="btn create-btn" href="login" >Create landing page</a>
+                    <a class="btn create-btn" href="login">Create landing page</a>
                 </div>
             </div>
         </main>

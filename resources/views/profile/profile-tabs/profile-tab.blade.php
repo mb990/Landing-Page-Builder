@@ -29,7 +29,7 @@
         </tbody>        <tbody>
             <tr>
             <td>2</td>
-            <td>email@email.com</td>
+            <td>noname@gmail.com</td>
             <td>
                 <span class="badge badge-info">basic</span>
             </td>
@@ -40,7 +40,7 @@
         </tbody>        <tbody>
             <tr>
             <td>3</td>
-            <td>email@email.com</td>
+            <td>email@gmail.com</td>
             <td>
                 <span class="badge badge-info">basic</span>
             </td>
@@ -51,12 +51,3 @@
         </tbody>
         </table>
 </div>
-<script>
-    //AJAX ZA GET GROUP
-    // $.get("url", data,
-    //     function (data, textStatus, jqXHR) {
-            
-    //     },
-    //     "dataType"
-    // );
-</script>

@@ -22,9 +22,9 @@
             .has-error .form-control:focus{box-shadow: none; -webkit-box-shadow: none;}
             select:active, select:hover, select:focus {outline: none}
             .form-control:focus {
-                    border-color: #5cb85c;
-                    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #5cb85c;
-                }
+                border-color: #5cb85c;
+                box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #5cb85c;
+            }
         </style>
         @routes
     </head>
@@ -94,10 +94,10 @@
                     $('.nav-link').addClass('js-media-nav-link');
                     $(".js-profile-main").css("width", "100vw");
                     $(".js-aside").css("width", "100vw");
-                        $('.js-media-nav-link').on("click", function(){
-                            $(".js-profile-main").slideToggle();
-                            $(".js-aside").slideToggle();
-                        })
+                    $('.js-media-nav-link').on("click", function(){
+                        $(".js-profile-main").slideToggle();
+                        $(".js-aside").slideToggle();
+                    })
                 } else{
                     $('.nav-link').removeClass('js-media-nav-link');
                     $(".js-profile-main").css("width", "80vw");
