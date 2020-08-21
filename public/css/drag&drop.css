@@ -20,6 +20,12 @@
   display: none;
 }
 
+.media-delete {
+  position: absolute;
+  top: 10px;
+  display: none;
+}
+
 .img-edit-delete {
   position: absolute;
   top: 10px;
