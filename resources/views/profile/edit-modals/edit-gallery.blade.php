@@ -16,13 +16,6 @@
 
         $('.js-project-edit-gallery-save-button').click(updateProjectGallery);
 
-        $(document).ready(function () {
-                $(document).on('mouseenter', '.js-project-edit-gallery-span input', function () {
-                    $(this).find(":button").show();
-                }).on('mouseleave', '.divbutton', function () {
-                    $(this).find(":button").hide();
-                });
-            });
     })
 
 </script>

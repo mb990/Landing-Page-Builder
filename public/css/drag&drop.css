@@ -38,6 +38,11 @@
   display: block;
 }
 
+.js-project-edit-gallery-span.input:hover,
+.img-edit-delete {
+  display: block;
+}
+
 .moving-element {
   height: 5vh;
   width: 100vw;
