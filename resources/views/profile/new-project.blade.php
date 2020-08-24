@@ -343,8 +343,13 @@
 
 
                                 let iconId = $('.js-project-edit-general-content-three-tile-object-' + (e + 1)).val();
+                                if ( $(this).children().length == 3 ) {
+                                    console.log($(this).children().length)
+                                    setAwesomeIconValue($(this), e, iconId);
+                                } else{
+                                    return;
+                                }
 
-                                setAwesomeIconValue($(this), e, iconId);
 
                             });
                         }, 1000);
