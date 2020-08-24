@@ -86,7 +86,7 @@ $(document).ready(function () {
 
                                 $('.js-project-preview-elements').append(data.view);
                                 createButtons(data.element.id);
-                            }, 1000);
+                            }, 1500);
 
                         });
                     })
