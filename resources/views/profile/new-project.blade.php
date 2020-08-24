@@ -48,67 +48,6 @@
             </div>
         </header>
 
-
-<!-- EDIT Modal -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editModal">Edit element</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="js-edit js-edit1" style="display:none;">
-                    @include('profile.edit-modals.edit-footer')
-                </div>
-                <div class="js-edit js-edit2" style="display:none;">
-                    @include('profile.edit-modals.edit-gallery')
-                </div>
-                <div class="js-edit js-edit3" style="display:none;">
-                    @include('profile.edit-modals.edit-general1')
-                </div>
-                <div class="js-edit js-edit4" style="display:none;">
-                    @include('profile.edit-modals.edit-general2')
-                </div>
-                <div class="js-edit js-edit5" style="display:none;">
-                    @include('profile.edit-modals.edit-general3')
-                </div>
-                <div class="js-edit js-edit6" style="display:none;">
-                    @include('profile.edit-modals.edit-hero')
-                </div>
-                <div class="js-edit js-edit7" style="display:none;">
-                    @include('profile.edit-modals.edit-pricing')
-                </div>
-                <div class="js-edit js-edit8" style="display:none;">
-                    @include('profile.edit-modals.edit-subscribe')
-                </div>
-                <div class="js-edit js-edit9" style="display:none;">
-                    @include('profile.edit-modals.edit-testimonials')
-                </div>
-                <div class="js-edit js-edit10" style="display:none;">
-                    @include('profile.edit-modals.edit-top-menu')
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- <div id="footer-edit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="edit-footer" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      </div>
-    </div>
-  </div> -->
-
-
-
-
-
-
-
         <div style="text-align:center;">
             <!-- <a href="edit-footer.blade.php" data-toggle="modal" data-target="#footer-edit">Lab 6</a> -->
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add element</button>
@@ -118,77 +57,6 @@
 
 
         <main class="js-project-preview-elements" id="sortable" style="background-color: white;"><!--style="display: flex;" -->
-
-            <!-- <section class="newsletter project-element js-added-element ui-state-default">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="content">
-                                <h2>test11</h2>
-                                <div class="input-group">
-                                    <input type="email" class="form-control" placeholder="Enter your email">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="submit">test1</button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="newsletter project-element js-added-element">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="content">
-                                <h2>test22</h2>
-                                <div class="input-group">
-                                    <input type="email" class="form-control" placeholder="Enter your email">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="submit">test2</button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section><section class="newsletter project-element js-added-element">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="content">
-                                <h2>test33</h2>
-                                <div class="input-group">
-                                    <input type="email" class="form-control" placeholder="Enter your email">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="submit">test3</button>
-                                    </span>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div class="page-content page-container project-element js-added-element" id="page-content" style="background-color: lightgrey;">
-                <div class="padding">
-                    <div class="row container d-flex justify-content-center">
-                            <div class="card-body">Powered by FutureWeb</div>
-                            <div>
-                                <div class="card-body">
-                                    <h4 class="card-title">Visit us on social media</h4>
-                                    <div class="template-demo">
-                                        <a type="button" class="btn btn-social-icon btn-rounded"><i class="fa fa-facebook"></i></a>
-                                        <a type="button" class="btn btn-social-icon btn-rounded"><i class="fa fa-twitter"></i></a>
-                                        <a type="button" class="btn btn-social-icon btn-rounded"><i class="fa fa-linkedin"></i></a>
-                                        <a type="button" class="btn btn-social-icon btn-rounded"><i class="fa fa-instagram"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-            </div> -->
-
 
         </main>
         <input type="hidden" class="js-project-page-element-type-id">
@@ -200,69 +68,114 @@
         <input type="hidden" class="js-project-template-id" name="project-template-id" id="project-template-id" value="{{$project->template->id}}">
         <input type="hidden" class="js-project-template-name" name="template-name" id="template-name" value="{{$project->template->name}}">
 
-
+        <!-- EDIT Modal -->
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModal">Edit element</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="js-edit js-edit1" style="display:none;">
+                            @include('profile.edit-modals.edit-footer')
+                        </div>
+                        <div class="js-edit js-edit2" style="display:none;">
+                            @include('profile.edit-modals.edit-gallery')
+                        </div>
+                        <div class="js-edit js-edit3" style="display:none;">
+                            @include('profile.edit-modals.edit-general1')
+                        </div>
+                        <div class="js-edit js-edit4" style="display:none;">
+                            @include('profile.edit-modals.edit-general2')
+                        </div>
+                        <div class="js-edit js-edit5" style="display:none;">
+                            @include('profile.edit-modals.edit-general3')
+                        </div>
+                        <div class="js-edit js-edit6" style="display:none;">
+                            @include('profile.edit-modals.edit-hero')
+                        </div>
+                        <div class="js-edit js-edit7" style="display:none;">
+                            @include('profile.edit-modals.edit-pricing')
+                        </div>
+                        <div class="js-edit js-edit8" style="display:none;">
+                            @include('profile.edit-modals.edit-subscribe')
+                        </div>
+                        <div class="js-edit js-edit9" style="display:none;">
+                            @include('profile.edit-modals.edit-testimonials')
+                        </div>
+                        <div class="js-edit js-edit10" style="display:none;">
+                            @include('profile.edit-modals.edit-top-menu')
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Element name</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-            <span>Select element</span>
-            <select id="select" class="js-get-elements-types-project">
-                <option value="" selected disabled>Choose element</option>
-            </select>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Element name</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    <span>Select element</span>
+                    <select id="select" class="js-get-elements-types-project">
+                        <option value="" selected disabled>Choose element</option>
+                    </select>
 
-            <div class="js-modal-content js-content-10">
-                @include('profile.modals.top-menu-modal')
-            </div>
+                    <div class="js-modal-content js-content-10">
+                        @include('profile.modals.top-menu-modal')
+                    </div>
 
-            <div class="js-modal-content js-content-6">
-                @include('profile.modals.hero-modal')
-            </div>
+                    <div class="js-modal-content js-content-6">
+                        @include('profile.modals.hero-modal')
+                    </div>
 
-            <div class="js-modal-content js-content-3">
-                @include('profile.modals.general1-modal')
-            </div>
+                    <div class="js-modal-content js-content-3">
+                        @include('profile.modals.general1-modal')
+                    </div>
 
-            <div class="js-modal-content js-content-4">
-                @include('profile.modals.general2-modal')
-            </div>
+                    <div class="js-modal-content js-content-4">
+                        @include('profile.modals.general2-modal')
+                    </div>
 
-            <div class="js-modal-content js-content-5">
-                @include('profile.modals.general3-modal')
-            </div>
+                    <div class="js-modal-content js-content-5">
+                        @include('profile.modals.general3-modal')
+                    </div>
 
-            <div class="js-modal-content js-content-8">
-                @include('profile.modals.pricing-modal')
-            </div>
+                    <div class="js-modal-content js-content-8">
+                        @include('profile.modals.pricing-modal')
+                    </div>
 
-            <div class="js-modal-content js-content-9">
-                @include('profile.modals.testimonials-modal')
-            </div>
+                    <div class="js-modal-content js-content-9">
+                        @include('profile.modals.testimonials-modal')
+                    </div>
 
-            <div class="js-modal-content js-content-2">
-                @include('profile.modals.gallery-modal')
-            </div>
+                    <div class="js-modal-content js-content-2">
+                        @include('profile.modals.gallery-modal')
+                    </div>
 
-            <div class="js-modal-content js-content-7">
-                @include('profile.modals.subscribe-modal')
-            </div>
+                    <div class="js-modal-content js-content-7">
+                        @include('profile.modals.subscribe-modal')
+                    </div>
 
-            <div class="js-modal-content js-content-1">
-                @include('profile.modals.footer-modal')
-            </div>
+                    <div class="js-modal-content js-content-1">
+                        @include('profile.modals.footer-modal')
+                    </div>
 
+                    </div>
+
+                </div>
             </div>
 
         </div>
-    </div>
-
-</div>
 
         <script>
             $(document).ready(function(){
@@ -428,13 +341,10 @@
                             // add dropdown to every tile with unique class
                             $('.js-project-edit-general-content-three-tiles').each(function (e, i) {
 
-                                // $(this).on('click', function () {
 
                                 let iconId = $('.js-project-edit-general-content-three-tile-object-' + (e + 1)).val();
 
                                 setAwesomeIconValue($(this), e, iconId);
-
-                                // });
 
                             });
                         }, 1000);

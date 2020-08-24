@@ -12,8 +12,6 @@ $(document).ready(function () {
 
                 $('.js-project-edit-gallery-span').append(input);
 
-                // $(input).append('<button data-id="'+ i.image.id +'" class="img-edit-delete">Delete</button>')
-
                 numberOfEntries ++;
 
             });
@@ -23,8 +21,6 @@ $(document).ready(function () {
                 let input = '<input type="text" disabled data-id="'+ i.id +'" class="js-project-edit-gallery-video-filename-'+ (e + 1) +'" value="'+ i.filename +'"><button data-element="'+ data.settings.id +'" data-type="video" data-id="'+ i.id +'" class="btn btn-secondary js-delete-gallery-item">Delete</button>';
 
                 $('.js-project-edit-gallery-span').append(input);
-
-                // $(input).append('<button data-id="'+ i.id +'" class="img-edit-delete">Delete</button>');
 
                 numberOfEntries ++;
 
