@@ -20,11 +20,17 @@
 
             let item_id = $(this).data('id');
             let type = $(this).data('type');
-            let element_id = $(this).data('element');
+            // let element_id = $(this).data('element');
 
-            deleteProjectGallerySingleItem(item_id, type, element_id);
+            let current_number_of_gallery_elements = $('.js-project-edit-gallery-current-number-of-items').val();
 
-            $('.js-project-edit-gallery-current-number-of-items').get(0).value -= 1;
+            console.log('trenutni broj itema pre brisanja: ' + current_number_of_gallery_elements);
+
+            deleteProjectGallerySingleItem(item_id, type);
+
+            let number_of_gallery_elements_after_deletion = current_number_of_gallery_elements - 1;
+
+            console.log('trenutni broj itema posle brisanja: ' + number_of_gallery_elements_after_deletion);
 
             //obrisi item + ako moze smanji broj current itema u galeriji za 1
         });

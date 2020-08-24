@@ -34,11 +34,6 @@ class GalleryImageItem extends Model
      */
     public function gallery()
     {
-        return $this->belongsTo(GallerySettings::class)->with('pageElement');
-    }
-
-    public function getGallery()
-    {
-        return $this->gallery()->first();
+        return $this->belongsTo(GallerySettings::class, 'gallery_settings_id')->with('pageElement');
     }
 }

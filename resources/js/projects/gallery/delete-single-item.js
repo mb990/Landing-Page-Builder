@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    window.deleteProjectGallerySingleItem = function (id, type, element_id) {
+    window.deleteProjectGallerySingleItem = function (id, type) {
 
         console.log('delete gallery item funkcija pokrenuta, pre if-ova');
 
@@ -10,22 +10,22 @@ $(document).ready(function () {
 
             $.ajax({
 
-                url: route('project.gallery-image-item-image.delete', [id, element_id]),
+                url: route('project.gallery-image-item-image.delete', id),
                 type: 'delete',
                 success: function (data) {
 
                     console.log(data.success);
 
-                    // $.ajax({
-                    //
-                    //     url: route('project.gallery-image-item.delete', id),
-                    //     type: 'delete',
-                    //     success:function (data) {
-                    //
-                    //         console.log(data.success);
-                    //     }
-                    //
-                    // })
+                    $.ajax({
+
+                        url: route('project.gallery-image-item.delete', id),
+                        type: 'delete',
+                        success:function (data) {
+
+                            console.log(data.success);
+                        }
+
+                    })
 
                 }
 

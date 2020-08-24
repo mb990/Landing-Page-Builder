@@ -42,14 +42,14 @@ class GalleryImageItemImageController extends Controller
     /**
      * @param AuthRequest $request
      * @param int $id
-     * @param int $elementId
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(AuthRequest $request, int $id, int $elementId): \Illuminate\Http\JsonResponse
+    public function destroy(AuthRequest $request, int $id): \Illuminate\Http\JsonResponse
     {
-        $data = $this->projectImageService->deleteOnlyS3ItemImage($id, $elementId);
+//        $data =
+            $this->projectImageService->deleteOnlyS3ItemImage($id);
 
-//        return response()->json(['success' => 'image is deleted']);
-        return response()->json(['success' => $data]);
+        return response()->json(['success' => 'image is deleted']);
+//        return response()->json(['success' => $data]);
     }
 }

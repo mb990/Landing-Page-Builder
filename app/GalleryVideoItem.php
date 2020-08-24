@@ -21,6 +21,6 @@ class GalleryVideoItem extends Model
      */
     public function gallery()
     {
-        return $this->belongsTo(GallerySettings::class);
+        return $this->belongsTo(GallerySettings::class, 'gallery_settings_id');
     }
 }

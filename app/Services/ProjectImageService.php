@@ -101,12 +101,8 @@ class ProjectImageService
         return $this->image->delete($id);
     }
 
-    public function deleteOnlyS3ItemImage($id, $elementId)
+    public function deleteOnlyS3ItemImage($id)
     {
-        return $this->findWithImageable($id);
-
-        $element = $this->pageElementService->find($elementId);
-
         $imagePath = $this->pageElementService->getSingleImagePathFromMultipleImagesElement($this->findWithImageable($id)->imageable);
 
         $this->s3Service->deleteImageItem($imagePath);

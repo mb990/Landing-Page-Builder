@@ -37533,25 +37533,23 @@ $(document).ready(function () {
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-  window.deleteProjectGallerySingleItem = function (id, type, element_id) {
+  window.deleteProjectGallerySingleItem = function (id, type) {
     console.log('delete gallery item funkcija pokrenuta, pre if-ova');
     console.log('id slike je: ' + id);
 
     if (type === 'image') {
       $.ajax({
-        url: route('project.gallery-image-item-image.delete', [id, element_id]),
+        url: route('project.gallery-image-item-image.delete', id),
         type: 'delete',
         success: function success(data) {
-          console.log(data.success); // $.ajax({
-          //
-          //     url: route('project.gallery-image-item.delete', id),
-          //     type: 'delete',
-          //     success:function (data) {
-          //
-          //         console.log(data.success);
-          //     }
-          //
-          // })
+          console.log(data.success);
+          $.ajax({
+            url: route('project.gallery-image-item.delete', id),
+            type: 'delete',
+            success: function success(data) {
+              console.log(data.success);
+            }
+          });
         }
       });
     } else if (type === 'video') {
@@ -37586,7 +37584,7 @@ $(document).ready(function () {
         numberOfEntries++;
       });
       $.each(data.settings.page_elementable.video_items, function (e, i) {
-        var input = '<input type="text" disabled data-id="' + i.id + '" class="js-project-edit-gallery-video-filename-' + (e + 1) + '" value="' + i.filename + '"><button data-element="' + data.settings.id + '" data-type="video" data-id="' + i.id + '" class="btn btn-secondary js-delete-gallery-item">Delete</button>>';
+        var input = '<input type="text" disabled data-id="' + i.id + '" class="js-project-edit-gallery-video-filename-' + (e + 1) + '" value="' + i.filename + '"><button data-element="' + data.settings.id + '" data-type="video" data-id="' + i.id + '" class="btn btn-secondary js-delete-gallery-item">Delete</button>';
         $('.js-project-edit-gallery-span').append(input); // $(input).append('<button data-id="'+ i.id +'" class="img-edit-delete">Delete</button>');
 
         numberOfEntries++;

@@ -30,7 +30,7 @@ class GallerySettings extends Model
      */
     public function imageItems()
     {
-        return $this->hasMany(GalleryImageItem::class);
+        return $this->hasMany(GalleryImageItem::class)->without('gallery');
     }
 
     /**
@@ -38,7 +38,7 @@ class GallerySettings extends Model
      */
     public function videoItems()
     {
-        return $this->hasMany(GalleryVideoItem::class);
+        return $this->hasMany(GalleryVideoItem::class)->without('gallery');
     }
 
     /**
