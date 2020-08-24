@@ -58,7 +58,7 @@ class Project extends Model
     {
         return $this->pageElements()
             ->with('pageElementable')
-            ->oldest()
+            ->orderBy('render_order', 'asc')
             ->get();
     }
 
