@@ -22,7 +22,6 @@
         @routes
     </head>
     <body>
-    <!-- <a type="button" class="btn btn-secondary" href="{{route('user.profile', auth()->user()->slug)}}">Profile</a> -->
 
     <input type="hidden" class="js-show-project-project-slug" value="{{request()->projectSlug}}">
 

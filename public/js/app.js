@@ -37579,14 +37579,12 @@ $(document).ready(function () {
       var numberOfEntries = 0;
       $.each(data.settings.page_elementable.image_items, function (e, i) {
         var input = '<input type="text" disabled data-id="' + i.image.id + '" class="js-image-hover js-project-edit-gallery-image-filename-' + (e + 1) + '" value="' + i.image.filename + '"><button data-element="' + data.settings.id + '" data-type="image" data-id="' + i.image.id + '" class="btn btn-secondary js-delete-gallery-item">Delete</button></input>';
-        $('.js-project-edit-gallery-span').append(input); // $(input).append('<button data-id="'+ i.image.id +'" class="img-edit-delete">Delete</button>')
-
+        $('.js-project-edit-gallery-span').append(input);
         numberOfEntries++;
       });
       $.each(data.settings.page_elementable.video_items, function (e, i) {
         var input = '<input type="text" disabled data-id="' + i.id + '" class="js-project-edit-gallery-video-filename-' + (e + 1) + '" value="' + i.filename + '"><button data-element="' + data.settings.id + '" data-type="video" data-id="' + i.id + '" class="btn btn-secondary js-delete-gallery-item">Delete</button>';
-        $('.js-project-edit-gallery-span').append(input); // $(input).append('<button data-id="'+ i.id +'" class="img-edit-delete">Delete</button>');
-
+        $('.js-project-edit-gallery-span').append(input);
         numberOfEntries++;
       });
       var multipleFilesInput = '<input type="file" class="js-project-edit-gallery-item-add" multiple>';
@@ -40499,13 +40497,13 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\registration.scss */"./resources/sass/registration.scss");
-__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\drag&drop.scss */"./resources/sass/drag&drop.scss");
-module.exports = __webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\master.scss */"./resources/sass/master.scss");
+__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
+__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
+__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\registration.scss */"./resources/sass/registration.scss");
+__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\drag&drop.scss */"./resources/sass/drag&drop.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\master.scss */"./resources/sass/master.scss");
 
 
 /***/ })

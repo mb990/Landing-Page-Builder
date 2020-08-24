@@ -24,6 +24,7 @@
             });
         </script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
         <script>
         $( function() {
         $( "#sortable" ).sortable();
@@ -335,12 +336,10 @@
                     }
                     if($(this).parent().hasClass("js-content3-var")){
 
-
                         setTimeout(function () {
 
                             // add dropdown to every tile with unique class
                             $('.js-project-edit-general-content-three-tiles').each(function (e, i) {
-
 
                                 let iconId = $('.js-project-edit-general-content-three-tile-object-' + (e + 1)).val();
                                 if ( $(this).children().length == 3 ) {
@@ -349,7 +348,6 @@
                                 } else{
                                     return;
                                 }
-
 
                             });
                         }, 1000);
