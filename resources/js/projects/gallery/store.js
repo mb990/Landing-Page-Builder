@@ -30,7 +30,7 @@ $(document).ready(function () {
 
             else {
 
-                delayTime += 1500;
+                delayTime += 2000;
             }
 
             number ++;
@@ -154,7 +154,7 @@ $(document).ready(function () {
                             }, delayTime);
 
                         });
-                    }, 1500)
+                    }, 2000)
 
                     })
                 })

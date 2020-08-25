@@ -37622,7 +37622,7 @@ $(document).ready(function () {
       if (file.type.includes('video')) {
         delayTime += 10000;
       } else {
-        delayTime += 1500;
+        delayTime += 2000;
       }
 
       number++;
@@ -37716,7 +37716,7 @@ $(document).ready(function () {
               createButtons(data.element.id);
             }, delayTime);
           });
-        }, 1500);
+        }, 2000);
       });
     }).fail(console.log('failed element'));
     console.log('delay time je: ' + delayTime);
@@ -37934,7 +37934,7 @@ $(document).ready(function () {
             setTimeout(function () {
               $('.js-project-preview-elements').append(data.view);
               createButtons(data.element.id);
-            }, 1500);
+            }, 2000);
           });
         }).fail(console.log('failed element'));
       });
@@ -38134,7 +38134,7 @@ $(document).ready(function () {
             setTimeout(function () {
               $('.js-project-preview-elements').append(data.view);
               createButtons(data.element.id);
-            }, 1500);
+            }, 2000);
           });
         }).fail(console.log('failed element'));
       });
@@ -38664,7 +38664,7 @@ $(document).ready(function () {
               createButtons(data.element.id);
               $("#select option[value='6']").attr("disabled", "disabled");
               $("#select option[value='6']").removeClass("btn-success");
-            }, 1500);
+            }, 2000);
           });
         }).fail(console.log('failed element'));
       });
@@ -39206,7 +39206,7 @@ $(document).ready(function () {
         var title = $('#project-testimonial_title-' + (e + 1)).val();
 
         if (customer !== '' && testimonial_text !== '' && title !== '') {
-          delay_time += 1500;
+          delay_time += 2000;
         }
       });
       var template_name = $('.js-project-template-name').val();
@@ -39477,6 +39477,7 @@ $(document).ready(function () {
           url: route('project.top-menu-image.store'),
           type: "post",
           data: form_data,
+          async: false,
           contentType: false,
           cache: false,
           processData: false,
@@ -39514,7 +39515,7 @@ $(document).ready(function () {
             setTimeout(function () {
               $('.js-project-preview-elements').append(data.view);
               createButtons(data.element.id);
-            }, 1500);
+            }, 2000);
           });
         }).fail(console.log('failed element'));
       }).fail(console.log('failed settings'));
@@ -40497,13 +40498,13 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\registration.scss */"./resources/sass/registration.scss");
-__webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\drag&drop.scss */"./resources/sass/drag&drop.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\sass\master.scss */"./resources/sass/master.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\page_elements1.scss */"./resources/sass/page_elements1.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\page_elements2.scss */"./resources/sass/page_elements2.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\registration.scss */"./resources/sass/registration.scss");
+__webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\drag&drop.scss */"./resources/sass/drag&drop.scss");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\sass\master.scss */"./resources/sass/master.scss");
 
 
 /***/ })

@@ -89,7 +89,7 @@ $(document).ready(function () {
                                 $("#select option[value='6']").attr("disabled","disabled");
                                 $("#select option[value='6']").removeClass("btn-success");
 
-                            }, 1500);
+                            }, 2000);
                         })
                     })
                     .fail(console.log('failed element'));

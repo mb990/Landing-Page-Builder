@@ -33,7 +33,7 @@ $(document).ready(function () {
 
                 if (customer !== '' && testimonial_text !== '' && title !== '') {
 
-                    delay_time += 1500;
+                    delay_time += 2000;
                 }
             });
 

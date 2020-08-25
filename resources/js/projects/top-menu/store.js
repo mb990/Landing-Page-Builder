@@ -47,6 +47,7 @@ $(document).ready(function () {
                     url: route('project.top-menu-image.store'),
                     type: "post",
                     data: form_data,
+                    async: false,
                     contentType: false,
                     cache: false,
                     processData: false,
@@ -99,7 +100,7 @@ $(document).ready(function () {
 
                                 $('.js-project-preview-elements').append(data.view);
                                 createButtons(data.element.id);
-                            }, 1500);
+                            }, 2000);
                         })
                     })
                     .fail(console.log('failed element'));
