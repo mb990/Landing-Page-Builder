@@ -46,7 +46,7 @@
             <div class="col-xl-4 col-lg-5">
                 <div class="featured-text text-center text-lg-left" style="margin: 20px;">
                     <h4>ABOUT</h4>
-                    <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
+                    <p class="text-black-50 mb-0">Nam bibendum dui non sapien faucibus tempus. In vitae felis turpis. Suspendisse potenti. Sed vel ultrices nunc. Etiam efficitur, libero sed vestibulum varius, dolor urna pharetra augue, id porttitor nulla neque quis mauris!</p>
                     <a class="btn" style="background-color: rgb(103, 103, 238); color: white;" href="">GO HERE</a>
                 </div>
             </div>

@@ -6,5 +6,6 @@
     "/css/registration.css": "/css/registration.css",
     "/css/drag&drop.css": "/css/drag&drop.css",
     "/css/master.css": "/css/master.css",
+    "/js/drag&drop.js": "/js/drag&drop.js",
     "/js/master.js": "/js/master.js"
 }

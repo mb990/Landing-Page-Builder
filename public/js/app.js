@@ -37934,7 +37934,7 @@ $(document).ready(function () {
             setTimeout(function () {
               $('.js-project-preview-elements').append(data.view);
               createButtons(data.element.id);
-            }, 1000);
+            }, 1500);
           });
         }).fail(console.log('failed element'));
       });
@@ -38134,7 +38134,7 @@ $(document).ready(function () {
             setTimeout(function () {
               $('.js-project-preview-elements').append(data.view);
               createButtons(data.element.id);
-            }, 1000);
+            }, 1500);
           });
         }).fail(console.log('failed element'));
       });
@@ -38664,7 +38664,7 @@ $(document).ready(function () {
               createButtons(data.element.id);
               $("#select option[value='6']").attr("disabled", "disabled");
               $("#select option[value='6']").removeClass("btn-success");
-            }, 1000);
+            }, 1500);
           });
         }).fail(console.log('failed element'));
       });
@@ -39514,7 +39514,7 @@ $(document).ready(function () {
             setTimeout(function () {
               $('.js-project-preview-elements').append(data.view);
               createButtons(data.element.id);
-            }, 1000);
+            }, 1500);
           });
         }).fail(console.log('failed element'));
       }).fail(console.log('failed settings'));
