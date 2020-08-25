@@ -86,25 +86,25 @@ $(document).ready(function () {
                             // error: console.log('greska pri uploadu slike')
 
                         }).done(function (data) {
-                            console.log(data.image),
-                            function () {
-                                $.get(route('project.page-element.render-single', element_id)
-                    
-                                ).done(function (data) {
-                                    setTimeout(function () {
-                    
-                                        $('*[data-elementid="'+element_id+'"]').replaceWith(data.view)
-                    
-                                        createButtons(element_id);
+                            console.log(data.image);
 
-                                        $("#select option[value='3']").attr("disabled","disabled");
-                                        $("#select option[value='3']").removeClass("btn-success");
-
-                                    }, 1000);
-                                })
-                            }
                         });
                     }
+
+                    $.get(route('project.page-element.render-single', element_id)
+
+                    ).done(function (data) {
+
+                        setTimeout(function () {
+
+                            $('.js-project-preview-elements').replaceWith(data.view);
+                            createButtons(data.element.id);
+
+                            $("#select option[value='6']").attr("disabled","disabled");
+                            $("#select option[value='6']").removeClass("btn-success");
+
+                        }, 2000);
+                    })
                 }
             })
         }

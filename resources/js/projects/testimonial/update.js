@@ -33,7 +33,7 @@ $(document).ready(function () {
 
                 if (customer !== '' && testimonial_text !== '' && title !== '') {
 
-                    delay_time += 1500;
+                    delay_time += 2000;
                 }
             });
 
@@ -64,7 +64,10 @@ $(document).ready(function () {
 
                             // if (document.getElementById('js-project-edit-testimonial-image-' + (e + 1)).validity.valid) {
 
-                            let single_testimonial_id = title = $('#project-edit-testimonial_title-' + (e + 1)).data('id');
+                            let single_testimonial_id = title = $('#project-edit-testimonial_id-' + (e + 1)).val();
+
+                            console.log('ovo je testimonial title: ' + title);
+                            console.log('ovo je testimonial title-id: ' + single_testimonial_id);
 
                                 $.ajax({
                                     url: route('project.testimonial-settings.update', single_testimonial_id),
@@ -124,6 +127,21 @@ $(document).ready(function () {
                             // }
 
                         }
+                    })
+
+                    $.get(route('project.page-element.render-single', element_id)
+
+                    ).done(function (data) {
+
+                        setTimeout(function () {
+
+                            $('.js-project-preview-elements').replaceWith(data.view);
+                            createButtons(data.element.id);
+
+                            $("#select option[value='6']").attr("disabled","disabled");
+                            $("#select option[value='6']").removeClass("btn-success");
+
+                        }, delay_time);
                     })
 
                 }

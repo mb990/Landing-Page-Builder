@@ -91,23 +91,26 @@ $(document).ready(function () {
                     }
                 }
             }).done(function (data) {
-                console.log('vraceni podaci iz done-a nakon updatea settingsa: ' + data),
-                function () {
+                console.log('vraceni podaci iz done-a nakon updatea settingsa: ' + data);
+
                     $.get(route('project.page-element.render-single', element_id)
-        
+
                     ).done(function (data) {
-                        setTimeout(function () {
-        
-                            $('*[data-elementid="'+element_id+'"]').replaceWith(data.view)
-        
-                            createButtons(element_id);
+                        $.get(route('project.page-element.render-single', element_id)
 
-                            $("#select option[value='4']").attr("disabled","disabled");
-                            $("#select option[value='4']").removeClass("btn-success");
+                        ).done(function (data) {
 
-                        }, 1000);
+                            setTimeout(function () {
+
+                                $('.js-project-preview-elements').replaceWith(data.view);
+                                createButtons(data.element.id);
+
+                                $("#select option[value='6']").attr("disabled","disabled");
+                                $("#select option[value='6']").removeClass("btn-success");
+
+                            }, 2000);
+                        })
                     })
-                }
             })
         }
         else {

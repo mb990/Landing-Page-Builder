@@ -14,6 +14,7 @@
     <input type="text" id="project-edit-testimonial-customer_name-1" placeholder="Enter user name">
     <input type="text" id="project-edit-testimonial_title-1" placeholder="Review title">
     <input type="text" id="project-edit-testimonial_text-1" placeholder="Enter user review">
+    <input type="hidden" id="project-edit-testimonial_id-1">
 </span>
     <br>
 <span class="js-project-edit-testimonial js-project-edit-testimonial-2 d-none" style="display:flex; flex-direction:column;">
@@ -22,6 +23,7 @@
     <input type="text" id="project-edit-testimonial-customer_name-2" placeholder="Enter user name">
     <input type="text" id="project-edit-testimonial_title-2" placeholder="Review title">
     <input type="text" id="project-edit-testimonial_text-2" placeholder="Enter user review">
+    <input type="hidden" id="project-edit-testimonial_id-2">
 </span>
     <br>
 <span class="js-project-edit-testimonial js-project-edit-testimonial-3 d-none" style="display:flex; flex-direction:column;">
@@ -30,6 +32,7 @@
     <input type="text" id="project-edit-testimonial-customer_name-3" placeholder="Enter user name">
     <input type="text" id="project-edit-testimonial_title-3" placeholder="Review title">
     <input type="text" id="project-edit-testimonial_text-3" placeholder="Enter user review">
+    <input type="hidden" id="project-edit-testimonial_id-3">
 </span>
     <br>
 <span class="js-project-edit-testimonial js-project-edit-testimonial-4 d-none" style="display:flex; flex-direction:column;">
@@ -38,6 +41,7 @@
     <input type="text" id="project-edit-testimonial-customer_name-4" placeholder="Enter user name">
     <input type="text" id="project-edit-testimonial_title-4" placeholder="Review title">
     <input type="text" id="project-edit-testimonial_text-4" placeholder="Enter user review">
+    <input type="hidden" id="project-edit-testimonial_id-4">
 </span>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

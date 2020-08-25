@@ -38019,18 +38019,18 @@ $(document).ready(function () {
               success: console.log('gen content 1 slika sacuvana') // error: console.log('greska pri uploadu slike')
 
             }).done(function (data) {
-              console.log(data.image), function () {
-                $.get(route('project.page-element.render-single', element_id)).done(function (data) {
-                  setTimeout(function () {
-                    $('*[data-elementid="' + element_id + '"]').replaceWith(data.view);
-                    createButtons(element_id);
-                    $("#select option[value='3']").attr("disabled", "disabled");
-                    $("#select option[value='3']").removeClass("btn-success");
-                  }, 1000);
-                });
-              };
+              console.log(data.image);
             });
           }
+
+          $.get(route('project.page-element.render-single', element_id)).done(function (data) {
+            setTimeout(function () {
+              $('.js-project-preview-elements').replaceWith(data.view);
+              createButtons(data.element.id);
+              $("#select option[value='6']").attr("disabled", "disabled");
+              $("#select option[value='6']").removeClass("btn-success");
+            }, 2000);
+          });
         }
       });
     } else {
@@ -38224,16 +38224,17 @@ $(document).ready(function () {
           }
         }
       }).done(function (data) {
-        console.log('vraceni podaci iz done-a nakon updatea settingsa: ' + data), function () {
+        console.log('vraceni podaci iz done-a nakon updatea settingsa: ' + data);
+        $.get(route('project.page-element.render-single', element_id)).done(function (data) {
           $.get(route('project.page-element.render-single', element_id)).done(function (data) {
             setTimeout(function () {
-              $('*[data-elementid="' + element_id + '"]').replaceWith(data.view);
-              createButtons(element_id);
-              $("#select option[value='4']").attr("disabled", "disabled");
-              $("#select option[value='4']").removeClass("btn-success");
-            }, 1000);
+              $('.js-project-preview-elements').replaceWith(data.view);
+              createButtons(data.element.id);
+              $("#select option[value='6']").attr("disabled", "disabled");
+              $("#select option[value='6']").removeClass("btn-success");
+            }, 2000);
           });
-        };
+        });
       });
     } else {
       alert('You need to add image');
@@ -38748,7 +38749,16 @@ $(document).ready(function () {
             });
           }
         }
-      }).done(function (data) {});
+      }).done(function (data) {
+        $.get(route('project.page-element.render-single', element_id)).done(function (data) {
+          setTimeout(function () {
+            $('.js-project-preview-elements').replaceWith(data.view);
+            createButtons(data.element.id);
+            $("#select option[value='6']").attr("disabled", "disabled");
+            $("#select option[value='6']").removeClass("btn-success");
+          }, 2000);
+        });
+      });
     } else {
       alert('You need to add image');
     }
@@ -39160,10 +39170,11 @@ $(document).ready(function () {
   window.setTestimonialSettingsValues = function (data) {
     if (data.settings.page_elementable_type === 'App\\TestimonialSection') {
       $.each(data.settings.page_elementable.single_items, function (e, i) {
+        console.log('ovo je i.title: ' + i.title);
         $('#project-edit-testimonial-customer_name-' + (e + 1)).val(i.customer_name);
         $('#project-edit-testimonial_text-' + (e + 1)).val(i.text);
         $('#project-edit-testimonial_title-' + (e + 1)).val(i.title);
-        $('#project-edit-testimonial_title-' + (e + 1)).data('id', i.id);
+        $('#project-edit-testimonial_id-' + (e + 1)).val(i.id);
         $('#js-project-edit-testimonial-image-filename-' + (e + 1)).val(i.image.filename);
         $('#js-project-edit-testimonial-image-filename-' + (e + 1)).data('id', i.image.id);
       });
@@ -39335,7 +39346,7 @@ $(document).ready(function () {
         var title = $('#project-edit-testimonial_title-' + (e + 1)).val();
 
         if (customer !== '' && testimonial_text !== '' && title !== '') {
-          delay_time += 1500;
+          delay_time += 2000;
         }
       });
       var template_name = $('.js-project-template-name').val();
@@ -39357,7 +39368,9 @@ $(document).ready(function () {
 
             if (customer && testimonial_text && title) {
               // if (document.getElementById('js-project-edit-testimonial-image-' + (e + 1)).validity.valid) {
-              var single_testimonial_id = title = $('#project-edit-testimonial_title-' + (e + 1)).data('id');
+              var single_testimonial_id = title = $('#project-edit-testimonial_id-' + (e + 1)).val();
+              console.log('ovo je testimonial title: ' + title);
+              console.log('ovo je testimonial title-id: ' + single_testimonial_id);
               $.ajax({
                 url: route('project.testimonial-settings.update', single_testimonial_id),
                 type: 'put',
@@ -39402,6 +39415,14 @@ $(document).ready(function () {
                 }
               }); // }
             }
+          });
+          $.get(route('project.page-element.render-single', element_id)).done(function (data) {
+            setTimeout(function () {
+              $('.js-project-preview-elements').replaceWith(data.view);
+              createButtons(data.element.id);
+              $("#select option[value='6']").attr("disabled", "disabled");
+              $("#select option[value='6']").removeClass("btn-success");
+            }, delay_time);
           });
         }
       });
@@ -39615,7 +39636,15 @@ $(document).ready(function () {
             }
           });
         }
-      }).done(function (data) {//
+      }).done(function (data) {
+        $.get(route('project.page-element.render-single', element_id)).done(function (data) {
+          setTimeout(function () {
+            $('.js-project-preview-elements').replaceWith(data.view);
+            createButtons(data.element.id);
+            $("#select option[value='6']").attr("disabled", "disabled");
+            $("#select option[value='6']").removeClass("btn-success");
+          }, 2000);
+        });
       });
     } else {
       alert('You need to add top menu image');
