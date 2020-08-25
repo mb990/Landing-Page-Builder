@@ -45,7 +45,7 @@
                 <button class="btn btn-secondary visible-none js-desktop">Desktop</button>
             </div>
             <div class="js-link">
-                <button class="head-link" id="js-info">Log out</button>
+                <a href="{{route('logout')}}"><button class="head-link" id="js-info">Log out</button></a>
             </div>
         </header>
 
@@ -114,7 +114,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
