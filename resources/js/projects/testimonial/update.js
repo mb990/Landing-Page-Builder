@@ -27,9 +27,9 @@ $(document).ready(function () {
             // delay time calculator
             $('.js-project-edit-testimonial').each(function (e, i) {
 
-                let customer = $('#project-edit-testimonial-customer_name-' + (e + 1)).val();
-                let testimonial_text = $('#project-edit-testimonial_text-' + (e + 1)).val();
-                let title = $('#project-edit-testimonial_title-' + (e + 1)).val();
+                let customer = $('.project-edit-testimonial-customer_name-' + (e + 1)).val();
+                let testimonial_text = $('.project-edit-testimonial_text-' + (e + 1)).val();
+                let title = $('.project-edit-testimonial_title-' + (e + 1)).val();
 
                 if (customer !== '' && testimonial_text !== '' && title !== '') {
 
@@ -56,18 +56,15 @@ $(document).ready(function () {
 
                     $('.js-project-edit-testimonial').each(function (e, i) {
 
-                        let customer = $('#project-edit-testimonial-customer_name-' + (e + 1)).val();
-                        let testimonial_text = $('#project-edit-testimonial_text-' + (e + 1)).val();
-                        let title = $('#project-edit-testimonial_title-' + (e + 1)).val();
+                        let customer = $('.project-edit-testimonial-customer_name-' + (e + 1)).val();
+                        let testimonial_text = $('.project-edit-testimonial_text-' + (e + 1)).val();
+                        let title = $('.project-edit-testimonial_title-' + (e + 1)).val();
 
                         if (customer && testimonial_text && title) {
 
                             // if (document.getElementById('js-project-edit-testimonial-image-' + (e + 1)).validity.valid) {
 
-                            let single_testimonial_id = title = $('#project-edit-testimonial_id-' + (e + 1)).val();
-
-                            console.log('ovo je testimonial title: ' + title);
-                            console.log('ovo je testimonial title-id: ' + single_testimonial_id);
+                            let single_testimonial_id = $('.project-edit-testimonial_id-' + (e + 1)).val();
 
                                 $.ajax({
                                     url: route('project.testimonial-settings.update', single_testimonial_id),
@@ -82,9 +79,9 @@ $(document).ready(function () {
                                         },
                                     success: function (data) {
 
-                                        let image = $('#js-project-edit-testimonial-image-' + (e + 1))[0].files[0];
+                                        let image = $('.js-project-edit-testimonial-image-' + (e + 1))[0].files[0];
 
-                                        let old_image_id = $('#js-project-edit-testimonial-image-filename-' + (e + 1)).data('id');
+                                        let old_image_id = $('.js-project-edit-testimonial-image-filename-' + (e + 1)).data('id');
 
                                         if (image) {
 

@@ -39171,12 +39171,12 @@ $(document).ready(function () {
     if (data.settings.page_elementable_type === 'App\\TestimonialSection') {
       $.each(data.settings.page_elementable.single_items, function (e, i) {
         console.log('ovo je i.title: ' + i.title);
-        $('#project-edit-testimonial-customer_name-' + (e + 1)).val(i.customer_name);
-        $('#project-edit-testimonial_text-' + (e + 1)).val(i.text);
-        $('#project-edit-testimonial_title-' + (e + 1)).val(i.title);
-        $('#project-edit-testimonial_id-' + (e + 1)).val(i.id);
-        $('#js-project-edit-testimonial-image-filename-' + (e + 1)).val(i.image.filename);
-        $('#js-project-edit-testimonial-image-filename-' + (e + 1)).data('id', i.image.id);
+        $('.project-edit-testimonial-customer_name-' + (e + 1)).val(i.customer_name);
+        $('.project-edit-testimonial_text-' + (e + 1)).val(i.text);
+        $('.project-edit-testimonial_title-' + (e + 1)).val(i.title);
+        $('.project-edit-testimonial_id-' + (e + 1)).val(i.id);
+        $('.js-project-edit-testimonial-image-filename-' + (e + 1)).val(i.image.filename);
+        $('.js-project-edit-testimonial-image-filename-' + (e + 1)).data('id', i.image.id);
       });
     }
   };
@@ -39341,9 +39341,9 @@ $(document).ready(function () {
       var delay_time = 0; // delay time calculator
 
       $('.js-project-edit-testimonial').each(function (e, i) {
-        var customer = $('#project-edit-testimonial-customer_name-' + (e + 1)).val();
-        var testimonial_text = $('#project-edit-testimonial_text-' + (e + 1)).val();
-        var title = $('#project-edit-testimonial_title-' + (e + 1)).val();
+        var customer = $('.project-edit-testimonial-customer_name-' + (e + 1)).val();
+        var testimonial_text = $('.project-edit-testimonial_text-' + (e + 1)).val();
+        var title = $('.project-edit-testimonial_title-' + (e + 1)).val();
 
         if (customer !== '' && testimonial_text !== '' && title !== '') {
           delay_time += 2000;
@@ -39362,15 +39362,13 @@ $(document).ready(function () {
         success: function success(data) {
           // let section_id = data.section.id;
           $('.js-project-edit-testimonial').each(function (e, i) {
-            var customer = $('#project-edit-testimonial-customer_name-' + (e + 1)).val();
-            var testimonial_text = $('#project-edit-testimonial_text-' + (e + 1)).val();
-            var title = $('#project-edit-testimonial_title-' + (e + 1)).val();
+            var customer = $('.project-edit-testimonial-customer_name-' + (e + 1)).val();
+            var testimonial_text = $('.project-edit-testimonial_text-' + (e + 1)).val();
+            var title = $('.project-edit-testimonial_title-' + (e + 1)).val();
 
             if (customer && testimonial_text && title) {
               // if (document.getElementById('js-project-edit-testimonial-image-' + (e + 1)).validity.valid) {
-              var single_testimonial_id = title = $('#project-edit-testimonial_id-' + (e + 1)).val();
-              console.log('ovo je testimonial title: ' + title);
-              console.log('ovo je testimonial title-id: ' + single_testimonial_id);
+              var single_testimonial_id = $('.project-edit-testimonial_id-' + (e + 1)).val();
               $.ajax({
                 url: route('project.testimonial-settings.update', single_testimonial_id),
                 type: 'put',
@@ -39382,8 +39380,8 @@ $(document).ready(function () {
 
                 },
                 success: function success(data) {
-                  var image = $('#js-project-edit-testimonial-image-' + (e + 1))[0].files[0];
-                  var old_image_id = $('#js-project-edit-testimonial-image-filename-' + (e + 1)).data('id');
+                  var image = $('.js-project-edit-testimonial-image-' + (e + 1))[0].files[0];
+                  var old_image_id = $('.js-project-edit-testimonial-image-filename-' + (e + 1)).data('id');
 
                   if (image) {
                     $.ajax({

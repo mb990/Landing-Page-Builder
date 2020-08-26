@@ -9,39 +9,39 @@
     </select>
 <hr>
 <span class="js-project-edit-testimonial js-project-edit-testimonial-1 d-none" style="display:flex; flex-direction:column;">
-    <input type="file" id="js-project-edit-testimonial-image-1">
-    <input type="text" disabled id="js-project-edit-testimonial-image-filename-1">
-    <input type="text" id="project-edit-testimonial-customer_name-1" placeholder="Enter user name">
-    <input type="text" id="project-edit-testimonial_title-1" placeholder="Review title">
-    <input type="text" id="project-edit-testimonial_text-1" placeholder="Enter user review">
-    <input type="hidden" id="project-edit-testimonial_id-1">
+    <input type="file" class="js-project-edit-testimonial-image-1">
+    <input type="text" disabled class="js-project-edit-testimonial-image-filename-1">
+    <input type="text" class="project-edit-testimonial-customer_name-1" placeholder="Enter user name">
+    <input type="text" class="project-edit-testimonial_title-1" placeholder="Review title">
+    <input type="text" class="project-edit-testimonial_text-1" placeholder="Enter user review">
+    <input type="hidden" class="project-edit-testimonial_id-1">
 </span>
     <br>
 <span class="js-project-edit-testimonial js-project-edit-testimonial-2 d-none" style="display:flex; flex-direction:column;">
-    <input type="file" id="js-project-edit-testimonial-image-2">
-    <input type="text" disabled id="js-project-edit-testimonial-image-filename-2">
-    <input type="text" id="project-edit-testimonial-customer_name-2" placeholder="Enter user name">
-    <input type="text" id="project-edit-testimonial_title-2" placeholder="Review title">
-    <input type="text" id="project-edit-testimonial_text-2" placeholder="Enter user review">
-    <input type="hidden" id="project-edit-testimonial_id-2">
+    <input type="file" class="js-project-edit-testimonial-image-2">
+    <input type="text" disabled class="js-project-edit-testimonial-image-filename-2">
+    <input type="text" class="project-edit-testimonial-customer_name-2" placeholder="Enter user name">
+    <input type="text" class="project-edit-testimonial_title-2" placeholder="Review title">
+    <input type="text" class="project-edit-testimonial_text-2" placeholder="Enter user review">
+    <input type="hidden" class="project-edit-testimonial_id-2">
 </span>
     <br>
 <span class="js-project-edit-testimonial js-project-edit-testimonial-3 d-none" style="display:flex; flex-direction:column;">
-    <input type="file" id="js-project-edit-testimonial-image-3" required>
-    <input type="text" disabled id="js-project-edit-testimonial-image-filename-3">
-    <input type="text" id="project-edit-testimonial-customer_name-3" placeholder="Enter user name">
-    <input type="text" id="project-edit-testimonial_title-3" placeholder="Review title">
-    <input type="text" id="project-edit-testimonial_text-3" placeholder="Enter user review">
-    <input type="hidden" id="project-edit-testimonial_id-3">
+    <input type="file" class="js-project-edit-testimonial-image-3" required>
+    <input type="text" disabled class="js-project-edit-testimonial-image-filename-3">
+    <input type="text" class="project-edit-testimonial-customer_name-3" placeholder="Enter user name">
+    <input type="text" class="project-edit-testimonial_title-3" placeholder="Review title">
+    <input type="text" class="project-edit-testimonial_text-3" placeholder="Enter user review">
+    <input type="hidden" class="project-edit-testimonial_id-3">
 </span>
     <br>
 <span class="js-project-edit-testimonial js-project-edit-testimonial-4 d-none" style="display:flex; flex-direction:column;">
-    <input type="file" id="js-project-edit-testimonial-image-4" required>
-    <input type="text" disabled id="js-project-edit-testimonial-image-filename-4">
-    <input type="text" id="project-edit-testimonial-customer_name-4" placeholder="Enter user name">
-    <input type="text" id="project-edit-testimonial_title-4" placeholder="Review title">
-    <input type="text" id="project-edit-testimonial_text-4" placeholder="Enter user review">
-    <input type="hidden" id="project-edit-testimonial_id-4">
+    <input type="file" class="js-project-edit-testimonial-image-4" required>
+    <input type="text" disabled class="js-project-edit-testimonial-image-filename-4">
+    <input type="text" class="project-edit-testimonial-customer_name-4" placeholder="Enter user name">
+    <input type="text" class="project-edit-testimonial_title-4" placeholder="Review title">
+    <input type="text" class="project-edit-testimonial_text-4" placeholder="Enter user review">
+    <input type="hidden" class="project-edit-testimonial_id-4">
 </span>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
