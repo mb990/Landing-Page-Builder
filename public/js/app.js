@@ -38025,7 +38025,7 @@ $(document).ready(function () {
 
           $.get(route('project.page-element.render-single', element_id)).done(function (data) {
             setTimeout(function () {
-              $('.js-project-preview-elements').replaceWith(data.view);
+              $('*[data-elementid="' + element_id + '"]').replaceWith(data.view);
               createButtons(data.element.id);
               $("#select option[value='6']").attr("disabled", "disabled");
               $("#select option[value='6']").removeClass("btn-success");
@@ -38228,7 +38228,7 @@ $(document).ready(function () {
         $.get(route('project.page-element.render-single', element_id)).done(function (data) {
           $.get(route('project.page-element.render-single', element_id)).done(function (data) {
             setTimeout(function () {
-              $('.js-project-preview-elements').replaceWith(data.view);
+              $('*[data-elementid="' + element_id + '"]').replaceWith(data.view);
               createButtons(data.element.id);
               $("#select option[value='6']").attr("disabled", "disabled");
               $("#select option[value='6']").removeClass("btn-success");
@@ -38752,7 +38752,7 @@ $(document).ready(function () {
       }).done(function (data) {
         $.get(route('project.page-element.render-single', element_id)).done(function (data) {
           setTimeout(function () {
-            $('.js-project-preview-elements').replaceWith(data.view);
+            $('*[data-elementid="' + element_id + '"]').replaceWith(data.view);
             createButtons(data.element.id);
             $("#select option[value='6']").attr("disabled", "disabled");
             $("#select option[value='6']").removeClass("btn-success");
@@ -39416,7 +39416,7 @@ $(document).ready(function () {
           });
           $.get(route('project.page-element.render-single', element_id)).done(function (data) {
             setTimeout(function () {
-              $('.js-project-preview-elements').replaceWith(data.view);
+              $('*[data-elementid="' + element_id + '"]').replaceWith(data.view);
               createButtons(data.element.id);
               $("#select option[value='6']").attr("disabled", "disabled");
               $("#select option[value='6']").removeClass("btn-success");
@@ -39637,7 +39637,7 @@ $(document).ready(function () {
       }).done(function (data) {
         $.get(route('project.page-element.render-single', element_id)).done(function (data) {
           setTimeout(function () {
-            $('.js-project-preview-elements').replaceWith(data.view);
+            $('*[data-elementid="' + element_id + '"]').replaceWith(data.view);
             createButtons(data.element.id);
             $("#select option[value='6']").attr("disabled", "disabled");
             $("#select option[value='6']").removeClass("btn-success");
