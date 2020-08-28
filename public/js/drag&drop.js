@@ -182,7 +182,7 @@ window.dropElement = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\xampp\htdocs\landing-page-builder-2\resources\js\drag&drop.js */"./resources/js/drag&drop.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\page-builder-private\resources\js\drag&drop.js */"./resources/js/drag&drop.js");
 
 
 /***/ })

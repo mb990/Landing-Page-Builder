@@ -30,7 +30,9 @@ $(document).ready(function () {
 
                     $('*[data-elementid="'+element_id+'"]').replaceWith(data.view)
 
-                    createButtons(element_id);
+                    setTimeout(function(data) {
+                        createButtons(data.element_id);
+                    }, 3000);
 
                 }, 1000);
             })
