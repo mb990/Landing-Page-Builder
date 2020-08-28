@@ -95,7 +95,7 @@ $(document).ready(function () {
 
                     setTimeout(function () {
 
-                        $('.js-project-preview-elements').replaceWith(data.view);
+                        $('*[data-elementid="'+element_id+'"]').replaceWith(data.view);
                         createButtons(data.element.id);
 
                         $("#select option[value='6']").attr("disabled","disabled");
